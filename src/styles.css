@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=General+Sans:wght@400;500;600;700&display=swap');
+@import 'primeicons/primeicons.css';
+@import 'tailwindcss';
+
+:root {
+  --background: #faf9fc;
+  --surface: #ffffff;
+
+  --foreground: #17131c;
+  --muted: #706a78;
+
+  --primary: #7c3aed;
+  --primary-dark: #4c1d95;
+  --primary-light: #a78bfa;
+  --primary-soft: #ede9fe;
+
+  --border: #e7e2ec;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'General Sans', system-ui, sans-serif;
+}

@@ -1,0 +1,169 @@
+<section #aboutSection id="about" class="relative overflow-hidden bg-white py-28 sm:py-32">
+  <!-- SUBTLE BACKGROUND DETAILS -->
+
+  <div
+    class="about-floating-detail pointer-events-none absolute -right-32 top-32 h-64 w-64 rounded-full bg-[#EDE9FE]/30 blur-3xl"
+  ></div>
+
+  <div
+    class="about-floating-detail pointer-events-none absolute -left-24 bottom-24 h-48 w-48 rounded-full bg-[#DBEAFE]/20 blur-3xl"
+    style="animation-delay: -3s"
+  ></div>
+
+  <div class="mx-auto w-full max-w-7xl px-6 lg:px-8">
+    <!-- HEADER -->
+
+    <div class="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+      <!-- LABEL -->
+
+      <div>
+        <span class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-[#7C3AED]">
+          About me
+        </span>
+
+        <div class="about-floating-line mt-5 h-px w-16 bg-[#7C3AED]/30"></div>
+      </div>
+
+      <!-- TITLE -->
+
+      <div>
+        <h2
+          class="max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#17131C] sm:text-5xl ml-[24px] lg:text-6xl"
+        >
+          Turning ideas into
+          <span class="text-[#7C3AED]"> meaningful experiences. </span>
+        </h2>
+      </div>
+    </div>
+
+    <!-- CONTENT -->
+
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      <!-- LEFT -->
+
+      <div class="relative">
+        <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-[#706A78]">
+          01 / Who I am
+        </span>
+
+        <div class="mt-8 max-w-sm">
+          <p class="text-lg font-medium leading-8 tracking-[-0.015em] text-[#17131C]">
+            I'm Giovanna, a Full Stack Developer who enjoys bringing together technology, design and
+            thoughtful user experiences.
+          </p>
+        </div>
+
+        <!-- SMALL VISUAL DETAIL -->
+
+        <div class="mt-12 flex items-center gap-3">
+          <!-- Animated dot -->
+
+          <span class="about-floating-dot relative flex h-2 w-2 items-center justify-center">
+            <span class="absolute h-2 w-2 rounded-full bg-[#7C3AED]/20"></span>
+
+            <span class="relative h-1.5 w-1.5 rounded-full bg-[#7C3AED]"></span>
+          </span>
+
+          <!-- Animated line -->
+
+          <span class="about-floating-line h-px w-12 bg-[#E7E2EC]"></span>
+
+          <span class="font-mono text-xs uppercase tracking-[0.15em] text-[#706A78]">
+            Code × Design
+          </span>
+        </div>
+      </div>
+
+      <!-- RIGHT -->
+
+      <div class="max-w-2xl">
+        <p class="text-base leading-8 text-[#706A78] sm:text-lg">
+          I enjoy building digital products that are not only functional, but also feel intuitive
+          and intentional. My main focus is front-end development and UI/UX, where I can combine
+          clean code with a strong visual sense.
+        </p>
+
+        <p class="mt-6 text-base leading-8 text-[#706A78] sm:text-lg">
+          I'm constantly exploring new technologies, improving my skills and looking for better ways
+          to transform ideas into experiences that people actually enjoy using.
+        </p>
+
+        <!-- ANIMATED STATS -->
+
+        <div class="mt-14 grid grid-cols-2 border-t border-[#E7E2EC] pt-8 sm:grid-cols-3">
+          <!-- STAT 01 -->
+
+          <div class="about-stat group">
+            <div class="flex items-baseline">
+              <span
+                class="text-4xl font-semibold tracking-[-0.04em] text-[#17131C] transition-colors duration-300 group-hover:text-[#7C3AED] sm:text-5xl"
+              >
+                {{ animatedStats[0] | number: '2.0-0' }}
+              </span>
+
+              <span class="ml-1 text-2xl font-semibold text-[#7C3AED] sm:text-3xl"> + </span>
+            </div>
+
+            <span
+              class="mt-3 block font-mono text-[10px] uppercase tracking-[0.15em] text-[#706A78]"
+            >
+              Coffees consumed
+            </span>
+          </div>
+
+          <!-- STAT 02 -->
+
+          <div class="about-stat group">
+            <div class="flex items-baseline">
+              <span
+                class="text-4xl font-semibold tracking-[-0.04em] text-[#17131C] transition-colors duration-300 group-hover:text-[#7C3AED] sm:text-5xl"
+              >
+                {{ animatedStats[1] | number: '2.0-0' }}
+              </span>
+
+              <span class="ml-1 text-2xl font-semibold text-[#7C3AED] sm:text-3xl"> + </span>
+            </div>
+
+            <span
+              class="mt-3 block font-mono text-[10px] uppercase tracking-[0.15em] text-[#706A78]"
+            >
+              Projects completed
+            </span>
+          </div>
+
+          <!-- STAT 03 -->
+
+          <div class="about-stat group col-span-2 mt-8 sm:col-span-1 sm:mt-0">
+            <div class="flex items-baseline">
+              <span
+                class="text-4xl font-semibold tracking-[-0.04em] text-[#17131C] transition-colors duration-300 group-hover:text-[#7C3AED] sm:text-5xl"
+              >
+                {{ animatedStats[2] | number: '2.0-0' }}
+              </span>
+
+              <span class="ml-1 text-2xl font-semibold text-[#7C3AED] sm:text-3xl"> + </span>
+            </div>
+
+            <span
+              class="mt-3 block font-mono text-[10px] uppercase tracking-[0.15em] text-[#706A78]"
+            >
+              Years coding
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM LINE -->
+
+    <div class="mt-20 flex items-center justify-between border-t border-[#E7E2EC] pt-6">
+      <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#706A78]">
+        Based in Brazil
+      </span>
+
+      <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#706A78]">
+        Available for opportunities
+      </span>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,132 @@
+
+/* ==================================================
+   FLOATING BACKGROUND DETAILS
+   ================================================== */
+
+.about-floating-detail {
+  animation: about-float 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.about-floating-detail:nth-of-type(2) {
+  animation-duration: 10s;
+  animation-delay: -3s;
+}
+
+
+/* ==================================================
+   FLOATING DOT
+   ================================================== */
+
+.about-floating-dot {
+  animation: about-dot-float 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+
+/* ==================================================
+   DOT PULSE
+   ================================================== */
+
+.about-floating-dot > span:first-child {
+  animation: about-dot-pulse 2.5s ease-in-out infinite;
+}
+
+
+/* ==================================================
+   LINE
+   ================================================== */
+
+.about-floating-line {
+  animation: about-line-breathe 4s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+
+/* ==================================================
+   STAT HOVER
+   ================================================== */
+
+.about-stat {
+  transition:
+    transform 300ms ease,
+    opacity 300ms ease;
+}
+
+.about-stat:hover {
+  transform: translateY(-3px);
+}
+
+
+/* ==================================================
+   ANIMATIONS
+   ================================================== */
+
+@keyframes about-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -18px, 0);
+  }
+}
+
+
+@keyframes about-dot-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+@keyframes about-dot-pulse {
+  0%,
+  100% {
+    transform: scale(0.8);
+    opacity: 0.25;
+  }
+
+  50% {
+    transform: scale(1.8);
+    opacity: 0.08;
+  }
+}
+
+
+@keyframes about-line-breathe {
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scaleX(1.25);
+    opacity: 0.9;
+  }
+}
+
+
+/* ==================================================
+   ACCESSIBILITY
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .about-floating-detail,
+  .about-floating-dot,
+  .about-floating-line,
+  .about-floating-dot > span:first-child {
+    animation: none;
+  }
+
+  .about-stat {
+    transition: none;
+  }
+}
