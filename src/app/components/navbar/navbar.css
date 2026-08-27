@@ -1,0 +1,369 @@
+
+/* =========================================================
+   NAV LINK
+   ========================================================= */
+
+.nav-link {
+  transition:
+    color 300ms ease,
+    transform 300ms ease;
+}
+
+
+/* =========================================================
+   NAV LINK — HOVER
+   ========================================================= */
+
+.nav-link:hover {
+  color: #7c3aed;
+}
+
+
+/* =========================================================
+   NAV PARTICLE
+   ========================================================= */
+
+.nav-particle {
+  background: #7c3aed;
+
+  opacity: 0;
+
+  transform:
+    translate(-7px, -50%)
+    scale(0);
+
+  box-shadow:
+    0 0 4px rgba(124, 58, 237, 0.55),
+    0 0 10px rgba(124, 58, 237, 0.28),
+    0 0 18px rgba(124, 58, 237, 0.10);
+
+  transition:
+    opacity 220ms ease,
+    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   PARTICLE — APPEAR
+   ========================================================= */
+
+.nav-link:hover .nav-particle {
+  opacity: 1;
+
+  transform:
+    translate(0, -50%)
+    scale(1);
+}
+
+
+/* =========================================================
+   SUBTLE PARTICLE PULSE
+   ========================================================= */
+
+.nav-link:hover .nav-particle {
+  animation: nav-particle-pulse 2.4s ease-in-out infinite;
+}
+
+
+@keyframes nav-particle-pulse {
+
+  0%,
+  100% {
+    opacity: 0.75;
+    transform:
+      translate(0, -50%)
+      scale(0.85);
+  }
+
+  50% {
+    opacity: 1;
+    transform:
+      translate(0, -50%)
+      scale(1.15);
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .nav-link,
+  .nav-particle {
+    transition: none;
+    animation: none;
+  }
+
+}
+
+/* =========================================================
+   THEME SWITCH
+   Minimal / Outline / Soft
+   ========================================================= */
+
+.theme-switch {
+  position: relative;
+
+  width: 54px;
+  height: 30px;
+
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  -webkit-tap-highlight-color: transparent;
+}
+
+
+/* =========================================================
+   TRACK
+   ========================================================= */
+
+.theme-switch-track {
+  position: relative;
+
+  width: 54px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid rgba(23, 19, 28, 0.14);
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  transition:
+    border-color 450ms ease,
+    background-color 450ms ease,
+    box-shadow 450ms ease;
+}
+
+
+/* =========================================================
+   KNOB
+   ========================================================= */
+
+.theme-switch-knob {
+  position: absolute;
+
+  top: 3px;
+  left: 3px;
+
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #17131C;
+
+  color: white;
+
+  box-shadow:
+    0 2px 6px rgba(23, 19, 28, 0.16),
+    0 0 0 1px rgba(255, 255, 255, 0.35);
+
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 450ms ease,
+    color 450ms ease,
+    box-shadow 450ms ease;
+}
+
+
+.theme-switch-knob i {
+  font-size: 10px;
+
+  transition:
+    transform 450ms ease,
+    opacity 300ms ease;
+}
+
+
+/* =========================================================
+   ICONS INSIDE TRACK
+   ========================================================= */
+
+.theme-switch-icon {
+  position: absolute;
+
+  top: 50%;
+
+  width: 14px;
+  height: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  transition:
+    opacity 350ms ease,
+    transform 450ms ease;
+}
+
+
+.theme-switch-icon i {
+  font-size: 9px;
+}
+
+
+/* SUN */
+
+.theme-switch-sun {
+  right: 6px;
+
+  color: #7C3AED;
+
+  opacity: 0.22;
+}
+
+
+/* MOON */
+
+.theme-switch-moon {
+  left: 6px;
+
+  color: #706A78;
+
+  opacity: 0.22;
+}
+
+
+/* =========================================================
+   LIGHT MODE
+   ========================================================= */
+
+.theme-switch:not(.is-dark) .theme-switch-knob {
+  transform: translateX(0);
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+.theme-switch.is-dark .theme-switch-track {
+  border-color: rgba(255, 255, 255, 0.16);
+
+  background: rgba(23, 19, 28, 0.55);
+}
+
+
+.theme-switch.is-dark .theme-switch-knob {
+  transform: translateX(24px);
+
+  background: #F5F3F7;
+
+  color: #17131C;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.22),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   ICON VISIBILITY
+   ========================================================= */
+
+.theme-switch:not(.is-dark) .theme-switch-sun {
+  opacity: 0.16;
+
+  transform:
+    translateY(-50%)
+    scale(0.85);
+}
+
+
+.theme-switch:not(.is-dark) .theme-switch-moon {
+  opacity: 0.55;
+
+  transform:
+    translateY(-50%)
+    scale(1);
+}
+
+
+.theme-switch.is-dark .theme-switch-sun {
+  opacity: 0.55;
+
+  transform:
+    translateY(-50%)
+    scale(1);
+}
+
+
+.theme-switch.is-dark .theme-switch-moon {
+  opacity: 0.16;
+
+  transform:
+    translateY(-50%)
+    scale(0.85);
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.theme-switch:hover .theme-switch-track {
+  border-color: rgba(124, 58, 237, 0.35);
+
+  box-shadow:
+    0 0 0 3px rgba(124, 58, 237, 0.045);
+}
+
+
+.theme-switch:hover .theme-switch-knob {
+  box-shadow:
+    0 3px 9px rgba(23, 19, 28, 0.18),
+    0 0 0 1px rgba(124, 58, 237, 0.12);
+}
+
+
+/* =========================================================
+   ACTIVE / PRESS
+   ========================================================= */
+
+.theme-switch:active .theme-switch-knob {
+  transform: scale(0.92);
+}
+
+
+.theme-switch.is-dark:active .theme-switch-knob {
+  transform: translateX(24px) scale(0.92);
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .theme-switch-track,
+  .theme-switch-knob,
+  .theme-switch-icon,
+  .theme-switch-knob i {
+    transition: none;
+  }
+}

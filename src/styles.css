@@ -2,6 +2,11 @@
 @import 'primeicons/primeicons.css';
 @import 'tailwindcss';
 
+
+/* =========================================================
+   THEME — LIGHT
+   ========================================================= */
+
 :root {
   --background: #faf9fc;
   --surface: #ffffff;
@@ -15,15 +20,110 @@
   --primary-soft: #ede9fe;
 
   --border: #e7e2ec;
+
+  /* Theme-specific */
+
+  --nav-background: rgba(255, 255, 255, 0.80);
+  --nav-border: rgba(23, 19, 28, 0.06);
+
+  --switch-background: rgba(255, 255, 255, 0.55);
+  --switch-border: rgba(23, 19, 28, 0.14);
+
+  --selection-background: rgba(124, 58, 237, 0.15);
 }
+
+
+/* =========================================================
+   THEME — DARK
+   ========================================================= */
+
+html.dark {
+  --background: #0f0d12;
+  --surface: #17131c;
+
+  --foreground: #f5f3f7;
+  --muted: #aaa3b2;
+
+  --primary: #a78bfa;
+  --primary-dark: #7c3aed;
+  --primary-light: #c4b5fd;
+  --primary-soft: rgba(124, 58, 237, 0.16);
+
+  --border: rgba(255, 255, 255, 0.10);
+
+  /* Theme-specific */
+
+  --nav-background: rgba(15, 13, 18, 0.80);
+  --nav-border: rgba(255, 255, 255, 0.08);
+
+  --switch-background: rgba(23, 19, 28, 0.55);
+  --switch-border: rgba(255, 255, 255, 0.16);
+
+  --selection-background: rgba(167, 139, 250, 0.20);
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
 
 html {
   scroll-behavior: smooth;
+
+  background: var(--background);
+
+  transition:
+    background-color 500ms ease,
+    color 500ms ease;
 }
+
 
 body {
   margin: 0;
+
   background: var(--background);
   color: var(--foreground);
+
   font-family: 'General Sans', system-ui, sans-serif;
+
+  transition:
+    background-color 500ms ease,
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   SURFACES
+   ========================================================= */
+
+.surface {
+  background: var(--surface);
+
+  transition:
+    background-color 500ms ease,
+    border-color 500ms ease,
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   TEXT SELECTION
+   ========================================================= */
+
+::selection {
+  background: var(--selection-background);
+  color: var(--foreground);
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body,
+  .surface {
+    transition: none;
+  }
 }

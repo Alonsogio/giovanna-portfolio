@@ -7,6 +7,7 @@ import * as THREE from 'three';
   standalone: true,
   imports: [],
   templateUrl: './hero.html',
+  styleUrl: './hero.css',
 })
 export class Hero implements AfterViewInit, OnDestroy {
   @ViewChild('threadsCanvas', { static: true })
@@ -31,26 +32,26 @@ export class Hero implements AfterViewInit, OnDestroy {
   private initThreads(): void {
     const container = this.threadsCanvas.nativeElement;
 
-    const width = container.clientWidth || 500;
-    const height = container.clientHeight || 500;
+    const width = container.clientWidth || 620;
+    const height = container.clientHeight || 620;
 
-    // ============================================
+    // =========================================================
     // SCENE
-    // ============================================
+    // =========================================================
 
     this.scene = new THREE.Scene();
 
-    // ============================================
+    // =========================================================
     // CAMERA
-    // ============================================
+    // =========================================================
 
     this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
 
     this.camera.position.z = 2;
 
-    // ============================================
+    // =========================================================
     // RENDERER
-    // ============================================
+    // =========================================================
 
     this.renderer = new THREE.WebGLRenderer({
       antialias: true,
@@ -69,9 +70,9 @@ export class Hero implements AfterViewInit, OnDestroy {
 
     container.appendChild(this.renderer.domElement);
 
-    // ============================================
+    // =========================================================
     // THREADS
-    // ============================================
+    // =========================================================
 
     this.createThreads();
 
@@ -80,7 +81,7 @@ export class Hero implements AfterViewInit, OnDestroy {
 
   private createThreads(): void {
     const lines = 18;
-    const pointsPerLine = 100;
+    const pointsPerLine = 120;
 
     const positions: number[] = [];
 
@@ -88,13 +89,13 @@ export class Hero implements AfterViewInit, OnDestroy {
       const offset = (line / (lines - 1)) * 2 - 1;
 
       for (let point = 0; point < pointsPerLine - 1; point++) {
-        const x1 = (point / pointsPerLine) * 2 - 1;
+        const x1 = (point / (pointsPerLine - 1)) * 2 - 1;
 
-        const x2 = ((point + 1) / pointsPerLine) * 2 - 1;
+        const x2 = ((point + 1) / (pointsPerLine - 1)) * 2 - 1;
 
-        const y1 = offset + Math.sin(x1 * 3 + line * 0.4) * 0.08;
+        const y1 = offset + Math.sin(x1 * 3.2 + line * 0.42) * 0.075;
 
-        const y2 = offset + Math.sin(x2 * 3 + line * 0.4) * 0.08;
+        const y2 = offset + Math.sin(x2 * 3.2 + line * 0.42) * 0.075;
 
         positions.push(
           x1,
@@ -108,31 +109,47 @@ export class Hero implements AfterViewInit, OnDestroy {
       }
     }
 
+    // =========================================================
+    // GEOMETRY
+    // =========================================================
+
     this.geometry = new THREE.BufferGeometry();
 
     this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
 
+    // =========================================================
+    // MATERIAL
+    // =========================================================
+
     this.material = new THREE.LineBasicMaterial({
       color: 0x7c3aed,
       transparent: true,
-      opacity: 0.12,
+      opacity: 0.085,
       depthWrite: false,
     });
+
+    // =========================================================
+    // MESH
+    // =========================================================
 
     this.lines = new THREE.LineSegments(this.geometry, this.material);
 
     this.scene.add(this.lines);
   }
 
+  // =========================================================
+  // ANIMATION
+  // =========================================================
+
   private animate = (): void => {
     this.animationId = requestAnimationFrame(this.animate);
 
-    this.time += 0.01;
+    this.time += 0.006;
 
     const position = this.geometry.getAttribute('position') as THREE.BufferAttribute;
 
     const lines = 18;
-    const pointsPerLine = 100;
+    const pointsPerLine = 120;
 
     let index = 0;
 
@@ -140,13 +157,16 @@ export class Hero implements AfterViewInit, OnDestroy {
       const offset = (line / (lines - 1)) * 2 - 1;
 
       for (let point = 0; point < pointsPerLine - 1; point++) {
-        const x1 = (point / pointsPerLine) * 2 - 1;
+        const x1 = (point / (pointsPerLine - 1)) * 2 - 1;
 
-        const x2 = ((point + 1) / pointsPerLine) * 2 - 1;
+        const x2 = ((point + 1) / (pointsPerLine - 1)) * 2 - 1;
 
-        const y1 = offset + Math.sin(x1 * 3 + line * 0.4 + this.time) * 0.08;
+        const wave1 = Math.sin(x1 * 3.2 + line * 0.42 + this.time) * 0.075;
 
-        const y2 = offset + Math.sin(x2 * 3 + line * 0.4 + this.time) * 0.08;
+        const wave2 = Math.sin(x2 * 3.2 + line * 0.42 + this.time) * 0.075;
+
+        const y1 = offset + wave1;
+        const y2 = offset + wave2;
 
         position.setXYZ(index, x1, y1, 0);
 
@@ -163,6 +183,10 @@ export class Hero implements AfterViewInit, OnDestroy {
     this.renderer.render(this.scene, this.camera);
   };
 
+  // =========================================================
+  // RESIZE
+  // =========================================================
+
   private handleResize = (): void => {
     if (!this.renderer) {
       return;
@@ -170,12 +194,16 @@ export class Hero implements AfterViewInit, OnDestroy {
 
     const container = this.threadsCanvas.nativeElement;
 
-    const width = container.clientWidth || 500;
+    const width = container.clientWidth || 620;
 
-    const height = container.clientHeight || 500;
+    const height = container.clientHeight || 620;
 
     this.renderer.setSize(width, height);
   };
+
+  // =========================================================
+  // DESTROY
+  // =========================================================
 
   ngOnDestroy(): void {
     cancelAnimationFrame(this.animationId);
@@ -183,7 +211,9 @@ export class Hero implements AfterViewInit, OnDestroy {
     window.removeEventListener('resize', this.handleResize);
 
     this.geometry?.dispose();
+
     this.material?.dispose();
+
     this.renderer?.dispose();
 
     if (this.renderer?.domElement) {

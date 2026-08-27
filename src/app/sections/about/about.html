@@ -1,19 +1,55 @@
-<section #aboutSection id="about" class="relative overflow-hidden bg-white py-28 sm:py-32">
-  <!-- SUBTLE BACKGROUND DETAILS -->
+<section
+  #aboutSection
+  id="about"
+  class="about-section relative overflow-hidden bg-white py-28 sm:py-32"
+>
+  <!-- ========================================================= -->
+  <!-- GIF BACKGROUND -->
+  <!-- ========================================================= -->
+
+  <div class="about-video-background pointer-events-none absolute inset-0" aria-hidden="true">
+    <!-- GIF -->
+
+    <img src="/images/about/code.gif" alt="" class="about-video-gif" />
+
+    <!-- Soft overlay -->
+
+    <div class="about-video-overlay"></div>
+
+    <!-- Edge fade -->
+
+    <div class="about-video-fade"></div>
+
+    <!-- Purple atmosphere -->
+
+    <div class="about-video-purple"></div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- BACKGROUND ATMOSPHERE -->
+  <!-- ========================================================= -->
 
   <div
-    class="about-floating-detail pointer-events-none absolute -right-32 top-32 h-64 w-64 rounded-full bg-[#EDE9FE]/30 blur-3xl"
+    class="about-floating-detail pointer-events-none absolute -right-40 top-20 z-[1] h-72 w-72 rounded-full bg-[#EDE9FE]/25 blur-3xl"
+    aria-hidden="true"
   ></div>
 
   <div
-    class="about-floating-detail pointer-events-none absolute -left-24 bottom-24 h-48 w-48 rounded-full bg-[#DBEAFE]/20 blur-3xl"
+    class="about-floating-detail pointer-events-none absolute -left-32 bottom-20 z-[1] h-64 w-64 rounded-full bg-[#DBEAFE]/20 blur-3xl"
     style="animation-delay: -3s"
+    aria-hidden="true"
   ></div>
 
-  <div class="mx-auto w-full max-w-7xl px-6 lg:px-8">
-    <!-- HEADER -->
+  <!-- ========================================================= -->
+  <!-- CONTENT -->
+  <!-- ========================================================= -->
 
-    <div class="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+  <div class="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
+    <!-- ======================================================= -->
+    <!-- HEADER -->
+    <!-- ======================================================= -->
+
+    <header class="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
       <!-- LABEL -->
 
       <div>
@@ -21,76 +57,70 @@
           About me
         </span>
 
-        <div class="about-floating-line mt-5 h-px w-16 bg-[#7C3AED]/30"></div>
+        <div class="about-floating-line mt-5 h-px w-16 bg-[#7C3AED]/30" aria-hidden="true"></div>
       </div>
 
       <!-- TITLE -->
 
       <div>
         <h2
-          class="max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#17131C] sm:text-5xl ml-[24px] lg:text-6xl"
+          class="ml-0 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#17131C] sm:text-5xl lg:text-6xl"
         >
           Turning ideas into
           <span class="text-[#7C3AED]"> meaningful experiences. </span>
         </h2>
       </div>
-    </div>
+    </header>
 
-    <!-- CONTENT -->
+    <!-- ======================================================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ======================================================= -->
 
-    <div class="grid grid-cols-1 gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-      <!-- LEFT -->
+    <div class="grid grid-cols-1 gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-20">
+      <!-- ===================================================== -->
+      <!-- LEFT — ABOUT CONTENT -->
+      <!-- ===================================================== -->
 
       <div class="relative">
+        <!-- SECTION LABEL -->
+
         <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-[#706A78]">
           01 / Who I am
         </span>
 
-        <div class="mt-8 max-w-sm">
+        <!-- INTRO -->
+
+        <div class="mt-8 max-w-md">
           <p class="text-lg font-medium leading-8 tracking-[-0.015em] text-[#17131C]">
             I'm Giovanna, a Full Stack Developer who enjoys bringing together technology, design and
             thoughtful user experiences.
           </p>
         </div>
 
-        <!-- SMALL VISUAL DETAIL -->
+        <!-- CODE × DESIGN -->
 
         <div class="mt-12 flex items-center gap-3">
-          <!-- Animated dot -->
-
-          <span class="about-floating-dot relative flex h-2 w-2 items-center justify-center">
+          <span
+            class="about-floating-dot relative flex h-2 w-2 items-center justify-center"
+            aria-hidden="true"
+          >
             <span class="absolute h-2 w-2 rounded-full bg-[#7C3AED]/20"></span>
 
             <span class="relative h-1.5 w-1.5 rounded-full bg-[#7C3AED]"></span>
           </span>
 
-          <!-- Animated line -->
-
-          <span class="about-floating-line h-px w-12 bg-[#E7E2EC]"></span>
+          <span class="about-floating-line h-px w-12 bg-[#E7E2EC]" aria-hidden="true"></span>
 
           <span class="font-mono text-xs uppercase tracking-[0.15em] text-[#706A78]">
             Code × Design
           </span>
         </div>
-      </div>
 
-      <!-- RIGHT -->
+        <!-- =================================================== -->
+        <!-- STATS -->
+        <!-- =================================================== -->
 
-      <div class="max-w-2xl">
-        <p class="text-base leading-8 text-[#706A78] sm:text-lg">
-          I enjoy building digital products that are not only functional, but also feel intuitive
-          and intentional. My main focus is front-end development and UI/UX, where I can combine
-          clean code with a strong visual sense.
-        </p>
-
-        <p class="mt-6 text-base leading-8 text-[#706A78] sm:text-lg">
-          I'm constantly exploring new technologies, improving my skills and looking for better ways
-          to transform ideas into experiences that people actually enjoy using.
-        </p>
-
-        <!-- ANIMATED STATS -->
-
-        <div class="mt-14 grid grid-cols-2 border-t border-[#E7E2EC] pt-8 sm:grid-cols-3">
+        <div class="mt-16 grid grid-cols-2 gap-y-10 border-t border-[#E7E2EC] pt-8 sm:grid-cols-3">
           <!-- STAT 01 -->
 
           <div class="about-stat group">
@@ -152,11 +182,42 @@
           </div>
         </div>
       </div>
+
+      <!-- ===================================================== -->
+      <!-- RIGHT — DESCRIPTION -->
+      <!-- ===================================================== -->
+
+      <div class="relative max-w-2xl">
+        <p class="text-base leading-8 text-[#706A78] sm:text-lg">
+          I enjoy building digital products that are not only functional, but also feel intuitive
+          and intentional. My main focus is front-end development and UI/UX, where I can combine
+          clean code with a strong visual sense.
+        </p>
+
+        <p class="mt-6 text-base leading-8 text-[#706A78] sm:text-lg">
+          I'm constantly exploring new technologies, improving my skills and looking for better ways
+          to transform ideas into experiences that people actually enjoy using.
+        </p>
+
+        <!-- SMALL VISUAL DETAIL -->
+
+        <div class="mt-12 flex items-center gap-3">
+          <span class="h-px w-10 bg-[#E7E2EC]" aria-hidden="true"></span>
+
+          <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-[#706A78]">
+            Building with intention
+          </span>
+        </div>
+      </div>
     </div>
 
+    <!-- ========================================================= -->
     <!-- BOTTOM LINE -->
+    <!-- ========================================================= -->
 
-    <div class="mt-20 flex items-center justify-between border-t border-[#E7E2EC] pt-6">
+    <div
+      class="mt-20 flex flex-col gap-3 border-t border-[#E7E2EC] pt-6 sm:flex-row sm:items-center sm:justify-between"
+    >
       <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#706A78]">
         Based in Brazil
       </span>

@@ -117,13 +117,14 @@ export class About implements AfterViewInit, OnDestroy {
 
       const progress = Math.min(elapsed / duration, 1);
 
-      // Easing suave
+      // Smooth easing
+
       const easedProgress = 1 - Math.pow(1 - progress, 4);
 
       this.animatedStats = this.stats.map((stat) => Math.floor(stat.value * easedProgress));
 
-      // IMPORTANTE:
-      // força o Angular a atualizar o HTML
+      // Force Angular update
+
       this.cdr.detectChanges();
 
       if (progress < 1) {

@@ -1,51 +1,249 @@
 
-/* ==================================================
-   FLOATING BACKGROUND DETAILS
-   ================================================== */
+/* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+
+.about-section {
+  position: relative;
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   GIF BACKGROUND
+   ========================================================= */
+
+.about-video-background {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   GIF
+   ========================================================= */
+
+.about-video-gif {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  /*
+   * Faz o GIF preencher completamente
+   * a section sem deixar espaços.
+   */
+  object-fit: cover;
+
+  object-position: center;
+
+  transform: scale(1.035);
+
+  filter:
+    blur(1px)
+    brightness(0.72)
+    contrast(1.08)
+    saturate(0.85);
+
+  opacity: 0.38;
+
+  pointer-events: none;
+  user-select: none;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   OVERLAY
+   ========================================================= */
+
+.about-video-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(255, 255, 255, 0.72) 18%,
+      rgba(255, 255, 255, 0.38) 42%,
+      rgba(255, 255, 255, 0.30) 62%,
+      rgba(255, 255, 255, 0.70) 84%,
+      rgba(255, 255, 255, 0.96) 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   SOFT FADE
+   ========================================================= */
+
+.about-video-fade {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      transparent 38%,
+      rgba(255, 255, 255, 0.18) 58%,
+      rgba(255, 255, 255, 0.62) 82%,
+      #ffffff 100%
+    );
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PURPLE ATMOSPHERE
+   ========================================================= */
+
+.about-video-purple {
+  position: absolute;
+
+  left: 28%;
+  top: 50%;
+
+  z-index: 3;
+
+  width: 500px;
+  height: 500px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.10) 0%,
+      rgba(167, 139, 250, 0.055) 32%,
+      rgba(196, 181, 253, 0.025) 52%,
+      transparent 74%
+    );
+
+  filter: blur(40px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   FLOATING DETAILS
+   ========================================================= */
 
 .about-floating-detail {
-  animation: about-float 8s ease-in-out infinite;
-  will-change: transform;
-}
+  animation:
+    about-detail-float
+    10s
+    ease-in-out
+    infinite;
 
-.about-floating-detail:nth-of-type(2) {
-  animation-duration: 10s;
-  animation-delay: -3s;
-}
-
-
-/* ==================================================
-   FLOATING DOT
-   ================================================== */
-
-.about-floating-dot {
-  animation: about-dot-float 4s ease-in-out infinite;
   will-change: transform;
 }
 
 
-/* ==================================================
-   DOT PULSE
-   ================================================== */
+@keyframes about-detail-float {
 
-.about-floating-dot > span:first-child {
-  animation: about-dot-pulse 2.5s ease-in-out infinite;
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(8px, -10px, 0)
+      scale(1.04);
+  }
 }
 
 
-/* ==================================================
-   LINE
-   ================================================== */
+/* =========================================================
+   FLOATING LINE
+   ========================================================= */
 
 .about-floating-line {
-  animation: about-line-breathe 4s ease-in-out infinite;
   transform-origin: left center;
+
+  animation:
+    about-line-breathe
+    5s
+    ease-in-out
+    infinite;
+
+  will-change: transform, opacity;
 }
 
 
-/* ==================================================
-   STAT HOVER
-   ================================================== */
+@keyframes about-line-breathe {
+
+  0%,
+  100% {
+    transform: scaleX(1);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scaleX(1.12);
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   FLOATING DOT
+   ========================================================= */
+
+.about-floating-dot {
+  animation:
+    about-dot-pulse
+    4s
+    ease-in-out
+    infinite;
+}
+
+
+@keyframes about-dot-pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.12);
+  }
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
 
 .about-stat {
   transition:
@@ -53,80 +251,95 @@
     opacity 300ms ease;
 }
 
+
 .about-stat:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 
-/* ==================================================
-   ANIMATIONS
-   ================================================== */
-
-@keyframes about-float {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  50% {
-    transform: translate3d(0, -18px, 0);
-  }
-}
-
-
-@keyframes about-dot-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-
-@keyframes about-dot-pulse {
-  0%,
-  100% {
-    transform: scale(0.8);
-    opacity: 0.25;
-  }
-
-  50% {
-    transform: scale(1.8);
-    opacity: 0.08;
-  }
-}
-
-
-@keyframes about-line-breathe {
-  0%,
-  100% {
-    transform: scaleX(1);
-    opacity: 0.5;
-  }
-
-  50% {
-    transform: scaleX(1.25);
-    opacity: 0.9;
-  }
-}
-
-
-/* ==================================================
+/* =========================================================
    ACCESSIBILITY
-   ================================================== */
+   ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
+
   .about-floating-detail,
-  .about-floating-dot,
   .about-floating-line,
-  .about-floating-dot > span:first-child {
+  .about-floating-dot {
     animation: none;
   }
 
-  .about-stat {
-    transition: none;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  .about-video-gif {
+    transform: scale(1.04);
+
+    opacity: 0.30;
+
+    filter:
+      blur(1px)
+      brightness(0.72)
+      contrast(1.06)
+      saturate(0.85);
   }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .about-video-gif {
+    transform: scale(1.08);
+
+    opacity: 0.22;
+
+    filter:
+      blur(2px)
+      brightness(0.74)
+      contrast(1.04)
+      saturate(0.8);
+  }
+
+
+  .about-video-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.96) 0%,
+        rgba(255, 255, 255, 0.50) 50%,
+        rgba(255, 255, 255, 0.96) 100%
+      );
+  }
+
+
+  .about-video-fade {
+    background:
+      radial-gradient(
+        ellipse at center,
+        transparent 10%,
+        rgba(255, 255, 255, 0.30) 50%,
+        rgba(255, 255, 255, 0.82) 82%,
+        #ffffff 100%
+      );
+  }
+
+
+  .about-video-purple {
+    width: 320px;
+    height: 320px;
+
+    left: 50%;
+  }
+
 }

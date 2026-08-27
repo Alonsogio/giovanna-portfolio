@@ -1,0 +1,1051 @@
+/* =========================================================
+   HERO ATMOSPHERE
+   ========================================================= */
+
+.hero-main-glow {
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(196, 181, 253, 0.50) 0%,
+      rgba(221, 214, 254, 0.34) 24%,
+      rgba(191, 219, 254, 0.30) 46%,
+      rgba(147, 197, 253, 0.16) 60%,
+      rgba(255, 255, 255, 0) 76%
+    );
+
+  filter: blur(65px);
+
+  transform: translate(-50%, -50%);
+
+  animation:
+    hero-glow-breathe
+    12s
+    ease-in-out
+    infinite;
+
+  will-change: transform, opacity;
+}
+
+
+/* =========================================================
+   MAIN SPHERE
+   ========================================================= */
+
+.hero-sphere {
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate3d(-50%, -50%, 0)
+    scale(1);
+
+  animation:
+    hero-sphere-float
+    10s
+    ease-in-out
+    infinite;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   SPHERE CORE
+   ========================================================= */
+
+.hero-sphere-core {
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.92) 0%,
+      rgba(237, 233, 254, 0.82) 13%,
+      rgba(196, 181, 253, 0.68) 28%,
+      rgba(167, 139, 250, 0.48) 43%,
+      rgba(129, 140, 248, 0.32) 57%,
+      rgba(96, 165, 250, 0.24) 72%,
+      rgba(191, 219, 254, 0.12) 82%,
+      rgba(255, 255, 255, 0) 94%
+    );
+
+  filter: blur(2px);
+
+  animation:
+    sphere-breathe
+    10s
+    ease-in-out
+    infinite;
+
+  will-change: opacity, transform;
+}
+
+
+/* =========================================================
+   PURPLE ATMOSPHERE
+   ========================================================= */
+
+.hero-purple-glow {
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 34% 42%,
+      rgba(124, 58, 237, 0.28) 0%,
+      rgba(139, 92, 246, 0.20) 24%,
+      rgba(167, 139, 250, 0.13) 43%,
+      rgba(196, 181, 253, 0.07) 58%,
+      transparent 74%
+    );
+
+  filter: blur(65px);
+
+  animation:
+    purple-glow-move
+    12s
+    ease-in-out
+    infinite;
+
+  will-change: transform, opacity;
+}
+
+
+/* =========================================================
+   BLUE ATMOSPHERE
+   ========================================================= */
+
+.hero-blue-glow {
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 70% 64%,
+      rgba(59, 130, 246, 0.28) 0%,
+      rgba(96, 165, 250, 0.21) 25%,
+      rgba(147, 197, 253, 0.13) 45%,
+      rgba(191, 219, 254, 0.07) 58%,
+      transparent 75%
+    );
+
+  filter: blur(70px);
+
+  animation:
+    blue-glow-move
+    14s
+    ease-in-out
+    infinite;
+
+  will-change: transform, opacity;
+}
+
+
+/* =========================================================
+   INNER LIGHT
+   ========================================================= */
+
+.hero-inner-glow {
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 28%,
+      rgba(255, 255, 255, 0.72) 0%,
+      rgba(255, 255, 255, 0.30) 22%,
+      rgba(221, 214, 254, 0.16) 43%,
+      rgba(191, 219, 254, 0.08) 62%,
+      transparent 78%
+    );
+
+  filter: blur(25px);
+
+  animation:
+    inner-light-breathe
+    8s
+    ease-in-out
+    infinite;
+
+  will-change: transform, opacity;
+}
+
+
+/* =========================================================
+   =========================================================
+   HERO THREADS
+   Depth layer — extremely subtle
+   =========================================================
+   ========================================================= */
+
+.hero-threads {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  pointer-events: none;
+
+  /*
+    O Threads fica visível o suficiente
+    para criar profundidade, mas sem competir
+    com o orb ou com o GIF.
+  */
+  opacity: 0.55;
+
+  /*
+    Pequeno glow para integrar as linhas
+    ao ambiente roxo/azul.
+  */
+  filter:
+    blur(0.2px)
+    drop-shadow(
+      0 0 14px
+      rgba(124, 58, 237, 0.08)
+    );
+
+  /*
+    Não animamos transform aqui.
+    O próprio Three.js já anima as linhas.
+  */
+  will-change: opacity;
+}
+
+
+/* =========================================================
+   THREADS CANVAS
+   ========================================================= */
+
+.hero-threads-canvas {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  overflow: visible;
+
+  /*
+    Faz o roxo se integrar ao fundo branco.
+  */
+  mix-blend-mode: multiply;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   THREADS SOFT CENTER
+   ========================================================= */
+
+.hero-threads::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      transparent 38%,
+      rgba(255, 255, 255, 0.18) 62%,
+      rgba(255, 255, 255, 0.72) 86%,
+      rgba(255, 255, 255, 0.96) 100%
+    );
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   THREADS MOTION
+   ========================================================= */
+
+@keyframes hero-threads-breathe {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.985);
+
+    opacity: 0.12;
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.015);
+
+    opacity: 0.18;
+  }
+}
+
+
+/* =========================================================
+   HAND-DRAWN ORBIT RINGS
+   ========================================================= */
+
+.hero-sketch-orbit {
+  left: 50%;
+  top: 50%;
+
+  border-radius: 50%;
+
+  border: 1px solid
+    rgba(124, 58, 237, 0.12);
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-7deg)
+    scaleX(1.04);
+
+  transform-origin: center;
+
+  box-shadow:
+    0 0 14px
+    rgba(124, 58, 237, 0.025),
+
+    inset 0 0 14px
+    rgba(96, 165, 250, 0.015);
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   FIRST SKETCH RING
+   ========================================================= */
+
+.hero-sketch-orbit-1 {
+  border-color:
+    rgba(124, 58, 237, 0.15);
+
+  opacity: 0.72;
+
+  animation:
+    sketch-orbit-one
+    18s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   SECOND SKETCH RING
+   ========================================================= */
+
+.hero-sketch-orbit-2 {
+  border-color:
+    rgba(167, 139, 250, 0.11);
+
+  opacity: 0.55;
+
+  animation:
+    sketch-orbit-two
+    21s
+    ease-in-out
+    infinite;
+
+  animation-delay: -4s;
+}
+
+
+/* =========================================================
+   THIRD SKETCH RING
+   ========================================================= */
+
+.hero-sketch-orbit-3 {
+  border-color:
+    rgba(96, 165, 250, 0.09);
+
+  opacity: 0.42;
+
+  animation:
+    sketch-orbit-three
+    24s
+    ease-in-out
+    infinite;
+
+  animation-delay: -2s;
+}
+
+
+/* =========================================================
+   WHITE LIGHT ORBS
+   ========================================================= */
+
+.hero-light-orb {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.96);
+
+  box-shadow:
+    0 0 5px
+      rgba(255, 255, 255, 0.95),
+
+    0 0 12px
+      rgba(255, 255, 255, 0.75),
+
+    0 0 24px
+      rgba(196, 181, 253, 0.28);
+
+  animation:
+    light-orb-float
+    8s
+    ease-in-out
+    infinite;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================================
+   LIGHT ORB GLOW
+   ========================================================= */
+
+.hero-light-orb::before {
+  content: "";
+
+  position: absolute;
+
+  width: 35px;
+  height: 35px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.55) 0%,
+      rgba(255, 255, 255, 0.25) 18%,
+      rgba(196, 181, 253, 0.18) 40%,
+      rgba(124, 58, 237, 0.08) 58%,
+      transparent 75%
+    );
+
+  filter: blur(6px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   WHITE ORB 01
+   ========================================================= */
+
+.hero-light-orb-1 {
+  width: 6px;
+  height: 6px;
+
+  animation-duration: 8s;
+
+  animation-delay: -2s;
+}
+
+
+/* =========================================================
+   WHITE ORB 02
+   ========================================================= */
+
+.hero-light-orb-2 {
+  width: 4px;
+  height: 4px;
+
+  animation-duration: 10s;
+
+  animation-delay: -5s;
+}
+
+
+/* =========================================================
+   WHITE ORB 03
+   ========================================================= */
+
+.hero-light-orb-3 {
+  width: 5px;
+  height: 5px;
+
+  animation-duration: 7s;
+
+  animation-delay: -3s;
+}
+
+
+/* =========================================================
+   PURPLE / BLUE PARTICLES
+   ========================================================= */
+
+.hero-particle {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  animation:
+    particle-float
+    7s
+    ease-in-out
+    infinite;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+
+/* =========================================================
+   PURPLE
+   ========================================================= */
+
+.hero-particle-purple {
+  background:
+    rgba(167, 139, 250, 0.72);
+
+  box-shadow:
+    0 0 8px
+      rgba(124, 58, 237, 0.38),
+
+    0 0 20px
+      rgba(124, 58, 237, 0.20),
+
+    0 0 32px
+      rgba(124, 58, 237, 0.08);
+}
+
+
+/* =========================================================
+   BLUE
+   ========================================================= */
+
+.hero-particle-blue {
+  background:
+    rgba(96, 165, 250, 0.72);
+
+  box-shadow:
+    0 0 8px
+      rgba(96, 165, 250, 0.38),
+
+    0 0 20px
+      rgba(96, 165, 250, 0.20),
+
+    0 0 32px
+      rgba(96, 165, 250, 0.08);
+}
+
+
+/* =========================================================
+   PARTICLES
+   ========================================================= */
+
+.hero-particle-1 {
+  width: 7px;
+  height: 7px;
+
+  animation-duration: 7s;
+  animation-delay: -1s;
+}
+
+.hero-particle-2 {
+  width: 6px;
+  height: 6px;
+
+  animation-duration: 9s;
+  animation-delay: -3s;
+}
+
+.hero-particle-3 {
+  width: 5px;
+  height: 5px;
+
+  animation-duration: 8s;
+  animation-delay: -4s;
+}
+
+.hero-particle-4 {
+  width: 4px;
+  height: 4px;
+
+  animation-duration: 10s;
+  animation-delay: -6s;
+}
+
+
+/* =========================================================
+   MICRO PARTICLE
+   ========================================================= */
+
+.hero-micro-particle {
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(124, 58, 237, 0.50);
+
+  box-shadow:
+    0 0 7px
+      rgba(124, 58, 237, 0.30);
+
+  animation:
+    micro-particle-float
+    6s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   GIF
+   ========================================================= */
+
+.hero-image-wrapper {
+  animation:
+    hero-image-float
+    9s
+    ease-in-out
+    infinite;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   ANIMATION — MAIN GLOW
+   ========================================================= */
+
+@keyframes hero-glow-breathe {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(0.94);
+
+    opacity: 0.70;
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.06);
+
+    opacity: 0.95;
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — SPHERE
+   ========================================================= */
+
+@keyframes hero-sphere-float {
+
+  0%,
+  100% {
+    transform:
+      translate3d(-50%, -50%, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(
+        -50%,
+        calc(-50% - 12px),
+        0
+      )
+      scale(1.025);
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — SPHERE BREATHING
+   ========================================================= */
+
+@keyframes sphere-breathe {
+
+  0%,
+  100% {
+    opacity: 0.78;
+  }
+
+  50% {
+    opacity: 0.94;
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — PURPLE GLOW
+   ========================================================= */
+
+@keyframes purple-glow-move {
+
+  0%,
+  100% {
+    transform:
+      translate3d(-10px, 5px, 0)
+      scale(0.96);
+
+    opacity: 0.65;
+  }
+
+  50% {
+    transform:
+      translate3d(14px, -10px, 0)
+      scale(1.05);
+
+    opacity: 0.95;
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — BLUE GLOW
+   ========================================================= */
+
+@keyframes blue-glow-move {
+
+  0%,
+  100% {
+    transform:
+      translate3d(10px, -5px, 0)
+      scale(0.95);
+
+    opacity: 0.60;
+  }
+
+  50% {
+    transform:
+      translate3d(-14px, 12px, 0)
+      scale(1.06);
+
+    opacity: 0.92;
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — INNER LIGHT
+   ========================================================= */
+
+@keyframes inner-light-breathe {
+
+  0%,
+  100% {
+    transform: scale(0.96);
+
+    opacity: 0.52;
+  }
+
+  50% {
+    transform: scale(1.04);
+
+    opacity: 0.86;
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — SKETCH RING 01
+   ========================================================= */
+
+@keyframes sketch-orbit-one {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      rotate(-7deg)
+      scaleX(1.04);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotate(-3deg)
+      scaleX(1.075);
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — SKETCH RING 02
+   ========================================================= */
+
+@keyframes sketch-orbit-two {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      rotate(9deg)
+      scaleX(0.97);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotate(14deg)
+      scaleX(1);
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — SKETCH RING 03
+   ========================================================= */
+
+@keyframes sketch-orbit-three {
+
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      rotate(-4deg)
+      scaleX(1.02);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotate(1deg)
+      scaleX(0.98);
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — WHITE LIGHTS
+   ========================================================= */
+
+@keyframes light-orb-float {
+
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(0.85);
+
+    opacity: 0.40;
+  }
+
+  50% {
+    transform:
+      translate3d(3px, -10px, 0)
+      scale(1.18);
+
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — PARTICLES
+   ========================================================= */
+
+@keyframes particle-float {
+
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(0.90);
+
+    opacity: 0.50;
+  }
+
+  50% {
+    transform:
+      translate3d(4px, -12px, 0)
+      scale(1.08);
+
+    opacity: 0.95;
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — MICRO PARTICLE
+   ========================================================= */
+
+@keyframes micro-particle-float {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+
+    opacity: 0.30;
+  }
+
+  50% {
+    transform:
+      translateY(-9px);
+
+    opacity: 0.75;
+  }
+}
+
+
+/* =========================================================
+   ANIMATION — GIF
+   ========================================================= */
+
+@keyframes hero-image-float {
+
+  0%,
+  100% {
+    transform:
+      translateY(0);
+  }
+
+  50% {
+    transform:
+      translateY(-5px);
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-main-glow,
+  .hero-sphere,
+  .hero-sphere-core,
+  .hero-purple-glow,
+  .hero-blue-glow,
+  .hero-inner-glow,
+  .hero-sketch-orbit,
+  .hero-light-orb,
+  .hero-particle,
+  .hero-micro-particle,
+  .hero-image-wrapper,
+  .hero-threads {
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  .hero-sphere {
+    width: 400px;
+    height: 400px;
+  }
+
+  .hero-main-glow {
+    width: 480px;
+    height: 480px;
+  }
+
+  .hero-threads {
+    width: 570px;
+    height: 570px;
+
+    opacity: 0.13;
+  }
+
+  .hero-sketch-orbit-1 {
+    width: 425px;
+    height: 425px;
+  }
+
+  .hero-sketch-orbit-2 {
+    width: 480px;
+    height: 480px;
+  }
+
+  .hero-sketch-orbit-3 {
+    width: 455px;
+    height: 455px;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .hero-sphere {
+    width: 320px;
+    height: 320px;
+  }
+
+  .hero-main-glow {
+    width: 390px;
+    height: 390px;
+  }
+
+  .hero-threads {
+    width: 420px;
+    height: 420px;
+
+    opacity: 0.09;
+  }
+
+  .hero-sketch-orbit-1 {
+    width: 345px;
+    height: 345px;
+  }
+
+  .hero-sketch-orbit-2 {
+    width: 390px;
+    height: 390px;
+  }
+
+  .hero-sketch-orbit-3 {
+    width: 370px;
+    height: 370px;
+  }
+
+  .hero-particle-1 {
+    left: 10%;
+  }
+
+  .hero-particle-2 {
+    right: 10%;
+  }
+
+  .hero-light-orb-1 {
+    left: 24%;
+  }
+
+  .hero-light-orb-2 {
+    right: 20%;
+  }
+}
