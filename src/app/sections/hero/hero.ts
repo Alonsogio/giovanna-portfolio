@@ -1,6 +1,9 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
 
-import * as THREE from 'three';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-hero',
@@ -10,214 +13,148 @@ import * as THREE from 'three';
   styleUrl: './hero.css',
 })
 export class Hero implements AfterViewInit, OnDestroy {
-  @ViewChild('threadsCanvas', { static: true })
-  threadsCanvas!: ElementRef<HTMLDivElement>;
+  // =========================================================
+  // ELEMENTS
+  // =========================================================
 
-  private scene!: THREE.Scene;
-  private camera!: THREE.OrthographicCamera;
-  private renderer!: THREE.WebGLRenderer;
+  @ViewChild('heroSection', { static: true })
+  heroSection!: ElementRef<HTMLElement>;
 
-  private lines!: THREE.LineSegments;
-  private geometry!: THREE.BufferGeometry;
-  private material!: THREE.LineBasicMaterial;
+  @ViewChild('heroContent', { static: true })
+  heroContent!: ElementRef<HTMLElement>;
 
-  private animationId = 0;
-  private time = 0;
+  @ViewChild('heroVisual', { static: true })
+  heroVisual!: ElementRef<HTMLElement>;
+
+  // =========================================================
+  // LIFECYCLE
+  // =========================================================
 
   ngAfterViewInit(): void {
-    this.initThreads();
-    this.animate();
+    this.initAnimations();
   }
 
-  private initThreads(): void {
-    const container = this.threadsCanvas.nativeElement;
+  // =========================================================
+  // GSAP — ANIMATIONS
+  // =========================================================
 
-    const width = container.clientWidth || 620;
-    const height = container.clientHeight || 620;
+  private initAnimations(): void {
+    const section = this.heroSection.nativeElement;
 
-    // =========================================================
-    // SCENE
-    // =========================================================
+    const content = this.heroContent.nativeElement;
 
-    this.scene = new THREE.Scene();
+    const visual = this.heroVisual.nativeElement;
 
-    // =========================================================
-    // CAMERA
-    // =========================================================
+    // =======================================================
+    // INITIAL CONTENT
+    // =======================================================
 
-    this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+    gsap.from(content, {
+      y: 20,
 
-    this.camera.position.z = 2;
+      duration: 0.8,
 
-    // =========================================================
-    // RENDERER
-    // =========================================================
+      ease: 'power3.out',
 
-    this.renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true,
+      delay: 0.1,
+
+      clearProps: 'transform',
     });
 
-    this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // =======================================================
+    // INITIAL VISUAL
+    // =======================================================
 
-    this.renderer.setSize(width, height);
+    gsap.from(visual, {
+      y: 16,
 
-    this.renderer.setClearColor(0x000000, 0);
+      scale: 0.985,
 
-    this.renderer.domElement.style.width = '100%';
-    this.renderer.domElement.style.height = '100%';
-    this.renderer.domElement.style.display = 'block';
+      duration: 1,
 
-    container.appendChild(this.renderer.domElement);
+      ease: 'power3.out',
 
-    // =========================================================
-    // THREADS
-    // =========================================================
+      delay: 0.15,
 
-    this.createThreads();
-
-    window.addEventListener('resize', this.handleResize);
-  }
-
-  private createThreads(): void {
-    const lines = 18;
-    const pointsPerLine = 120;
-
-    const positions: number[] = [];
-
-    for (let line = 0; line < lines; line++) {
-      const offset = (line / (lines - 1)) * 2 - 1;
-
-      for (let point = 0; point < pointsPerLine - 1; point++) {
-        const x1 = (point / (pointsPerLine - 1)) * 2 - 1;
-
-        const x2 = ((point + 1) / (pointsPerLine - 1)) * 2 - 1;
-
-        const y1 = offset + Math.sin(x1 * 3.2 + line * 0.42) * 0.075;
-
-        const y2 = offset + Math.sin(x2 * 3.2 + line * 0.42) * 0.075;
-
-        positions.push(
-          x1,
-          y1,
-          0,
-
-          x2,
-          y2,
-          0,
-        );
-      }
-    }
-
-    // =========================================================
-    // GEOMETRY
-    // =========================================================
-
-    this.geometry = new THREE.BufferGeometry();
-
-    this.geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
-
-    // =========================================================
-    // MATERIAL
-    // =========================================================
-
-    this.material = new THREE.LineBasicMaterial({
-      color: 0x7c3aed,
-      transparent: true,
-      opacity: 0.085,
-      depthWrite: false,
+      clearProps: 'transform',
     });
 
-    // =========================================================
-    // MESH
-    // =========================================================
+    // =======================================================
+    // SCROLL — CONTENT
+    // =======================================================
 
-    this.lines = new THREE.LineSegments(this.geometry, this.material);
+    gsap.to(content, {
+      y: -70,
 
-    this.scene.add(this.lines);
+      opacity: 0.45,
+
+      ease: 'none',
+
+      scrollTrigger: {
+        trigger: section,
+
+        start: 'top top',
+
+        end: 'bottom top',
+
+        scrub: 1.2,
+
+        invalidateOnRefresh: true,
+      },
+    });
+
+    // =======================================================
+    // SCROLL — VISUAL
+    // =======================================================
+
+    gsap.to(visual, {
+      y: -50,
+
+      scale: 0.96,
+
+      ease: 'none',
+
+      scrollTrigger: {
+        trigger: section,
+
+        start: 'top top',
+
+        end: 'bottom top',
+
+        scrub: 1.4,
+
+        invalidateOnRefresh: true,
+      },
+    });
+
+    // =======================================================
+    // REFRESH
+    // =======================================================
+
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
   }
-
-  // =========================================================
-  // ANIMATION
-  // =========================================================
-
-  private animate = (): void => {
-    this.animationId = requestAnimationFrame(this.animate);
-
-    this.time += 0.006;
-
-    const position = this.geometry.getAttribute('position') as THREE.BufferAttribute;
-
-    const lines = 18;
-    const pointsPerLine = 120;
-
-    let index = 0;
-
-    for (let line = 0; line < lines; line++) {
-      const offset = (line / (lines - 1)) * 2 - 1;
-
-      for (let point = 0; point < pointsPerLine - 1; point++) {
-        const x1 = (point / (pointsPerLine - 1)) * 2 - 1;
-
-        const x2 = ((point + 1) / (pointsPerLine - 1)) * 2 - 1;
-
-        const wave1 = Math.sin(x1 * 3.2 + line * 0.42 + this.time) * 0.075;
-
-        const wave2 = Math.sin(x2 * 3.2 + line * 0.42 + this.time) * 0.075;
-
-        const y1 = offset + wave1;
-        const y2 = offset + wave2;
-
-        position.setXYZ(index, x1, y1, 0);
-
-        index++;
-
-        position.setXYZ(index, x2, y2, 0);
-
-        index++;
-      }
-    }
-
-    position.needsUpdate = true;
-
-    this.renderer.render(this.scene, this.camera);
-  };
-
-  // =========================================================
-  // RESIZE
-  // =========================================================
-
-  private handleResize = (): void => {
-    if (!this.renderer) {
-      return;
-    }
-
-    const container = this.threadsCanvas.nativeElement;
-
-    const width = container.clientWidth || 620;
-
-    const height = container.clientHeight || 620;
-
-    this.renderer.setSize(width, height);
-  };
 
   // =========================================================
   // DESTROY
   // =========================================================
 
   ngOnDestroy(): void {
-    cancelAnimationFrame(this.animationId);
+    // =======================================================
+    // KILL GSAP
+    // =======================================================
 
-    window.removeEventListener('resize', this.handleResize);
+    ScrollTrigger.getAll().forEach((trigger) => {
+      trigger.kill();
+    });
 
-    this.geometry?.dispose();
+    // =======================================================
+    // KILL GSAP TWEENS
+    // =======================================================
 
-    this.material?.dispose();
+    gsap.killTweensOf(this.heroContent.nativeElement);
 
-    this.renderer?.dispose();
-
-    if (this.renderer?.domElement) {
-      this.renderer.domElement.remove();
-    }
+    gsap.killTweensOf(this.heroVisual.nativeElement);
   }
 }

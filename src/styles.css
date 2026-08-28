@@ -21,13 +21,31 @@
 
   --border: #e7e2ec;
 
-  /* Theme-specific */
+  /* =======================================================
+     WAVE
+     ======================================================= */
+
+  --wave-surface: #faf9fc;
+  --wave-purple: #7c3aed;
+  --wave-blue: #60a5fa;
+
+  /* =======================================================
+     NAV
+     ======================================================= */
 
   --nav-background: rgba(255, 255, 255, 0.80);
   --nav-border: rgba(23, 19, 28, 0.06);
 
+  /* =======================================================
+     SWITCH
+     ======================================================= */
+
   --switch-background: rgba(255, 255, 255, 0.55);
   --switch-border: rgba(23, 19, 28, 0.14);
+
+  /* =======================================================
+     SELECTION
+     ======================================================= */
 
   --selection-background: rgba(124, 58, 237, 0.15);
 }
@@ -51,13 +69,31 @@ html.dark {
 
   --border: rgba(255, 255, 255, 0.10);
 
-  /* Theme-specific */
+  /* =======================================================
+     WAVE
+     ======================================================= */
+
+  --wave-surface: #17131c;
+  --wave-purple: #a78bfa;
+  --wave-blue: #60a5fa;
+
+  /* =======================================================
+     NAV
+     ======================================================= */
 
   --nav-background: rgba(15, 13, 18, 0.80);
   --nav-border: rgba(255, 255, 255, 0.08);
 
+  /* =======================================================
+     SWITCH
+     ======================================================= */
+
   --switch-background: rgba(23, 19, 28, 0.55);
   --switch-border: rgba(255, 255, 255, 0.16);
+
+  /* =======================================================
+     SELECTION
+     ======================================================= */
 
   --selection-background: rgba(167, 139, 250, 0.20);
 }
@@ -93,6 +129,16 @@ body {
 
 
 /* =========================================================
+   MAIN
+   ========================================================= */
+
+main {
+  position: relative;
+  overflow: hidden;
+}
+
+
+/* =========================================================
    SURFACES
    ========================================================= */
 
@@ -107,12 +153,137 @@ body {
 
 
 /* =========================================================
-   TEXT SELECTION
+   SECTION WAVE
    ========================================================= */
 
-::selection {
-  background: var(--selection-background);
-  color: var(--foreground);
+.section-wave {
+  position: relative;
+
+  z-index: 20;
+
+  width: 100%;
+
+  height: 120px;
+
+  margin-top: -1px;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   SVG
+   ========================================================= */
+
+.section-wave__svg {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+}
+
+
+/* =========================================================
+   BACK WAVE
+   ========================================================= */
+
+.section-wave__back {
+  opacity: 1;
+
+  transform-origin: center;
+
+  filter: blur(0.5px);
+
+  animation: section-wave-back 20s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   MAIN WAVE
+   ========================================================= */
+
+.section-wave__main {
+  animation: section-wave-main 18s ease-in-out infinite;
+
+  transform-origin: center;
+}
+
+
+/* =========================================================
+   EDGE
+   ========================================================= */
+
+.section-wave__edge {
+  stroke: rgba(124, 58, 237, 0.08);
+
+  stroke-width: 1;
+
+  opacity: 0.7;
+
+  animation: section-wave-edge 18s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   WAVE ANIMATIONS
+   ========================================================= */
+
+@keyframes section-wave-back {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scaleY(1);
+  }
+
+  50% {
+    transform: translate3d(-1.5%, 0, 0) scaleY(1.04);
+  }
+}
+
+
+@keyframes section-wave-main {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(1%, 0, 0) scaleY(1.025);
+  }
+}
+
+
+@keyframes section-wave-edge {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 0.75;
+  }
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark .section-wave__back {
+  opacity: 0.9;
+}
+
+
+html.dark .section-wave__edge {
+  stroke: rgba(167, 139, 250, 0.14);
 }
 
 
@@ -125,5 +296,11 @@ body {
   body,
   .surface {
     transition: none;
+  }
+
+  .section-wave__back,
+  .section-wave__main,
+  .section-wave__edge {
+    animation: none;
   }
 }

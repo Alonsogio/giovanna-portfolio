@@ -19,11 +19,7 @@
 
   transform: translate(-50%, -50%);
 
-  animation:
-    hero-glow-breathe
-    12s
-    ease-in-out
-    infinite;
+  animation: hero-glow-breathe 12s ease-in-out infinite;
 
   will-change: transform, opacity;
 }
@@ -41,11 +37,7 @@
     translate3d(-50%, -50%, 0)
     scale(1);
 
-  animation:
-    hero-sphere-float
-    10s
-    ease-in-out
-    infinite;
+  animation: hero-sphere-float 10s ease-in-out infinite;
 
   will-change: transform;
 }
@@ -73,11 +65,7 @@
 
   filter: blur(2px);
 
-  animation:
-    sphere-breathe
-    10s
-    ease-in-out
-    infinite;
+  animation: sphere-breathe 10s ease-in-out infinite;
 
   will-change: opacity, transform;
 }
@@ -102,11 +90,7 @@
 
   filter: blur(65px);
 
-  animation:
-    purple-glow-move
-    12s
-    ease-in-out
-    infinite;
+  animation: purple-glow-move 12s ease-in-out infinite;
 
   will-change: transform, opacity;
 }
@@ -131,11 +115,7 @@
 
   filter: blur(70px);
 
-  animation:
-    blue-glow-move
-    14s
-    ease-in-out
-    infinite;
+  animation: blue-glow-move 14s ease-in-out infinite;
 
   will-change: transform, opacity;
 }
@@ -160,58 +140,23 @@
 
   filter: blur(25px);
 
-  animation:
-    inner-light-breathe
-    8s
-    ease-in-out
-    infinite;
+  animation: inner-light-breathe 8s ease-in-out infinite;
 
   will-change: transform, opacity;
 }
 
 
 /* =========================================================
-   =========================================================
    HERO THREADS
-   Depth layer — extremely subtle
-   =========================================================
    ========================================================= */
 
 .hero-threads {
   position: absolute;
-
   inset: 0;
 
-  width: 100%;
-  height: 100%;
-
-  overflow: visible;
+  background: transparent !important;
 
   pointer-events: none;
-
-  /*
-    O Threads fica visível o suficiente
-    para criar profundidade, mas sem competir
-    com o orb ou com o GIF.
-  */
-  opacity: 0.55;
-
-  /*
-    Pequeno glow para integrar as linhas
-    ao ambiente roxo/azul.
-  */
-  filter:
-    blur(0.2px)
-    drop-shadow(
-      0 0 14px
-      rgba(124, 58, 237, 0.08)
-    );
-
-  /*
-    Não animamos transform aqui.
-    O próprio Three.js já anima as linhas.
-  */
-  will-change: opacity;
 }
 
 
@@ -221,74 +166,14 @@
 
 .hero-threads-canvas {
   position: absolute;
-
   inset: 0;
 
   width: 100%;
   height: 100%;
 
-  display: block;
-
-  overflow: visible;
-
-  /*
-    Faz o roxo se integrar ao fundo branco.
-  */
-  mix-blend-mode: multiply;
-
-  opacity: 1;
-}
-
-
-/* =========================================================
-   THREADS SOFT CENTER
-   ========================================================= */
-
-.hero-threads::after {
-  content: '';
-
-  position: absolute;
-
-  inset: 0;
+  background: transparent !important;
 
   pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      transparent 0%,
-      transparent 38%,
-      rgba(255, 255, 255, 0.18) 62%,
-      rgba(255, 255, 255, 0.72) 86%,
-      rgba(255, 255, 255, 0.96) 100%
-    );
-
-  z-index: 2;
-}
-
-
-/* =========================================================
-   THREADS MOTION
-   ========================================================= */
-
-@keyframes hero-threads-breathe {
-
-  0%,
-  100% {
-    transform:
-      translate(-50%, -50%)
-      scale(0.985);
-
-    opacity: 0.12;
-  }
-
-  50% {
-    transform:
-      translate(-50%, -50%)
-      scale(1.015);
-
-    opacity: 0.18;
-  }
 }
 
 
@@ -302,8 +187,7 @@
 
   border-radius: 50%;
 
-  border: 1px solid
-    rgba(124, 58, 237, 0.12);
+  border: 1px solid rgba(124, 58, 237, 0.12);
 
   transform:
     translate(-50%, -50%)
@@ -313,11 +197,8 @@
   transform-origin: center;
 
   box-shadow:
-    0 0 14px
-    rgba(124, 58, 237, 0.025),
-
-    inset 0 0 14px
-    rgba(96, 165, 250, 0.015);
+    0 0 14px rgba(124, 58, 237, 0.025),
+    inset 0 0 14px rgba(96, 165, 250, 0.015);
 
   will-change: transform;
 }
@@ -328,8 +209,7 @@
    ========================================================= */
 
 .hero-sketch-orbit-1 {
-  border-color:
-    rgba(124, 58, 237, 0.15);
+  border-color: rgba(124, 58, 237, 0.15);
 
   opacity: 0.72;
 
@@ -346,8 +226,7 @@
    ========================================================= */
 
 .hero-sketch-orbit-2 {
-  border-color:
-    rgba(167, 139, 250, 0.11);
+  border-color: rgba(167, 139, 250, 0.11);
 
   opacity: 0.55;
 
@@ -366,8 +245,7 @@
    ========================================================= */
 
 .hero-sketch-orbit-3 {
-  border-color:
-    rgba(96, 165, 250, 0.09);
+  border-color: rgba(96, 165, 250, 0.09);
 
   opacity: 0.42;
 
@@ -391,18 +269,12 @@
 
   border-radius: 50%;
 
-  background:
-    rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.96);
 
   box-shadow:
-    0 0 5px
-      rgba(255, 255, 255, 0.95),
-
-    0 0 12px
-      rgba(255, 255, 255, 0.75),
-
-    0 0 24px
-      rgba(196, 181, 253, 0.28);
+    0 0 5px rgba(255, 255, 255, 0.95),
+    0 0 12px rgba(255, 255, 255, 0.75),
+    0 0 24px rgba(196, 181, 253, 0.28);
 
   animation:
     light-orb-float
@@ -421,7 +293,7 @@
    ========================================================= */
 
 .hero-light-orb::before {
-  content: "";
+  content: '';
 
   position: absolute;
 
@@ -431,8 +303,7 @@
   left: 50%;
   top: 50%;
 
-  transform:
-    translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 
   border-radius: 50%;
 
@@ -461,7 +332,6 @@
   height: 6px;
 
   animation-duration: 8s;
-
   animation-delay: -2s;
 }
 
@@ -475,7 +345,6 @@
   height: 4px;
 
   animation-duration: 10s;
-
   animation-delay: -5s;
 }
 
@@ -489,7 +358,6 @@
   height: 5px;
 
   animation-duration: 7s;
-
   animation-delay: -3s;
 }
 
@@ -521,18 +389,12 @@
    ========================================================= */
 
 .hero-particle-purple {
-  background:
-    rgba(167, 139, 250, 0.72);
+  background: rgba(167, 139, 250, 0.72);
 
   box-shadow:
-    0 0 8px
-      rgba(124, 58, 237, 0.38),
-
-    0 0 20px
-      rgba(124, 58, 237, 0.20),
-
-    0 0 32px
-      rgba(124, 58, 237, 0.08);
+    0 0 8px rgba(124, 58, 237, 0.38),
+    0 0 20px rgba(124, 58, 237, 0.20),
+    0 0 32px rgba(124, 58, 237, 0.08);
 }
 
 
@@ -541,18 +403,12 @@
    ========================================================= */
 
 .hero-particle-blue {
-  background:
-    rgba(96, 165, 250, 0.72);
+  background: rgba(96, 165, 250, 0.72);
 
   box-shadow:
-    0 0 8px
-      rgba(96, 165, 250, 0.38),
-
-    0 0 20px
-      rgba(96, 165, 250, 0.20),
-
-    0 0 32px
-      rgba(96, 165, 250, 0.08);
+    0 0 8px rgba(96, 165, 250, 0.38),
+    0 0 20px rgba(96, 165, 250, 0.20),
+    0 0 32px rgba(96, 165, 250, 0.08);
 }
 
 
@@ -603,12 +459,10 @@
 
   border-radius: 50%;
 
-  background:
-    rgba(124, 58, 237, 0.50);
+  background: rgba(124, 58, 237, 0.50);
 
   box-shadow:
-    0 0 7px
-      rgba(124, 58, 237, 0.30);
+    0 0 7px rgba(124, 58, 237, 0.30);
 
   animation:
     micro-particle-float
@@ -638,7 +492,6 @@
    ========================================================= */
 
 @keyframes hero-glow-breathe {
-
   0%,
   100% {
     transform:
@@ -663,7 +516,6 @@
    ========================================================= */
 
 @keyframes hero-sphere-float {
-
   0%,
   100% {
     transform:
@@ -688,7 +540,6 @@
    ========================================================= */
 
 @keyframes sphere-breathe {
-
   0%,
   100% {
     opacity: 0.78;
@@ -705,7 +556,6 @@
    ========================================================= */
 
 @keyframes purple-glow-move {
-
   0%,
   100% {
     transform:
@@ -730,7 +580,6 @@
    ========================================================= */
 
 @keyframes blue-glow-move {
-
   0%,
   100% {
     transform:
@@ -755,7 +604,6 @@
    ========================================================= */
 
 @keyframes inner-light-breathe {
-
   0%,
   100% {
     transform: scale(0.96);
@@ -776,7 +624,6 @@
    ========================================================= */
 
 @keyframes sketch-orbit-one {
-
   0%,
   100% {
     transform:
@@ -799,7 +646,6 @@
    ========================================================= */
 
 @keyframes sketch-orbit-two {
-
   0%,
   100% {
     transform:
@@ -822,7 +668,6 @@
    ========================================================= */
 
 @keyframes sketch-orbit-three {
-
   0%,
   100% {
     transform:
@@ -845,7 +690,6 @@
    ========================================================= */
 
 @keyframes light-orb-float {
-
   0%,
   100% {
     transform:
@@ -870,7 +714,6 @@
    ========================================================= */
 
 @keyframes particle-float {
-
   0%,
   100% {
     transform:
@@ -895,18 +738,15 @@
    ========================================================= */
 
 @keyframes micro-particle-float {
-
   0%,
   100% {
-    transform:
-      translateY(0);
+    transform: translateY(0);
 
     opacity: 0.30;
   }
 
   50% {
-    transform:
-      translateY(-9px);
+    transform: translateY(-9px);
 
     opacity: 0.75;
   }
@@ -918,16 +758,13 @@
    ========================================================= */
 
 @keyframes hero-image-float {
-
   0%,
   100% {
-    transform:
-      translateY(0);
+    transform: translateY(0);
   }
 
   50% {
-    transform:
-      translateY(-5px);
+    transform: translateY(-5px);
   }
 }
 
@@ -937,7 +774,6 @@
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   .hero-main-glow,
   .hero-sphere,
   .hero-sphere-core,
@@ -948,8 +784,7 @@
   .hero-light-orb,
   .hero-particle,
   .hero-micro-particle,
-  .hero-image-wrapper,
-  .hero-threads {
+  .hero-image-wrapper {
     animation: none;
   }
 }
@@ -960,7 +795,6 @@
    ========================================================= */
 
 @media (max-width: 1024px) {
-
   .hero-sphere {
     width: 400px;
     height: 400px;
@@ -1000,7 +834,6 @@
    ========================================================= */
 
 @media (max-width: 640px) {
-
   .hero-sphere {
     width: 320px;
     height: 320px;

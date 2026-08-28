@@ -1,18 +1,46 @@
 <section
+  #heroSection
   id="home"
-  class="relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-white"
+  class="hero-section relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-[#F7F6F9]"
 >
+  <!-- ========================================================= -->
+  <!-- HERO ATMOSPHERE — BLENDS INTO SECTION WAVE -->
+  <!-- ========================================================= -->
+
+  <div
+    class="hero-section-atmosphere pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[42%]"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="hero-section-purple-light pointer-events-none absolute -bottom-24 left-[8%] z-0 h-[300px] w-[300px]"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="hero-section-blue-light pointer-events-none absolute -bottom-28 right-[8%] z-0 h-[320px] w-[320px]"
+    aria-hidden="true"
+  ></div>
+
+  <!-- ========================================================= -->
+  <!-- CONTENT -->
+  <!-- ========================================================= -->
+
   <div
     class="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:px-8"
   >
     <!-- ========================================================= -->
-    <!-- CONTENT -->
+    <!-- TEXT -->
     <!-- ========================================================= -->
 
-    <div class="relative z-30 max-w-2xl">
+    <div #heroContent class="relative z-30 max-w-2xl">
+      <!-- EYEBROW -->
+
       <p class="mb-5 font-mono text-sm font-medium uppercase tracking-[0.18em] text-[#7C3AED]">
         Full Stack Developer
       </p>
+
+      <!-- TITLE -->
 
       <h1
         class="text-5xl font-semibold leading-[1.05] tracking-[-0.045em] text-[#17131C] sm:text-6xl lg:text-7xl"
@@ -23,11 +51,14 @@
         with code & design.
       </h1>
 
+      <!-- DESCRIPTION -->
+
       <p class="mt-7 max-w-xl text-base leading-7 text-[#706A78] sm:text-lg">
         I'm Giovanna, a Full Stack Developer focused on<br />
         front-end development, UI/UX and creating thoughtful<br />
         digital experiences.
       </p>
+
       <!-- ========================================================= -->
       <!-- ACTIONS -->
       <!-- ========================================================= -->
@@ -37,14 +68,18 @@
 
         <div class="group relative w-fit">
           <!-- TOP LEFT CORNER -->
+
           <div
             class="pointer-events-none absolute -left-1.5 -top-1.5 h-3 w-3 border-l border-t border-[#17131C]/30 transition-transform duration-500 ease-out group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"
           ></div>
 
           <!-- BOTTOM RIGHT CORNER -->
+
           <div
             class="pointer-events-none absolute -bottom-1.5 -right-1.5 h-3 w-3 border-b border-r border-[#17131C]/30 transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:translate-y-0.5"
           ></div>
+
+          <!-- BUTTON -->
 
           <a
             href="#work"
@@ -74,15 +109,7 @@
     <!-- VISUAL -->
     <!-- ========================================================= -->
 
-    <div class="relative flex h-[560px] w-full items-center justify-center">
-      <!-- ========================================================= -->
-      <!-- THREADS — SUBTLE DEPTH LAYER -->
-      <!-- ========================================================= -->
-
-      <div class="hero-threads pointer-events-none absolute inset-0 z-[2]" aria-hidden="true">
-        <div #threadsCanvas class="hero-threads-canvas"></div>
-      </div>
-
+    <div #heroVisual class="relative z-10 flex h-[560px] w-full items-center justify-center">
       <!-- ========================================================= -->
       <!-- MAIN ATMOSPHERE -->
       <!-- ========================================================= -->
@@ -93,7 +120,7 @@
       ></div>
 
       <!-- ========================================================= -->
-      <!-- LARGE CENTRAL SPHERE -->
+      <!-- CENTRAL SPHERE -->
       <!-- ========================================================= -->
 
       <div
@@ -106,19 +133,17 @@
 
         <!-- PURPLE ATMOSPHERE -->
 
-        <div class="hero-purple-glow absolute -inset-24"></div>
+        <div class="hero-purple-glow absolute -inset-16"></div>
 
         <!-- BLUE ATMOSPHERE -->
 
-        <div class="hero-blue-glow absolute -inset-28"></div>
+        <div class="hero-blue-glow absolute -inset-20"></div>
 
         <!-- INNER LIGHT -->
 
         <div class="hero-inner-glow absolute inset-[45px]"></div>
 
-        <!-- ======================================================= -->
-        <!-- SUBTLE ORB PARTICLES -->
-        <!-- ======================================================= -->
+        <!-- ORBIT DOTS -->
 
         <span class="hero-orbit-dot hero-orbit-dot-1 absolute left-[8%] top-[25%]"></span>
 
@@ -130,7 +155,7 @@
       </div>
 
       <!-- ========================================================= -->
-      <!-- HAND DRAWN ORBIT RINGS -->
+      <!-- ORBIT RINGS -->
       <!-- ========================================================= -->
 
       <div
@@ -212,7 +237,7 @@
         <img
           src="/images/hero/giovanna.gif"
           alt="Giovanna"
-          class="pointer-events-none relative h-auto w-full rounded-b-[160px] object-contain opacity-95 drop-shadow-[0_25px_55px_rgba(124,58,237,0.14)]"
+          class="pointer-events-none relative block h-auto w-full rounded-b-[160px] object-contain opacity-95 drop-shadow-[0_25px_55px_rgba(124,58,237,0.14)]"
         />
       </div>
     </div>

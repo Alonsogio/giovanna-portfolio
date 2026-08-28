@@ -1,45 +1,8 @@
 <section
   #aboutSection
   id="about"
-  class="about-section relative overflow-hidden bg-white py-28 sm:py-32"
+  class="about-section relative overflow-hidden bg-[#F7F6F9] py-16 sm:py-20"
 >
-  <!-- ========================================================= -->
-  <!-- GIF BACKGROUND -->
-  <!-- ========================================================= -->
-
-  <div class="about-video-background pointer-events-none absolute inset-0" aria-hidden="true">
-    <!-- GIF -->
-
-    <img src="/images/about/code.gif" alt="" class="about-video-gif" />
-
-    <!-- Soft overlay -->
-
-    <div class="about-video-overlay"></div>
-
-    <!-- Edge fade -->
-
-    <div class="about-video-fade"></div>
-
-    <!-- Purple atmosphere -->
-
-    <div class="about-video-purple"></div>
-  </div>
-
-  <!-- ========================================================= -->
-  <!-- BACKGROUND ATMOSPHERE -->
-  <!-- ========================================================= -->
-
-  <div
-    class="about-floating-detail pointer-events-none absolute -right-40 top-20 z-[1] h-72 w-72 rounded-full bg-[#EDE9FE]/25 blur-3xl"
-    aria-hidden="true"
-  ></div>
-
-  <div
-    class="about-floating-detail pointer-events-none absolute -left-32 bottom-20 z-[1] h-64 w-64 rounded-full bg-[#DBEAFE]/20 blur-3xl"
-    style="animation-delay: -3s"
-    aria-hidden="true"
-  ></div>
-
   <!-- ========================================================= -->
   <!-- CONTENT -->
   <!-- ========================================================= -->
@@ -49,49 +12,41 @@
     <!-- HEADER -->
     <!-- ======================================================= -->
 
-    <header class="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-      <!-- LABEL -->
-
-      <div>
-        <span class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-[#7C3AED]">
+    <header class="mb-10 sm:mb-12">
+      <div class="flex items-center gap-4">
+        <span class="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-[#7C3AED]">
           About me
         </span>
 
-        <div class="about-floating-line mt-5 h-px w-16 bg-[#7C3AED]/30" aria-hidden="true"></div>
+        <span class="about-floating-line h-px w-12 bg-[#7C3AED]/30" aria-hidden="true"></span>
       </div>
 
-      <!-- TITLE -->
-
-      <div>
-        <h2
-          class="ml-0 max-w-3xl text-4xl font-semibold leading-[1.05] tracking-[-0.04em] text-[#17131C] sm:text-5xl lg:text-6xl"
-        >
-          Turning ideas into
-          <span class="text-[#7C3AED]"> meaningful experiences. </span>
-        </h2>
-      </div>
+      <h2
+        class="mt-4 max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#17131C] sm:text-5xl lg:text-[3.4rem]"
+      >
+        Turning ideas into
+        <span class="text-[#7C3AED]"> meaningful experiences. </span>
+      </h2>
     </header>
 
     <!-- ======================================================= -->
     <!-- MAIN CONTENT -->
     <!-- ======================================================= -->
 
-    <div class="grid grid-cols-1 gap-16 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-20">
+    <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_360px_1fr] lg:gap-8">
       <!-- ===================================================== -->
-      <!-- LEFT — ABOUT CONTENT -->
+      <!-- LEFT — WHO I AM -->
       <!-- ===================================================== -->
 
-      <div class="relative">
-        <!-- SECTION LABEL -->
-
-        <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-[#706A78]">
+      <div class="about-left-content relative lg:pr-8">
+        <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#706A78]">
           01 / Who I am
         </span>
 
-        <!-- INTRO -->
-
-        <div class="mt-8 max-w-md">
-          <p class="text-lg font-medium leading-8 tracking-[-0.015em] text-[#17131C]">
+        <div class="mt-5 max-w-sm">
+          <p
+            class="text-lg font-medium leading-7 tracking-[-0.02em] text-[#17131C] sm:text-xl sm:leading-8"
+          >
             I'm Giovanna, a Full Stack Developer who enjoys bringing together technology, design and
             thoughtful user experiences.
           </p>
@@ -99,7 +54,7 @@
 
         <!-- CODE × DESIGN -->
 
-        <div class="mt-12 flex items-center gap-3">
+        <div class="mt-6 flex items-center gap-3">
           <span
             class="about-floating-dot relative flex h-2 w-2 items-center justify-center"
             aria-hidden="true"
@@ -109,102 +64,60 @@
             <span class="relative h-1.5 w-1.5 rounded-full bg-[#7C3AED]"></span>
           </span>
 
-          <span class="about-floating-line h-px w-12 bg-[#E7E2EC]" aria-hidden="true"></span>
+          <span class="about-floating-line h-px w-8 bg-[#E7E2EC]" aria-hidden="true"></span>
 
-          <span class="font-mono text-xs uppercase tracking-[0.15em] text-[#706A78]">
+          <span class="font-mono text-[9px] uppercase tracking-[0.15em] text-[#706A78]">
             Code × Design
           </span>
-        </div>
-
-        <!-- =================================================== -->
-        <!-- STATS -->
-        <!-- =================================================== -->
-
-        <div class="mt-16 grid grid-cols-2 gap-y-10 border-t border-[#E7E2EC] pt-8 sm:grid-cols-3">
-          <!-- STAT 01 -->
-
-          <div class="about-stat group">
-            <div class="flex items-baseline">
-              <span
-                class="text-4xl font-semibold tracking-[-0.04em] text-[#17131C] transition-colors duration-300 group-hover:text-[#7C3AED] sm:text-5xl"
-              >
-                {{ animatedStats[0] | number: '2.0-0' }}
-              </span>
-
-              <span class="ml-1 text-2xl font-semibold text-[#7C3AED] sm:text-3xl"> + </span>
-            </div>
-
-            <span
-              class="mt-3 block font-mono text-[10px] uppercase tracking-[0.15em] text-[#706A78]"
-            >
-              Coffees consumed
-            </span>
-          </div>
-
-          <!-- STAT 02 -->
-
-          <div class="about-stat group">
-            <div class="flex items-baseline">
-              <span
-                class="text-4xl font-semibold tracking-[-0.04em] text-[#17131C] transition-colors duration-300 group-hover:text-[#7C3AED] sm:text-5xl"
-              >
-                {{ animatedStats[1] | number: '2.0-0' }}
-              </span>
-
-              <span class="ml-1 text-2xl font-semibold text-[#7C3AED] sm:text-3xl"> + </span>
-            </div>
-
-            <span
-              class="mt-3 block font-mono text-[10px] uppercase tracking-[0.15em] text-[#706A78]"
-            >
-              Projects completed
-            </span>
-          </div>
-
-          <!-- STAT 03 -->
-
-          <div class="about-stat group col-span-2 mt-8 sm:col-span-1 sm:mt-0">
-            <div class="flex items-baseline">
-              <span
-                class="text-4xl font-semibold tracking-[-0.04em] text-[#17131C] transition-colors duration-300 group-hover:text-[#7C3AED] sm:text-5xl"
-              >
-                {{ animatedStats[2] | number: '2.0-0' }}
-              </span>
-
-              <span class="ml-1 text-2xl font-semibold text-[#7C3AED] sm:text-3xl"> + </span>
-            </div>
-
-            <span
-              class="mt-3 block font-mono text-[10px] uppercase tracking-[0.15em] text-[#706A78]"
-            >
-              Years coding
-            </span>
-          </div>
         </div>
       </div>
 
       <!-- ===================================================== -->
-      <!-- RIGHT — DESCRIPTION -->
+      <!-- CENTER — 3D -->
       <!-- ===================================================== -->
 
-      <div class="relative max-w-2xl">
-        <p class="text-base leading-8 text-[#706A78] sm:text-lg">
-          I enjoy building digital products that are not only functional, but also feel intuitive
-          and intentional. My main focus is front-end development and UI/UX, where I can combine
-          clean code with a strong visual sense.
-        </p>
+      <div class="about-orb-container relative flex h-[350px] w-full items-center justify-center">
+        <!-- ================================================= -->
+        <!-- SPLINE -->
+        <!-- ================================================= -->
 
-        <p class="mt-6 text-base leading-8 text-[#706A78] sm:text-lg">
-          I'm constantly exploring new technologies, improving my skills and looking for better ways
-          to transform ideas into experiences that people actually enjoy using.
-        </p>
+        <div class="about-spline relative z-10 h-[350px] w-[350px] !bg-transparent">
+          <spline-viewer
+            url="https://prod.spline.design/S4c8DyMbKLvon2zy/scene.splinecode"
+            loading="eager"
+            events-target="local"
+            background="transparent"
+          ></spline-viewer>
+        </div>
+      </div>
 
-        <!-- SMALL VISUAL DETAIL -->
+      <!-- ===================================================== -->
+      <!-- RIGHT — WHAT I DO -->
+      <!-- ===================================================== -->
 
-        <div class="mt-12 flex items-center gap-3">
-          <span class="h-px w-10 bg-[#E7E2EC]" aria-hidden="true"></span>
+      <div class="about-right-content relative lg:pl-8">
+        <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#706A78]">
+          02 / What I do
+        </span>
 
-          <span class="font-mono text-[10px] uppercase tracking-[0.15em] text-[#706A78]">
+        <div class="mt-5 max-w-sm">
+          <p class="text-sm leading-6 text-[#706A78] sm:text-[15px] sm:leading-7">
+            I enjoy building digital products that are not only functional, but also feel intuitive
+            and intentional.
+          </p>
+
+          <p class="mt-4 text-sm leading-6 text-[#706A78] sm:text-[15px] sm:leading-7">
+            My main focus is front-end development and UI/UX, where I combine clean code with a
+            strong visual sense.
+          </p>
+        </div>
+
+        <!-- DETAIL -->
+
+        <div class="mt-6 flex items-center gap-3">
+          <span class="h-px w-8 bg-[#E7E2EC]" aria-hidden="true"></span>
+
+          <span class="font-mono text-[9px] uppercase tracking-[0.15em] text-[#706A78]">
             Building with intention
           </span>
         </div>
@@ -212,17 +125,136 @@
     </div>
 
     <!-- ========================================================= -->
-    <!-- BOTTOM LINE -->
+    <!-- STATS -->
+    <!-- ========================================================= -->
+
+    <div class="about-stats mt-8 border-t border-[#E7E2EC] pt-8 sm:mt-10 sm:pt-9">
+      <div class="grid grid-cols-3 divide-x divide-[#E7E2EC]">
+        <!-- =================================================== -->
+        <!-- STAT 01 -->
+        <!-- =================================================== -->
+
+        <div class="about-stat group relative px-3 text-center sm:px-8">
+          <!-- ACCENT -->
+
+          <span
+            class="mx-auto mb-4 block h-px w-5 bg-[#7C3AED]/50 transition-all duration-500 group-hover:w-8 group-hover:bg-[#7C3AED]"
+            aria-hidden="true"
+          ></span>
+
+          <!-- NUMBER -->
+
+          <div class="flex items-start justify-center">
+            <span
+              class="text-4xl font-semibold leading-none tracking-[-0.055em] text-[#17131C] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-[#7C3AED] sm:text-5xl"
+            >
+              {{ animatedStats[0] | number: '2.0-0' }}
+            </span>
+
+            <span
+              class="relative -top-1 ml-1 text-base font-semibold leading-none text-[#7C3AED] sm:-top-1.5 sm:text-lg"
+            >
+              +
+            </span>
+          </div>
+
+          <!-- LABEL -->
+
+          <span
+            class="mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] text-[#706A78] sm:text-[9px]"
+          >
+            Coffees consumed
+          </span>
+        </div>
+
+        <!-- =================================================== -->
+        <!-- STAT 02 -->
+        <!-- =================================================== -->
+
+        <div class="about-stat group relative px-3 text-center sm:px-8">
+          <!-- ACCENT -->
+
+          <span
+            class="mx-auto mb-4 block h-px w-5 bg-[#7C3AED]/50 transition-all duration-500 group-hover:w-8 group-hover:bg-[#7C3AED]"
+            aria-hidden="true"
+          ></span>
+
+          <!-- NUMBER -->
+
+          <div class="flex items-start justify-center">
+            <span
+              class="text-4xl font-semibold leading-none tracking-[-0.055em] text-[#17131C] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-[#7C3AED] sm:text-5xl"
+            >
+              {{ animatedStats[1] | number: '2.0-0' }}
+            </span>
+
+            <span
+              class="relative -top-1 ml-1 text-base font-semibold leading-none text-[#7C3AED] sm:-top-1.5 sm:text-lg"
+            >
+              +
+            </span>
+          </div>
+
+          <!-- LABEL -->
+
+          <span
+            class="mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] text-[#706A78] sm:text-[9px]"
+          >
+            Projects completed
+          </span>
+        </div>
+
+        <!-- =================================================== -->
+        <!-- STAT 03 -->
+        <!-- =================================================== -->
+
+        <div class="about-stat group relative px-3 text-center sm:px-8">
+          <!-- ACCENT -->
+
+          <span
+            class="mx-auto mb-4 block h-px w-5 bg-[#7C3AED]/50 transition-all duration-500 group-hover:w-8 group-hover:bg-[#7C3AED]"
+            aria-hidden="true"
+          ></span>
+
+          <!-- NUMBER -->
+
+          <div class="flex items-start justify-center">
+            <span
+              class="text-4xl font-semibold leading-none tracking-[-0.055em] text-[#17131C] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-[#7C3AED] sm:text-5xl"
+            >
+              {{ animatedStats[2] | number: '2.0-0' }}
+            </span>
+
+            <span
+              class="relative -top-1 ml-1 text-base font-semibold leading-none text-[#7C3AED] sm:-top-1.5 sm:text-lg"
+            >
+              +
+            </span>
+          </div>
+
+          <!-- LABEL -->
+
+          <span
+            class="mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] text-[#706A78] sm:text-[9px]"
+          >
+            Years coding
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- BOTTOM META -->
     <!-- ========================================================= -->
 
     <div
-      class="mt-20 flex flex-col gap-3 border-t border-[#E7E2EC] pt-6 sm:flex-row sm:items-center sm:justify-between"
+      class="about-bottom-meta mt-7 flex flex-col gap-2 border-t border-[#E7E2EC] pt-5 sm:flex-row sm:items-center sm:justify-between"
     >
-      <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#706A78]">
+      <span class="font-mono text-[9px] uppercase tracking-[0.18em] text-[#706A78]">
         Based in Brazil
       </span>
 
-      <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#706A78]">
+      <span class="font-mono text-[9px] uppercase tracking-[0.18em] text-[#706A78]">
         Available for opportunities
       </span>
     </div>
