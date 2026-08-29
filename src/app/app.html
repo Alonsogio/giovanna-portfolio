@@ -10,197 +10,146 @@
   <app-hero></app-hero>
 
   <!-- ========================================================= -->
-  <!-- ANIMATED SECTION WAVE — HERO → ABOUT -->
+  <!-- WAVE — HERO → ABOUT -->
   <!-- ========================================================= -->
 
-  <div class="section-wave" aria-hidden="true">
+  <div class="section-wave section-wave--hero-about" aria-hidden="true">
     <svg
       class="section-wave__svg"
-      viewBox="0 0 1440 180"
+      viewBox="0 0 1440 170"
       preserveAspectRatio="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
         <!-- =================================================== -->
-        <!-- WAVE GRADIENT -->
+        <!-- BACK GRADIENT -->
         <!-- =================================================== -->
 
-        <linearGradient id="sectionWaveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.10" />
+        <linearGradient id="heroBackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.075" />
 
-          <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.055" />
+          <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.032" />
 
-          <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.10" />
+          <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.075" />
+        </linearGradient>
+
+        <!-- =================================================== -->
+        <!-- MIDDLE GRADIENT -->
+        <!-- =================================================== -->
+
+        <linearGradient id="heroMiddleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.060" />
+
+          <stop offset="50%" stop-color="#7C3AED" stop-opacity="0.025" />
+
+          <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.060" />
         </linearGradient>
 
         <!-- =================================================== -->
         <!-- SOFT GLOW -->
         <!-- =================================================== -->
 
-        <filter id="sectionWaveGlow" x="-20%" y="-50%" width="140%" height="200%">
-          <feGaussianBlur stdDeviation="10" />
+        <filter id="heroWaveGlow" x="-20%" y="-60%" width="140%" height="220%">
+          <feGaussianBlur stdDeviation="9" />
         </filter>
       </defs>
 
       <!-- ===================================================== -->
-      <!-- BACK WAVE / GLOW -->
+      <!-- WAVE 01 — BACK -->
       <!-- ===================================================== -->
 
       <path
         class="section-wave__back"
-        fill="url(#sectionWaveGradient)"
-        filter="url(#sectionWaveGlow)"
+        fill="url(#heroBackGradient)"
+        filter="url(#heroWaveGlow)"
         d="
-          M 0 105
-          C 170 55, 320 55, 500 105
-          S 790 155, 960 105
-          S 1270 55, 1440 105
-          L 1440 180
-          L 0 180
+          M 0 42
+
+          C 130 12,
+            270 10,
+            420 48
+
+          C 560 82,
+            690 105,
+            820 72
+
+          C 950 38,
+            1080 12,
+            1210 40
+
+          C 1300 58,
+            1370 65,
+            1440 48
+
+          L 1440 170
+          L 0 170
           Z
         "
-      >
-        <animate
-          attributeName="d"
-          dur="20s"
-          repeatCount="indefinite"
-          values="
-            M 0 105
-            C 170 55, 320 55, 500 105
-            S 790 155, 960 105
-            S 1270 55, 1440 105
-            L 1440 180
-            L 0 180
-            Z;
-
-            M 0 98
-            C 180 145, 310 145, 500 98
-            S 790 52, 960 98
-            S 1260 145, 1440 98
-            L 1440 180
-            L 0 180
-            Z;
-
-            M 0 112
-            C 170 64, 320 64, 500 112
-            S 790 160, 960 112
-            S 1270 64, 1440 112
-            L 1440 180
-            L 0 180
-            Z;
-
-            M 0 105
-            C 170 55, 320 55, 500 105
-            S 790 155, 960 105
-            S 1270 55, 1440 105
-            L 1440 180
-            L 0 180
-            Z;
-          "
-        />
-      </path>
+      />
 
       <!-- ===================================================== -->
-      <!-- MAIN WAVE -->
+      <!-- WAVE 02 — MIDDLE -->
+      <!-- ===================================================== -->
+
+      <path
+        class="section-wave__middle"
+        fill="url(#heroMiddleGradient)"
+        d="
+          M 0 64
+
+          C 130 92,
+            270 98,
+            420 62
+
+          C 560 30,
+            690 10,
+            820 42
+
+          C 950 76,
+            1080 102,
+            1210 68
+
+          C 1300 46,
+            1370 38,
+            1440 58
+
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+
+      <!-- ===================================================== -->
+      <!-- WAVE 03 — FRONT -->
       <!-- ===================================================== -->
 
       <path
         class="section-wave__main"
-        fill="#F7F6F9"
+        fill="#F9F8FC"
         d="
-          M 0 105
-          C 170 55, 320 55, 500 105
-          S 790 155, 960 105
-          S 1270 55, 1440 105
-          L 1440 180
-          L 0 180
+          M 0 52
+
+          C 140 28,
+            285 26,
+            430 62
+
+          C 565 96,
+            700 112,
+            835 72
+
+          C 970 32,
+            1095 20,
+            1225 52
+
+          C 1320 76,
+            1380 78,
+            1440 60
+
+          L 1440 170
+          L 0 170
           Z
         "
-      >
-        <animate
-          attributeName="d"
-          dur="18s"
-          repeatCount="indefinite"
-          values="
-            M 0 105
-            C 170 55, 320 55, 500 105
-            S 790 155, 960 105
-            S 1270 55, 1440 105
-            L 1440 180
-            L 0 180
-            Z;
-
-            M 0 98
-            C 175 145, 320 145, 500 98
-            S 790 52, 960 98
-            S 1265 145, 1440 98
-            L 1440 180
-            L 0 180
-            Z;
-
-            M 0 112
-            C 165 64, 320 64, 500 112
-            S 790 160, 960 112
-            S 1275 64, 1440 112
-            L 1440 180
-            L 0 180
-            Z;
-
-            M 0 105
-            C 170 55, 320 55, 500 105
-            S 790 155, 960 105
-            S 1270 55, 1440 105
-            L 1440 180
-            L 0 180
-            Z;
-          "
-        />
-      </path>
-
-      <!-- ===================================================== -->
-      <!-- SUBTLE PURPLE EDGE -->
-      <!-- ===================================================== -->
-
-      <path
-        class="section-wave__edge"
-        fill="none"
-        stroke="#7C3AED"
-        stroke-width="1"
-        stroke-opacity="0.12"
-        d="
-          M 0 105
-          C 170 55, 320 55, 500 105
-          S 790 155, 960 105
-          S 1270 55, 1440 105
-        "
-      >
-        <animate
-          attributeName="d"
-          dur="18s"
-          repeatCount="indefinite"
-          values="
-            M 0 105
-            C 170 55, 320 55, 500 105
-            S 790 155, 960 105
-            S 1270 55, 1440 105;
-
-            M 0 98
-            C 175 145, 320 145, 500 98
-            S 790 52, 960 98
-            S 1265 145, 1440 98;
-
-            M 0 112
-            C 165 64, 320 64, 500 112
-            S 790 160, 960 112
-            S 1275 64, 1440 112;
-
-            M 0 105
-            C 170 55, 320 55, 500 105
-            S 790 155, 960 105
-            S 1270 55, 1440 105;
-          "
-        />
-      </path>
+      />
     </svg>
   </div>
 
@@ -211,197 +160,146 @@
   <app-about></app-about>
 
   <!-- ========================================================= -->
-  <!-- ANIMATED SECTION WAVE — ABOUT → WORK -->
+  <!-- WAVE — ABOUT → WORK -->
   <!-- ========================================================= -->
 
   <div class="section-wave section-wave--about-work" aria-hidden="true">
     <svg
       class="section-wave__svg"
-      viewBox="0 0 1440 140"
+      viewBox="0 0 1440 170"
       preserveAspectRatio="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
         <!-- =================================================== -->
-        <!-- WORK WAVE GRADIENT -->
+        <!-- BACK GRADIENT -->
         <!-- =================================================== -->
 
-        <linearGradient id="workWaveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.065" />
+        <linearGradient id="workBackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.060" />
 
-          <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.035" />
+          <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.028" />
 
-          <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.065" />
+          <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.060" />
         </linearGradient>
 
         <!-- =================================================== -->
-        <!-- WORK WAVE GLOW -->
+        <!-- MIDDLE GRADIENT -->
         <!-- =================================================== -->
 
-        <filter id="workWaveGlow" x="-20%" y="-50%" width="140%" height="200%">
-          <feGaussianBlur stdDeviation="8" />
+        <linearGradient id="workMiddleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.045" />
+
+          <stop offset="50%" stop-color="#7C3AED" stop-opacity="0.020" />
+
+          <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.045" />
+        </linearGradient>
+
+        <!-- =================================================== -->
+        <!-- GLOW -->
+        <!-- =================================================== -->
+
+        <filter id="workWaveGlow" x="-20%" y="-60%" width="140%" height="220%">
+          <feGaussianBlur stdDeviation="7" />
         </filter>
       </defs>
 
       <!-- ===================================================== -->
-      <!-- BACK WAVE -->
+      <!-- WAVE 01 — BACK -->
       <!-- ===================================================== -->
 
       <path
         class="section-wave__back"
-        fill="url(#workWaveGradient)"
+        fill="url(#workBackGradient)"
         filter="url(#workWaveGlow)"
         d="
-          M 0 72
-          C 180 38, 330 38, 500 72
-          S 790 106, 960 72
-          S 1260 38, 1440 72
-          L 1440 140
-          L 0 140
+          M 0 38
+
+          C 130 10,
+            270 8,
+            410 42
+
+          C 550 76,
+            680 92,
+            815 56
+
+          C 950 22,
+            1080 8,
+            1210 38
+
+          C 1310 62,
+            1380 66,
+            1440 48
+
+          L 1440 170
+          L 0 170
           Z
         "
-      >
-        <animate
-          attributeName="d"
-          dur="22s"
-          repeatCount="indefinite"
-          values="
-            M 0 72
-            C 180 38, 330 38, 500 72
-            S 790 106, 960 72
-            S 1260 38, 1440 72
-            L 1440 140
-            L 0 140
-            Z;
-
-            M 0 68
-            C 180 96, 330 96, 500 68
-            S 790 40, 960 68
-            S 1260 96, 1440 68
-            L 1440 140
-            L 0 140
-            Z;
-
-            M 0 78
-            C 180 44, 330 44, 500 78
-            S 790 112, 960 78
-            S 1260 44, 1440 78
-            L 1440 140
-            L 0 140
-            Z;
-
-            M 0 72
-            C 180 38, 330 38, 500 72
-            S 790 106, 960 72
-            S 1260 38, 1440 72
-            L 1440 140
-            L 0 140
-            Z;
-          "
-        />
-      </path>
+      />
 
       <!-- ===================================================== -->
-      <!-- MAIN WAVE -->
+      <!-- WAVE 02 — MIDDLE -->
+      <!-- ===================================================== -->
+
+      <path
+        class="section-wave__middle"
+        fill="url(#workMiddleGradient)"
+        d="
+          M 0 58
+
+          C 130 82,
+            270 88,
+            410 54
+
+          C 550 22,
+            680 8,
+            815 40
+
+          C 950 72,
+            1080 88,
+            1210 56
+
+          C 1310 34,
+            1380 30,
+            1440 50
+
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+
+      <!-- ===================================================== -->
+      <!-- WAVE 03 — FRONT -->
       <!-- ===================================================== -->
 
       <path
         class="section-wave__main"
-        fill="#F7F6F9"
+        fill="#F9F8FC"
         d="
-          M 0 72
-          C 180 38, 330 38, 500 72
-          S 790 106, 960 72
-          S 1260 38, 1440 72
-          L 1440 140
-          L 0 140
+          M 0 48
+
+          C 135 24,
+            280 22,
+            425 56
+
+          C 560 88,
+            690 100,
+            825 64
+
+          C 960 28,
+            1090 18,
+            1220 48
+
+          C 1320 72,
+            1380 74,
+            1440 56
+
+          L 1440 170
+          L 0 170
           Z
         "
-      >
-        <animate
-          attributeName="d"
-          dur="20s"
-          repeatCount="indefinite"
-          values="
-            M 0 72
-            C 180 38, 330 38, 500 72
-            S 790 106, 960 72
-            S 1260 38, 1440 72
-            L 1440 140
-            L 0 140
-            Z;
-
-            M 0 68
-            C 180 96, 330 96, 500 68
-            S 790 40, 960 68
-            S 1260 96, 1440 68
-            L 1440 140
-            L 0 140
-            Z;
-
-            M 0 78
-            C 180 44, 330 44, 500 78
-            S 790 112, 960 78
-            S 1260 44, 1440 78
-            L 1440 140
-            L 0 140
-            Z;
-
-            M 0 72
-            C 180 38, 330 38, 500 72
-            S 790 106, 960 72
-            S 1260 38, 1440 72
-            L 1440 140
-            L 0 140
-            Z;
-          "
-        />
-      </path>
-
-      <!-- ===================================================== -->
-      <!-- SUBTLE PURPLE EDGE -->
-      <!-- ===================================================== -->
-
-      <path
-        class="section-wave__edge"
-        fill="none"
-        stroke="#7C3AED"
-        stroke-width="1"
-        stroke-opacity="0.09"
-        d="
-          M 0 72
-          C 180 38, 330 38, 500 72
-          S 790 106, 960 72
-          S 1260 38, 1440 72
-        "
-      >
-        <animate
-          attributeName="d"
-          dur="20s"
-          repeatCount="indefinite"
-          values="
-            M 0 72
-            C 180 38, 330 38, 500 72
-            S 790 106, 960 72
-            S 1260 38, 1440 72;
-
-            M 0 68
-            C 180 96, 330 96, 500 68
-            S 790 40, 960 68
-            S 1260 96, 1440 68;
-
-            M 0 78
-            C 180 44, 330 44, 500 78
-            S 790 112, 960 78
-            S 1260 44, 1440 78;
-
-            M 0 72
-            C 180 38, 330 38, 500 72
-            S 790 106, 960 72
-            S 1260 38, 1440 72;
-          "
-        />
-      </path>
+      />
     </svg>
   </div>
 

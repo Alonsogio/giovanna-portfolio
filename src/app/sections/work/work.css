@@ -19,14 +19,13 @@
   background:
     radial-gradient(
       circle,
-      rgba(124, 58, 237, 0.10) 0%,
+      rgba(124, 58, 237, 0.11) 0%,
       rgba(124, 58, 237, 0.055) 30%,
-      rgba(96, 165, 250, 0.025) 52%,
+      rgba(96, 165, 250, 0.03) 52%,
       transparent 72%
     );
 
   filter: blur(40px);
-
   opacity: 0.8;
 
   animation: work-glow-float 12s ease-in-out infinite;
@@ -34,12 +33,414 @@
   will-change: transform;
 }
 
-
 .work-background-glow--secondary {
   opacity: 0.55;
 
   animation-duration: 15s;
   animation-delay: -4s;
+}
+
+
+/* =========================================================
+   DECORATIVE CORNER ORBITS
+   ========================================================= */
+
+/*
+ * As linhas são ESTÁTICAS.
+ * Somente os orbs possuem animação.
+ *
+ * O conjunto foi reduzido para ficar mais delicado
+ * e permanecer abaixo do botão "View all projects".
+ */
+
+.work-corner-orbits {
+  position: absolute;
+
+  width: 430px;
+  height: 165px;
+
+  /*
+   * Fica abaixo do botão.
+   * O HTML pode continuar antes do conteúdo.
+   * Esta posição visual é controlada aqui.
+   */
+  right: 0;
+  top: 145px;
+
+  pointer-events: none;
+
+  overflow: visible;
+
+  opacity: 1;
+
+  transform-origin: top right;
+
+  z-index: 4;
+}
+
+
+/* =========================================================
+   CORNER ORBITS SVG
+   ========================================================= */
+
+.work-corner-orbits__svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   ORBIT LINES
+   ========================================================= */
+
+.work-corner-orbit-line {
+  fill: none;
+
+  pointer-events: none;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
+  vector-effect: non-scaling-stroke;
+
+  animation: none !important;
+}
+
+
+/* =========================================================
+   PURPLE ORBIT LINE
+   ========================================================= */
+
+.work-corner-orbit-line--purple {
+  opacity: 0.78;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  filter:
+    drop-shadow(
+      0 0 3px rgba(124, 58, 237, 0.08)
+    );
+}
+
+
+/* =========================================================
+   BLUE ORBIT LINE
+   ========================================================= */
+
+.work-corner-orbit-line--blue {
+  opacity: 0.70;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  filter:
+    drop-shadow(
+      0 0 3px rgba(96, 165, 250, 0.07)
+    );
+}
+
+
+/* =========================================================
+   CORNER ORBS
+   ========================================================= */
+
+/*
+ * Mesmo conceito visual dos orbs do HERO:
+ *
+ * - núcleo pequeno
+ * - halo grande e difuso
+ * - brilho branco no núcleo
+ * - sem aparência de bolinha "chapada"
+ */
+
+.work-corner-orb {
+  position: absolute;
+
+  display: block;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  transform-origin: center center;
+
+  will-change: transform, opacity;
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   ORB HALO
+   ========================================================= */
+
+.work-corner-orb__halo {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 34px;
+  height: 34px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.45) 0%,
+      rgba(196, 181, 253, 0.25) 22%,
+      rgba(124, 58, 237, 0.12) 48%,
+      transparent 75%
+    );
+
+  filter: blur(6px);
+
+  opacity: 0.65;
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+
+/* =========================================================
+   ORB CORE
+   ========================================================= */
+
+.work-corner-orb__core {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 100%;
+  height: 100%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+
+/* =========================================================
+   ORB INNER LIGHT
+   ========================================================= */
+
+.work-corner-orb__core::after {
+  content: '';
+
+  position: absolute;
+
+  left: 24%;
+  top: 18%;
+
+  width: 30%;
+  height: 30%;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  filter: blur(0.3px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   PURPLE ORB
+   ========================================================= */
+
+.work-corner-orb--purple {
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(237, 233, 254, 0.94) 12%,
+      rgba(196, 181, 253, 0.82) 26%,
+      rgba(167, 139, 250, 0.64) 42%,
+      rgba(124, 58, 237, 0.48) 62%,
+      rgba(124, 58, 237, 0.20) 80%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.8),
+    0 0 8px rgba(124, 58, 237, 0.48),
+    0 0 18px rgba(124, 58, 237, 0.22),
+    0 0 30px rgba(124, 58, 237, 0.08);
+}
+
+
+/* =========================================================
+   PURPLE HALO
+   ========================================================= */
+
+.work-corner-orb--purple .work-corner-orb__halo {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.42) 0%,
+      rgba(196, 181, 253, 0.24) 22%,
+      rgba(124, 58, 237, 0.13) 46%,
+      transparent 76%
+    );
+}
+
+
+/* =========================================================
+   BLUE ORB
+   ========================================================= */
+
+.work-corner-orb--blue {
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(224, 242, 254, 0.94) 12%,
+      rgba(186, 230, 253, 0.82) 26%,
+      rgba(96, 165, 250, 0.64) 42%,
+      rgba(59, 130, 246, 0.48) 62%,
+      rgba(37, 99, 235, 0.20) 80%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.8),
+    0 0 8px rgba(96, 165, 250, 0.50),
+    0 0 18px rgba(96, 165, 250, 0.24),
+    0 0 30px rgba(96, 165, 250, 0.08);
+}
+
+
+/* =========================================================
+   BLUE HALO
+   ========================================================= */
+
+.work-corner-orb--blue .work-corner-orb__halo {
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.44) 0%,
+      rgba(191, 219, 254, 0.25) 22%,
+      rgba(96, 165, 250, 0.13) 46%,
+      transparent 76%
+    );
+}
+
+
+/* =========================================================
+   ORB 01
+   ========================================================= */
+
+.work-corner-orb--one {
+  /*
+   * Posicionado próximo à curva inferior.
+   */
+  left: 18%;
+  top: 74%;
+
+  width: 7px;
+  height: 7px;
+
+  animation:
+    work-corner-orb-one-float
+    4s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   ORB 02
+   ========================================================= */
+
+.work-corner-orb--two {
+  /*
+   * Segundo ponto na curva inferior.
+   */
+  left: 34%;
+  top: 87%;
+
+  width: 5px;
+  height: 5px;
+
+  animation:
+    work-corner-orb-two-float
+    4.8s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   ORB 03
+   ========================================================= */
+
+.work-corner-orb--three {
+  /*
+   * Ponto azul próximo à curva superior/direita.
+   */
+  left: 84%;
+  top: 28%;
+
+  width: 7px;
+  height: 7px;
+
+  animation:
+    work-corner-orb-three-float
+    4.4s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   ORB HALOS INDIVIDUAIS
+   ========================================================= */
+
+.work-corner-orb--one .work-corner-orb__halo {
+  width: 28px;
+  height: 28px;
+
+  opacity: 0.62;
+
+  filter: blur(5px);
+}
+
+
+.work-corner-orb--two .work-corner-orb__halo {
+  width: 24px;
+  height: 24px;
+
+  opacity: 0.55;
+
+  filter: blur(5px);
+}
+
+
+.work-corner-orb--three .work-corner-orb__halo {
+  width: 30px;
+  height: 30px;
+
+  opacity: 0.65;
+
+  filter: blur(6px);
 }
 
 
@@ -59,13 +460,13 @@
 
   transform-origin: left center;
 
+  will-change: transform, opacity;
+
   animation:
     work-line-breathe
     5s
     ease-in-out
     infinite;
-
-  will-change: transform, opacity;
 }
 
 
@@ -78,7 +479,7 @@
     linear-gradient(
       90deg,
       #7c3aed 0%,
-      #8b5cf6 40%,
+      #8b5cf6 42%,
       #60a5fa 100%
     );
 
@@ -92,19 +493,81 @@
 
 
 /* =========================================================
-   SCROLL REVEAL ELEMENTS
+   VIEW ALL BUTTON
    ========================================================= */
 
-/*
- * O GSAP controla:
- *
- * opacity
- * transform
- *
- * Não colocamos opacity: 0 aqui porque o GSAP precisa
- * conseguir controlar o estado inicial e o estado reverso
- * corretamente.
- */
+.work-projects-button-area {
+  position: relative;
+
+  z-index: 20;
+}
+
+
+.work-button-glow {
+  position: absolute;
+
+  z-index: 0;
+
+  left: 50%;
+  top: 55%;
+
+  width: 190px;
+  height: 52px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 999px;
+
+  background:
+    radial-gradient(
+      ellipse,
+      rgba(124, 58, 237, 0.17) 0%,
+      rgba(124, 58, 237, 0.08) 38%,
+      transparent 72%
+    );
+
+  filter: blur(18px);
+
+  opacity: 0.7;
+
+  pointer-events: none;
+
+  animation:
+    work-button-glow-float
+    3.8s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   PROJECT BUTTON
+   ========================================================= */
+
+.work-projects-button {
+  position: relative;
+
+  z-index: 20;
+
+  will-change: transform;
+
+  transition:
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 300ms ease,
+    background-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+
+.work-projects-button:hover {
+  box-shadow:
+    0 16px 35px rgba(80, 60, 130, 0.12);
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
 
 .work-header,
 .work-intro,
@@ -114,6 +577,9 @@
 .work-project-meta,
 .work-footer {
   will-change: transform, opacity;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 
@@ -123,15 +589,7 @@
 
 .work-project {
   position: relative;
-}
 
-
-/*
- * Pequena preparação visual para o movimento.
- * Não usamos opacity aqui.
- */
-
-.work-project {
   transform-origin: center center;
 }
 
@@ -145,7 +603,72 @@
 
   transform-origin: center center;
 
+  isolation: isolate;
+
   will-change: transform, opacity;
+}
+
+
+/* =========================================================
+   PROJECT DEPTH GLOW
+   ========================================================= */
+
+.work-project-depth-glow {
+  position: absolute;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  border-radius: 50%;
+
+  filter: blur(55px);
+
+  opacity: 0.65;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   PURPLE DEPTH
+   ========================================================= */
+
+.work-project-depth-glow--purple {
+  width: 65%;
+  height: 65%;
+
+  left: 5%;
+  bottom: -15%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.32) 0%,
+      rgba(139, 92, 246, 0.16) 38%,
+      transparent 72%
+    );
+}
+
+
+/* =========================================================
+   BLUE DEPTH
+   ========================================================= */
+
+.work-project-depth-glow--blue {
+  width: 55%;
+  height: 60%;
+
+  right: -5%;
+  top: 5%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.25) 0%,
+      rgba(96, 165, 250, 0.12) 38%,
+      transparent 72%
+    );
 }
 
 
@@ -157,60 +680,6 @@
   position: relative;
 
   will-change: transform;
-}
-
-
-/* =========================================================
-   PROJECT INFO
-   ========================================================= */
-
-.work-project-info {
-  position: relative;
-
-  will-change: transform, opacity;
-}
-
-
-/* =========================================================
-   PROJECT META
-   ========================================================= */
-
-.work-project-meta {
-  will-change: transform, opacity;
-}
-
-
-/* =========================================================
-   CASE STUDY LINK
-   ========================================================= */
-
-.work-case-link {
-  position: relative;
-
-  will-change: transform;
-
-  transition:
-    color 250ms ease,
-    transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-
-.work-case-link:hover {
-  transform: translateX(3px);
-}
-
-
-/* =========================================================
-   PROJECT BUTTON
-   ========================================================= */
-
-.work-projects-button {
-  will-change: transform;
-
-  transition:
-    transform 300ms cubic-bezier(0.22, 1, 0.36, 1),
-    border-color 300ms ease,
-    background-color 300ms ease;
 }
 
 
@@ -230,7 +699,12 @@
 
 
 .work-project-visual:hover .work-dashboard {
-  transform: translateY(-4px) scale(1.01);
+  transform:
+    translateY(-5px)
+    scale(1.012);
+
+  box-shadow:
+    0 35px 90px rgba(40, 25, 80, 0.32);
 }
 
 
@@ -238,17 +712,61 @@
    TRAVEL MOCKUP
    ========================================================= */
 
-.work-project-visual--travel > div {
+.work-travel-mockup {
   transform-origin: center center;
+
+  will-change: transform;
+
+  transition:
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 600ms ease;
 }
 
 
-.work-project-visual--travel:hover
-  .work-project-image
-  > div:last-child {
+.work-project-visual--travel:hover .work-travel-mockup {
   transform:
     translate(-50%, -50%)
-    scale(1.015);
+    translateY(-5px)
+    scale(1.012);
+
+  box-shadow:
+    0 35px 90px rgba(24, 36, 52, 0.27);
+}
+
+
+/* =========================================================
+   PROJECT INFO
+   ========================================================= */
+
+.work-project-info {
+  position: relative;
+
+  will-change: transform, opacity;
+}
+
+
+.work-project-meta {
+  will-change: transform, opacity;
+}
+
+
+/* =========================================================
+   CASE STUDY
+   ========================================================= */
+
+.work-case-link {
+  position: relative;
+
+  will-change: transform;
+
+  transition:
+    color 250ms ease,
+    transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.work-case-link:hover {
+  transform: translateX(3px);
 }
 
 
@@ -278,16 +796,7 @@
 
 
 /* =========================================================
-   DECORATIVE MOTION
-   ========================================================= */
-
-.work-background-glow {
-  pointer-events: none;
-}
-
-
-/* =========================================================
-   FLOATING BACKGROUND
+   BACKGROUND ANIMATION
    ========================================================= */
 
 @keyframes work-glow-float {
@@ -325,18 +834,98 @@
 
 
 /* =========================================================
-   SCROLL PERFORMANCE
+   BUTTON GLOW
    ========================================================= */
 
-.work-header,
-.work-intro,
-.work-project,
-.work-project-visual,
-.work-project-info,
-.work-project-meta,
-.work-footer {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+@keyframes work-button-glow-float {
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+
+    opacity: 0.6;
+  }
+
+  50% {
+    transform:
+      translate(-50%, -54%)
+      scale(1.08);
+
+    opacity: 0.85;
+  }
+}
+
+
+/* =========================================================
+   CORNER ORB 01
+   ========================================================= */
+
+@keyframes work-corner-orb-one-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+
+    opacity: 0.82;
+  }
+
+  50% {
+    transform:
+      translate3d(4px, -5px, 0)
+      scale(1.18);
+
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   CORNER ORB 02
+   ========================================================= */
+
+@keyframes work-corner-orb-two-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+
+    opacity: 0.72;
+  }
+
+  50% {
+    transform:
+      translate3d(-4px, -6px, 0)
+      scale(1.20);
+
+    opacity: 1;
+  }
+}
+
+
+/* =========================================================
+   CORNER ORB 03
+   ========================================================= */
+
+@keyframes work-corner-orb-three-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+
+    opacity: 0.82;
+  }
+
+  50% {
+    transform:
+      translate3d(5px, -7px, 0)
+      scale(1.16);
+
+    opacity: 1;
+  }
 }
 
 
@@ -346,7 +935,9 @@
 
 @media (prefers-reduced-motion: reduce) {
   .work-background-glow,
-  .work-header-line {
+  .work-header-line,
+  .work-corner-orb,
+  .work-button-glow {
     animation: none;
   }
 
@@ -358,11 +949,18 @@
   .work-project-meta,
   .work-footer {
     will-change: auto;
+
     transform: none !important;
+
     opacity: 1 !important;
   }
 
+  .work-corner-orbits {
+    animation: none !important;
+  }
+
   .work-dashboard,
+  .work-travel-mockup,
   .work-case-link,
   .work-projects-button {
     transition: none;
@@ -380,12 +978,30 @@
     padding-bottom: 5rem;
   }
 
+
   .work-project {
     gap: 2rem;
   }
 
+
   .work-background-glow {
     filter: blur(30px);
+  }
+
+
+  /* -----------------------------------------
+     CORNER ORBITS
+     ----------------------------------------- */
+
+  .work-corner-orbits {
+    width: 390px;
+    height: 150px;
+
+    right: -25px !important;
+    top: 150px !important;
+
+    transform: scale(0.88);
+    transform-origin: top right;
   }
 }
 
@@ -400,6 +1016,7 @@
     padding-bottom: 4.5rem;
   }
 
+
   .work-background-glow {
     width: 300px !important;
     height: 300px !important;
@@ -407,12 +1024,49 @@
     filter: blur(25px);
   }
 
+
+  /* -----------------------------------------
+     CORNER ORBITS
+     ----------------------------------------- */
+
+  .work-corner-orbits {
+    width: 320px;
+    height: 125px;
+
+    right: -55px !important;
+    top: 185px !important;
+
+    transform: scale(0.72);
+    transform-origin: top right;
+  }
+
+
+  /* -----------------------------------------
+     BUTTON
+     ----------------------------------------- */
+
+  .work-projects-button {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+
+  /* -----------------------------------------
+     PROJECTS
+     ----------------------------------------- */
+
   .work-project-visual {
     border-radius: 18px;
   }
 
+
   .work-dashboard {
     border-radius: 12px;
+  }
+
+
+  .work-travel-mockup {
+    width: 88%;
   }
 }
 
@@ -422,9 +1076,22 @@
    ========================================================= */
 
 @media (max-width: 420px) {
+  .work-corner-orbits {
+    width: 285px;
+    height: 112px;
+
+    right: -55px !important;
+    top: 180px !important;
+
+    transform: scale(0.68);
+    transform-origin: top right;
+  }
+
+
   .work-project-visual {
     border-radius: 16px;
   }
+
 
   .work-dashboard {
     border-radius: 10px;

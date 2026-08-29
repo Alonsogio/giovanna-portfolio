@@ -1,7 +1,7 @@
 <section
   #heroSection
   id="home"
-  class="hero-section relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-[#F7F6F9]"
+  class="hero-section relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-[#F9F8FC]"
 >
   <!-- ========================================================= -->
   <!-- HERO ATMOSPHERE — BLENDS INTO SECTION WAVE -->
@@ -13,12 +13,12 @@
   ></div>
 
   <div
-    class="hero-section-purple-light pointer-events-none absolute -bottom-24 left-[8%] z-0 h-[300px] w-[300px]"
+    class="hero-section-purple-light pointer-events-none absolute -bottom-10 left-[12%] z-0 h-[230px] w-[230px]"
     aria-hidden="true"
   ></div>
 
   <div
-    class="hero-section-blue-light pointer-events-none absolute -bottom-28 right-[8%] z-0 h-[320px] w-[320px]"
+    class="hero-section-blue-light pointer-events-none absolute -bottom-12 right-[12%] z-0 h-[240px] w-[240px]"
     aria-hidden="true"
   ></div>
 
@@ -29,42 +29,61 @@
   <div
     class="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:px-8"
   >
-    <!-- ========================================================= -->
+    <!-- ======================================================= -->
     <!-- TEXT -->
-    <!-- ========================================================= -->
+    <!-- ======================================================= -->
 
     <div #heroContent class="relative z-30 max-w-2xl">
+      <!-- ===================================================== -->
       <!-- EYEBROW -->
+      <!-- ===================================================== -->
 
-      <p class="mb-5 font-mono text-sm font-medium uppercase tracking-[0.18em] text-[#7C3AED]">
+      <p
+        class="hero-eyebrow mb-5 font-mono text-sm font-medium uppercase tracking-[0.18em] text-[#7C3AED]"
+      >
         Full Stack Developer
       </p>
 
+      <!-- ===================================================== -->
       <!-- TITLE -->
+      <!-- ===================================================== -->
 
       <h1
-        class="text-5xl font-semibold leading-[1.05] tracking-[-0.045em] text-[#17131C] sm:text-6xl lg:text-7xl"
+        #heroTitle
+        class="hero-title text-5xl font-semibold leading-[1.05] tracking-[-0.045em] text-[#17131C] sm:text-6xl lg:text-7xl"
       >
-        I build digital
-        <span class="text-[#7C3AED]"> experiences</span>
-        <br />
-        with code & design.
+        <span class="hero-title-line"> I build digital </span>
+
+        <span class="hero-title-line">
+          <span class="text-[#7C3AED]">experiences</span>
+        </span>
+
+        <span class="hero-title-line"> with code &amp; design. </span>
       </h1>
 
+      <!-- ===================================================== -->
       <!-- DESCRIPTION -->
+      <!-- ===================================================== -->
 
-      <p class="mt-7 max-w-xl text-base leading-7 text-[#706A78] sm:text-lg">
-        I'm Giovanna, a Full Stack Developer focused on<br />
-        front-end development, UI/UX and creating thoughtful<br />
+      <p
+        #heroDescription
+        class="hero-description mt-7 max-w-xl text-base leading-7 text-[#706A78] sm:text-lg"
+      >
+        I'm Giovanna, a Full Stack Developer focused on
+        <br class="hidden sm:block" />
+        front-end development, UI/UX and creating thoughtful
+        <br class="hidden sm:block" />
         digital experiences.
       </p>
 
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
       <!-- ACTIONS -->
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
 
-      <div class="mt-9 flex flex-wrap items-center gap-5">
+      <div #heroActions class="mt-9 flex flex-wrap items-center gap-5">
+        <!-- =================================================== -->
         <!-- VIEW MY WORK -->
+        <!-- =================================================== -->
 
         <div class="group relative w-fit">
           <!-- TOP LEFT CORNER -->
@@ -94,11 +113,13 @@
           </a>
         </div>
 
+        <!-- =================================================== -->
         <!-- CONTACT -->
+        <!-- =================================================== -->
 
         <a
           href="#contact"
-          class="flex items-center gap-3 border border-[#E7E2EC] bg-white px-7 py-3.5 text-sm font-medium tracking-wide text-[#17131C] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#7C3AED] hover:text-[#7C3AED]"
+          class="hero-contact-button flex items-center gap-3 border border-[#E7E2EC] bg-white px-7 py-3.5 text-sm font-medium tracking-wide text-[#17131C] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#7C3AED] hover:text-[#7C3AED]"
         >
           Contact me
         </a>
@@ -109,22 +130,25 @@
     <!-- VISUAL -->
     <!-- ========================================================= -->
 
-    <div #heroVisual class="relative z-10 flex h-[560px] w-full items-center justify-center">
-      <!-- ========================================================= -->
+    <div
+      #heroVisual
+      class="hero-visual relative z-10 flex h-[560px] w-full items-center justify-center"
+    >
+      <!-- ===================================================== -->
       <!-- MAIN ATMOSPHERE -->
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
 
       <div
-        class="hero-main-glow pointer-events-none absolute left-1/2 top-1/2 z-0 h-[520px] w-[520px]"
+        class="hero-main-glow hero-parallax-deep pointer-events-none absolute left-1/2 top-1/2 z-0 h-[520px] w-[520px]"
         aria-hidden="true"
       ></div>
 
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
       <!-- CENTRAL SPHERE -->
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
 
       <div
-        class="hero-sphere pointer-events-none absolute left-1/2 top-1/2 z-[5] h-[430px] w-[430px]"
+        class="hero-sphere hero-parallax-main pointer-events-none absolute left-1/2 top-1/2 z-[5] h-[430px] w-[430px]"
         aria-hidden="true"
       >
         <!-- MAIN ORB -->
@@ -143,7 +167,9 @@
 
         <div class="hero-inner-glow absolute inset-[45px]"></div>
 
+        <!-- ================================================= -->
         <!-- ORBIT DOTS -->
+        <!-- ================================================= -->
 
         <span class="hero-orbit-dot hero-orbit-dot-1 absolute left-[8%] top-[25%]"></span>
 
@@ -154,86 +180,88 @@
         <span class="hero-orbit-dot hero-orbit-dot-4 absolute bottom-[21%] right-[15%]"></span>
       </div>
 
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
       <!-- ORBIT RINGS -->
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
 
       <div
-        class="hero-sketch-orbit hero-sketch-orbit-1 pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[465px] w-[465px]"
+        class="hero-sketch-orbit hero-sketch-orbit-1 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[465px] w-[465px]"
         aria-hidden="true"
       ></div>
 
       <div
-        class="hero-sketch-orbit hero-sketch-orbit-2 pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[535px] w-[535px]"
+        class="hero-sketch-orbit hero-sketch-orbit-2 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[535px] w-[535px]"
         aria-hidden="true"
       ></div>
 
       <div
-        class="hero-sketch-orbit hero-sketch-orbit-3 pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[500px] w-[500px]"
+        class="hero-sketch-orbit hero-sketch-orbit-3 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[500px] w-[500px]"
         aria-hidden="true"
       ></div>
 
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
       <!-- WHITE LIGHT ORBS -->
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
 
       <span
-        class="hero-light-orb hero-light-orb-1 pointer-events-none absolute left-[20%] top-[48%] z-[12]"
+        class="hero-light-orb hero-light-orb-1 hero-parallax-orb pointer-events-none absolute left-[20%] top-[48%] z-[12]"
         aria-hidden="true"
       ></span>
 
       <span
-        class="hero-light-orb hero-light-orb-2 pointer-events-none absolute right-[15%] top-[52%] z-[12]"
+        class="hero-light-orb hero-light-orb-2 hero-parallax-orb pointer-events-none absolute right-[15%] top-[52%] z-[12]"
         aria-hidden="true"
       ></span>
 
       <span
-        class="hero-light-orb hero-light-orb-3 pointer-events-none absolute bottom-[58%] left-[11%] z-[12]"
+        class="hero-light-orb hero-light-orb-3 hero-parallax-orb pointer-events-none absolute bottom-[58%] left-[11%] z-[12]"
         aria-hidden="true"
       ></span>
 
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
       <!-- PURPLE PARTICLES -->
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
 
       <span
-        class="hero-particle hero-particle-purple hero-particle-1 pointer-events-none absolute left-[15%] top-[9%] z-[15]"
+        class="hero-particle hero-particle-purple hero-particle-1 hero-parallax-particle pointer-events-none absolute left-[15%] top-[9%] z-[15]"
         aria-hidden="true"
       ></span>
 
       <span
-        class="hero-particle hero-particle-purple hero-particle-3 pointer-events-none absolute bottom-[15%] left-[5%] z-[15]"
+        class="hero-particle hero-particle-purple hero-particle-3 hero-parallax-particle pointer-events-none absolute bottom-[15%] left-[5%] z-[15]"
         aria-hidden="true"
       ></span>
 
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
       <!-- BLUE PARTICLES -->
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
 
       <span
-        class="hero-particle hero-particle-blue hero-particle-2 pointer-events-none absolute right-[15%] top-[20%] z-[15]"
+        class="hero-particle hero-particle-blue hero-particle-2 hero-parallax-particle pointer-events-none absolute right-[15%] top-[20%] z-[15]"
         aria-hidden="true"
       ></span>
 
       <span
-        class="hero-particle hero-particle-blue hero-particle-4 pointer-events-none absolute bottom-[41%] right-[9%] z-[15]"
+        class="hero-particle hero-particle-blue hero-particle-4 hero-parallax-particle pointer-events-none absolute bottom-[41%] right-[9%] z-[15]"
         aria-hidden="true"
       ></span>
 
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
       <!-- MICRO PARTICLE -->
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
 
       <span
-        class="hero-micro-particle pointer-events-none absolute left-[43%] top-[8%] z-[15]"
+        class="hero-micro-particle hero-parallax-particle pointer-events-none absolute left-[43%] top-[8%] z-[15]"
         aria-hidden="true"
       ></span>
 
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
       <!-- GIF -->
-      <!-- ========================================================= -->
+      <!-- ===================================================== -->
 
-      <div class="hero-image-wrapper relative z-[30] flex items-center justify-center">
+      <div
+        class="hero-image-wrapper hero-parallax-image relative z-[30] flex items-center justify-center"
+      >
         <img
           src="/images/hero/giovanna.gif"
           alt="Giovanna"

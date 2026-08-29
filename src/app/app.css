@@ -1,193 +1,222 @@
-/* =========================================================
-   SECTION WAVE
-   ========================================================= */
-
 .section-wave {
   position: relative;
 
-  z-index: 20;
-
   width: 100%;
-  height: 180px;
+  height: 105px;
 
   margin-top: -1px;
-  margin-bottom: -1px;
 
   overflow: hidden;
-
   pointer-events: none;
 
-  line-height: 0;
-
-  background: #f7f6f9;
+  background: #f9f8fc !important;
+  isolation: isolate;
 }
 
 
-/* =========================================================
-   SVG
-   ========================================================= */
+.section-wave--hero-about {
+  height: 150px;
+}
+
+
+.section-wave--about-work {
+  height: 115px;
+}
+
 
 .section-wave__svg {
   position: absolute;
-
-  inset: 0;
-
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  overflow: visible;
+    left: -2%;
+    top: -10%;
+    width: 104%;
+    height: 170%;
+    display: block;
+    overflow: visible;
+    transform: translate3d(0, 0, 0);
+    background-color: #f9f8fc !important;
 }
 
 
 /* =========================================================
-   BACK WAVE
+   BACK
    ========================================================= */
 
 .section-wave__back {
-  /*
-   * IMPORTANTE:
-   * Não definimos fill aqui.
-   *
-   * O fill vem diretamente do SVG:
-   * fill="url(#sectionWaveGradient)"
-   */
+  transform-origin: center center;
+  transform-box: fill-box;
 
-  opacity: 1;
+  opacity: 0.95;
 
-  filter: url(#sectionWaveGlow);
-
-  transform-origin: center;
+  animation:
+    wave-back-float
+    9s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
 }
 
 
 /* =========================================================
-   MAIN WAVE
+   MIDDLE
+   ========================================================= */
+
+.section-wave__middle {
+  transform-origin: center center;
+  transform-box: fill-box;
+
+  opacity: 0.95;
+
+  animation:
+    wave-middle-float
+    11s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    infinite;
+
+  animation-delay: -3s;
+}
+
+
+/* =========================================================
+   FRONT
    ========================================================= */
 
 .section-wave__main {
-  /*
-   * A cor principal vem diretamente do SVG:
-   *
-   * fill="#F7F6F9"
-   */
-
-  opacity: 1;
-}
-
-
-/* =========================================================
-   EDGE
-   ========================================================= */
-
-.section-wave__edge {
-  fill: none;
-
-  stroke: #7C3AED;
-
-  stroke-width: 1;
-
-  stroke-opacity: 0.12;
-
-  opacity: 1;
-}
-
-
-/* =========================================================
-   VERY SUBTLE ATMOSPHERE
-   ========================================================= */
-
-.section-wave::before {
-  content: '';
-
-  position: absolute;
-
-  left: -10%;
-  top: 15%;
-
-  width: 120%;
-  height: 55%;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse at center,
-      rgba(124, 58, 237, 0.035) 0%,
-      rgba(124, 58, 237, 0.018) 35%,
-      rgba(96, 165, 250, 0.012) 52%,
-      transparent 72%
-    );
-
-  filter: blur(18px);
+  transform-origin: center center;
+  transform-box: fill-box;
 
   animation:
-    section-wave-atmosphere
-    18s
-    ease-in-out
+    wave-front-float
+    10s
+    cubic-bezier(0.45, 0, 0.55, 1)
     infinite;
 
-  transform-origin: center;
+  animation-delay: -1.5s;
 }
 
 
 /* =========================================================
-   ATMOSPHERE MOVEMENT
+   BACK ANIMATION
    ========================================================= */
 
-@keyframes section-wave-atmosphere {
+@keyframes wave-back-float {
 
   0%,
   100% {
     transform:
-      translateX(-1.5%)
-      scaleY(0.96);
+      translate3d(-8px, 0, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(2px, -2px, 0)
+      scaleY(1.015);
   }
 
   50% {
     transform:
-      translateX(1.5%)
-      scaleY(1.04);
+      translate3d(10px, 2px, 0)
+      scaleY(0.985);
+  }
+
+  75% {
+    transform:
+      translate3d(1px, -1px, 0)
+      scaleY(1.01);
   }
 }
 
 
 /* =========================================================
-   SVG WAVE ANIMATION
+   MIDDLE ANIMATION — OPOSTA
    ========================================================= */
 
-/*
- * A animação principal da onda acontece diretamente
- * através do <animate attributeName="d"> do SVG.
- *
- * Não precisamos de @keyframes para alterar o formato.
- */
+@keyframes wave-middle-float {
+
+  0%,
+  100% {
+    transform:
+      translate3d(9px, 1px, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(-2px, -3px, 0)
+      scaleY(0.985);
+  }
+
+  50% {
+    transform:
+      translate3d(-10px, 2px, 0)
+      scaleY(1.02);
+  }
+
+  75% {
+    transform:
+      translate3d(-1px, -1px, 0)
+      scaleY(0.99);
+  }
+}
 
 
 /* =========================================================
-   ACCESSIBILITY
+   FRONT ANIMATION
+   ========================================================= */
+
+@keyframes wave-front-float {
+
+  0%,
+  100% {
+    transform:
+      translate3d(5px, 0, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(-3px, 2px, 0)
+      scaleY(1.012);
+  }
+
+  50% {
+    transform:
+      translate3d(-8px, -2px, 0)
+      scaleY(0.988);
+  }
+
+  75% {
+    transform:
+      translate3d(2px, 1px, 0)
+      scaleY(1.008);
+  }
+}
+
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+
+html.dark .section-wave__back {
+  opacity: 0.88;
+}
+
+html.dark .section-wave__middle {
+  opacity: 0.90;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
    ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-  .section-wave::before {
-    animation: none;
+  .section-wave__back,
+  .section-wave__middle,
+  .section-wave__main {
+    animation: none !important;
+    transform: none !important;
   }
-
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 1024px) {
-
-  .section-wave {
-    height: 150px;
-  }
-
 }
 
 
@@ -198,7 +227,20 @@
 @media (max-width: 640px) {
 
   .section-wave {
-    height: 115px;
+    height: 82px;
   }
 
+  .section-wave--hero-about {
+    height: 96px;
+  }
+
+  .section-wave--about-work {
+    height: 74px;
+  }
+
+  .section-wave__svg {
+    left: -6%;
+    width: 112%;
+    height: 122%;
+  }
 }

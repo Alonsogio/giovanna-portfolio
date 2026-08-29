@@ -10,12 +10,17 @@ import {
 
 import { CommonModule } from '@angular/common';
 
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 import {
   revealGroup,
   revealOnScroll,
   subtleParallax,
   cleanupScrollAnimations,
 } from '../../core/animations/scroll.animations';
+
+gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-about',
@@ -26,16 +31,16 @@ import {
   styleUrl: './about.css',
 })
 export class About implements AfterViewInit, OnDestroy {
-  // ==================================================
+  // =========================================================
   // ELEMENT
-  // ==================================================
+  // =========================================================
 
-  @ViewChild('aboutSection')
+  @ViewChild('aboutSection', { static: true })
   aboutSection!: ElementRef<HTMLElement>;
 
-  // ==================================================
+  // =========================================================
   // STATS
-  // ==================================================
+  // =========================================================
 
   stats = [
     {
@@ -55,130 +60,300 @@ export class About implements AfterViewInit, OnDestroy {
     },
   ];
 
-  // ==================================================
+  // =========================================================
   // ANIMATED STATS
-  // ==================================================
+  // =========================================================
 
   animatedStats: number[] = [0, 0, 0];
 
-  // ==================================================
-  // INTERSECTION OBSERVER
-  // ==================================================
-
-  private observer?: IntersectionObserver;
-
-  // ==================================================
-  // COUNTER ANIMATION
-  // ==================================================
+  // =========================================================
+  // COUNTER
+  // =========================================================
 
   private animationFrame?: number;
 
   private hasAnimated = false;
 
-  // ==================================================
+  // =========================================================
   // GSAP ANIMATIONS
-  // ==================================================
+  // =========================================================
 
-  private gsapAnimations: any[] = [];
+  private gsapAnimations: gsap.core.Animation[] = [];
 
-  // ==================================================
+  private scrollTriggers: ScrollTrigger[] = [];
+
+  // =========================================================
   // CONSTRUCTOR
-  // ==================================================
+  // =========================================================
 
   constructor(private cdr: ChangeDetectorRef) {}
 
-  // ==================================================
+  // =========================================================
   // INIT
-  // ==================================================
+  // =========================================================
 
   ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.createObserver();
+    requestAnimationFrame(() => {
       this.createScrollAnimations();
+      this.createStatsTrigger();
+
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
     });
   }
 
-  // ==================================================
+  // =========================================================
   // GSAP — SCROLL ANIMATIONS
-  // ==================================================
+  // =========================================================
 
   private createScrollAnimations(): void {
-    if (!this.aboutSection?.nativeElement) {
-      return;
-    }
-
     const section = this.aboutSection.nativeElement;
 
-    // ==================================================
+    // =======================================================
     // HEADER
-    // ==================================================
+    // =======================================================
 
     const header = section.querySelector('header');
 
-    if (header) {
+    if (header instanceof HTMLElement) {
       this.gsapAnimations.push(
-        revealOnScroll(header as HTMLElement, {
-          y: 40,
-          duration: 1,
-          start: 'top 90%',
+        revealOnScroll(header, {
+          y: 35,
+          duration: 0.75,
+          start: 'top 88%',
         }),
       );
     }
 
-    // ==================================================
+    // =======================================================
+    // TITLE
+    // =======================================================
+
+    const title = section.querySelector('.about-title');
+
+    if (title instanceof HTMLElement) {
+      gsap.set(title, {
+        opacity: 0,
+        y: 24,
+      });
+
+      const titleAnimation = gsap.to(title, {
+        opacity: 1,
+        y: 0,
+        duration: 0.7,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: title,
+          start: 'top 88%',
+          end: 'top 65%',
+          scrub: 0.7,
+        },
+      });
+
+      this.gsapAnimations.push(titleAnimation);
+    }
+
+    // =======================================================
     // LEFT CONTENT
-    // ==================================================
+    // =======================================================
 
     const leftContent = section.querySelector('.about-left-content');
 
-    if (leftContent) {
+    if (leftContent instanceof HTMLElement) {
       this.gsapAnimations.push(
-        revealOnScroll(leftContent as HTMLElement, {
-          y: 35,
-          duration: 1,
-          start: 'top 85%',
+        revealOnScroll(leftContent, {
+          y: 30,
+          duration: 0.8,
+          start: 'top 86%',
         }),
       );
     }
 
-    // ==================================================
+    // =======================================================
     // RIGHT CONTENT
-    // ==================================================
+    // =======================================================
 
     const rightContent = section.querySelector('.about-right-content');
 
-    if (rightContent) {
+    if (rightContent instanceof HTMLElement) {
       this.gsapAnimations.push(
-        revealOnScroll(rightContent as HTMLElement, {
-          y: 35,
-          duration: 1,
-          delay: 0.1,
-          start: 'top 85%',
+        revealOnScroll(rightContent, {
+          y: 30,
+          duration: 0.8,
+          delay: 0.08,
+          start: 'top 86%',
         }),
       );
     }
 
-    // ==================================================
+    // =======================================================
+    // BODY TEXT
+    // =======================================================
+
+    const bodyText = Array.from(section.querySelectorAll('.about-body-text')).filter(
+      (element): element is HTMLElement => element instanceof HTMLElement,
+    );
+
+    if (bodyText.length) {
+      this.gsapAnimations.push(
+        revealGroup(bodyText, {
+          y: 20,
+          duration: 0.65,
+          stagger: 0.08,
+          start: 'top 88%',
+        }),
+      );
+    }
+
+    // =======================================================
     // 3D OBJECT
-    // ==================================================
+    // =======================================================
 
     const spline = section.querySelector('.about-spline');
 
-    if (spline) {
+    if (spline instanceof HTMLElement) {
+      // -------------------------------------------------------
+      // REVEAL
+      // -------------------------------------------------------
+
       this.gsapAnimations.push(
-        revealOnScroll(spline as HTMLElement, {
-          y: 30,
-          duration: 1.2,
+        revealOnScroll(spline, {
+          y: 35,
+          duration: 1,
           start: 'top 90%',
         }),
       );
 
-      // ==================================================
-      // 3D PARALLAX
-      // ==================================================
+      // -------------------------------------------------------
+      // PARALLAX
+      // -------------------------------------------------------
 
       this.gsapAnimations.push(
-        subtleParallax(spline as HTMLElement, {
+        subtleParallax(spline, {
+          y: -28,
+          start: 'top bottom',
+          end: 'bottom top',
+        }),
+      );
+    }
+
+    // =======================================================
+    // ORB GLOW PARALLAX
+    // =======================================================
+
+    const orbGlow = section.querySelector('.about-orb-glow');
+
+    if (orbGlow instanceof HTMLElement) {
+      this.gsapAnimations.push(
+        subtleParallax(orbGlow, {
+          y: -45,
+          start: 'top bottom',
+          end: 'bottom top',
+        }),
+      );
+    }
+
+    // =======================================================
+    // BACKGROUND PURPLE GLOW
+    // =======================================================
+
+    const purpleGlow = section.querySelector('.about-purple-glow');
+
+    if (purpleGlow instanceof HTMLElement) {
+      this.gsapAnimations.push(
+        subtleParallax(purpleGlow, {
+          y: -55,
+          start: 'top bottom',
+          end: 'bottom top',
+        }),
+      );
+    }
+
+    // =======================================================
+    // BACKGROUND BLUE GLOW
+    // =======================================================
+
+    const blueGlow = section.querySelector('.about-blue-glow');
+
+    if (blueGlow instanceof HTMLElement) {
+      this.gsapAnimations.push(
+        subtleParallax(blueGlow, {
+          y: -35,
+          start: 'top bottom',
+          end: 'bottom top',
+        }),
+      );
+    }
+
+    // =======================================================
+    // ORBIT DOTS
+    // =======================================================
+
+    const orbitDots = Array.from(section.querySelectorAll('.about-orbit-dot')).filter(
+      (element): element is HTMLElement => element instanceof HTMLElement,
+    );
+
+    orbitDots.forEach((dot, index) => {
+      const animation = gsap.to(dot, {
+        y: index % 2 === 0 ? -16 : 12,
+        x: index % 2 === 0 ? 8 : -8,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1.5,
+        },
+      });
+
+      this.gsapAnimations.push(animation);
+    });
+
+    // =======================================================
+    // STATS REVEAL
+    // =======================================================
+
+    const stats = Array.from(section.querySelectorAll('.about-stat')).filter(
+      (element): element is HTMLElement => element instanceof HTMLElement,
+    );
+
+    if (stats.length) {
+      this.gsapAnimations.push(
+        revealGroup(stats, {
+          y: 22,
+          duration: 0.7,
+          stagger: 0.1,
+          start: 'top 90%',
+        }),
+      );
+    }
+
+    // =======================================================
+    // BOTTOM META
+    // =======================================================
+
+    const bottomMeta = section.querySelector('.about-bottom-meta');
+
+    if (bottomMeta instanceof HTMLElement) {
+      this.gsapAnimations.push(
+        revealOnScroll(bottomMeta, {
+          y: 18,
+          duration: 0.7,
+          start: 'top 94%',
+        }),
+      );
+    }
+
+    // =======================================================
+    // SECTION ATMOSPHERE PARALLAX
+    // =======================================================
+
+    const atmosphere = section.querySelector('.about-section-atmosphere');
+
+    if (atmosphere instanceof HTMLElement) {
+      this.gsapAnimations.push(
+        subtleParallax(atmosphere, {
           y: -25,
           start: 'top bottom',
           end: 'bottom top',
@@ -186,84 +361,50 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // ==================================================
-    // STATS
-    // ==================================================
+    // =======================================================
+    // FINAL REFRESH
+    // =======================================================
 
-    const stats = Array.from(section.querySelectorAll('.about-stat')) as HTMLElement[];
-
-    if (stats.length) {
-      this.gsapAnimations.push(
-        revealGroup(stats, {
-          y: 25,
-          duration: 0.8,
-          stagger: 0.12,
-          start: 'top 90%',
-        }),
-      );
-    }
-
-    // ==================================================
-    // BOTTOM META
-    // ==================================================
-
-    const bottomMeta = section.querySelector('.about-bottom-meta');
-
-    if (bottomMeta) {
-      this.gsapAnimations.push(
-        revealOnScroll(bottomMeta as HTMLElement, {
-          y: 20,
-          duration: 0.8,
-          start: 'top 95%',
-        }),
-      );
-    }
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
   }
 
-  // ==================================================
-  // INTERSECTION OBSERVER
-  // ==================================================
+  // =========================================================
+  // STATS — SCROLL TRIGGER
+  // =========================================================
 
-  private createObserver(): void {
-    if (!this.aboutSection?.nativeElement) {
-      return;
-    }
+  private createStatsTrigger(): void {
+    const section = this.aboutSection.nativeElement;
 
-    this.observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0];
+    const trigger = ScrollTrigger.create({
+      trigger: section,
 
-        if (!entry) {
+      /*
+       * Dispara quando o topo do About
+       * entra aproximadamente 80% dentro da viewport.
+       */
+      start: 'top 80%',
+
+      once: true,
+
+      onEnter: () => {
+        if (this.hasAnimated) {
           return;
         }
 
-        // ==================================================
-        // START COUNTER
-        // ==================================================
+        this.hasAnimated = true;
 
-        if (entry.isIntersecting && !this.hasAnimated) {
-          this.hasAnimated = true;
-
-          this.animateStats();
-
-          this.observer?.disconnect();
-        }
+        this.animateStats();
       },
-      {
-        /*
-         * Começa quando aproximadamente 15% da
-         * seção entra na viewport.
-         */
-        threshold: 0.15,
-      },
-    );
+    });
 
-    this.observer.observe(this.aboutSection.nativeElement);
+    this.scrollTriggers.push(trigger);
   }
 
-  // ==================================================
+  // =========================================================
   // ANIMATE STATS
-  // ==================================================
+  // =========================================================
 
   private animateStats(): void {
     const duration = 1400;
@@ -275,31 +416,27 @@ export class About implements AfterViewInit, OnDestroy {
 
       const progress = Math.min(elapsed / duration, 1);
 
-      // ==================================================
+      // =====================================================
       // EASE OUT CUBIC
-      // ==================================================
+      // =====================================================
 
       const easedProgress = 1 - Math.pow(1 - progress, 3);
 
-      // ==================================================
+      // =====================================================
       // UPDATE VALUES
-      // ==================================================
+      // =====================================================
 
       this.animatedStats = this.stats.map((stat) => Math.floor(stat.value * easedProgress));
 
       this.cdr.detectChanges();
 
-      // ==================================================
+      // =====================================================
       // CONTINUE
-      // ==================================================
+      // =====================================================
 
       if (progress < 1) {
         this.animationFrame = requestAnimationFrame(animate);
       } else {
-        // ==================================================
-        // FINAL VALUES
-        // ==================================================
-
         this.animatedStats = this.stats.map((stat) => stat.value);
 
         this.cdr.detectChanges();
@@ -311,20 +448,14 @@ export class About implements AfterViewInit, OnDestroy {
     this.animationFrame = requestAnimationFrame(animate);
   }
 
-  // ==================================================
+  // =========================================================
   // DESTROY
-  // ==================================================
+  // =========================================================
 
   ngOnDestroy(): void {
-    // ==================================================
-    // INTERSECTION OBSERVER
-    // ==================================================
-
-    this.observer?.disconnect();
-
-    // ==================================================
+    // =======================================================
     // COUNTER
-    // ==================================================
+    // =======================================================
 
     if (this.animationFrame) {
       cancelAnimationFrame(this.animationFrame);
@@ -332,9 +463,29 @@ export class About implements AfterViewInit, OnDestroy {
       this.animationFrame = undefined;
     }
 
-    // ==================================================
-    // GSAP SCROLL ANIMATIONS
-    // ==================================================
+    // =======================================================
+    // GSAP ANIMATIONS
+    // =======================================================
+
+    this.gsapAnimations.forEach((animation) => {
+      animation.kill();
+    });
+
+    this.gsapAnimations = [];
+
+    // =======================================================
+    // SCROLL TRIGGERS
+    // =======================================================
+
+    this.scrollTriggers.forEach((trigger) => {
+      trigger.kill();
+    });
+
+    this.scrollTriggers = [];
+
+    // =======================================================
+    // CLEANUP
+    // =======================================================
 
     if (this.aboutSection?.nativeElement) {
       cleanupScrollAnimations(this.aboutSection.nativeElement);
