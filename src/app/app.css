@@ -1,39 +1,50 @@
+/* =========================================================
+   SECTION WAVES
+   ========================================================= */
+
 .section-wave {
   position: relative;
-
   width: 100%;
   height: 105px;
-
   margin-top: -1px;
-
   overflow: hidden;
   pointer-events: none;
-
   background: #f9f8fc !important;
   isolation: isolate;
 }
 
 
+/* =========================================================
+   SECTION VARIANTS
+   ========================================================= */
+
 .section-wave--hero-about {
   height: 150px;
 }
-
 
 .section-wave--about-work {
   height: 115px;
 }
 
 
+/* =========================================================
+   SVG
+   ========================================================= */
+
 .section-wave__svg {
   position: absolute;
-    left: -2%;
-    top: -10%;
-    width: 104%;
-    height: 170%;
-    display: block;
-    overflow: visible;
-    transform: translate3d(0, 0, 0);
-    background-color: #f9f8fc !important;
+  left: -2%;
+  top: -10%;
+
+  width: 104%;
+  height: 170%;
+
+  display: block;
+  overflow: visible;
+
+  transform: translate3d(0, 0, 0);
+
+  background-color: #f9f8fc !important;
 }
 
 
@@ -49,9 +60,11 @@
 
   animation:
     wave-back-float
-    9s
+    6.5s
     cubic-bezier(0.45, 0, 0.55, 1)
     infinite;
+
+  will-change: transform;
 }
 
 
@@ -67,11 +80,13 @@
 
   animation:
     wave-middle-float
-    11s
+    7.5s
     cubic-bezier(0.45, 0, 0.55, 1)
     infinite;
 
-  animation-delay: -3s;
+  animation-delay: -2.5s;
+
+  will-change: transform;
 }
 
 
@@ -85,11 +100,13 @@
 
   animation:
     wave-front-float
-    10s
+    7s
     cubic-bezier(0.45, 0, 0.55, 1)
     infinite;
 
   animation-delay: -1.5s;
+
+  will-change: transform;
 }
 
 
@@ -102,26 +119,26 @@
   0%,
   100% {
     transform:
-      translate3d(-8px, 0, 0)
+      translate3d(-18px, 0, 0)
       scaleY(1);
   }
 
   25% {
     transform:
-      translate3d(2px, -2px, 0)
-      scaleY(1.015);
+      translate3d(5px, -5px, 0)
+      scaleY(1.035);
   }
 
   50% {
     transform:
-      translate3d(10px, 2px, 0)
-      scaleY(0.985);
+      translate3d(22px, 3px, 0)
+      scaleY(0.965);
   }
 
   75% {
     transform:
-      translate3d(1px, -1px, 0)
-      scaleY(1.01);
+      translate3d(4px, -4px, 0)
+      scaleY(1.025);
   }
 }
 
@@ -135,26 +152,26 @@
   0%,
   100% {
     transform:
-      translate3d(9px, 1px, 0)
+      translate3d(18px, 1px, 0)
       scaleY(1);
   }
 
   25% {
     transform:
-      translate3d(-2px, -3px, 0)
-      scaleY(0.985);
+      translate3d(-5px, -5px, 0)
+      scaleY(0.965);
   }
 
   50% {
     transform:
-      translate3d(-10px, 2px, 0)
-      scaleY(1.02);
+      translate3d(-22px, 3px, 0)
+      scaleY(1.035);
   }
 
   75% {
     transform:
-      translate3d(-1px, -1px, 0)
-      scaleY(0.99);
+      translate3d(-4px, -4px, 0)
+      scaleY(0.975);
   }
 }
 
@@ -168,27 +185,62 @@
   0%,
   100% {
     transform:
-      translate3d(5px, 0, 0)
+      translate3d(12px, 0, 0)
       scaleY(1);
   }
 
   25% {
     transform:
-      translate3d(-3px, 2px, 0)
-      scaleY(1.012);
+      translate3d(-7px, 4px, 0)
+      scaleY(1.025);
   }
 
   50% {
     transform:
-      translate3d(-8px, -2px, 0)
-      scaleY(0.988);
+      translate3d(-20px, -4px, 0)
+      scaleY(0.965);
   }
 
   75% {
     transform:
-      translate3d(2px, 1px, 0)
-      scaleY(1.008);
+      translate3d(-4px, 3px, 0)
+      scaleY(1.02);
   }
+}
+
+
+/* =========================================================
+   HERO → ABOUT
+   MAIS VIVA
+   ========================================================= */
+
+.section-wave--hero-about .section-wave__back {
+  animation-duration: 5.5s;
+}
+
+.section-wave--hero-about .section-wave__middle {
+  animation-duration: 6.5s;
+}
+
+.section-wave--hero-about .section-wave__main {
+  animation-duration: 6s;
+}
+
+
+/* =========================================================
+   ABOUT → WORK
+   ========================================================= */
+
+.section-wave--about-work .section-wave__back {
+  animation-duration: 6s;
+}
+
+.section-wave--about-work .section-wave__middle {
+  animation-duration: 7s;
+}
+
+.section-wave--about-work .section-wave__main {
+  animation-duration: 6.5s;
 }
 
 
@@ -242,5 +294,17 @@ html.dark .section-wave__middle {
     left: -6%;
     width: 112%;
     height: 122%;
+  }
+
+  .section-wave__back {
+    animation-duration: 5.5s;
+  }
+
+  .section-wave__middle {
+    animation-duration: 6.5s;
+  }
+
+  .section-wave__main {
+    animation-duration: 6s;
   }
 }

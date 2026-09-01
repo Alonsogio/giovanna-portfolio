@@ -1,12 +1,15 @@
-
 /* =========================================================
    NAV LINK
    ========================================================= */
 
 .nav-link {
+  position: relative;
+
   transition:
     color 300ms ease,
-    transform 300ms ease;
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  will-change: transform;
 }
 
 
@@ -16,6 +19,92 @@
 
 .nav-link:hover {
   color: #7c3aed;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   NAV INDEX
+   ========================================================= */
+
+.nav-link::before {
+  content: attr(data-index);
+
+  position: absolute;
+
+  left: 0;
+  top: -7px;
+
+  font-family: 'Geist Mono', monospace;
+  font-size: 7px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+
+  color: #7c3aed;
+
+  opacity: 0;
+
+  transform:
+    translateY(4px)
+    scale(0.85);
+
+  transition:
+    opacity 220ms ease,
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================================
+   INDEX — APPEAR
+   ========================================================= */
+
+.nav-link:hover::before {
+  opacity: 0.75;
+
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* =========================================================
+   NAV UNDERLINE
+   ========================================================= */
+
+/* .nav-link::after {
+  content: '';
+
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+  bottom: 1px;
+
+  height: 1px;
+
+  background: #7c3aed;
+
+  transform:
+    scaleX(0)
+    transform-origin: left center;
+
+  opacity: 0;
+
+  transition:
+    transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 250ms ease;
+} */
+
+
+/* =========================================================
+   UNDERLINE — APPEAR
+   ========================================================= */
+
+.nav-link:hover::after {
+  opacity: 0.5;
+
+  transform: scaleX(1);
 }
 
 
@@ -61,7 +150,11 @@
    ========================================================= */
 
 .nav-link:hover .nav-particle {
-  animation: nav-particle-pulse 2.4s ease-in-out infinite;
+  animation:
+    nav-particle-pulse
+    2.4s
+    ease-in-out
+    infinite;
 }
 
 
@@ -70,6 +163,7 @@
   0%,
   100% {
     opacity: 0.75;
+
     transform:
       translate(0, -50%)
       scale(0.85);
@@ -77,11 +171,11 @@
 
   50% {
     opacity: 1;
+
     transform:
       translate(0, -50%)
       scale(1.15);
   }
-
 }
 
 
@@ -97,7 +191,11 @@
     animation: none;
   }
 
+  .nav-link:hover {
+    transform: none;
+  }
 }
+
 
 /* =========================================================
    THEME SWITCH
@@ -139,7 +237,6 @@
   align-items: center;
 
   border: 1px solid rgba(23, 19, 28, 0.14);
-
   border-radius: 999px;
 
   background: rgba(255, 255, 255, 0.55);
@@ -171,7 +268,6 @@
   border-radius: 50%;
 
   background: #17131C;
-
   color: white;
 
   box-shadow:
@@ -226,24 +322,26 @@
 }
 
 
-/* SUN */
+/* =========================================================
+   SUN
+   ========================================================= */
 
 .theme-switch-sun {
   right: 6px;
 
   color: #7C3AED;
-
   opacity: 0.22;
 }
 
 
-/* MOON */
+/* =========================================================
+   MOON
+   ========================================================= */
 
 .theme-switch-moon {
   left: 6px;
 
   color: #706A78;
-
   opacity: 0.22;
 }
 
@@ -263,7 +361,6 @@
 
 .theme-switch.is-dark .theme-switch-track {
   border-color: rgba(255, 255, 255, 0.16);
-
   background: rgba(23, 19, 28, 0.55);
 }
 
@@ -272,7 +369,6 @@
   transform: translateX(24px);
 
   background: #F9F8FC;
-
   color: #17131C;
 
   box-shadow:
@@ -350,7 +446,9 @@
 
 
 .theme-switch.is-dark:active .theme-switch-knob {
-  transform: translateX(24px) scale(0.92);
+  transform:
+    translateX(24px)
+    scale(0.92);
 }
 
 

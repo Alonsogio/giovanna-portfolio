@@ -1,171 +1,96 @@
-<nav
-  class="fixed left-0 top-0 z-50 w-full border-b border-black/[0.06] bg-[#FAF9FC]/80 backdrop-blur-md"
->
-  <div class="mx-auto flex h-[60px] max-w-7xl items-center justify-between px-6 lg:px-8">
-    <!-- ========================================================= -->
-    <!-- LOGO -->
-    <!-- ========================================================= -->
+<nav class="site-navbar fixed left-0 top-0 z-50 w-full" aria-label="Main navigation">
+  <div class="site-navbar__inner">
+    <!-- =========================================================
+         LOGO
+         ========================================================= -->
 
-    <a
-      href="#"
-      class="text-[17px] font-semibold tracking-[-0.035em] text-[#17131C] transition-colors duration-300 hover:text-[#7C3AED]"
-    >
-      Giovanna<span class="text-[#7C3AED]">.</span>
+    <a href="#" class="site-navbar__logo" aria-label="Giovanna — home">
+      <span>Giovanna</span>
+      <span class="site-navbar__logo-dot">.</span>
     </a>
 
-    <!-- ========================================================= -->
-    <!-- NAVIGATION -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         NAVIGATION
+         ========================================================= -->
 
-    <div class="hidden items-center gap-2 md:flex">
-      <!-- ABOUT -->
-
-      <a
-        href="#about"
-        class="nav-link group relative px-3 py-2 text-[13px] font-medium uppercase tracking-[0.12em] text-[#17131C]"
-      >
-        <span>About</span>
-
-        <span
-          class="nav-particle pointer-events-none absolute right-0.5 top-1/2 h-[4px] w-[4px] mt-0.5 -translate-y-1/2 rounded-full"
-          aria-hidden="true"
-        ></span>
+    <div class="site-navbar__navigation">
+      <a href="#about" class="site-navbar__link">
+        <span class="site-navbar__index">01</span>
+        <span class="site-navbar__label">About</span>
       </a>
 
-      <!-- WORK -->
-
-      <a
-        href="#work"
-        class="nav-link group relative px-3 py-2 text-[13px] font-medium uppercase tracking-[0.12em] text-[#17131C]"
-      >
-        <span>Work</span>
-
-        <span
-          class="nav-particle pointer-events-none absolute right-0.5 top-1/2 h-[4px] w-[4px] mt-0.5 -translate-y-1/2 rounded-full"
-          aria-hidden="true"
-        ></span>
+      <a href="#work" class="site-navbar__link">
+        <span class="site-navbar__index">02</span>
+        <span class="site-navbar__label">Work</span>
       </a>
 
-      <!-- SKILLS -->
-
-      <a
-        href="#skills"
-        class="nav-link group relative px-3 py-2 text-[13px] font-medium uppercase tracking-[0.12em] text-[#17131C]"
-      >
-        <span>Skills</span>
-
-        <span
-          class="nav-particle pointer-events-none absolute right-0.5 top-1/2 h-[4px] w-[4px] mt-0.5 -translate-y-1/2 rounded-full"
-          aria-hidden="true"
-        ></span>
+      <a href="#skills" class="site-navbar__link">
+        <span class="site-navbar__index">03</span>
+        <span class="site-navbar__label">Skills</span>
       </a>
 
-      <!-- EXPERIENCE -->
-
-      <a
-        href="#experience"
-        class="nav-link group relative px-3 py-2 text-[13px] font-medium uppercase tracking-[0.12em] text-[#17131C]"
-      >
-        <span>Experience</span>
-
-        <span
-          class="nav-particle pointer-events-none absolute right-0.5 top-1/2 h-[4px] w-[4px] mt-0.5 -translate-y-1/2 rounded-full"
-          aria-hidden="true"
-        ></span>
+      <a href="#experience" class="site-navbar__link">
+        <span class="site-navbar__index">04</span>
+        <span class="site-navbar__label">Experience</span>
       </a>
 
-      <!-- CONTACT -->
-
-      <a
-        href="#contact"
-        class="nav-link group relative px-3 py-2 text-[13px] font-medium uppercase tracking-[0.12em] text-[#17131C]"
-      >
-        <span>Contact</span>
-
-        <span
-          class="nav-particle pointer-events-none absolute right-0.5 top-1/2 h-[4px] w-[4px] mt-0.5 -translate-y-1/2 rounded-full"
-          aria-hidden="true"
-        ></span>
+      <a href="#contact" class="site-navbar__link">
+        <span class="site-navbar__index">05</span>
+        <span class="site-navbar__label">Contact</span>
       </a>
     </div>
 
-    <!-- ========================================================= -->
-    <!-- PREFERENCES -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         CONTROLS
+         ========================================================= -->
 
-    <div class="hidden items-center gap-2 md:flex">
+    <div class="site-navbar__controls">
       <!-- LANGUAGE -->
 
-      <button
-        type="button"
-        aria-label="Change language"
-        class="group flex h-9 items-center gap-2 rounded-full px-3 text-[#706A78] transition-all duration-300 hover:bg-[#F5F3F7] hover:text-[#7C3AED]"
-      >
-        <i
-          class="pi pi-globe text-[15px] transition-transform duration-300 group-hover:rotate-12"
-          aria-hidden="true"
-        ></i>
-
-        <span class="font-mono text-[10px] font-medium uppercase tracking-[0.12em]"> EN </span>
+      <button type="button" class="site-navbar__language" aria-label="Change language">
+        <span>EN</span>
       </button>
 
       <!-- DIVIDER -->
 
-      <span class="h-4 w-px bg-[#E7E2EC]" aria-hidden="true"></span>
+      <span class="site-navbar__divider" aria-hidden="true"></span>
 
       <!-- THEME -->
 
-      <!-- THEME SWITCH -->
-
       <button
         type="button"
-        class="theme-switch"
+        class="site-navbar__theme"
         [class.is-dark]="isDarkMode"
         [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
         [attr.aria-pressed]="isDarkMode"
         (click)="toggleTheme()"
       >
-        <span class="theme-switch-track">
-          <!-- LIGHT ICON -->
+        <span class="site-navbar__theme-icon site-navbar__theme-icon--sun">
+          <i class="pi pi-sun" aria-hidden="true"></i>
+        </span>
 
-          <span class="theme-switch-icon theme-switch-sun">
-            <i class="pi pi-sun" aria-hidden="true"></i>
-          </span>
+        <span class="site-navbar__theme-icon site-navbar__theme-icon--moon">
+          <i class="pi pi-moon" aria-hidden="true"></i>
+        </span>
 
-          <!-- DARK ICON -->
-
-          <span class="theme-switch-icon theme-switch-moon">
-            <i class="pi pi-moon" aria-hidden="true"></i>
-          </span>
-
-          <!-- SLIDING KNOB -->
-
-          <span class="theme-switch-knob">
-            <i
-              class="pi"
-              [class.pi-sun]="!isDarkMode"
-              [class.pi-moon]="isDarkMode"
-              aria-hidden="true"
-            ></i>
-          </span>
+        <span class="site-navbar__theme-knob">
+          <i
+            class="pi"
+            [class.pi-sun]="!isDarkMode"
+            [class.pi-moon]="isDarkMode"
+            aria-hidden="true"
+          ></i>
         </span>
       </button>
     </div>
 
-    <!-- ========================================================= -->
-    <!-- MOBILE -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         MOBILE
+         ========================================================= -->
 
-    <button
-      type="button"
-      aria-label="Open navigation menu"
-      class="group flex flex-col gap-1.5 md:hidden"
-    >
-      <span class="h-px w-6 bg-[#17131C] transition-all duration-300 group-hover:w-4"></span>
-
-      <span
-        class="h-px w-4 self-end bg-[#17131C] transition-all duration-300 group-hover:w-6"
-      ></span>
+    <button type="button" class="site-navbar__mobile" aria-label="Open navigation menu">
+      <span></span>
+      <span></span>
     </button>
   </div>
 </nav>

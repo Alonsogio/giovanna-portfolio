@@ -16,6 +16,7 @@ import { About } from './sections/about/about';
 import { Work } from './sections/work/work';
 import { Skills } from './sections/skills/skills';
 import { Experience } from './sections/experience/experience';
+import { Contact } from "./sections/contact/contact";
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -35,7 +36,8 @@ gsap.registerPlugin(ScrollTrigger);
     Work,
     Skills,
     Experience,
-  ],
+    Contact,
+],
 
   templateUrl: './app.html',
 

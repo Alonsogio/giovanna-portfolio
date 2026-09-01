@@ -3,15 +3,17 @@
 <app-navbar></app-navbar>
 
 <main>
-  <!-- ========================================================= -->
-  <!-- HERO -->
-  <!-- ========================================================= -->
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
 
   <app-hero></app-hero>
 
-  <!-- ========================================================= -->
-  <!-- WAVE — HERO → ABOUT -->
-  <!-- ========================================================= -->
+
+  <!-- =========================================================
+       WAVE — HERO → ABOUT
+       ========================================================= -->
 
   <div class="section-wave section-wave--hero-about" aria-hidden="true">
     <svg
@@ -86,15 +88,17 @@
     </svg>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- ABOUT -->
-  <!-- ========================================================= -->
+
+  <!-- =========================================================
+       ABOUT
+       ========================================================= -->
 
   <app-about></app-about>
 
-  <!-- ========================================================= -->
-  <!-- WAVE — ABOUT → WORK -->
-  <!-- ========================================================= -->
+
+  <!-- =========================================================
+       WAVE — ABOUT → WORK
+       ========================================================= -->
 
   <div class="section-wave section-wave--about-work" aria-hidden="true">
     <svg
@@ -169,15 +173,17 @@
     </svg>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- WORK -->
-  <!-- ========================================================= -->
+
+  <!-- =========================================================
+       WORK
+       ========================================================= -->
 
   <app-work></app-work>
 
-  <!-- ========================================================= -->
-  <!-- WAVE — WORK → SKILLS -->
-  <!-- ========================================================= -->
+
+  <!-- =========================================================
+       WAVE — WORK → SKILLS
+       ========================================================= -->
 
   <div class="section-wave section-wave--work-skills" aria-hidden="true">
     <svg
@@ -252,12 +258,18 @@
     </svg>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- SKILLS -->
-  <!-- ========================================================= -->
+
+  <!-- =========================================================
+       SKILLS
+       ========================================================= -->
 
   <app-skills></app-skills>
 
+
+  <!-- =========================================================
+       WAVE — SKILLS → EXPERIENCE
+       ========================================================= -->
+
   <div class="section-wave section-wave--work-skills" aria-hidden="true">
     <svg
       class="section-wave__svg"
@@ -266,27 +278,27 @@
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
-        <linearGradient id="skillsBackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <linearGradient id="experienceBackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.055" />
           <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.025" />
           <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.055" />
         </linearGradient>
 
-        <linearGradient id="skillsMiddleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <linearGradient id="experienceMiddleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.040" />
           <stop offset="50%" stop-color="#7C3AED" stop-opacity="0.018" />
           <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.040" />
         </linearGradient>
 
-        <filter id="skillsWaveGlow" x="-20%" y="-60%" width="140%" height="220%">
+        <filter id="experienceWaveGlow" x="-20%" y="-60%" width="140%" height="220%">
           <feGaussianBlur stdDeviation="7" />
         </filter>
       </defs>
 
       <path
         class="section-wave__back"
-        fill="url(#skillsBackGradient)"
-        filter="url(#skillsWaveGlow)"
+        fill="url(#experienceBackGradient)"
+        filter="url(#experienceWaveGlow)"
         d="
           M 0 42
           C 140 14, 280 12, 425 46
@@ -301,7 +313,7 @@
 
       <path
         class="section-wave__middle"
-        fill="url(#skillsMiddleGradient)"
+        fill="url(#experienceMiddleGradient)"
         d="
           M 0 60
           C 140 84, 280 90, 425 56
@@ -331,15 +343,103 @@
     </svg>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- EXPERIENCE -->
-  <!-- ========================================================= -->
+
+  <!-- =========================================================
+       EXPERIENCE
+       ========================================================= -->
 
   <app-experience></app-experience>
+
+
+  <!-- =========================================================
+       WAVE — EXPERIENCE → CONTACT
+       ========================================================= -->
+
+  <div class="section-wave section-wave--work-skills" aria-hidden="true">
+    <svg
+      class="section-wave__svg"
+      viewBox="0 0 1440 170"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <linearGradient id="contactBackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.055" />
+          <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.025" />
+          <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.055" />
+        </linearGradient>
+
+        <linearGradient id="contactMiddleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.040" />
+          <stop offset="50%" stop-color="#7C3AED" stop-opacity="0.018" />
+          <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.040" />
+        </linearGradient>
+
+        <filter id="contactWaveGlow" x="-20%" y="-60%" width="140%" height="220%">
+          <feGaussianBlur stdDeviation="7" />
+        </filter>
+      </defs>
+
+      <path
+        class="section-wave__back"
+        fill="url(#contactBackGradient)"
+        filter="url(#contactWaveGlow)"
+        d="
+          M 0 42
+          C 140 14, 280 12, 425 46
+          C 565 80, 700 98, 835 62
+          C 970 28, 1095 12, 1225 42
+          C 1320 64, 1380 68, 1440 50
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+
+      <path
+        class="section-wave__middle"
+        fill="url(#contactMiddleGradient)"
+        d="
+          M 0 60
+          C 140 84, 280 90, 425 56
+          C 565 24, 700 8, 835 40
+          C 970 72, 1095 92, 1225 58
+          C 1320 36, 1380 32, 1440 52
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+
+      <path
+        class="section-wave__main"
+        fill="#F9F8FC"
+        d="
+          M 0 50
+          C 140 26, 285 24, 430 58
+          C 565 90, 700 104, 840 66
+          C 975 30, 1100 18, 1230 50
+          C 1320 72, 1380 76, 1440 58
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+    </svg>
+  </div>
+
+
+  <!-- =========================================================
+       CONTACT
+       ========================================================= -->
+
+  <app-contact></app-contact>
+
 </main>
 
-<!-- =========================================================== -->
-<!-- ROUTER -->
-<!-- =========================================================== -->
+
+<!-- =========================================================
+     ROUTER
+     ========================================================= -->
 
 <router-outlet></router-outlet>
