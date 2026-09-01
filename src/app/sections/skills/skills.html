@@ -1,0 +1,617 @@
+<section
+  #skillsSection
+  id="skills"
+  class="skills-section relative overflow-hidden bg-[#F9F8FC] py-20 sm:py-24 lg:py-28"
+>
+  <!-- =========================================================
+       BACKGROUND DEPTH
+       ========================================================= -->
+
+  <div class="skills-light skills-light--purple" aria-hidden="true"></div>
+
+  <div class="skills-light skills-light--blue" aria-hidden="true"></div>
+
+  <div class="skills-noise" aria-hidden="true"></div>
+
+  <!-- =========================================================
+       CURSOR ORB
+       ========================================================= -->
+
+  <div class="skills-cursor-orb" aria-hidden="true">
+    <div class="skills-cursor-orb__core"></div>
+
+    <div class="skills-cursor-orb__ring"></div>
+  </div>
+
+  <!-- =========================================================
+       CONTENT
+       ========================================================= -->
+
+  <div #skillsContent class="relative z-20 mx-auto w-full max-w-6xl px-6 lg:px-8">
+    <!-- =======================================================
+         HEADER
+         ======================================================= -->
+
+    <header class="skills-header max-w-3xl">
+      <!-- LABEL -->
+
+      <div class="skills-reveal skills-reveal--label flex items-center gap-4">
+        <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#7C3AED]">
+          Skills
+        </span>
+
+        <span class="skills-header-line h-px w-12 bg-[#7C3AED]/30" aria-hidden="true"></span>
+      </div>
+
+      <!-- TITLE -->
+
+      <h2
+        class="skills-title mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#17131C] sm:text-5xl lg:text-[3.7rem]"
+      >
+        <span class="skills-word">The</span>
+        <span class="skills-word">tools</span>
+        <span class="skills-word">i</span>
+        <span class="skills-word">use</span>
+
+        <br class="hidden sm:block" />
+
+        <span class="skills-word">to</span>
+        <span class="skills-word">bring</span>
+        <span class="skills-word">ideas</span>
+
+        <span class="skills-word skills-gradient-text"> to life. </span>
+      </h2>
+
+      <!-- DESCRIPTION -->
+
+      <p
+        class="skills-intro mt-5 max-w-xl text-base leading-7 text-[#706A78] sm:text-lg sm:leading-8"
+      >
+        A mix of development, design and tools that help me build thoughtful digital products from
+        idea to interface.
+      </p>
+    </header>
+
+    <!-- =========================================================
+         VISUAL AREA
+         ========================================================= -->
+
+    <div #skillsVisual class="skills-visual-area relative mt-14 sm:mt-16 lg:mt-20">
+      <!-- =======================================================
+           THREADS
+           ======================================================= -->
+
+      <div class="skills-threads" aria-hidden="true">
+        <svg
+          class="skills-threads__svg"
+          viewBox="0 0 1600 620"
+          preserveAspectRatio="none"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <!-- THREAD GRADIENT -->
+
+            <linearGradient
+              id="skillsThreadsGradient"
+              x1="0"
+              y1="500"
+              x2="1600"
+              y2="100"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop offset="0%" stop-color="#7C3AED" stop-opacity="0" />
+
+              <stop offset="16%" stop-color="#7C3AED" stop-opacity="0.12" />
+
+              <stop offset="36%" stop-color="#8B5CF6" stop-opacity="0.32" />
+
+              <stop offset="52%" stop-color="#6366F1" stop-opacity="0.28" />
+
+              <stop offset="72%" stop-color="#60A5FA" stop-opacity="0.18" />
+
+              <stop offset="100%" stop-color="#60A5FA" stop-opacity="0" />
+            </linearGradient>
+
+            <!-- SOFT GLOW -->
+
+            <filter id="skillsThreadsGlow" x="-20%" y="-50%" width="140%" height="200%">
+              <feGaussianBlur stdDeviation="7"></feGaussianBlur>
+            </filter>
+          </defs>
+
+          <!-- SOFT GLOW -->
+
+          <g class="skills-threads__glow" filter="url(#skillsThreadsGlow)">
+            <path
+              d="
+                M -160 510
+                C 100 390,
+                  270 470,
+                  500 350
+
+                C 720 235,
+                  860 325,
+                  1080 195
+
+                C 1280 75,
+                  1450 145,
+                  1760 -35
+              "
+              stroke="url(#skillsThreadsGradient)"
+              stroke-width="5"
+            ></path>
+
+            <path
+              d="
+                M -160 530
+                C 100 410,
+                  280 490,
+                  515 370
+
+                C 735 255,
+                  875 345,
+                  1095 215
+
+                C 1295 95,
+                  1465 165,
+                  1760 -15
+              "
+              stroke="url(#skillsThreadsGradient)"
+              stroke-width="4"
+            ></path>
+          </g>
+
+          <!-- THREAD 01 -->
+
+          <path
+            class="skills-thread skills-thread--01"
+            d="
+              M -160 490
+              C 100 370,
+                265 450,
+                485 335
+
+              C 705 220,
+                845 310,
+                1065 180
+
+              C 1265 60,
+                1435 130,
+                1760 -50
+            "
+            stroke="url(#skillsThreadsGradient)"
+            stroke-width="1.2"
+            stroke-linecap="round"
+          ></path>
+
+          <!-- THREAD 02 -->
+
+          <path
+            class="skills-thread skills-thread--02"
+            d="
+              M -160 505
+              C 105 385,
+                275 465,
+                500 350
+
+              C 720 235,
+                860 325,
+                1080 195
+
+              C 1280 75,
+                1450 145,
+                1760 -35
+            "
+            stroke="url(#skillsThreadsGradient)"
+            stroke-width="1"
+            stroke-linecap="round"
+          ></path>
+
+          <!-- THREAD 03 -->
+
+          <path
+            class="skills-thread skills-thread--03"
+            d="
+              M -160 520
+              C 110 400,
+                285 480,
+                515 365
+
+              C 735 250,
+                875 340,
+                1095 210
+
+              C 1295 90,
+                1465 160,
+                1760 -20
+            "
+            stroke="url(#skillsThreadsGradient)"
+            stroke-width="0.9"
+            stroke-linecap="round"
+          ></path>
+
+          <!-- THREAD 04 -->
+
+          <path
+            class="skills-thread skills-thread--04"
+            d="
+              M -160 535
+              C 115 415,
+                295 495,
+                530 380
+
+              C 750 265,
+                890 355,
+                1110 225
+
+              C 1310 105,
+                1480 175,
+                1760 -5
+            "
+            stroke="url(#skillsThreadsGradient)"
+            stroke-width="0.85"
+            stroke-linecap="round"
+          ></path>
+
+          <!-- THREAD 05 -->
+
+          <path
+            class="skills-thread skills-thread--05"
+            d="
+              M -160 550
+              C 120 430,
+                305 510,
+                545 395
+
+              C 765 280,
+                905 370,
+                1125 240
+
+              C 1325 120,
+                1495 190,
+                1760 10
+            "
+            stroke="url(#skillsThreadsGradient)"
+            stroke-width="0.8"
+            stroke-linecap="round"
+          ></path>
+
+          <!-- THREAD 06 -->
+
+          <path
+            class="skills-thread skills-thread--06"
+            d="
+              M -160 565
+              C 125 445,
+                315 525,
+                560 410
+
+              C 780 295,
+                920 385,
+                1140 255
+
+              C 1340 135,
+                1510 205,
+                1760 25
+            "
+            stroke="url(#skillsThreadsGradient)"
+            stroke-width="0.75"
+            stroke-linecap="round"
+          ></path>
+
+          <!-- THREAD 07 -->
+
+          <path
+            class="skills-thread skills-thread--07"
+            d="
+              M -160 580
+              C 130 460,
+                325 540,
+                575 425
+
+              C 795 310,
+                935 400,
+                1155 270
+
+              C 1355 150,
+                1525 220,
+                1760 40
+            "
+            stroke="url(#skillsThreadsGradient)"
+            stroke-width="0.7"
+            stroke-linecap="round"
+          ></path>
+
+          <!-- THREAD 08 -->
+
+          <path
+            class="skills-thread skills-thread--08"
+            d="
+              M -160 595
+              C 135 475,
+                335 555,
+                590 440
+
+              C 810 325,
+                950 415,
+                1170 285
+
+              C 1370 165,
+                1540 235,
+                1760 55
+            "
+            stroke="url(#skillsThreadsGradient)"
+            stroke-width="0.65"
+            stroke-linecap="round"
+          ></path>
+
+          <!-- THREAD 09 -->
+
+          <path
+            class="skills-thread skills-thread--09"
+            d="
+              M -160 610
+              C 140 490,
+                345 570,
+                605 455
+
+              C 825 340,
+                965 430,
+                1185 300
+
+              C 1385 180,
+                1555 250,
+                1760 70
+            "
+            stroke="url(#skillsThreadsGradient)"
+            stroke-width="0.6"
+            stroke-linecap="round"
+          ></path>
+        </svg>
+      </div>
+
+      <!-- =======================================================
+           SKILLS GRID
+           ======================================================= -->
+
+      <div class="skills-grid relative z-20">
+        <!-- =====================================================
+             01 — FRONTEND
+             ===================================================== -->
+
+        <article class="skill-card skill-card--frontend" tabindex="0">
+          <div class="skill-card-glow"></div>
+
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--purple">
+                <span>⌘</span>
+              </div>
+
+              <span class="skill-card-index"> 01 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>Frontend</h3>
+
+              <span class="skill-card-arrow"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              Clean, responsive interfaces with a focus on fluid user experiences.
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag"> Angular </span>
+
+              <span class="skill-tag"> TypeScript </span>
+
+              <span class="skill-tag"> HTML </span>
+
+              <span class="skill-tag"> CSS </span>
+
+              <span class="skill-tag"> Tailwind </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             02 — UI / UX
+             ===================================================== -->
+
+        <article class="skill-card skill-card--design" tabindex="0">
+          <div class="skill-card-glow"></div>
+
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--blue">
+                <span>✦</span>
+              </div>
+
+              <span class="skill-card-index"> 02 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>UI / UX</h3>
+
+              <span class="skill-card-arrow"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              Clean interfaces, visual hierarchy and intuitive experiences.
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag"> Figma </span>
+
+              <span class="skill-tag"> UI Design </span>
+
+              <span class="skill-tag"> UX </span>
+
+              <span class="skill-tag"> Prototyping </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             03 — BACKEND
+             ===================================================== -->
+
+        <article class="skill-card skill-card--backend" tabindex="0">
+          <div class="skill-card-glow"></div>
+
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--violet">
+                <span>&#123; &#125;</span>
+              </div>
+
+              <span class="skill-card-index"> 03 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>Backend</h3>
+
+              <span class="skill-card-arrow"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              APIs, data integration and logic for scalable applications.
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag"> Python </span>
+
+              <span class="skill-tag"> APIs </span>
+
+              <span class="skill-tag"> REST </span>
+
+              <span class="skill-tag"> SQL </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             04 — TOOLS
+             ===================================================== -->
+
+        <article class="skill-card skill-card--tools" tabindex="0">
+          <div class="skill-card-glow"></div>
+
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--soft">
+                <span>＋</span>
+              </div>
+
+              <span class="skill-card-index"> 04 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>Tools</h3>
+
+              <span class="skill-card-arrow"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              Tools that are part of my daily development workflow.
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag"> Git </span>
+
+              <span class="skill-tag"> GitHub </span>
+
+              <span class="skill-tag"> VS Code </span>
+
+              <span class="skill-tag"> Postman </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             05 — DEVELOPMENT
+             ===================================================== -->
+
+        <article class="skill-card skill-card--development" tabindex="0">
+          <div class="skill-card-glow"></div>
+
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--purple">
+                <span>◌</span>
+              </div>
+
+              <span class="skill-card-index"> 05 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>Development</h3>
+
+              <span class="skill-card-arrow"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              Building clean, scalable and maintainable applications.
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag"> Components </span>
+
+              <span class="skill-tag"> Responsive </span>
+            </div>
+          </div>
+        </article>
+
+        <!-- =====================================================
+             06 — EXPLORING
+             ===================================================== -->
+
+        <article class="skill-card skill-card--learning" tabindex="0">
+          <div class="skill-card-glow"></div>
+
+          <div class="skill-card-content">
+            <div class="skill-card-top">
+              <div class="skill-card-icon skill-card-icon--blue">
+                <span>↗</span>
+              </div>
+
+              <span class="skill-card-index"> 06 </span>
+            </div>
+
+            <div class="skill-card-heading">
+              <h3>Exploring</h3>
+
+              <span class="skill-card-arrow"> ↗ </span>
+            </div>
+
+            <p class="skill-card-description">
+              Always exploring new technologies, ideas, and ways to improve my interfaces.
+            </p>
+
+            <div class="skill-tags">
+              <span class="skill-tag"> Motion </span>
+
+              <span class="skill-tag"> Animation </span>
+
+              <span class="skill-tag"> Creative UI </span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- =========================================================
+           BOTTOM NOTE
+           ========================================================= -->
+
+      <div class="skills-bottom mt-14 sm:mt-16">
+        <span class="skills-bottom-line" aria-hidden="true"></span>
+
+        <span class="skills-bottom-text"> Always learning · Always building </span>
+
+        <span class="skills-bottom-line" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+</section>

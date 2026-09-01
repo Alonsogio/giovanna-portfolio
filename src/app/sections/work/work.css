@@ -45,27 +45,15 @@
    DECORATIVE CORNER ORBITS
    ========================================================= */
 
-/*
- * As linhas são ESTÁTICAS.
- * Somente os orbs possuem animação.
- *
- * O conjunto foi reduzido para ficar mais delicado
- * e permanecer abaixo do botão "View all projects".
- */
-
 .work-corner-orbits {
   position: absolute;
 
   width: 430px;
   height: 165px;
 
-  /*
-   * Fica abaixo do botão.
-   * O HTML pode continuar antes do conteúdo.
-   * Esta posição visual é controlada aqui.
-   */
   right: 0;
-  top: 145px;
+  top: -28px;
+  left: -153px;
 
   pointer-events: none;
 
