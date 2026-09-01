@@ -1,0 +1,894 @@
+/* =========================================================
+   EXPERIENCE SECTION
+   ========================================================= */
+
+.experience-section {
+  --experience-scroll: 0;
+  --experience-progress: 0%;
+  --experience-active: 1;
+
+  position: relative;
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   BACKGROUND WORD
+   ========================================================= */
+
+.experience-background {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  z-index: 0;
+}
+
+
+.experience-background-word {
+  position: absolute;
+
+  left: 50%;
+  top: 48%;
+
+  transform:
+    translate(-50%, -50%)
+    translateY(
+      calc(var(--experience-scroll) * -28px)
+    );
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+
+  font-size:
+    clamp(6rem, 16vw, 14rem);
+
+  font-weight: 700;
+
+  line-height: 0.8;
+
+  letter-spacing: -0.09em;
+
+  white-space: nowrap;
+
+  color: rgba(124, 58, 237, 0.025);
+
+  user-select: none;
+
+  transition:
+    transform 500ms ease-out;
+}
+
+
+/* =========================================================
+   BACKGROUND ORBS
+   ========================================================= */
+
+.experience-orb {
+  position: absolute;
+
+  pointer-events: none;
+
+  border-radius: 9999px;
+
+  filter: blur(90px);
+
+  z-index: 0;
+
+  transform:
+    translate3d(
+      0,
+      calc(var(--experience-scroll) * -14px),
+      0
+    );
+}
+
+
+.experience-orb--purple {
+  width: 360px;
+  height: 360px;
+
+  left: -180px;
+  top: 25%;
+
+  background:
+    rgba(124, 58, 237, 0.055);
+}
+
+
+.experience-orb--blue {
+  width: 340px;
+  height: 340px;
+
+  right: -170px;
+  bottom: 15%;
+
+  background:
+    rgba(96, 165, 250, 0.05);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.experience-header {
+  position: relative;
+
+  z-index: 10;
+}
+
+
+.experience-label {
+  opacity: 0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.experience-section.is-visible
+.experience-label {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+.experience-header-line {
+  display: block;
+
+  background:
+    rgba(124, 58, 237, 0.28);
+
+  transform-origin: left center;
+
+  transition:
+    width 500ms ease,
+    opacity 500ms ease;
+}
+
+
+.experience-label:hover
+.experience-header-line {
+  width: 72px;
+
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.experience-title {
+  text-wrap: balance;
+}
+
+
+.experience-word {
+  display: inline-block;
+
+  margin-right: 0.18em;
+
+  opacity: 0;
+
+  transform:
+    translateY(28px);
+
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.experience-section.is-visible
+.experience-word {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+.experience-word:nth-child(1) {
+  transition-delay: 100ms;
+}
+
+
+.experience-word:nth-child(2) {
+  transition-delay: 150ms;
+}
+
+
+.experience-word:nth-child(3) {
+  transition-delay: 200ms;
+}
+
+
+/* =========================================================
+   INTRO
+   ========================================================= */
+
+.experience-intro {
+  opacity: 0;
+
+  transform:
+    translateY(22px);
+
+  transition:
+    opacity 750ms ease 300ms,
+    transform 750ms cubic-bezier(0.22, 1, 0.36, 1) 300ms;
+}
+
+
+.experience-section.is-visible
+.experience-intro {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   PROCESS
+   ========================================================= */
+
+.experience-process {
+  position: relative;
+
+  max-width: 900px;
+
+  margin-top: 110px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-bottom: 30px;
+}
+
+
+/* =========================================================
+   PROGRESS LINE
+   ========================================================= */
+
+.experience-progress {
+  position: absolute;
+
+  left: 72px;
+
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+
+  z-index: 1;
+}
+
+
+.experience-progress-track {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    rgba(32, 24, 45, 0.08);
+}
+
+
+.experience-progress-fill {
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 1px;
+
+  height:
+    var(--experience-progress);
+
+  background:
+    linear-gradient(
+      to bottom,
+      #7c3aed,
+      #6366f1,
+      #60a5fa
+    );
+
+  box-shadow:
+    0 0 14px rgba(124, 58, 237, 0.18);
+
+  transition:
+    height 180ms linear;
+}
+
+
+/* =========================================================
+   STEP
+   ========================================================= */
+
+.experience-step {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    145px
+    minmax(0, 1fr);
+
+  min-height: 230px;
+
+  opacity: 0.28;
+
+  transition:
+    opacity 500ms ease,
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.experience-step + .experience-step {
+  margin-top: 10px;
+}
+
+
+/* =========================================================
+   STEP NUMBER
+   ========================================================= */
+
+.experience-step-number {
+  position: relative;
+
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+
+  padding-top: 4px;
+
+  z-index: 3;
+}
+
+
+.experience-step-number::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  top: 3px;
+
+  width: 13px;
+  height: 13px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    #F9F8FC;
+
+  border:
+    1px solid rgba(124, 58, 237, 0.22);
+
+  box-shadow:
+    0 0 0 5px rgba(124, 58, 237, 0.025);
+
+  transition:
+    width 400ms ease,
+    height 400ms ease,
+    border-color 400ms ease,
+    background 400ms ease,
+    box-shadow 400ms ease;
+}
+
+
+.experience-step-number span {
+  position: absolute;
+
+  top: 28px;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+
+  color:
+    rgba(112, 106, 120, 0.48);
+
+  transition:
+    color 400ms ease;
+}
+
+
+/* =========================================================
+   ACTIVE STEP
+   ========================================================= */
+
+.experience-step.is-active {
+  opacity: 1;
+
+  transform:
+    translateX(5px);
+}
+
+
+.experience-step.is-active
+.experience-step-number::before {
+  width: 17px;
+  height: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c3aed,
+      #6366f1
+    );
+
+  border-color:
+    rgba(124, 58, 237, 0.35);
+
+  box-shadow:
+    0 0 0 6px rgba(124, 58, 237, 0.07),
+    0 0 22px rgba(124, 58, 237, 0.18);
+}
+
+
+.experience-step.is-active
+.experience-step-number span {
+  color:
+    #7c3aed;
+}
+
+
+/* =========================================================
+   STEP CONTENT
+   ========================================================= */
+
+.experience-step-content {
+  padding:
+    0
+    20px
+    55px
+    50px;
+}
+
+
+.experience-step-meta {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-bottom: 14px;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.16em;
+
+  color:
+    rgba(112, 106, 120, 0.42);
+
+  transition:
+    color 400ms ease;
+}
+
+
+.experience-step-meta span:first-child {
+  color:
+    rgba(124, 58, 237, 0.45);
+}
+
+
+.experience-step.is-active
+.experience-step-meta {
+  color:
+    rgba(112, 106, 120, 0.72);
+}
+
+
+/* =========================================================
+   STEP HEADING
+   ========================================================= */
+
+.experience-step-content h3 {
+  margin: 0;
+
+  color:
+    rgba(27, 23, 32, 0.58);
+
+  font-size:
+    clamp(1.55rem, 3vw, 2.35rem);
+
+  line-height: 1.08;
+
+  font-weight: 600;
+
+  letter-spacing: -0.045em;
+
+  transition:
+    color 450ms ease,
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.experience-step.is-active
+.experience-step-content h3 {
+  color:
+    #1b1720;
+
+  transform:
+    translateX(4px);
+}
+
+
+/* =========================================================
+   STEP DESCRIPTION
+   ========================================================= */
+
+.experience-step-content p {
+  max-width: 500px;
+
+  margin:
+    14px 0 0;
+
+  color:
+    rgba(117, 111, 125, 0.62);
+
+  font-size: 13px;
+
+  line-height: 1.75;
+
+  transition:
+    color 450ms ease;
+}
+
+
+.experience-step.is-active
+.experience-step-content p {
+  color:
+    #756f7d;
+}
+
+
+/* =========================================================
+   COUNTER
+   ========================================================= */
+
+.experience-counter {
+  position: absolute;
+
+  right: 0;
+  top: 50%;
+
+  transform:
+    translateY(-50%);
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.12em;
+
+  color:
+    rgba(112, 106, 120, 0.35);
+}
+
+
+.experience-counter-current {
+  color:
+    #7c3aed;
+
+  transition:
+    color 300ms ease;
+}
+
+
+.experience-counter-divider {
+  opacity: 0.4;
+}
+
+
+/* =========================================================
+   BOTTOM NOTE
+   ========================================================= */
+
+.experience-bottom {
+  display: flex;
+
+  align-items: center;
+
+  gap: 18px;
+
+  margin-top: 65px;
+
+  opacity: 0;
+
+  transform:
+    translateY(18px);
+
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.experience-section.is-visible
+.experience-bottom {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+.experience-bottom-line {
+  height: 1px;
+
+  flex: 1;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(124, 58, 237, 0.16)
+    );
+}
+
+
+.experience-bottom-line:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(124, 58, 237, 0.16),
+      transparent
+    );
+}
+
+
+.experience-bottom-text {
+  flex-shrink: 0;
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.15em;
+
+  text-transform: uppercase;
+
+  color:
+    rgba(112, 106, 120, 0.48);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1024px) {
+
+  .experience-process {
+    margin-top: 90px;
+
+    max-width: 800px;
+  }
+
+
+  .experience-step {
+    grid-template-columns:
+      115px
+      minmax(0, 1fr);
+  }
+
+
+  .experience-progress {
+    left: 57px;
+  }
+
+
+  .experience-step-content {
+    padding-left: 35px;
+  }
+
+
+  .experience-counter {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .experience-section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+
+  .experience-background-word {
+    font-size: 7rem;
+
+    top: 45%;
+  }
+
+
+  .experience-process {
+    margin-top: 70px;
+
+    margin-left: 0;
+
+    padding-left: 0;
+  }
+
+
+  .experience-progress {
+    left: 17px;
+  }
+
+
+  .experience-step {
+    grid-template-columns:
+      42px
+      minmax(0, 1fr);
+
+    min-height: 210px;
+  }
+
+
+  .experience-step + .experience-step {
+    margin-top: 0;
+  }
+
+
+  .experience-step-number {
+    justify-content: flex-start;
+  }
+
+
+  .experience-step-number::before {
+    left: 17px;
+  }
+
+
+  .experience-step-number span {
+    display: none;
+  }
+
+
+  .experience-step-content {
+    padding:
+      0
+      20px
+      50px
+      25px;
+  }
+
+
+  .experience-step-meta {
+    margin-bottom: 12px;
+
+    font-size: 8px;
+  }
+
+
+  .experience-step-content h3 {
+    font-size: 1.45rem;
+  }
+
+
+  .experience-step-content p {
+    font-size: 12px;
+
+    line-height: 1.7;
+  }
+
+
+  .experience-bottom {
+    gap: 12px;
+
+    margin-top: 45px;
+  }
+
+
+  .experience-bottom-text {
+    font-size: 7px;
+
+    letter-spacing: 0.09em;
+
+    text-align: center;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .experience-background-word,
+  .experience-orb,
+  .experience-label,
+  .experience-word,
+  .experience-intro,
+  .experience-step,
+  .experience-step-content h3,
+  .experience-bottom {
+    transition: none !important;
+
+    transform: none !important;
+  }
+
+  .experience-step {
+    opacity: 1;
+  }
+
+  .experience-progress-fill {
+    transition: none !important;
+  }
+}

@@ -519,8 +519,6 @@
 
 /*
  * 01 — FRONTEND
- *
- * Altura base.
  */
 
 .skill-card--frontend {
@@ -529,16 +527,17 @@
   height: 274px;
 
   align-self: center;
+
+  margin-top: 78px;
 }
 
 
 /*
- * 02 — UI / UX
- *
- * Um pouco maior que o 01.
+ * 02 — DATABASE
+
  */
 
-.skill-card--design {
+.skill-card--database {
   grid-column: 2;
   grid-row: 1;
 
@@ -548,8 +547,6 @@
 
 /*
  * 03 — BACKEND
- *
- * Menor que 01 e 02.
  */
 
 .skill-card--backend {
@@ -562,9 +559,6 @@
 
 /*
  * 04 — TOOLS
- *
- * Fica diretamente abaixo do 03
- * e é um dos cards maiores.
  */
 
 .skill-card--tools {
@@ -573,14 +567,12 @@
 
   height: 280px;
 
-  margin-top: -36px;
+  margin-top: -38px;
 }
 
 
 /*
  * 05 — DEVELOPMENT
- *
- * Mesma altura do 01.
  */
 
 .skill-card--development {
@@ -592,19 +584,18 @@
 
 
 /*
- * 06 — EXPLORING
- *
- * Encaixado na quarta coluna.
- * Altura intermediária para não destoar.
+ * 06 — WORKFLOW
  */
 
-.skill-card--learning {
+.skill-card--workflow {
   grid-column: 4;
   grid-row: 1 / span 2;
 
   height: 274px;
 
   align-self: center;
+
+  margin-bottom: 78px;
 }
 
 
