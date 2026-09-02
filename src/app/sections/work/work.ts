@@ -28,32 +28,24 @@ export class Work implements AfterViewInit, OnDestroy {
   projects = [
     {
       number: '01',
-      title: 'Novu Dashboard',
+      title: 'Personal Portfolio',
       description:
-        'Project management dashboard focused on analytics, team management and clear real-time information.',
-      category: 'Web / Dashboard',
+        'Creative developer portfolio focused on modern interfaces, interactions and visual experimentation.',
+      category: 'Web / Portfolio',
       year: '2026',
-      tags: ['Angular', 'TypeScript', 'Tailwind CSS', 'Chart.js'],
+      tags: ['Angular', 'TypeScript', 'Tailwind CSS', 'GSAP'],
+      image: '/images/work/portfolio.png',
     },
 
     {
       number: '02',
-      title: 'Travl. Experience',
+      title: 'Sweet Cakes',
       description:
-        'Landing page for a travel platform with expressive animations, CMS integration and responsive design.',
+        'Responsive website created for a fictional bakery, focused on visual presentation and user experience.',
       category: 'Web / Experience',
       year: '2026',
-      tags: ['Next.js', 'GSAP', 'Tailwind CSS', 'Strapi'],
-    },
-
-    {
-      number: '03',
-      title: 'Project Three',
-      description:
-        'An interface designed around clarity, usability and a polished visual experience.',
-      category: 'UI / Development',
-      year: '2026',
-      tags: ['UI/UX', 'Front-end', 'Design'],
+      tags: ['HTML', 'CSS', 'JavaScript'],
+      image: '/images/work/sweetcake.png',
     },
   ];
 
@@ -554,13 +546,9 @@ export class Work implements AfterViewInit, OnDestroy {
         y: -5,
         x: 3,
         scale: 1.08,
-
         duration: 3.8,
-
         ease: 'sine.inOut',
-
         repeat: -1,
-
         yoyo: true,
       });
     }
@@ -574,13 +562,9 @@ export class Work implements AfterViewInit, OnDestroy {
         y: -6,
         x: -3,
         scale: 1.1,
-
         duration: 4.6,
-
         ease: 'sine.inOut',
-
         repeat: -1,
-
         yoyo: true,
       });
     }
@@ -594,13 +578,9 @@ export class Work implements AfterViewInit, OnDestroy {
         y: -7,
         x: 4,
         scale: 1.07,
-
         duration: 4.2,
-
         ease: 'sine.inOut',
-
         repeat: -1,
-
         yoyo: true,
       });
     }
@@ -608,25 +588,12 @@ export class Work implements AfterViewInit, OnDestroy {
     // ==================================================
     // ORBIT SYSTEM SUBTLE FLOAT
     // ==================================================
-    //
-    // As LINHAS continuam paradas.
-    //
-    // Apenas o container faz um movimento
-    // extremamente pequeno para dar profundidade.
-    //
-    // Se quiser as linhas 100% imóveis,
-    // basta remover este bloco.
-    //
 
     gsap.to(orbitSystem, {
       y: -3,
-
       duration: 8,
-
       ease: 'sine.inOut',
-
       repeat: -1,
-
       yoyo: true,
     });
   }

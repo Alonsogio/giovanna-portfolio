@@ -4,7 +4,30 @@
 
 .about-section {
   position: relative;
+
   isolation: isolate;
+
+  background: #F9F8FC !important;
+}
+
+
+/* =========================================================
+   BACKGROUND ATMOSPHERE
+   ========================================================= */
+
+.about-section-atmosphere {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: 0;
+
+  will-change: transform;
+
+  background: #F9F8FC !important;
+
 }
 
 
@@ -157,6 +180,7 @@
    ========================================================= */
 
 @keyframes about-glow-breathe {
+
   0%,
   100% {
     opacity: 0.65;
@@ -167,23 +191,6 @@
     opacity: 1;
     scale: 1.05;
   }
-}
-
-
-/* =========================================================
-   BACKGROUND ATMOSPHERE
-   ========================================================= */
-
-.about-section-atmosphere {
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  z-index: 0;
-
-  will-change: transform;
 }
 
 
@@ -221,6 +228,7 @@
    ========================================================= */
 
 @keyframes about-purple-float {
+
   0%,
   100% {
     transform: translate3d(0, 0, 0);
@@ -266,6 +274,7 @@
    ========================================================= */
 
 @keyframes about-blue-float {
+
   0%,
   100% {
     transform: translate3d(0, 0, 0);
@@ -297,6 +306,7 @@
    ========================================================= */
 
 @keyframes about-detail-float {
+
   0%,
   100% {
     transform:
@@ -334,16 +344,15 @@
    ========================================================= */
 
 @keyframes about-line-breathe {
+
   0%,
   100% {
     transform: scaleX(1);
-
     opacity: 0.65;
   }
 
   50% {
     transform: scaleX(1.12);
-
     opacity: 1;
   }
 }
@@ -369,6 +378,7 @@
    ========================================================= */
 
 @keyframes about-dot-float {
+
   0%,
   100% {
     transform: translateY(0);
@@ -400,16 +410,15 @@
    ========================================================= */
 
 @keyframes about-dot-pulse {
+
   0%,
   100% {
     transform: scale(0.8);
-
     opacity: 0.25;
   }
 
   50% {
     transform: scale(1.8);
-
     opacity: 0.08;
   }
 }
@@ -435,16 +444,15 @@
    ========================================================= */
 
 @keyframes about-orbit-pulse {
+
   0%,
   100% {
     opacity: 0.65;
-
     scale: 1;
   }
 
   50% {
     opacity: 1;
-
     scale: 1.2;
   }
 }
@@ -508,6 +516,20 @@
 /* =========================================================
    DARK MODE
    ========================================================= */
+
+html.dark .about-section {
+  background: #0F0D12;
+}
+
+html.dark .about-section-atmosphere {
+  background:
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(120, 110, 140, 0.10) 0%,
+      rgba(120, 110, 140, 0.055) 28%,
+      rgba(120, 110, 140, 0) 68%
+    );
+}
 
 html.dark .about-orb-glow {
   opacity: 0.85;

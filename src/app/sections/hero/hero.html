@@ -3,9 +3,9 @@
   id="home"
   class="hero-section relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-[#F9F8FC]"
 >
-  <!-- ========================================================= -->
-  <!-- HERO ATMOSPHERE — BLENDS INTO SECTION WAVE -->
-  <!-- ========================================================= -->
+  <!-- =====================================================
+       BACKGROUND ATMOSPHERE
+       ===================================================== -->
 
   <div
     class="hero-section-atmosphere pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[42%]"
@@ -22,31 +22,23 @@
     aria-hidden="true"
   ></div>
 
-  <!-- ========================================================= -->
-  <!-- CONTENT -->
-  <!-- ========================================================= -->
+  <!-- =====================================================
+       HERO CONTENT
+       ===================================================== -->
 
   <div
     class="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-12 px-6 py-20 lg:grid-cols-2 lg:px-8"
   >
-    <!-- ======================================================= -->
-    <!-- TEXT -->
-    <!-- ======================================================= -->
+    <!-- ===================================================
+         TEXT
+         =================================================== -->
 
     <div #heroContent class="relative z-30 max-w-2xl">
-      <!-- ===================================================== -->
-      <!-- EYEBROW -->
-      <!-- ===================================================== -->
-
       <p
         class="hero-eyebrow mb-5 font-mono text-sm font-medium uppercase tracking-[0.18em] text-[#7C3AED]"
       >
         Full Stack Developer
       </p>
-
-      <!-- ===================================================== -->
-      <!-- TITLE -->
-      <!-- ===================================================== -->
 
       <h1
         #heroTitle
@@ -55,15 +47,11 @@
         <span class="hero-title-line"> I build digital </span>
 
         <span class="hero-title-line">
-          <span class="text-[#7C3AED]">experiences</span>
+          <span class="text-[#7C3AED]"> experiences </span>
         </span>
 
         <span class="hero-title-line"> with code &amp; design. </span>
       </h1>
-
-      <!-- ===================================================== -->
-      <!-- DESCRIPTION -->
-      <!-- ===================================================== -->
 
       <p
         #heroDescription
@@ -76,35 +64,25 @@
         digital experiences.
       </p>
 
-      <!-- ===================================================== -->
-      <!-- ACTIONS -->
-      <!-- ===================================================== -->
+      <!-- =================================================
+           ACTIONS
+           ================================================= -->
 
       <div #heroActions class="mt-9 flex flex-wrap items-center gap-5">
-        <!-- =================================================== -->
-        <!-- VIEW MY WORK -->
-        <!-- =================================================== -->
-
         <div class="group relative w-fit">
-          <!-- TOP LEFT CORNER -->
-
           <div
             class="pointer-events-none absolute -left-1.5 -top-1.5 h-3 w-3 border-l border-t border-[#17131C]/30 transition-transform duration-500 ease-out group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"
           ></div>
-
-          <!-- BOTTOM RIGHT CORNER -->
 
           <div
             class="pointer-events-none absolute -bottom-1.5 -right-1.5 h-3 w-3 border-b border-r border-[#17131C]/30 transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:translate-y-0.5"
           ></div>
 
-          <!-- BUTTON -->
-
           <a
             href="#work"
             class="group relative z-10 flex items-center gap-4 border border-[#17131C] bg-[#17131C] px-7 py-3.5 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:border-[#7C3AED] hover:bg-[#7C3AED]"
           >
-            <span>View my work</span>
+            <span> View my work </span>
 
             <i
               class="pi pi-arrow-up-right text-base transition-transform duration-300 group-hover:translate-x-1"
@@ -112,10 +90,6 @@
             ></i>
           </a>
         </div>
-
-        <!-- =================================================== -->
-        <!-- CONTACT -->
-        <!-- =================================================== -->
 
         <a
           href="#contact"
@@ -126,147 +100,171 @@
       </div>
     </div>
 
-    <!-- ========================================================= -->
-    <!-- VISUAL -->
-    <!-- ========================================================= -->
+    <!-- ===================================================
+         HERO VISUAL
+         =================================================== -->
 
     <div
       #heroVisual
-      class="hero-visual relative z-10 flex h-[560px] w-full items-center justify-center"
+      class="hero-visual relative z-10 flex h-[470px] w-full items-center justify-center"
     >
-      <!-- ===================================================== -->
-      <!-- MAIN ATMOSPHERE -->
-      <!-- ===================================================== -->
+      <!-- =================================================
+           FLOATING GROUND SHADOW
+           ================================================= -->
 
       <div
-        class="hero-main-glow hero-parallax-deep pointer-events-none absolute left-1/2 top-1/2 z-0 h-[520px] w-[520px]"
+        class="hero-floating-ground pointer-events-none absolute left-1/2 top-[113%] z-[2]"
         aria-hidden="true"
       ></div>
 
-      <!-- ===================================================== -->
-      <!-- CENTRAL SPHERE -->
-      <!-- ===================================================== -->
+      <!-- =================================================
+           MAIN ATMOSPHERIC GLOW
+           ================================================= -->
+
+      <div
+        class="hero-main-glow hero-parallax-deep pointer-events-none absolute left-1/2 top-1/2 z-0 h-[480px] w-[480px]"
+        aria-hidden="true"
+      ></div>
+
+      <!-- =================================================
+           SPHERE AMBIENT
+           ================================================= -->
+
+      <div
+        class="hero-sphere-ambient pointer-events-none absolute left-1/2 top-1/2 z-[1] h-[450px] w-[450px]"
+        aria-hidden="true"
+      ></div>
+
+      <!-- =================================================
+           MAIN SPHERE
+           ================================================= -->
 
       <div
         class="hero-sphere hero-parallax-main pointer-events-none absolute left-1/2 top-1/2 z-[5] h-[430px] w-[430px]"
         aria-hidden="true"
       >
-        <!-- MAIN ORB -->
-
         <div class="hero-sphere-core absolute inset-0"></div>
 
-        <!-- PURPLE ATMOSPHERE -->
+        <div class="hero-purple-glow absolute -inset-20"></div>
 
-        <div class="hero-purple-glow absolute -inset-16"></div>
+        <div class="hero-blue-glow absolute -inset-24"></div>
 
-        <!-- BLUE ATMOSPHERE -->
+        <div class="hero-inner-glow absolute inset-[55px]"></div>
 
-        <div class="hero-blue-glow absolute -inset-20"></div>
+        <!-- =================================================
+             SMALL LIGHTS INSIDE / AROUND SPHERE
+             ================================================= -->
 
-        <!-- INNER LIGHT -->
+        <span class="hero-orbit-dot hero-orbit-dot-1 absolute left-[7%] top-[25%]"></span>
 
-        <div class="hero-inner-glow absolute inset-[45px]"></div>
+        <span class="hero-orbit-dot hero-orbit-dot-2 absolute right-[5%] top-[29%]"></span>
 
-        <!-- ================================================= -->
-        <!-- ORBIT DOTS -->
-        <!-- ================================================= -->
+        <span class="hero-orbit-dot hero-orbit-dot-3 absolute bottom-[14%] left-[12%]"></span>
 
-        <span class="hero-orbit-dot hero-orbit-dot-1 absolute left-[8%] top-[25%]"></span>
-
-        <span class="hero-orbit-dot hero-orbit-dot-2 absolute right-[8%] top-[31%]"></span>
-
-        <span class="hero-orbit-dot hero-orbit-dot-3 absolute bottom-[17%] left-[16%]"></span>
-
-        <span class="hero-orbit-dot hero-orbit-dot-4 absolute bottom-[21%] right-[15%]"></span>
+        <span class="hero-orbit-dot hero-orbit-dot-4 absolute bottom-[18%] right-[10%]"></span>
       </div>
 
-      <!-- ===================================================== -->
-      <!-- ORBIT RINGS -->
-      <!-- ===================================================== -->
+      <!-- =================================================
+           ORBIT RINGS
+           ================================================= -->
 
       <div
-        class="hero-sketch-orbit hero-sketch-orbit-1 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[465px] w-[465px]"
+        class="hero-sketch-orbit hero-sketch-orbit-1 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[440px] w-[440px]"
         aria-hidden="true"
       ></div>
 
       <div
-        class="hero-sketch-orbit hero-sketch-orbit-2 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[535px] w-[535px]"
+        class="hero-sketch-orbit hero-sketch-orbit-2 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[500px] w-[500px]"
         aria-hidden="true"
       ></div>
 
       <div
-        class="hero-sketch-orbit hero-sketch-orbit-3 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[500px] w-[500px]"
+        class="hero-sketch-orbit hero-sketch-orbit-3 hero-parallax-orbit pointer-events-none absolute left-1/2 top-1/2 z-[8] h-[475px] w-[475px]"
         aria-hidden="true"
       ></div>
 
-      <!-- ===================================================== -->
-      <!-- WHITE LIGHT ORBS -->
-      <!-- ===================================================== -->
+      <!-- =================================================
+           WHITE LIGHT ORBS
+           ================================================= -->
 
       <span
-        class="hero-light-orb hero-light-orb-1 hero-parallax-orb pointer-events-none absolute left-[20%] top-[48%] z-[12]"
+        class="hero-light-orb hero-light-orb-1 hero-parallax-orb pointer-events-none absolute left-[16%] top-[46%] z-[20]"
         aria-hidden="true"
       ></span>
 
       <span
-        class="hero-light-orb hero-light-orb-2 hero-parallax-orb pointer-events-none absolute right-[15%] top-[52%] z-[12]"
+        class="hero-light-orb hero-light-orb-2 hero-parallax-orb pointer-events-none absolute right-[11%] top-[50%] z-[20]"
         aria-hidden="true"
       ></span>
 
       <span
-        class="hero-light-orb hero-light-orb-3 hero-parallax-orb pointer-events-none absolute bottom-[58%] left-[11%] z-[12]"
+        class="hero-light-orb hero-light-orb-3 hero-parallax-orb pointer-events-none absolute bottom-[56%] left-[8%] z-[20]"
         aria-hidden="true"
       ></span>
 
-      <!-- ===================================================== -->
-      <!-- PURPLE PARTICLES -->
-      <!-- ===================================================== -->
+      <!-- =================================================
+           PURPLE PARTICLES
+           ================================================= -->
 
       <span
-        class="hero-particle hero-particle-purple hero-particle-1 hero-parallax-particle pointer-events-none absolute left-[15%] top-[9%] z-[15]"
-        aria-hidden="true"
-      ></span>
-
-      <span
-        class="hero-particle hero-particle-purple hero-particle-3 hero-parallax-particle pointer-events-none absolute bottom-[15%] left-[5%] z-[15]"
-        aria-hidden="true"
-      ></span>
-
-      <!-- ===================================================== -->
-      <!-- BLUE PARTICLES -->
-      <!-- ===================================================== -->
-
-      <span
-        class="hero-particle hero-particle-blue hero-particle-2 hero-parallax-particle pointer-events-none absolute right-[15%] top-[20%] z-[15]"
+        class="hero-particle hero-particle-purple hero-particle-1 hero-parallax-particle pointer-events-none absolute left-[12%] top-[8%] z-[25]"
         aria-hidden="true"
       ></span>
 
       <span
-        class="hero-particle hero-particle-blue hero-particle-4 hero-parallax-particle pointer-events-none absolute bottom-[41%] right-[9%] z-[15]"
+        class="hero-particle hero-particle-purple hero-particle-3 hero-parallax-particle pointer-events-none absolute bottom-[13%] left-[3%] z-[25]"
         aria-hidden="true"
       ></span>
 
-      <!-- ===================================================== -->
-      <!-- MICRO PARTICLE -->
-      <!-- ===================================================== -->
+      <!-- =================================================
+           BLUE PARTICLES
+           ================================================= -->
 
       <span
-        class="hero-micro-particle hero-parallax-particle pointer-events-none absolute left-[43%] top-[8%] z-[15]"
+        class="hero-particle hero-particle-blue hero-particle-2 hero-parallax-particle pointer-events-none absolute right-[11%] top-[17%] z-[25]"
         aria-hidden="true"
       ></span>
 
-      <!-- ===================================================== -->
-      <!-- GIF -->
-      <!-- ===================================================== -->
+      <span
+        class="hero-particle hero-particle-blue hero-particle-4 hero-parallax-particle pointer-events-none absolute bottom-[39%] right-[6%] z-[25]"
+        aria-hidden="true"
+      ></span>
 
-      <div
-        class="hero-image-wrapper hero-parallax-image relative z-[30] flex items-center justify-center"
-      >
-        <img
-          src="/images/hero/giovanna.gif"
-          alt="Giovanna"
-          class="pointer-events-none relative block h-auto w-full rounded-b-[160px] object-contain opacity-95 drop-shadow-[0_25px_55px_rgba(124,58,237,0.14)]"
-        />
+      <!-- =================================================
+           MICRO PARTICLE
+           ================================================= -->
+
+      <span
+        class="hero-micro-particle hero-parallax-particle pointer-events-none absolute left-[43%] top-[5%] z-[25]"
+        aria-hidden="true"
+      ></span>
+
+      <!-- =================================================
+           PERSON / GIF
+           ================================================= -->
+
+      <div class="hero-image-stage hero-parallax-image absolute left-1/2 top-1/2 z-[30]">
+        <!-- =================================================
+             PERSON CONTACT SHADOW
+             ================================================= -->
+
+        <div class="hero-person-shadow absolute left-1/2 top-[108%] z-0" aria-hidden="true"></div>
+
+        <!-- ===============================================
+             BODY INSIDE SPHERE
+             =============================================== -->
+
+        <div class="hero-image-inside absolute inset-0 z-[10]">
+          <img src="/images/hero/giovanna.gif" alt="" class="hero-image-gif" />
+        </div>
+
+        <!-- ===============================================
+             HEAD OUTSIDE SPHERE
+             =============================================== -->
+
+        <div class="hero-image-head absolute inset-0 z-[20]">
+          <img src="/images/hero/giovanna.gif" alt="Giovanna" class="hero-image-gif" />
+        </div>
       </div>
     </div>
   </div>

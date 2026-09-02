@@ -1,24 +1,146 @@
 /* =========================================================
-   NAV LINK
+   NAVBAR
    ========================================================= */
 
-.nav-link {
-  position: relative;
+.site-navbar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 50;
 
-  transition:
-    color 300ms ease,
-    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  width: 100%;
 
-  will-change: transform;
+  pointer-events: none;
 }
 
 
 /* =========================================================
-   NAV LINK — HOVER
+   NAVBAR INNER
    ========================================================= */
 
-.nav-link:hover {
+.site-navbar__inner {
+  pointer-events: auto;
+
+  width: calc(100% - 48px);
+  max-width: 1280px;
+
+  height: 60px;
+
+  margin: 14px auto 0;
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid rgba(23, 19, 28, 0.07);
+  border-radius: 18px;
+
+  background: rgba(250, 249, 252, 0.78);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 8px 30px rgba(23, 19, 28, 0.035),
+    0 1px 2px rgba(23, 19, 28, 0.025);
+
+  transition:
+    background-color 450ms ease,
+    border-color 450ms ease,
+    box-shadow 450ms ease;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.site-navbar__logo {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+
+  text-decoration: none;
+
+  color: #17131c;
+
+  font-family: 'General Sans', system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+
+  letter-spacing: -0.035em;
+
+  transition:
+    color 300ms ease,
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.site-navbar__logo:hover {
   color: #7c3aed;
+
+  transform: translateY(-1px);
+}
+
+
+.site-navbar__logo-dot {
+  color: #7c3aed;
+
+  transition:
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.site-navbar__logo:hover .site-navbar__logo-dot {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.site-navbar__navigation {
+  display: flex;
+  align-items: center;
+
+  gap: 2px;
+}
+
+
+/* =========================================================
+   NAV LINK
+   ========================================================= */
+
+.site-navbar__link {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 8px 11px;
+
+  text-decoration: none;
+
+  color: #706a78;
+
+  font-family: 'General Sans', system-ui, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+
+  letter-spacing: 0.035em;
+
+  transition:
+    color 300ms ease,
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.site-navbar__link:hover {
+  color: #17131c;
 
   transform: translateY(-1px);
 }
@@ -28,58 +150,56 @@
    NAV INDEX
    ========================================================= */
 
-.nav-link::before {
-  content: attr(data-index);
-
-  position: absolute;
-
-  left: 0;
-  top: -7px;
-
+.site-navbar__index {
   font-family: 'Geist Mono', monospace;
-  font-size: 7px;
+
+  font-size: 8px;
   font-weight: 500;
-  letter-spacing: 0.08em;
+
+  letter-spacing: 0.04em;
 
   color: #7c3aed;
 
-  opacity: 0;
+  opacity: 0.42;
 
-  transform:
-    translateY(4px)
-    scale(0.85);
+  transform: translateY(1px);
 
   transition:
-    opacity 220ms ease,
-    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 250ms ease,
+    transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 
-/* =========================================================
-   INDEX — APPEAR
-   ========================================================= */
-
-.nav-link:hover::before {
-  opacity: 0.75;
+.site-navbar__link:hover .site-navbar__index {
+  opacity: 1;
 
   transform:
-    translateY(0)
-    scale(1);
+    translateY(-1px)
+    scale(1.05);
 }
 
 
 /* =========================================================
-   NAV UNDERLINE
+   NAV LABEL
    ========================================================= */
 
-/* .nav-link::after {
+.site-navbar__label {
+  position: relative;
+}
+
+
+/* =========================================================
+   NAV LINK — CREATIVE MARK
+   ========================================================= */
+
+.site-navbar__link::after {
   content: '';
 
   position: absolute;
 
-  left: 12px;
-  right: 12px;
-  bottom: 1px;
+  left: 11px;
+  right: 11px;
+  bottom: 2px;
 
   height: 1px;
 
@@ -87,122 +207,138 @@
 
   transform:
     scaleX(0)
-    transform-origin: left center;
+    translateX(-4px);
+
+  transform-origin: left center;
 
   opacity: 0;
 
   transition:
     transform 450ms cubic-bezier(0.22, 1, 0.36, 1),
     opacity 250ms ease;
-} */
+}
 
 
-/* =========================================================
-   UNDERLINE — APPEAR
-   ========================================================= */
+.site-navbar__link:hover::after {
+  opacity: 0.55;
 
-.nav-link:hover::after {
-  opacity: 0.5;
-
-  transform: scaleX(1);
+  transform:
+    scaleX(1)
+    translateX(0);
 }
 
 
 /* =========================================================
-   NAV PARTICLE
+   NAV LINK — SMALL DOT
    ========================================================= */
 
-.nav-particle {
+.site-navbar__link::before {
+  content: '';
+
+  position: absolute;
+
+  right: 7px;
+  top: 7px;
+
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
   background: #7c3aed;
 
   opacity: 0;
 
-  transform:
-    translate(-7px, -50%)
-    scale(0);
+  transform: scale(0);
 
   box-shadow:
-    0 0 4px rgba(124, 58, 237, 0.55),
-    0 0 10px rgba(124, 58, 237, 0.28),
-    0 0 18px rgba(124, 58, 237, 0.10);
+    0 0 5px rgba(124, 58, 237, 0.55),
+    0 0 10px rgba(124, 58, 237, 0.22);
 
   transition:
     opacity 220ms ease,
-    transform 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+.site-navbar__link:hover::before {
+  opacity: 0.9;
+
+  transform: scale(1);
 }
 
 
 /* =========================================================
-   PARTICLE — APPEAR
+   CONTROLS
    ========================================================= */
 
-.nav-link:hover .nav-particle {
-  opacity: 1;
+.site-navbar__controls {
+  display: flex;
+  align-items: center;
 
-  transform:
-    translate(0, -50%)
-    scale(1);
+  gap: 8px;
 }
 
 
 /* =========================================================
-   SUBTLE PARTICLE PULSE
+   LANGUAGE
    ========================================================= */
 
-.nav-link:hover .nav-particle {
-  animation:
-    nav-particle-pulse
-    2.4s
-    ease-in-out
-    infinite;
+.site-navbar__language {
+  height: 32px;
+
+  padding: 0 9px;
+
+  border: 0;
+  border-radius: 999px;
+
+  background: transparent;
+
+  color: #706a78;
+
+  font-family: 'Geist Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+
+  letter-spacing: 0.12em;
+
+  cursor: pointer;
+
+  transition:
+    color 250ms ease,
+    background-color 250ms ease,
+    transform 300ms ease;
 }
 
 
-@keyframes nav-particle-pulse {
+.site-navbar__language:hover {
+  color: #7c3aed;
 
-  0%,
-  100% {
-    opacity: 0.75;
+  background: rgba(124, 58, 237, 0.055);
 
-    transform:
-      translate(0, -50%)
-      scale(0.85);
-  }
-
-  50% {
-    opacity: 1;
-
-    transform:
-      translate(0, -50%)
-      scale(1.15);
-  }
+  transform: translateY(-1px);
 }
 
 
 /* =========================================================
-   ACCESSIBILITY
+   DIVIDER
    ========================================================= */
 
-@media (prefers-reduced-motion: reduce) {
+.site-navbar__divider {
+  width: 1px;
+  height: 16px;
 
-  .nav-link,
-  .nav-particle {
-    transition: none;
-    animation: none;
-  }
+  background: #e7e2ec;
 
-  .nav-link:hover {
-    transform: none;
-  }
+  opacity: 0.8;
 }
 
 
 /* =========================================================
    THEME SWITCH
-   Minimal / Outline / Soft
    ========================================================= */
 
-.theme-switch {
+.site-navbar__theme {
   position: relative;
 
   width: 54px;
@@ -211,32 +347,26 @@
   padding: 0;
 
   border: 0;
-  background: transparent;
 
-  cursor: pointer;
+  background: transparent;
 
   display: flex;
   align-items: center;
   justify-content: center;
+
+  cursor: pointer;
 
   -webkit-tap-highlight-color: transparent;
 }
 
 
 /* =========================================================
-   TRACK
+   THEME TRACK
    ========================================================= */
 
-.theme-switch-track {
-  position: relative;
-
-  width: 54px;
-  height: 30px;
-
-  display: flex;
-  align-items: center;
-
+.site-navbar__theme {
   border: 1px solid rgba(23, 19, 28, 0.14);
+
   border-radius: 999px;
 
   background: rgba(255, 255, 255, 0.55);
@@ -249,10 +379,10 @@
 
 
 /* =========================================================
-   KNOB
+   THEME KNOB
    ========================================================= */
 
-.theme-switch-knob {
+.site-navbar__theme-knob {
   position: absolute;
 
   top: 3px;
@@ -267,8 +397,8 @@
 
   border-radius: 50%;
 
-  background: #17131C;
-  color: white;
+  background: #17131c;
+  color: #ffffff;
 
   box-shadow:
     0 2px 6px rgba(23, 19, 28, 0.16),
@@ -282,20 +412,16 @@
 }
 
 
-.theme-switch-knob i {
+.site-navbar__theme-knob i {
   font-size: 10px;
-
-  transition:
-    transform 450ms ease,
-    opacity 300ms ease;
 }
 
 
 /* =========================================================
-   ICONS INSIDE TRACK
+   THEME ICONS
    ========================================================= */
 
-.theme-switch-icon {
+.site-navbar__theme-icon {
   position: absolute;
 
   top: 50%;
@@ -317,7 +443,7 @@
 }
 
 
-.theme-switch-icon i {
+.site-navbar__theme-icon i {
   font-size: 9px;
 }
 
@@ -326,11 +452,12 @@
    SUN
    ========================================================= */
 
-.theme-switch-sun {
+.site-navbar__theme-icon--sun {
   right: 6px;
 
-  color: #7C3AED;
-  opacity: 0.22;
+  color: #7c3aed;
+
+  opacity: 0.18;
 }
 
 
@@ -338,11 +465,12 @@
    MOON
    ========================================================= */
 
-.theme-switch-moon {
+.site-navbar__theme-icon--moon {
   left: 6px;
 
-  color: #706A78;
-  opacity: 0.22;
+  color: #706a78;
+
+  opacity: 0.55;
 }
 
 
@@ -350,8 +478,26 @@
    LIGHT MODE
    ========================================================= */
 
-.theme-switch:not(.is-dark) .theme-switch-knob {
+.site-navbar__theme:not(.is-dark) .site-navbar__theme-knob {
   transform: translateX(0);
+}
+
+
+.site-navbar__theme:not(.is-dark) .site-navbar__theme-icon--sun {
+  opacity: 0.16;
+
+  transform:
+    translateY(-50%)
+    scale(0.85);
+}
+
+
+.site-navbar__theme:not(.is-dark) .site-navbar__theme-icon--moon {
+  opacity: 0.55;
+
+  transform:
+    translateY(-50%)
+    scale(1);
 }
 
 
@@ -359,17 +505,54 @@
    DARK MODE
    ========================================================= */
 
-.theme-switch.is-dark .theme-switch-track {
+html.dark .site-navbar__inner {
+  background: rgba(15, 13, 18, 0.78);
+
+  border-color: rgba(255, 255, 255, 0.08);
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.16),
+    0 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+
+html.dark .site-navbar__logo {
+  color: #f5f3f7;
+}
+
+
+html.dark .site-navbar__link {
+  color: #aaa3b2;
+}
+
+
+html.dark .site-navbar__link:hover {
+  color: #f5f3f7;
+}
+
+
+html.dark .site-navbar__language {
+  color: #aaa3b2;
+}
+
+
+html.dark .site-navbar__divider {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+html.dark .site-navbar__theme {
   border-color: rgba(255, 255, 255, 0.16);
+
   background: rgba(23, 19, 28, 0.55);
 }
 
 
-.theme-switch.is-dark .theme-switch-knob {
+html.dark .site-navbar__theme-knob {
   transform: translateX(24px);
 
-  background: #F9F8FC;
-  color: #17131C;
+  background: #f9f8fc;
+  color: #17131c;
 
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.22),
@@ -377,20 +560,7 @@
 }
 
 
-/* =========================================================
-   ICON VISIBILITY
-   ========================================================= */
-
-.theme-switch:not(.is-dark) .theme-switch-sun {
-  opacity: 0.16;
-
-  transform:
-    translateY(-50%)
-    scale(0.85);
-}
-
-
-.theme-switch:not(.is-dark) .theme-switch-moon {
+html.dark .site-navbar__theme-icon--sun {
   opacity: 0.55;
 
   transform:
@@ -399,16 +569,7 @@
 }
 
 
-.theme-switch.is-dark .theme-switch-sun {
-  opacity: 0.55;
-
-  transform:
-    translateY(-50%)
-    scale(1);
-}
-
-
-.theme-switch.is-dark .theme-switch-moon {
+html.dark .site-navbar__theme-icon--moon {
   opacity: 0.16;
 
   transform:
@@ -418,10 +579,10 @@
 
 
 /* =========================================================
-   HOVER
+   THEME HOVER
    ========================================================= */
 
-.theme-switch:hover .theme-switch-track {
+.site-navbar__theme:hover {
   border-color: rgba(124, 58, 237, 0.35);
 
   box-shadow:
@@ -429,7 +590,7 @@
 }
 
 
-.theme-switch:hover .theme-switch-knob {
+.site-navbar__theme:hover .site-navbar__theme-knob {
   box-shadow:
     0 3px 9px rgba(23, 19, 28, 0.18),
     0 0 0 1px rgba(124, 58, 237, 0.12);
@@ -437,18 +598,127 @@
 
 
 /* =========================================================
-   ACTIVE / PRESS
+   THEME PRESS
    ========================================================= */
 
-.theme-switch:active .theme-switch-knob {
+.site-navbar__theme:active .site-navbar__theme-knob {
   transform: scale(0.92);
 }
 
 
-.theme-switch.is-dark:active .theme-switch-knob {
+.site-navbar__theme.is-dark:active .site-navbar__theme-knob {
   transform:
     translateX(24px)
     scale(0.92);
+}
+
+
+/* =========================================================
+   MOBILE BUTTON
+   ========================================================= */
+
+.site-navbar__mobile {
+  display: none;
+
+  width: 34px;
+  height: 34px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+
+.site-navbar__mobile span {
+  display: block;
+
+  width: 21px;
+  height: 1px;
+
+  background: #17131c;
+
+  transition:
+    width 300ms ease,
+    transform 300ms ease;
+}
+
+
+.site-navbar__mobile span:last-child {
+  width: 14px;
+  align-self: flex-end;
+}
+
+
+.site-navbar__mobile:hover span:first-child {
+  width: 15px;
+}
+
+
+.site-navbar__mobile:hover span:last-child {
+  width: 21px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .site-navbar__navigation,
+  .site-navbar__controls {
+    display: none;
+  }
+
+  .site-navbar__mobile {
+    display: flex;
+  }
+
+  .site-navbar__inner {
+    width: calc(100% - 32px);
+
+    height: 56px;
+
+    margin-top: 10px;
+
+    padding: 0 15px;
+
+    border-radius: 16px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+  .site-navbar__inner {
+    width: calc(100% - 24px);
+
+    height: 54px;
+
+    margin-top: 8px;
+
+    padding: 0 14px;
+
+    border-radius: 15px;
+  }
+
+  .site-navbar__logo {
+    font-size: 16px;
+  }
 }
 
 
@@ -458,10 +728,24 @@
 
 @media (prefers-reduced-motion: reduce) {
 
-  .theme-switch-track,
-  .theme-switch-knob,
-  .theme-switch-icon,
-  .theme-switch-knob i {
-    transition: none;
+  .site-navbar__logo,
+  .site-navbar__logo-dot,
+  .site-navbar__link,
+  .site-navbar__index,
+  .site-navbar__link::before,
+  .site-navbar__link::after,
+  .site-navbar__language,
+  .site-navbar__theme,
+  .site-navbar__theme-knob,
+  .site-navbar__theme-icon,
+  .site-navbar__mobile span {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .site-navbar__logo:hover,
+  .site-navbar__link:hover,
+  .site-navbar__language:hover {
+    transform: none;
   }
 }

@@ -158,9 +158,68 @@ main {
 
   pointer-events: none;
 
-  background: #f9f8fc;
+  background: #F9F8FC;
 
   isolation: isolate;
+}
+
+
+/* =========================================================
+   WAVE ATMOSPHERE
+   ========================================================= */
+
+/*
+   Por padrão, nenhuma wave recebe o gradient.
+
+   O gradient é aplicado somente nas waves
+   especificadas abaixo.
+*/
+
+.section-wave::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: 0;
+
+  pointer-events: none;
+
+  background: transparent;
+}
+
+
+/* =========================================================
+   WAVES WITH ATMOSPHERE
+   ========================================================= */
+
+/*
+   HERO → ABOUT
+*/
+
+.section-wave--hero-about::before {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(150, 150, 160, 0.10) 0%,
+      rgba(150, 150, 160, 0.055) 30%,
+      rgba(150, 150, 160, 0) 72%
+    );
+}
+
+
+/*
+   WORK → SKILLS
+*/
+
+.section-wave--work-skills::before {
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(150, 150, 160, 0.10) 0%,
+      rgba(150, 150, 160, 0.055) 30%,
+      rgba(150, 150, 160, 0) 72%
+    );
 }
 
 
@@ -168,23 +227,30 @@ main {
    SECTION VARIANTS
    ========================================================= */
 
-/* Hero → About */
+
+/* =========================================================
+   HERO → ABOUT
+   ========================================================= */
 
 .section-wave--hero-about {
   height: 125px;
 }
 
 
-/* About → Work */
+/* =========================================================
+   ABOUT → WORK
+   ========================================================= */
 
 .section-wave--about-work {
   height: 105px;
 }
 
 
-/* Work → Skills
-   Skills → Experience
-   Experience → Contact */
+/* =========================================================
+   WORK → SKILLS
+   SKILLS → EXPERIENCE
+   EXPERIENCE → CONTACT
+   ========================================================= */
 
 .section-wave--work-skills {
   height: 100px;
@@ -371,7 +437,7 @@ main {
    ========================================================= */
 
 html.dark .section-wave {
-  background: #f9f8fc;
+  background: #F9F8FC;
 }
 
 html.dark .section-wave__back {
