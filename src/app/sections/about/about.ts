@@ -374,18 +374,22 @@ export class About implements AfterViewInit, OnDestroy {
   // STATS — SCROLL TRIGGER
   // =========================================================
 
+  // =========================================================
+  // STATS — SCROLL TRIGGER
+  // =========================================================
+
   private createStatsTrigger(): void {
     const section = this.aboutSection.nativeElement;
 
+    const firstStat = section.querySelector('.about-stat');
+
+    if (!(firstStat instanceof HTMLElement)) {
+      return;
+    }
+
     const trigger = ScrollTrigger.create({
-      trigger: section,
-
-      /*
-       * Dispara quando o topo do About
-       * entra aproximadamente 80% dentro da viewport.
-       */
+      trigger: firstStat,
       start: 'top 80%',
-
       once: true,
 
       onEnter: () => {
@@ -394,7 +398,6 @@ export class About implements AfterViewInit, OnDestroy {
         }
 
         this.hasAnimated = true;
-
         this.animateStats();
       },
     });

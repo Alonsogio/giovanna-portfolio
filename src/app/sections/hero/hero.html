@@ -1,7 +1,7 @@
 <section
   #heroSection
   id="home"
-  class="hero-section relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden bg-[#F9F8FC]"
+  class="hero-section relative flex min-h-[calc(100vh-4rem)] items-center overflow-hidden"
 >
   <!-- =====================================================
        BACKGROUND ATMOSPHERE
@@ -35,19 +35,19 @@
 
     <div #heroContent class="relative z-30 max-w-2xl">
       <p
-        class="hero-eyebrow mb-5 font-mono text-sm font-medium uppercase tracking-[0.18em] text-[#7C3AED]"
+        class="hero-eyebrow mb-5 font-mono text-sm font-medium uppercase tracking-[0.18em]"
       >
         Full Stack Developer
       </p>
 
       <h1
         #heroTitle
-        class="hero-title text-5xl font-semibold leading-[1.05] tracking-[-0.045em] text-[#17131C] sm:text-6xl lg:text-7xl"
+        class="hero-title text-5xl font-semibold leading-[1.05] tracking-[-0.045em] sm:text-6xl lg:text-7xl"
       >
         <span class="hero-title-line"> I build digital </span>
 
         <span class="hero-title-line">
-          <span class="text-[#7C3AED]"> experiences </span>
+          <span class="hero-title-gradient-text"> experiences </span>
         </span>
 
         <span class="hero-title-line"> with code &amp; design. </span>
@@ -55,7 +55,7 @@
 
       <p
         #heroDescription
-        class="hero-description mt-7 max-w-xl text-base leading-7 text-[#706A78] sm:text-lg"
+        class="hero-description mt-7 max-w-xl text-base leading-7 sm:text-lg"
       >
         I'm Giovanna, a Full Stack Developer focused on
         <br class="hidden sm:block" />
@@ -68,21 +68,29 @@
            ACTIONS
            ================================================= -->
 
-      <div #heroActions class="mt-9 flex flex-wrap items-center gap-5">
-        <div class="group relative w-fit">
+      <div #heroActions class="hero-actions mt-9 flex flex-wrap items-center gap-5">
+        <!-- ===============================================
+             PRIMARY BUTTON
+             =============================================== -->
+
+        <div class="hero-primary-button-wrapper group relative w-fit">
+          <!-- Corner: top left -->
           <div
-            class="pointer-events-none absolute -left-1.5 -top-1.5 h-3 w-3 border-l border-t border-[#17131C]/30 transition-transform duration-500 ease-out group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"
+            class="hero-button-corner hero-button-corner--top-left pointer-events-none absolute -left-1.5 -top-1.5 h-3 w-3 transition-transform duration-500 ease-out group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"
+            aria-hidden="true"
           ></div>
 
+          <!-- Corner: bottom right -->
           <div
-            class="pointer-events-none absolute -bottom-1.5 -right-1.5 h-3 w-3 border-b border-r border-[#17131C]/30 transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+            class="hero-button-corner hero-button-corner--bottom-right pointer-events-none absolute -bottom-1.5 -right-1.5 h-3 w-3 transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+            aria-hidden="true"
           ></div>
 
           <a
             href="#work"
-            class="group relative z-10 flex items-center gap-4 border border-[#17131C] bg-[#17131C] px-7 py-3.5 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:border-[#7C3AED] hover:bg-[#7C3AED]"
+            class="hero-primary-button group relative z-10 flex items-center gap-4 px-7 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
           >
-            <span> View my work </span>
+            <span>View my work</span>
 
             <i
               class="pi pi-arrow-up-right text-base transition-transform duration-300 group-hover:translate-x-1"
@@ -91,9 +99,13 @@
           </a>
         </div>
 
+        <!-- ===============================================
+             SECONDARY BUTTON
+             =============================================== -->
+
         <a
           href="#contact"
-          class="hero-contact-button flex items-center gap-3 border border-[#E7E2EC] bg-white px-7 py-3.5 text-sm font-medium tracking-wide text-[#17131C] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#7C3AED] hover:text-[#7C3AED]"
+          class="hero-contact-button flex items-center gap-3 px-7 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
         >
           Contact me
         </a>
@@ -155,13 +167,21 @@
              SMALL LIGHTS INSIDE / AROUND SPHERE
              ================================================= -->
 
-        <span class="hero-orbit-dot hero-orbit-dot-1 absolute left-[7%] top-[25%]"></span>
+        <span
+          class="hero-orbit-dot hero-orbit-dot-1 absolute left-[7%] top-[25%]"
+        ></span>
 
-        <span class="hero-orbit-dot hero-orbit-dot-2 absolute right-[5%] top-[29%]"></span>
+        <span
+          class="hero-orbit-dot hero-orbit-dot-2 absolute right-[5%] top-[29%]"
+        ></span>
 
-        <span class="hero-orbit-dot hero-orbit-dot-3 absolute bottom-[14%] left-[12%]"></span>
+        <span
+          class="hero-orbit-dot hero-orbit-dot-3 absolute bottom-[14%] left-[12%]"
+        ></span>
 
-        <span class="hero-orbit-dot hero-orbit-dot-4 absolute bottom-[18%] right-[10%]"></span>
+        <span
+          class="hero-orbit-dot hero-orbit-dot-4 absolute bottom-[18%] right-[10%]"
+        ></span>
       </div>
 
       <!-- =================================================
@@ -243,19 +263,28 @@
            PERSON / GIF
            ================================================= -->
 
-      <div class="hero-image-stage hero-parallax-image absolute left-1/2 top-1/2 z-[30]">
+      <div
+        class="hero-image-stage hero-parallax-image absolute left-1/2 top-1/2 z-[30]"
+      >
         <!-- =================================================
              PERSON CONTACT SHADOW
              ================================================= -->
 
-        <div class="hero-person-shadow absolute left-1/2 top-[108%] z-0" aria-hidden="true"></div>
+        <div
+          class="hero-person-shadow absolute left-1/2 top-[108%] z-0"
+          aria-hidden="true"
+        ></div>
 
         <!-- ===============================================
              BODY INSIDE SPHERE
              =============================================== -->
 
         <div class="hero-image-inside absolute inset-0 z-[10]">
-          <img src="/images/hero/giovanna.gif" alt="" class="hero-image-gif" />
+          <img
+            src="/images/hero/giovanna.gif"
+            alt=""
+            class="hero-image-gif"
+          />
         </div>
 
         <!-- ===============================================
@@ -263,9 +292,126 @@
              =============================================== -->
 
         <div class="hero-image-head absolute inset-0 z-[20]">
-          <img src="/images/hero/giovanna.gif" alt="Giovanna" class="hero-image-gif" />
+          <img
+            src="/images/hero/giovanna.gif"
+            alt="Giovanna"
+            class="hero-image-gif"
+          />
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- =====================================================
+       WAVE — HERO → ABOUT
+       ===================================================== -->
+
+  <div
+    class="hero-wave pointer-events-none absolute bottom-[-74px] left-0 z-[40] w-full"
+    aria-hidden="true"
+  >
+    <svg
+      class="hero-wave__svg"
+      viewBox="0 0 1440 170"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <!-- =================================================
+           BACK WAVE
+           ================================================= -->
+
+      <path
+        class="hero-wave__back"
+        d="
+          M 0 42
+          C 130 12, 270 10, 420 48
+          C 560 82, 690 105, 820 72
+          C 950 38, 1080 12, 1210 40
+          C 1300 58, 1370 65, 1440 48
+          L 1440 170
+          L 0 170
+          Z
+        "
+        fill="url(#heroBackGradient)"
+        filter="url(#heroWaveGlow)"
+      ></path>
+
+      <!-- =================================================
+           MIDDLE WAVE
+           ================================================= -->
+
+      <path
+        class="hero-wave__middle"
+        d="
+          M 0 64
+          C 130 92, 270 98, 420 62
+          C 560 30, 690 10, 820 42
+          C 950 76, 1080 102, 1210 68
+          C 1300 46, 1370 38, 1440 58
+          L 1440 170
+          L 0 170
+          Z
+        "
+        fill="url(#heroMiddleGradient)"
+      ></path>
+
+      <!-- =================================================
+           MAIN WAVE
+           ================================================= -->
+
+      <path
+        class="hero-wave__main"
+        d="
+          M 0 52
+          C 140 28, 285 26, 430 62
+          C 565 96, 700 112, 835 72
+          C 970 32, 1095 20, 1225 52
+          C 1320 76, 1380 78, 1440 60
+          L 1440 170
+          L 0 170
+          Z
+        "
+      ></path>
+
+      <!-- =================================================
+           GRADIENTS
+           ================================================= -->
+
+      <defs>
+        <linearGradient
+          id="heroBackGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="0%"
+        >
+          <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.075" />
+          <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.032" />
+          <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.075" />
+        </linearGradient>
+
+        <linearGradient
+          id="heroMiddleGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="0%"
+        >
+          <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.060" />
+          <stop offset="50%" stop-color="#7C3AED" stop-opacity="0.025" />
+          <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.060" />
+        </linearGradient>
+
+        <filter
+          id="heroWaveGlow"
+          x="-20%"
+          y="-60%"
+          width="140%"
+          height="220%"
+        >
+          <feGaussianBlur stdDeviation="9" />
+        </filter>
+      </defs>
+    </svg>
   </div>
 </section>

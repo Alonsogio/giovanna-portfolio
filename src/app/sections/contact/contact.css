@@ -8,6 +8,13 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  transition:
+    background-color 500ms ease,
+    color 500ms ease;
 }
 
 
@@ -23,6 +30,8 @@
   pointer-events: none;
 
   z-index: 0;
+
+  overflow: hidden;
 }
 
 
@@ -44,12 +53,14 @@
 
   white-space: nowrap;
 
-  color:
-    rgba(124, 58, 237, 0.025);
+  color: rgba(124, 58, 237, 0.025);
 
   user-select: none;
 
   will-change: transform;
+
+  transition:
+    color 500ms ease;
 }
 
 
@@ -79,7 +90,11 @@
     ease-in-out
     infinite;
 
-  will-change: transform;
+  will-change: transform, opacity;
+
+  transition:
+    opacity 700ms ease,
+    filter 700ms ease;
 }
 
 
@@ -119,6 +134,45 @@
 
 
 /* =========================================================
+   DARK MODE — BACKGROUND
+   ========================================================= */
+
+html.dark .contact-background-word {
+  color:
+    rgba(167, 139, 250, 0.035);
+}
+
+
+html.dark .contact-orb {
+  opacity: 0.72;
+
+  filter: blur(110px);
+}
+
+
+html.dark .contact-orb--purple {
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.13) 0%,
+      rgba(124, 58, 237, 0.055) 42%,
+      transparent 72%
+    );
+}
+
+
+html.dark .contact-orb--blue {
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.10) 0%,
+      rgba(96, 165, 250, 0.04) 42%,
+      transparent 72%
+    );
+}
+
+
+/* =========================================================
    HEADER
    ========================================================= */
 
@@ -135,6 +189,9 @@
   align-items: center;
 
   gap: 16px;
+
+  color:
+    var(--primary);
 }
 
 
@@ -145,14 +202,19 @@
   height: 1px;
 
   background:
-    rgba(124, 58, 237, 0.3);
+    color-mix(
+      in srgb,
+      var(--primary) 30%,
+      transparent
+    );
 
   transform-origin:
     left center;
 
   transition:
     width 500ms ease,
-    opacity 500ms ease;
+    opacity 500ms ease,
+    background-color 500ms ease;
 }
 
 
@@ -171,6 +233,12 @@
   text-wrap: balance;
 
   perspective: 1000px;
+
+  color:
+    var(--foreground);
+
+  transition:
+    color 500ms ease;
 }
 
 
@@ -201,6 +269,9 @@
       #60a5fa 100%
     );
 
+  background-size:
+    180% 100%;
+
   -webkit-background-clip: text;
   background-clip: text;
 
@@ -208,13 +279,33 @@
 
   color: transparent;
 
-  background-size: 180% auto;
-
   animation:
     contact-gradient-shift
     7s
     ease-in-out
     infinite;
+}
+
+
+html.dark .contact-gradient-text {
+  background:
+    linear-gradient(
+      110deg,
+      #a78bfa 0%,
+      #c4b5fd 38%,
+      #818cf8 65%,
+      #93c5fd 100%
+    );
+
+  background-size:
+    180% 100%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
 }
 
 
@@ -240,6 +331,12 @@
   max-width: 560px;
 
   text-wrap: pretty;
+
+  color:
+    var(--muted);
+
+  transition:
+    color 500ms ease;
 }
 
 
@@ -315,6 +412,37 @@
 
 
 /* =========================================================
+   CARD INNER LIGHT
+   ========================================================= */
+
+.contact-link::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  border-radius: inherit;
+
+  opacity: 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18),
+      transparent 42%
+    );
+
+  transition:
+    opacity 450ms ease;
+}
+
+
+/* =========================================================
    CARD SPOTLIGHT
    ========================================================= */
 
@@ -363,6 +491,72 @@
 
 .contact-link:hover::before {
   opacity: 1;
+}
+
+
+.contact-link:hover::after {
+  opacity: 1;
+}
+
+
+/* =========================================================
+   DARK MODE — CARDS
+   ========================================================= */
+
+html.dark .contact-link {
+  border:
+    1px solid rgba(255, 255, 255, 0.075);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(33, 28, 41, 0.96),
+      rgba(28, 24, 34, 0.92)
+    );
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.18),
+    0 1px 0 rgba(255, 255, 255, 0.035) inset;
+}
+
+
+html.dark .contact-link::before {
+  background:
+    radial-gradient(
+      280px circle at
+        var(--contact-mouse-x)
+        var(--contact-mouse-y),
+      rgba(167, 139, 250, 0.12),
+      transparent 70%
+    );
+}
+
+
+html.dark .contact-link::after {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.045),
+      transparent 42%
+    );
+}
+
+
+html.dark .contact-link:hover {
+  border-color:
+    rgba(167, 139, 250, 0.18);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(38, 32, 48, 0.98),
+      rgba(31, 26, 39, 0.96)
+    );
+
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.30),
+    0 0 45px rgba(124, 58, 237, 0.075),
+    0 1px 0 rgba(255, 255, 255, 0.05) inset;
 }
 
 
@@ -422,13 +616,13 @@
     #ffffff;
 
   background:
-    #17131C;
+    #17131c;
 }
 
 
 .contact-link-icon--blue {
   color:
-    #6366F1;
+    #6366f1;
 
   background:
     rgba(99, 102, 241, 0.09);
@@ -440,7 +634,7 @@
 
 .contact-link-icon--purple {
   color:
-    #7C3AED;
+    #7c3aed;
 
   background:
     rgba(124, 58, 237, 0.09);
@@ -458,6 +652,52 @@
 
   box-shadow:
     0 10px 25px rgba(124, 58, 237, 0.12);
+}
+
+
+/* =========================================================
+   DARK MODE — ICONS
+   ========================================================= */
+
+html.dark .contact-link-icon--dark {
+  color:
+    #17131c;
+
+  background:
+    #f3f0f7;
+
+  box-shadow:
+    0 0 20px rgba(255, 255, 255, 0.045);
+}
+
+
+html.dark .contact-link-icon--blue {
+  color:
+    #93c5fd;
+
+  background:
+    rgba(96, 165, 250, 0.10);
+
+  border-color:
+    rgba(96, 165, 250, 0.13);
+}
+
+
+html.dark .contact-link-icon--purple {
+  color:
+    #c4b5fd;
+
+  background:
+    rgba(167, 139, 250, 0.10);
+
+  border-color:
+    rgba(167, 139, 250, 0.13);
+}
+
+
+html.dark .contact-link:hover .contact-link-icon {
+  box-shadow:
+    0 10px 28px rgba(124, 58, 237, 0.18);
 }
 
 
@@ -500,10 +740,28 @@
     translate(3px, -3px);
 
   color:
-    #7C3AED;
+    #7c3aed;
 
   background:
     rgba(124, 58, 237, 0.09);
+}
+
+
+html.dark .contact-link-arrow {
+  color:
+    rgba(170, 163, 178, 0.52);
+
+  background:
+    rgba(167, 139, 250, 0.07);
+}
+
+
+html.dark .contact-link:hover .contact-link-arrow {
+  color:
+    #c4b5fd;
+
+  background:
+    rgba(167, 139, 250, 0.12);
 }
 
 
@@ -547,6 +805,15 @@
 
   color:
     rgba(112, 106, 120, 0.55);
+
+  transition:
+    color 300ms ease;
+}
+
+
+html.dark .contact-link-label {
+  color:
+    rgba(170, 163, 178, 0.52);
 }
 
 
@@ -576,10 +843,22 @@
 
 .contact-link:hover .contact-link-title {
   color:
-    #6D28D9;
+    #6d28d9;
 
   transform:
     translateX(2px);
+}
+
+
+html.dark .contact-link-title {
+  color:
+    #f3f0f7;
+}
+
+
+html.dark .contact-link:hover .contact-link-title {
+  color:
+    #c4b5fd;
 }
 
 
@@ -593,7 +872,7 @@
   margin: 9px 0 0;
 
   color:
-    #756F7D;
+    #756f7d;
 
   font-size: 11px;
 
@@ -606,7 +885,19 @@
 
 .contact-link:hover .contact-link-description {
   color:
-    #625C69;
+    #625c69;
+}
+
+
+html.dark .contact-link-description {
+  color:
+    #aaa3b2;
+}
+
+
+html.dark .contact-link:hover .contact-link-description {
+  color:
+    #c0bac8;
 }
 
 
@@ -636,16 +927,31 @@
   border-radius: 50%;
 
   background:
-    #7C3AED;
+    #7c3aed;
 
   box-shadow:
-    0 0 0 5px rgba(124, 58, 237, 0.08);
+    0 0 0 5px rgba(124, 58, 237, 0.08),
+    0 0 16px rgba(124, 58, 237, 0.15);
 
   animation:
     contact-status-pulse
     2.5s
     ease-in-out
     infinite;
+
+  transition:
+    background-color 400ms ease,
+    box-shadow 400ms ease;
+}
+
+
+html.dark .contact-availability-dot {
+  background:
+    #a78bfa;
+
+  box-shadow:
+    0 0 0 5px rgba(167, 139, 250, 0.08),
+    0 0 20px rgba(167, 139, 250, 0.22);
 }
 
 
@@ -670,12 +976,42 @@
 
   color:
     rgba(112, 106, 120, 0.58);
+
+  transition:
+    color 400ms ease;
 }
 
 
 .contact-availability-text--muted {
   color:
     rgba(112, 106, 120, 0.38);
+}
+
+
+.contact-availability-divider {
+  color:
+    #c2bdc6;
+
+  transition:
+    color 400ms ease;
+}
+
+
+html.dark .contact-availability-text {
+  color:
+    rgba(203, 196, 211, 0.62);
+}
+
+
+html.dark .contact-availability-text--muted {
+  color:
+    rgba(170, 163, 178, 0.42);
+}
+
+
+html.dark .contact-availability-divider {
+  color:
+    rgba(170, 163, 178, 0.25);
 }
 
 
@@ -729,6 +1065,19 @@
       transparent,
       rgba(124, 58, 237, 0.18)
     );
+
+  transition:
+    opacity 400ms ease;
+}
+
+
+.contact-bottom-line:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(124, 58, 237, 0.18),
+      transparent
+    );
 }
 
 
@@ -755,6 +1104,35 @@
 
   color:
     rgba(112, 106, 120, 0.55);
+
+  transition:
+    color 400ms ease;
+}
+
+
+html.dark .contact-bottom-text {
+  color:
+    rgba(170, 163, 178, 0.50);
+}
+
+
+html.dark .contact-bottom-line {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(167, 139, 250, 0.20)
+    );
+}
+
+
+html.dark .contact-bottom-line:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(167, 139, 250, 0.20),
+      transparent
+    );
 }
 
 
@@ -865,7 +1243,8 @@
 
 
   .contact-link {
-    min-height: 220px;
+    min-height:
+      220px;
   }
 
 
@@ -884,9 +1263,11 @@
 @media (max-width: 640px) {
 
   .contact-section {
-    padding-top: 80px;
+    padding-top:
+      80px;
 
-    padding-bottom: 80px;
+    padding-bottom:
+      80px;
   }
 
 
@@ -920,6 +1301,12 @@
   .contact-orb--blue {
     right:
       -180px;
+  }
+
+
+  html.dark .contact-orb {
+    filter:
+      blur(85px);
   }
 
 

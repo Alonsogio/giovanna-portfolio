@@ -4,10 +4,14 @@
 
 .about-section {
   position: relative;
-
   isolation: isolate;
 
-  background: #F9F8FC !important;
+  background: var(--background);
+  color: var(--foreground);
+
+  transition:
+    background-color 700ms ease,
+    color 700ms ease;
 }
 
 
@@ -15,208 +19,679 @@
    BACKGROUND ATMOSPHERE
    ========================================================= */
 
-.about-section-atmosphere {
+.about-background-glow {
   position: absolute;
-
-  inset: 0;
 
   pointer-events: none;
 
-  z-index: 0;
+  border-radius: 50%;
 
-  will-change: transform;
+  filter: blur(70px);
 
-  background: #F9F8FC !important;
+  will-change: transform, opacity;
 
+  transition:
+    opacity 700ms ease,
+    background 700ms ease;
 }
 
 
 /* =========================================================
-   3D ORB CONTAINER
+   PURPLE ATMOSPHERE
+   ========================================================= */
+
+.about-background-glow--purple {
+  width: 520px;
+  height: 520px;
+
+  left: -240px;
+  top: 160px;
+
+  background:
+    radial-gradient(
+      circle,
+      color-mix(in srgb, var(--primary) 12%, transparent) 0%,
+      color-mix(in srgb, var(--primary) 5%, transparent) 38%,
+      transparent 72%
+    );
+
+  opacity: 0.65;
+
+  animation:
+    about-background-float
+    14s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   BLUE ATMOSPHERE
+   ========================================================= */
+
+.about-background-glow--blue {
+  width: 460px;
+  height: 460px;
+
+  right: -220px;
+  top: 250px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.075) 0%,
+      rgba(96, 165, 250, 0.035) 38%,
+      transparent 72%
+    );
+
+  opacity: 0.65;
+
+  animation:
+    about-background-float-blue
+    16s
+    ease-in-out
+    infinite;
+
+  animation-delay: -5s;
+}
+
+
+/* =========================================================
+   DARK MODE — ATMOSPHERE
+   ========================================================= */
+
+html.dark .about-background-glow--purple {
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.16) 0%,
+      rgba(124, 58, 237, 0.065) 36%,
+      transparent 72%
+    );
+
+  opacity: 0.85;
+}
+
+
+html.dark .about-background-glow--blue {
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.10) 0%,
+      rgba(96, 165, 250, 0.045) 38%,
+      transparent 72%
+    );
+
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   LIGHT FIELD
+   ========================================================= */
+
+.about-light-field {
+  z-index: 1;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   LIGHT POINT
+   ========================================================= */
+
+.about-light-point {
+  position: absolute;
+
+  display: block;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(196, 181, 253, 0.9) 22%,
+      rgba(124, 58, 237, 0.55) 48%,
+      transparent 76%
+    );
+
+  box-shadow:
+    0 0 5px rgba(255, 255, 255, 0.75),
+    0 0 12px rgba(124, 58, 237, 0.32),
+    0 0 24px rgba(124, 58, 237, 0.12);
+
+  will-change: transform, opacity;
+
+  animation:
+    about-light-float
+    5s
+    ease-in-out
+    infinite;
+}
+
+
+/* =========================================================
+   LIGHT POINT POSITIONS
+   ========================================================= */
+
+.about-light-point--one {
+  left: 14%;
+  top: 31%;
+
+  width: 6px;
+  height: 6px;
+
+  animation-duration: 4.8s;
+}
+
+
+.about-light-point--two {
+  left: 82%;
+  top: 24%;
+
+  width: 5px;
+  height: 5px;
+
+  animation-duration: 5.6s;
+  animation-delay: -2s;
+}
+
+
+.about-light-point--three {
+  left: 72%;
+  top: 68%;
+
+  width: 7px;
+  height: 7px;
+
+  animation-duration: 6.2s;
+  animation-delay: -3.5s;
+}
+
+
+.about-light-point--four {
+  left: 27%;
+  top: 75%;
+
+  width: 4px;
+  height: 4px;
+
+  animation-duration: 4.2s;
+  animation-delay: -1.5s;
+}
+
+
+/* =========================================================
+   LIGHT MODE — LIGHT POINTS
+   ========================================================= */
+
+html:not(.dark) .about-light-point {
+  opacity: 0.62;
+
+  box-shadow:
+    0 0 4px rgba(255, 255, 255, 0.85),
+    0 0 10px rgba(124, 58, 237, 0.18),
+    0 0 20px rgba(124, 58, 237, 0.07);
+}
+
+
+/* =========================================================
+   DARK MODE — LIGHT POINTS
+   ========================================================= */
+
+html.dark .about-light-point {
+  opacity: 0.95;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(196, 181, 253, 0.95) 22%,
+      rgba(167, 139, 250, 0.65) 48%,
+      transparent 76%
+    );
+
+  box-shadow:
+    0 0 5px rgba(255, 255, 255, 0.85),
+    0 0 12px rgba(167, 139, 250, 0.45),
+    0 0 26px rgba(124, 58, 237, 0.18);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.about-header {
+  position: relative;
+
+  will-change: transform, opacity;
+
+  z-index: 10;
+}
+
+html.dark .section-wave--about-work .section-wave__main {
+  fill: var(--background);
+}
+
+html.dark .section-wave--about-work .section-wave__back {
+  opacity: 0.95;
+}
+
+html.dark .section-wave--about-work .section-wave__middle {
+  opacity: 0.9;
+}
+
+
+/* =========================================================
+   HEADER LINE
+   ========================================================= */
+
+.about-header-line {
+  display: block;
+
+  transform-origin: left center;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--primary) 30%,
+      transparent
+    );
+
+  animation:
+    about-line-breathe
+    5s
+    ease-in-out
+    infinite;
+
+  transition:
+    background-color 500ms ease;
+}
+
+
+/* =========================================================
+   HEADER INDEX
+   ========================================================= */
+
+.about-header-index {
+  color: var(--muted);
+
+  opacity: 0.7;
+
+  transition:
+    color 500ms ease,
+    opacity 500ms ease;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.about-title {
+  color: var(--foreground);
+
+  transition:
+    color 600ms ease;
+}
+
+
+/* =========================================================
+   TITLE GRADIENT
+   ========================================================= */
+
+.about-title-gradient-text {
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary) 0%,
+      var(--primary-light) 45%,
+      #60a5fa 100%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
+
+  transition:
+    filter 500ms ease;
+}
+
+
+/* =========================================================
+   MAIN GRID
+   ========================================================= */
+
+.about-main-grid {
+  position: relative;
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   CONTENT BLOCK
+   ========================================================= */
+
+.about-content-block {
+  position: relative;
+
+  padding: 22px 0;
+}
+
+
+/* =========================================================
+   CONTENT BLOCK — LIGHT ACCENT
+   ========================================================= */
+
+.about-content-block::before {
+  content: '';
+
+  position: absolute;
+
+  left: -16px;
+  top: 10px;
+
+  width: 1px;
+  height: 34px;
+
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      var(--primary),
+      color-mix(
+        in srgb,
+        var(--primary-light) 40%,
+        transparent
+      )
+    );
+
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   SECTION NUMBER
+   ========================================================= */
+
+.about-section-number {
+  color: var(--primary);
+
+  opacity: 0.75;
+
+  transition:
+    color 500ms ease,
+    opacity 500ms ease;
+}
+
+
+/* =========================================================
+   SECTION LABEL
+   ========================================================= */
+
+.about-section-label {
+  color: var(--muted);
+
+  transition:
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   CONTENT LINE
+   ========================================================= */
+
+.about-content-line {
+  width: 42px;
+  height: 1px;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--border) 85%,
+      var(--primary) 15%
+    );
+
+  transition:
+    background-color 500ms ease,
+    width 400ms ease;
+}
+
+
+.about-content-block:hover .about-content-line {
+  width: 62px;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--primary) 35%,
+      var(--border)
+    );
+}
+
+
+/* =========================================================
+   LEFT INTRO
+   ========================================================= */
+
+.about-intro {
+  color: var(--foreground);
+
+  transition:
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   BODY TEXT
+   ========================================================= */
+
+.about-body-text {
+  color: var(--muted);
+
+  transition:
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   CENTER VISUAL
    ========================================================= */
 
 .about-orb-container {
   position: relative;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /*
-   * IMPORTANTE:
-   * O Orb pode ultrapassar os limites do container.
-   * Não cortar.
-   */
-  overflow: visible !important;
+  isolation: isolate;
 }
 
 
 /* =========================================================
-   SPLINE 3D
+   CENTER HALOS
    ========================================================= */
 
-.about-spline {
-  position: relative;
-
-  width: 600px;
-  height: 627px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  /*
-   * Permite a expansão visual do Orb.
-   */
-  overflow: visible !important;
-
-  background: transparent !important;
-
-  z-index: 10;
-
-  /*
-   * O GSAP controla o translate/parallax.
-   */
-  will-change: transform;
-}
-
-
-/* =========================================================
-   SPLINE VIEWER
-   ========================================================= */
-
-.about-spline spline-viewer {
-  display: block;
-
-  width: 100%;
-  height: 100%;
-
-  min-width: 1px;
-  min-height: 1px;
-
-  border: 0;
-
-  background: transparent !important;
-
-  overflow: visible !important;
-
-  transform: none;
-
-  transform-origin: center center;
-
-  image-rendering: auto;
-}
-
-
-/* =========================================================
-   SPLINE OVERLAY
-   ========================================================= */
-
-.about-spline::after {
-  content: '';
-
+.about-center-halo {
   position: absolute;
-
-  inset: 0;
-
-  z-index: 20;
-
-  pointer-events: none;
-
-  background: transparent !important;
-}
-
-
-/* =========================================================
-   ORB GLOW
-   ========================================================= */
-
-.about-orb-glow {
-  position: absolute;
-
-  width: 300px;
-  height: 300px;
 
   left: 50%;
   top: 50%;
 
+  border-radius: 50%;
+
   transform: translate(-50%, -50%);
+
+  pointer-events: none;
+
+  filter: blur(35px);
+
+  will-change: transform, opacity;
+}
+
+
+.about-center-halo--purple {
+  width: 180px;
+  height: 180px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.16) 0%,
+      rgba(124, 58, 237, 0.07) 40%,
+      transparent 72%
+    );
+
+  animation:
+    about-center-halo-float
+    7s
+    ease-in-out
+    infinite;
+}
+
+
+.about-center-halo--blue {
+  width: 140px;
+  height: 140px;
+
+  left: 58%;
+  top: 42%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.12) 0%,
+      rgba(96, 165, 250, 0.045) 42%,
+      transparent 72%
+    );
+
+  animation:
+    about-center-halo-blue-float
+    8s
+    ease-in-out
+    infinite;
+
+  animation-delay: -3s;
+}
+
+
+/* =========================================================
+   CENTER CORE
+   ========================================================= */
+
+.about-center-core {
+  width: 118px;
+  height: 118px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
-      circle,
-      rgba(124, 58, 237, 0.14) 0%,
-      rgba(167, 139, 250, 0.08) 35%,
-      rgba(196, 181, 253, 0.035) 55%,
-      transparent 72%
+      circle at 32% 27%,
+      rgba(255, 255, 255, 0.96) 0%,
+      rgba(237, 233, 254, 0.80) 12%,
+      rgba(196, 181, 253, 0.42) 28%,
+      rgba(124, 58, 237, 0.18) 50%,
+      transparent 76%
     );
 
-  filter: blur(30px);
+  box-shadow:
+    0 0 5px rgba(255, 255, 255, 0.75),
+    0 0 18px rgba(124, 58, 237, 0.22),
+    0 0 45px rgba(124, 58, 237, 0.10);
 
-  pointer-events: none;
-
-  z-index: 0;
-
-  /*
-   * O GSAP também movimenta esse elemento.
-   */
-  will-change: transform;
-
-  /*
-   * Breathe contínuo.
-   */
   animation:
-    about-glow-breathe
+    about-core-float
     6s
     ease-in-out
     infinite;
+
+  will-change: transform;
 }
 
 
 /* =========================================================
-   GLOW BREATHE
+   CORE INNER
    ========================================================= */
 
-@keyframes about-glow-breathe {
+.about-center-core__inner {
+  position: absolute;
 
-  0%,
-  100% {
-    opacity: 0.65;
-    scale: 0.96;
-  }
-
-  50% {
-    opacity: 1;
-    scale: 1.05;
-  }
-}
-
-
-/* =========================================================
-   PURPLE GLOW
-   ========================================================= */
-
-.about-purple-glow {
-  pointer-events: none;
+  width: 68px;
+  height: 68px;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
-      circle,
-      rgba(124, 58, 237, 0.10) 0%,
-      rgba(167, 139, 250, 0.05) 40%,
-      transparent 72%
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.92),
+      rgba(196, 181, 253, 0.32) 32%,
+      rgba(124, 58, 237, 0.12) 60%,
+      transparent 78%
     );
 
-  filter: blur(45px);
+  box-shadow:
+    inset 0 0 18px rgba(255, 255, 255, 0.18);
+}
 
-  will-change: transform;
+
+/* =========================================================
+   CORE SHINE
+   ========================================================= */
+
+.about-center-core__shine {
+  position: absolute;
+
+  left: 24%;
+  top: 18%;
+
+  width: 23px;
+  height: 23px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  filter: blur(1px);
+
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   CENTER ORBIT
+   ========================================================= */
+
+.about-center-orbit {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 230px;
+  height: 150px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(-18deg);
+
+  pointer-events: none;
 
   animation:
-    about-purple-float
+    about-orbit-float
     10s
     ease-in-out
     infinite;
@@ -224,89 +699,325 @@
 
 
 /* =========================================================
-   PURPLE FLOAT
+   ORBIT RINGS
    ========================================================= */
 
-@keyframes about-purple-float {
+.about-center-orbit__ring {
+  position: absolute;
 
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
+  inset: 0;
 
-  50% {
-    transform: translate3d(18px, -20px, 0);
-  }
-}
-
-
-/* =========================================================
-   BLUE GLOW
-   ========================================================= */
-
-.about-blue-glow {
-  pointer-events: none;
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--primary) 16%,
+      transparent
+    );
 
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgba(96, 165, 250, 0.10) 0%,
-      rgba(147, 197, 253, 0.05) 40%,
-      transparent 72%
+  transform: rotate(0deg);
+}
+
+
+.about-center-orbit__ring--two {
+  inset: 12px -18px;
+
+  border-color:
+    color-mix(
+      in srgb,
+      #60a5fa 12%,
+      transparent
     );
 
-  filter: blur(45px);
+  transform: rotate(58deg);
+}
 
-  will-change: transform;
+
+/* =========================================================
+   ORBIT ORBS
+   ========================================================= */
+
+.about-center-orbit__orb {
+  position: absolute;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  transform-origin: center;
+
+  box-shadow:
+    0 0 5px rgba(255, 255, 255, 0.75);
+}
+
+
+.about-center-orbit__orb--purple {
+  left: 18%;
+  top: 3%;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      #ffffff 0%,
+      #c4b5fd 30%,
+      #7c3aed 70%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.8),
+    0 0 15px rgba(124, 58, 237, 0.35);
+}
+
+
+.about-center-orbit__orb--blue {
+  right: 9%;
+  bottom: 12%;
+
+  width: 6px;
+  height: 6px;
+
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      #ffffff 0%,
+      #bfdbfe 30%,
+      #60a5fa 70%,
+      transparent 100%
+    );
+
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.8),
+    0 0 15px rgba(96, 165, 250, 0.35);
+}
+
+
+/* =========================================================
+   CODE × DESIGN
+   ========================================================= */
+
+.about-code-design {
+  color: var(--muted);
+
+  transition:
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   FLOATING DOT
+   ========================================================= */
+
+.about-floating-dot {
+  flex-shrink: 0;
+}
+
+
+.about-floating-dot-core {
+  background: var(--primary);
+
+  box-shadow:
+    0 0 5px color-mix(
+      in srgb,
+      var(--primary) 45%,
+      transparent
+    );
+
+  transition:
+    background-color 500ms ease,
+    box-shadow 500ms ease;
+}
+
+
+.about-floating-dot-pulse {
+  background:
+    color-mix(
+      in srgb,
+      var(--primary) 18%,
+      transparent
+    );
 
   animation:
-    about-blue-float
-    12s
+    about-dot-pulse
+    2.5s
     ease-in-out
     infinite;
 }
 
 
 /* =========================================================
-   BLUE FLOAT
+   DETAIL LINE
    ========================================================= */
 
-@keyframes about-blue-float {
+.about-detail-line {
+  background:
+    color-mix(
+      in srgb,
+      var(--border) 75%,
+      var(--primary) 25%
+    );
 
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-
-  50% {
-    transform: translate3d(-18px, 15px, 0);
-  }
+  transition:
+    background-color 500ms ease,
+    width 400ms ease;
 }
 
 
 /* =========================================================
-   FLOATING DETAILS
+   DETAIL LABEL
    ========================================================= */
 
-.about-floating-detail {
+.about-detail-label {
+  color: var(--muted);
+
+  transition:
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.about-stats {
+  position: relative;
+
+  border-color: var(--border);
+
+  transition:
+    border-color 600ms ease;
+}
+
+
+/* =========================================================
+   STAT
+   ========================================================= */
+
+.about-stat {
+  color: var(--foreground);
+
+  transition:
+    transform 300ms ease,
+    opacity 300ms ease;
+}
+
+
+.about-stat:hover {
+  transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   STAT ACCENT
+   ========================================================= */
+
+.about-stat-accent {
+  background:
+    linear-gradient(
+      90deg,
+      var(--primary),
+      var(--primary-light)
+    );
+
+  box-shadow:
+    0 0 8px color-mix(
+      in srgb,
+      var(--primary) 18%,
+      transparent
+    );
+
+  transition:
+    width 500ms ease,
+    background 500ms ease,
+    box-shadow 500ms ease;
+}
+
+
+/* =========================================================
+   STAT NUMBER
+   ========================================================= */
+
+.about-stat-number {
+  color: var(--foreground);
+
+  transition:
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   STAT PLUS
+   ========================================================= */
+
+.about-stat-plus {
+  color: var(--primary);
+
+  transition:
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   STAT LABEL
+   ========================================================= */
+
+.about-stat-label {
+  color: var(--muted);
+
+  transition:
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   BOTTOM META
+   ========================================================= */
+
+.about-bottom-meta {
+  border-color: var(--border);
+
+  transition:
+    border-color 600ms ease;
+}
+
+
+.about-meta {
+  color: var(--muted);
+
+  transition:
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   META DOT
+   ========================================================= */
+
+.about-meta-dot {
+  background: var(--primary);
+
+  box-shadow:
+    0 0 7px color-mix(
+      in srgb,
+      var(--primary) 40%,
+      transparent
+    );
+
   animation:
-    about-detail-float
-    10s
+    about-meta-dot-pulse
+    3s
     ease-in-out
     infinite;
-
-  will-change: transform;
 }
 
 
 /* =========================================================
-   FLOATING DETAIL
+   ANIMATIONS
    ========================================================= */
 
-@keyframes about-detail-float {
-
+@keyframes about-background-float {
   0%,
   100% {
     transform:
@@ -316,101 +1027,63 @@
 
   50% {
     transform:
-      translate3d(8px, -10px, 0)
-      scale(1.04);
+      translate3d(30px, -18px, 0)
+      scale(1.05);
   }
 }
 
 
-/* =========================================================
-   FLOATING LINE
-   ========================================================= */
-
-.about-floating-line {
-  transform-origin: left center;
-
-  animation:
-    about-line-breathe
-    5s
-    ease-in-out
-    infinite;
-
-  will-change: transform, opacity;
-}
-
-
-/* =========================================================
-   LINE BREATHE
-   ========================================================= */
-
-@keyframes about-line-breathe {
-
+@keyframes about-background-float-blue {
   0%,
   100% {
-    transform: scaleX(1);
-    opacity: 0.65;
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
   }
 
   50% {
-    transform: scaleX(1.12);
+    transform:
+      translate3d(-25px, 18px, 0)
+      scale(1.06);
+  }
+}
+
+
+@keyframes about-light-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(0.85);
+
+    opacity: 0.55;
+  }
+
+  50% {
+    transform:
+      translate3d(5px, -8px, 0)
+      scale(1.2);
+
     opacity: 1;
   }
 }
 
 
-/* =========================================================
-   FLOATING DOT
-   ========================================================= */
-
-.about-floating-dot {
-  animation:
-    about-dot-float
-    4s
-    ease-in-out
-    infinite;
-
-  will-change: transform;
-}
-
-
-/* =========================================================
-   DOT FLOAT
-   ========================================================= */
-
-@keyframes about-dot-float {
-
+@keyframes about-line-breathe {
   0%,
   100% {
-    transform: translateY(0);
+    transform: scaleX(1);
+    opacity: 0.55;
   }
 
   50% {
-    transform: translateY(-5px);
+    transform: scaleX(1.22);
+    opacity: 0.9;
   }
 }
 
 
-/* =========================================================
-   DOT PULSE
-   ========================================================= */
-
-.about-floating-dot > span:first-child {
-  animation:
-    about-dot-pulse
-    2.5s
-    ease-in-out
-    infinite;
-
-  will-change: transform, opacity;
-}
-
-
-/* =========================================================
-   DOT PULSE
-   ========================================================= */
-
 @keyframes about-dot-pulse {
-
   0%,
   100% {
     transform: scale(0.8);
@@ -424,123 +1097,83 @@
 }
 
 
-/* =========================================================
-   ORBIT DOTS
-   ========================================================= */
+@keyframes about-center-halo-float {
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
 
-.about-orbit-dot {
-  will-change: transform, opacity;
-
-  animation:
-    about-orbit-pulse
-    4s
-    ease-in-out
-    infinite;
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.12);
+  }
 }
 
 
-/* =========================================================
-   ORBIT DOT PULSE
-   ========================================================= */
-
-@keyframes about-orbit-pulse {
-
+@keyframes about-center-halo-blue-float {
   0%,
   100% {
-    opacity: 0.65;
-    scale: 1;
+    transform:
+      translate(-50%, -50%)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      scale(1.15);
+  }
+}
+
+
+@keyframes about-core-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate3d(0, -7px, 0)
+      scale(1.025);
+  }
+}
+
+
+@keyframes about-orbit-float {
+  0%,
+  100% {
+    transform:
+      translate(-50%, -50%)
+      rotate(-18deg)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      rotate(-12deg)
+      scale(1.035);
+  }
+}
+
+
+@keyframes about-meta-dot-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.9);
   }
 
   50% {
     opacity: 1;
-    scale: 1.2;
+    transform: scale(1.15);
   }
-}
-
-
-/* =========================================================
-   ORBIT DOT DELAYS
-   ========================================================= */
-
-.about-orbit-dot--one {
-  animation-delay: 0s;
-}
-
-.about-orbit-dot--two {
-  animation-delay: -1.2s;
-}
-
-.about-orbit-dot--three {
-  animation-delay: -2.4s;
-}
-
-
-/* =========================================================
-   STATS
-   ========================================================= */
-
-.about-stat {
-  transition:
-    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 400ms ease;
-}
-
-
-/* =========================================================
-   STAT HOVER
-   ========================================================= */
-
-.about-stat:hover {
-  transform: translateY(-3px);
-}
-
-
-/* =========================================================
-   STAT NUMBERS
-   ========================================================= */
-
-.about-stat span {
-  font-variant-numeric: tabular-nums;
-}
-
-
-/* =========================================================
-   STAT ACCENT
-   ========================================================= */
-
-.about-stat > span:first-child {
-  transform-origin: center center;
-}
-
-
-/* =========================================================
-   DARK MODE
-   ========================================================= */
-
-html.dark .about-section {
-  background: #0F0D12;
-}
-
-html.dark .about-section-atmosphere {
-  background:
-    radial-gradient(
-      ellipse at 50% 100%,
-      rgba(120, 110, 140, 0.10) 0%,
-      rgba(120, 110, 140, 0.055) 28%,
-      rgba(120, 110, 140, 0) 68%
-    );
-}
-
-html.dark .about-orb-glow {
-  opacity: 0.85;
-}
-
-html.dark .about-purple-glow {
-  opacity: 0.8;
-}
-
-html.dark .about-blue-glow {
-  opacity: 0.8;
 }
 
 
@@ -550,14 +1183,14 @@ html.dark .about-blue-glow {
 
 @media (prefers-reduced-motion: reduce) {
 
-  .about-floating-detail,
-  .about-floating-line,
-  .about-floating-dot,
-  .about-floating-dot > span:first-child,
-  .about-orbit-dot,
-  .about-orb-glow,
-  .about-purple-glow,
-  .about-blue-glow {
+  .about-background-glow,
+  .about-light-point,
+  .about-header-line,
+  .about-floating-dot-pulse,
+  .about-center-halo,
+  .about-center-core,
+  .about-center-orbit,
+  .about-meta-dot {
     animation: none !important;
   }
 
@@ -573,15 +1206,28 @@ html.dark .about-blue-glow {
 
 @media (max-width: 1024px) {
 
-  .about-spline {
+  .about-background-glow--purple {
     width: 420px;
     height: 420px;
+
+    left: -220px;
   }
 
-  .about-orb-glow {
-    width: 260px;
-    height: 260px;
+  .about-background-glow--blue {
+    width: 360px;
+    height: 360px;
+
+    right: -190px;
   }
+
+  .about-light-point--one {
+    left: 8%;
+  }
+
+  .about-light-point--two {
+    left: 88%;
+  }
+
 }
 
 
@@ -591,24 +1237,145 @@ html.dark .about-blue-glow {
 
 @media (max-width: 640px) {
 
-  .about-orb-container {
-    height: 340px;
-
-    /*
-     * Continua permitindo o Orb expandir.
-     */
-    overflow: visible !important;
+  .about-section {
+    padding-bottom: 8rem;
   }
 
-  .about-spline {
-    width: 340px;
-    height: 340px;
 
-    overflow: visible !important;
+  .about-background-glow {
+    filter: blur(55px);
   }
 
-  .about-orb-glow {
-    width: 220px;
-    height: 220px;
+
+  .about-background-glow--purple {
+    width: 300px;
+    height: 300px;
+
+    left: -180px;
+    top: 180px;
   }
+
+
+  .about-background-glow--blue {
+    width: 280px;
+    height: 280px;
+
+    right: -170px;
+    top: 420px;
+  }
+
+
+  .about-light-point--one {
+    left: 7%;
+    top: 28%;
+  }
+
+
+  .about-light-point--two {
+    left: 91%;
+    top: 25%;
+  }
+
+
+  .about-light-point--three {
+    left: 84%;
+    top: 69%;
+  }
+
+
+  .about-light-point--four {
+    left: 15%;
+    top: 73%;
+  }
+
+
+  .about-content-block {
+    padding-left: 10px;
+  }
+
+
+  .about-center-core {
+    width: 100px;
+    height: 100px;
+  }
+
+
+  .about-center-core__inner {
+    width: 58px;
+    height: 58px;
+  }
+
+
+  .about-center-orbit {
+    width: 200px;
+    height: 130px;
+  }
+
+
+  .about-center-orbit__ring--two {
+    inset: 10px -14px;
+  }
+
+
+  .about-stats {
+    margin-top: 3rem;
+  }
+
+
+  .about-stat {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+
+  .about-stat-number {
+    font-size: 2.2rem;
+  }
+
+
+  .about-stat-label {
+    line-height: 1.35;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL SCREENS
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .about-title {
+    font-size: 2.15rem;
+  }
+
+
+  .about-center-core {
+    width: 88px;
+    height: 88px;
+  }
+
+
+  .about-center-core__inner {
+    width: 50px;
+    height: 50px;
+  }
+
+
+  .about-center-orbit {
+    width: 175px;
+    height: 115px;
+  }
+
+
+  .about-stat-number {
+    font-size: 2rem;
+  }
+
+
+  .about-stat-label {
+    font-size: 7px;
+  }
+
 }

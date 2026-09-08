@@ -1,241 +1,320 @@
 <section
   #aboutSection
   id="about"
-  class="about-section relative overflow-hidden bg-[#F9F8FC] py-16 sm:py-20"
+  class="about-section relative overflow-hidden pt-20 pb-44 sm:pt-24 sm:pb-2 lg:pt-28"
 >
-  <!-- ========================================================= -->
-  <!-- CONTENT -->
-  <!-- ========================================================= -->
+  <!-- =========================================================
+       ATMOSPHERE
+       ========================================================= -->
+
+  <div
+    class="about-background-glow about-background-glow--purple pointer-events-none absolute"
+    aria-hidden="true"
+  ></div>
+
+  <div
+    class="about-background-glow about-background-glow--blue pointer-events-none absolute"
+    aria-hidden="true"
+  ></div>
+
+  <!-- =========================================================
+       DECORATIVE LIGHT FIELD
+       ========================================================= -->
+
+  <div class="about-light-field pointer-events-none absolute inset-0" aria-hidden="true">
+    <span class="about-light-point about-light-point--one"></span>
+    <span class="about-light-point about-light-point--two"></span>
+    <span class="about-light-point about-light-point--three"></span>
+    <span class="about-light-point about-light-point--four"></span>
+  </div>
+
+  <!-- =========================================================
+       CONTENT
+       ========================================================= -->
 
   <div class="relative z-10 mx-auto w-full max-w-7xl px-6 lg:px-8">
-    <!-- ======================================================= -->
-    <!-- HEADER -->
-    <!-- ======================================================= -->
+    <!-- =======================================================
+         HEADER
+         ======================================================= -->
 
-    <header class="mb-10 sm:mb-12">
+    <header class="about-header relative">
       <div class="flex items-center gap-4">
-        <span class="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-[#7C3AED]">
+        <span class="about-eyebrow font-mono text-[10px] font-medium uppercase tracking-[0.2em]">
           About me
         </span>
 
-        <span class="about-floating-line h-px w-12 bg-[#7C3AED]/30" aria-hidden="true"></span>
+        <span class="about-header-line about-floating-line h-px w-12" aria-hidden="true"></span>
       </div>
 
-      <h2
-        class="mt-4 max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#17131C] sm:text-5xl lg:text-[3.4rem]"
-      >
-        Turning ideas into
-        <span class="text-[#7C3AED]"> meaningful experiences. </span>
-      </h2>
+      <div class="mt-5 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <h2
+          class="about-title max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]"
+        >
+          Turning ideas into
+          <span class="about-title-gradient-text"> meaningful experiences. </span>
+        </h2>
+
+        <div class="about-header-index hidden shrink-0 pb-1 lg:block">
+          <span class="font-mono text-[9px] uppercase tracking-[0.18em]"> 02 / About </span>
+        </div>
+      </div>
     </header>
 
-    <!-- ======================================================= -->
-    <!-- MAIN CONTENT -->
-    <!-- ======================================================= -->
+    <!-- =========================================================
+         MAIN EDITORIAL AREA
+         ========================================================= -->
 
-    <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_360px_1fr] lg:gap-8">
-      <!-- ===================================================== -->
-      <!-- LEFT — WHO I AM -->
-      <!-- ===================================================== -->
+    <div
+      class="about-main-grid relative mt-14 grid grid-cols-1 gap-12 lg:mt-16 lg:grid-cols-[minmax(0,1fr)_300px_minmax(0,1fr)] lg:items-center lg:gap-10"
+    >
+      <!-- =======================================================
+           CENTRAL DECORATIVE AXIS
+           ======================================================= -->
+
+      <div
+        class="about-center-axis pointer-events-none absolute left-1/2 top-1/2 hidden h-[430px] -translate-x-1/2 -translate-y-1/2 lg:block"
+        aria-hidden="true"
+      >
+        <span class="about-axis-line"></span>
+
+        <span class="about-axis-node about-axis-node--top"></span>
+        <span class="about-axis-node about-axis-node--middle"></span>
+        <span class="about-axis-node about-axis-node--bottom"></span>
+      </div>
+
+      <!-- =======================================================
+           LEFT — WHO I AM
+           ======================================================= -->
 
       <div class="about-left-content relative lg:pr-8">
-        <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#706A78]">
-          01 / Who I am
-        </span>
+        <div class="about-content-block">
+          <div class="flex items-center gap-3">
+            <span class="about-section-number font-mono text-[9px] uppercase tracking-[0.18em]">
+              01
+            </span>
 
-        <div class="mt-5 max-w-sm">
-          <p
-            class="text-lg font-medium leading-7 tracking-[-0.02em] text-[#17131C] sm:text-xl sm:leading-8"
-          >
-            I'm Giovanna, a Full Stack Developer who enjoys bringing together technology, design and
-            thoughtful user experiences.
-          </p>
-        </div>
+            <span class="about-section-label font-mono text-[10px] uppercase tracking-[0.18em]">
+              Who I am
+            </span>
+          </div>
 
-        <!-- CODE × DESIGN -->
+          <div class="about-content-line mt-4"></div>
 
-        <div class="mt-6 flex items-center gap-3">
-          <span
-            class="about-floating-dot relative flex h-2 w-2 items-center justify-center"
-            aria-hidden="true"
-          >
-            <span class="absolute h-2 w-2 rounded-full bg-[#7C3AED]/20"></span>
+          <div class="mt-6 max-w-sm">
+            <p
+              class="about-intro text-lg font-medium leading-7 tracking-[-0.02em] sm:text-xl sm:leading-8"
+            >
+              I'm Giovanna, a Full Stack Developer who enjoys bringing together technology, design
+              and thoughtful user experiences.
+            </p>
+          </div>
 
-            <span class="relative h-1.5 w-1.5 rounded-full bg-[#7C3AED]"></span>
-          </span>
+          <!-- CODE × DESIGN -->
 
-          <span class="about-floating-line h-px w-8 bg-[#E7E2EC]" aria-hidden="true"></span>
+          <div class="about-code-design mt-8 flex items-center gap-3">
+            <span
+              class="about-floating-dot relative flex h-2 w-2 items-center justify-center"
+              aria-hidden="true"
+            >
+              <span class="about-floating-dot-pulse absolute h-2 w-2 rounded-full"></span>
 
-          <span class="font-mono text-[9px] uppercase tracking-[0.15em] text-[#706A78]">
-            Code × Design
-          </span>
+              <span class="about-floating-dot-core relative h-1.5 w-1.5 rounded-full"></span>
+            </span>
+
+            <span class="about-detail-line about-floating-line h-px w-8" aria-hidden="true"></span>
+
+            <span class="about-detail-label font-mono text-[9px] uppercase tracking-[0.15em]">
+              Code × Design
+            </span>
+          </div>
         </div>
       </div>
 
-      <!-- ===================================================== -->
-      <!-- CENTER — 3D -->
-      <!-- ===================================================== -->
+      <!-- =======================================================
+           CENTER — VISUAL
+           ======================================================= -->
 
-      <div class="about-orb-container relative flex h-[350px] w-full items-center justify-center !overflow-hidden">
-        <!-- ================================================= -->
-        <!-- SPLINE -->
-        <!-- ================================================= -->
+      <div
+        class="about-orb-container relative flex h-[300px] w-full items-center justify-center sm:h-[340px]"
+      >
+        <!-- ambient halo -->
 
-        <!-- <div class="about-spline relative z-10 h-[350px] w-[350px] !bg-transparent !overflow-hidden">
+        <span class="about-center-halo about-center-halo--purple" aria-hidden="true"></span>
+
+        <span class="about-center-halo about-center-halo--blue" aria-hidden="true"></span>
+
+        <!-- orbit -->
+
+        <div class="about-center-orbit" aria-hidden="true">
+          <span class="about-center-orbit__ring"></span>
+          <span class="about-center-orbit__ring about-center-orbit__ring--two"></span>
+
+          <span class="about-center-orbit__orb about-center-orbit__orb--purple"></span>
+          <span class="about-center-orbit__orb about-center-orbit__orb--blue"></span>
+        </div>
+
+        <!-- =====================================================
+             SPLINE
+             ===================================================== -->
+
+        <!--
+        <div
+          class="about-spline relative z-10 h-[350px] w-[350px] bg-transparent"
+        >
           <spline-viewer
             url="https://prod.spline.design/S4c8DyMbKLvon2zy/scene.splinecode"
             loading="eager"
             events-target="local"
             background="transparent"
           ></spline-viewer>
-        </div> -->
+        </div>
+        -->
+
+        <!-- central visual -->
+
+        <div class="about-center-core relative z-10" aria-hidden="true">
+          <span class="about-center-core__inner"></span>
+          <span class="about-center-core__shine"></span>
+        </div>
       </div>
 
-      <!-- ===================================================== -->
-      <!-- RIGHT — WHAT I DO -->
-      <!-- ===================================================== -->
+      <!-- =======================================================
+           RIGHT — WHAT I DO
+           ======================================================= -->
 
       <div class="about-right-content relative lg:pl-8">
-        <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-[#706A78]">
-          02 / What I do
-        </span>
+        <div class="about-content-block">
+          <div class="flex items-center gap-3">
+            <span class="about-section-number font-mono text-[9px] uppercase tracking-[0.18em]">
+              02
+            </span>
 
-        <div class="mt-5 max-w-sm">
-          <p class="text-sm leading-6 text-[#706A78] sm:text-[15px] sm:leading-7">
-            I enjoy building digital products that are not only functional, but also feel intuitive
-            and intentional.
-          </p>
+            <span class="about-section-label font-mono text-[10px] uppercase tracking-[0.18em]">
+              What I do
+            </span>
+          </div>
 
-          <p class="mt-4 text-sm leading-6 text-[#706A78] sm:text-[15px] sm:leading-7">
-            My main focus is front-end development and UI/UX, where I combine clean code with a
-            strong visual sense.
-          </p>
-        </div>
+          <div class="about-content-line mt-4"></div>
 
-        <!-- DETAIL -->
+          <div class="mt-6 max-w-sm">
+            <p class="about-body-text text-sm leading-6 sm:text-[15px] sm:leading-7">
+              I enjoy building digital products that are not only functional, but also feel
+              intuitive and intentional.
+            </p>
 
-        <div class="mt-6 flex items-center gap-3">
-          <span class="h-px w-8 bg-[#E7E2EC]" aria-hidden="true"></span>
+            <p class="about-body-text mt-5 text-sm leading-6 sm:text-[15px] sm:leading-7">
+              My main focus is front-end development and UI/UX, where I combine clean code with a
+              strong visual sense.
+            </p>
+          </div>
 
-          <span class="font-mono text-[9px] uppercase tracking-[0.15em] text-[#706A78]">
-            Building with intention
-          </span>
+          <!-- DETAIL -->
+
+          <div class="about-detail mt-8 flex items-center gap-3">
+            <span class="about-detail-line h-px w-8" aria-hidden="true"></span>
+
+            <span class="about-detail-label font-mono text-[9px] uppercase tracking-[0.15em]">
+              Building with intention
+            </span>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- ========================================================= -->
-    <!-- STATS -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         STATS
+         ========================================================= -->
 
-    <div class="about-stats mt-8 border-t border-[#E7E2EC] pt-8 sm:mt-10 sm:pt-9">
-      <div class="grid grid-cols-3 divide-x divide-[#E7E2EC]">
-        <!-- =================================================== -->
-        <!-- STAT 01 -->
-        <!-- =================================================== -->
+    <div class="about-stats mt-14 border-t pt-8 sm:mt-16 sm:pt-9">
+      <div class="grid grid-cols-3 divide-x">
+        <!-- ===================================================
+             STAT 01
+             =================================================== -->
 
         <div class="about-stat group relative px-3 text-center sm:px-8">
-          <!-- ACCENT -->
-
           <span
-            class="mx-auto mb-4 block h-px w-5 bg-[#7C3AED]/50 transition-all duration-500 group-hover:w-8 group-hover:bg-[#7C3AED]"
+            class="about-stat-accent mx-auto mb-4 block h-px w-5 transition-all duration-500 group-hover:w-8"
             aria-hidden="true"
           ></span>
 
-          <!-- NUMBER -->
-
           <div class="flex items-start justify-center">
             <span
-              class="text-4xl font-semibold leading-none tracking-[-0.055em] text-[#17131C] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-[#7C3AED] sm:text-5xl"
+              class="about-stat-number text-4xl font-semibold leading-none tracking-[-0.055em] transition-all duration-300 group-hover:-translate-y-0.5 sm:text-5xl"
             >
               {{ animatedStats[0] | number: '2.0-0' }}
             </span>
 
             <span
-              class="relative -top-1 ml-1 text-base font-semibold leading-none text-[#7C3AED] sm:-top-1.5 sm:text-lg"
+              class="about-stat-plus relative -top-1 ml-1 text-base font-semibold leading-none sm:-top-1.5 sm:text-lg"
             >
               +
             </span>
           </div>
 
-          <!-- LABEL -->
-
           <span
-            class="mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] text-[#706A78] sm:text-[9px]"
+            class="about-stat-label mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] sm:text-[9px]"
           >
             Coffees consumed
           </span>
         </div>
 
-        <!-- =================================================== -->
-        <!-- STAT 02 -->
-        <!-- =================================================== -->
+        <!-- ===================================================
+             STAT 02
+             =================================================== -->
 
         <div class="about-stat group relative px-3 text-center sm:px-8">
-          <!-- ACCENT -->
-
           <span
-            class="mx-auto mb-4 block h-px w-5 bg-[#7C3AED]/50 transition-all duration-500 group-hover:w-8 group-hover:bg-[#7C3AED]"
+            class="about-stat-accent mx-auto mb-4 block h-px w-5 transition-all duration-500 group-hover:w-8"
             aria-hidden="true"
           ></span>
 
-          <!-- NUMBER -->
-
           <div class="flex items-start justify-center">
             <span
-              class="text-4xl font-semibold leading-none tracking-[-0.055em] text-[#17131C] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-[#7C3AED] sm:text-5xl"
+              class="about-stat-number text-4xl font-semibold leading-none tracking-[-0.055em] transition-all duration-300 group-hover:-translate-y-0.5 sm:text-5xl"
             >
               {{ animatedStats[1] | number: '2.0-0' }}
             </span>
 
             <span
-              class="relative -top-1 ml-1 text-base font-semibold leading-none text-[#7C3AED] sm:-top-1.5 sm:text-lg"
+              class="about-stat-plus relative -top-1 ml-1 text-base font-semibold leading-none sm:-top-1.5 sm:text-lg"
             >
               +
             </span>
           </div>
 
-          <!-- LABEL -->
-
           <span
-            class="mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] text-[#706A78] sm:text-[9px]"
+            class="about-stat-label mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] sm:text-[9px]"
           >
             Projects completed
           </span>
         </div>
 
-        <!-- =================================================== -->
-        <!-- STAT 03 -->
-        <!-- =================================================== -->
+        <!-- ===================================================
+             STAT 03
+             =================================================== -->
 
         <div class="about-stat group relative px-3 text-center sm:px-8">
-          <!-- ACCENT -->
-
           <span
-            class="mx-auto mb-4 block h-px w-5 bg-[#7C3AED]/50 transition-all duration-500 group-hover:w-8 group-hover:bg-[#7C3AED]"
+            class="about-stat-accent mx-auto mb-4 block h-px w-5 transition-all duration-500 group-hover:w-8"
             aria-hidden="true"
           ></span>
 
-          <!-- NUMBER -->
-
           <div class="flex items-start justify-center">
             <span
-              class="text-4xl font-semibold leading-none tracking-[-0.055em] text-[#17131C] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:text-[#7C3AED] sm:text-5xl"
+              class="about-stat-number text-4xl font-semibold leading-none tracking-[-0.055em] transition-all duration-300 group-hover:-translate-y-0.5 sm:text-5xl"
             >
               {{ animatedStats[2] | number: '2.0-0' }}
             </span>
 
             <span
-              class="relative -top-1 ml-1 text-base font-semibold leading-none text-[#7C3AED] sm:-top-1.5 sm:text-lg"
+              class="about-stat-plus relative -top-1 ml-1 text-base font-semibold leading-none sm:-top-1.5 sm:text-lg"
             >
               +
             </span>
           </div>
 
-          <!-- LABEL -->
-
           <span
-            class="mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] text-[#706A78] sm:text-[9px]"
+            class="about-stat-label mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] sm:text-[9px]"
           >
             Years coding
           </span>
@@ -243,20 +322,120 @@
       </div>
     </div>
 
-    <!-- ========================================================= -->
-    <!-- BOTTOM META -->
-    <!-- ========================================================= -->
+    <!-- =========================================================
+         BOTTOM META
+         ========================================================= -->
 
     <div
-      class="about-bottom-meta mt-7 flex flex-col gap-2 border-t border-[#E7E2EC] pt-5 sm:flex-row sm:items-center sm:justify-between"
+      class="about-bottom-meta mt-7 flex flex-col gap-3 border-t pt-5 sm:flex-row sm:items-center sm:justify-between"
     >
-      <span class="font-mono text-[9px] uppercase tracking-[0.18em] text-[#706A78]">
-        Based in Brazil
-      </span>
+      <div class="flex items-center gap-3">
+        <span class="about-meta-dot h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
 
-      <span class="font-mono text-[9px] uppercase tracking-[0.18em] text-[#706A78]">
+        <span class="about-meta font-mono text-[9px] uppercase tracking-[0.18em]">
+          Based in Brazil
+        </span>
+      </div>
+
+      <span class="about-meta font-mono text-[9px] uppercase tracking-[0.18em]">
         Available for opportunities
       </span>
     </div>
+  </div>
+
+  <!-- =========================================================
+       WAVE — ABOUT → WORK
+       ========================================================= -->
+
+  <div
+    class="section-wave section-wave--about-work pointer-events-none absolute bottom-[-56px] left-0 z-[40] !w-full"
+    aria-hidden="true"
+  >
+    <svg
+      class="section-wave__svg"
+      viewBox="0 0 1440 170"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <!-- BACK -->
+
+        <linearGradient id="aboutWorkBackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.060" />
+
+          <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.028" />
+
+          <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.060" />
+        </linearGradient>
+
+        <!-- MIDDLE -->
+
+        <linearGradient id="aboutWorkMiddleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.045" />
+
+          <stop offset="50%" stop-color="#7C3AED" stop-opacity="0.020" />
+
+          <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.045" />
+        </linearGradient>
+
+        <!-- GLOW -->
+
+        <filter id="aboutWorkWaveGlow" x="-20%" y="-60%" width="140%" height="220%">
+          <feGaussianBlur stdDeviation="7" />
+        </filter>
+      </defs>
+
+      <!-- BACK -->
+
+      <path
+        class="section-wave__back"
+        fill="url(#aboutWorkBackGradient)"
+        filter="url(#aboutWorkWaveGlow)"
+        d="
+          M 0 38
+          C 130 10, 270 8, 410 42
+          C 550 76, 680 92, 815 56
+          C 950 22, 1080 8, 1210 38
+          C 1310 62, 1380 66, 1440 48
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+
+      <!-- MIDDLE -->
+
+      <path
+        class="section-wave__middle"
+        fill="url(#aboutWorkMiddleGradient)"
+        d="
+          M 0 58
+          C 130 82, 270 88, 410 54
+          C 550 22, 680 8, 815 40
+          C 950 72, 1080 88, 1210 56
+          C 1310 34, 1380 30, 1440 50
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+
+      <!-- MAIN -->
+
+      <path
+        class="section-wave__main"
+        fill="var(--background)"
+        d="
+          M 0 48
+          C 135 24, 280 22, 425 56
+          C 560 88, 690 100, 825 64
+          C 960 28, 1090 18, 1220 48
+          C 1320 72, 1380 74, 1440 56
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+    </svg>
   </div>
 </section>

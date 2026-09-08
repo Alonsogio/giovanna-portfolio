@@ -10,6 +10,13 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  transition:
+    background-color 700ms ease,
+    color 700ms ease;
 }
 
 
@@ -67,6 +74,26 @@
 
 
 /* =========================================================
+   DARK MODE — BACKGROUND LIGHTS
+   ========================================================= */
+
+html.dark .skills-light--purple {
+  opacity: 0.62;
+
+  background:
+    rgba(124, 58, 237, 0.16);
+}
+
+
+html.dark .skills-light--blue {
+  opacity: 0.58;
+
+  background:
+    rgba(96, 165, 250, 0.13);
+}
+
+
+/* =========================================================
    NOISE
    ========================================================= */
 
@@ -86,6 +113,11 @@
 }
 
 
+html.dark .skills-noise {
+  opacity: 0.045;
+}
+
+
 /* =========================================================
    HEADER
    ========================================================= */
@@ -97,14 +129,30 @@
 }
 
 
+.skills-eyebrow {
+  color: var(--primary);
+
+  transition:
+    color 500ms ease;
+}
+
+
 .skills-header-line {
   display: block;
+
+  background:
+    color-mix(
+      in srgb,
+      var(--primary) 30%,
+      transparent
+    ) !important;
 
   transform-origin: left center;
 
   transition:
     width 500ms ease,
-    opacity 500ms ease;
+    opacity 500ms ease,
+    background-color 500ms ease;
 }
 
 
@@ -123,6 +171,11 @@
   text-wrap: balance;
 
   perspective: 1000px;
+
+  color: var(--foreground);
+
+  transition:
+    color 500ms ease;
 }
 
 
@@ -135,12 +188,13 @@
 
   background:
     linear-gradient(
-      110deg,
+      90deg,
       #7c3aed 0%,
-      #8b5cf6 38%,
-      #6366f1 65%,
+      #8b5cf6 42%,
       #60a5fa 100%
     );
+
+  background-size: 200% 100%;
 
   -webkit-background-clip: text;
   background-clip: text;
@@ -149,13 +203,31 @@
 
   color: transparent;
 
-  background-size: 180% auto;
-
   animation:
     skills-gradient-shift
     7s
     ease-in-out
     infinite;
+}
+
+
+html.dark .skills-gradient-text {
+  background:
+    linear-gradient(
+      90deg,
+      #a78bfa 0%,
+      #c4b5fd 42%,
+      #93c5fd 100%
+    );
+
+  background-size: 200% 100%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+
+  color: transparent;
 }
 
 
@@ -177,6 +249,11 @@
 
 .skills-intro {
   text-wrap: pretty;
+
+  color: var(--muted);
+
+  transition:
+    color 500ms ease;
 }
 
 
@@ -240,6 +317,20 @@
 }
 
 
+html.dark .skills-cursor-orb {
+  background:
+    radial-gradient(
+      circle,
+      rgba(167, 139, 250, 0.22) 0%,
+      rgba(124, 58, 237, 0.14) 22%,
+      rgba(96, 165, 250, 0.07) 45%,
+      transparent 72%
+    );
+
+  mix-blend-mode: screen;
+}
+
+
 .skills-section.skills-cursor-active
 .skills-cursor-orb {
   opacity: 1;
@@ -271,6 +362,17 @@
 }
 
 
+html.dark .skills-cursor-orb__core {
+  background:
+    rgba(196, 181, 253, 0.82);
+
+  box-shadow:
+    0 0 20px rgba(167, 139, 250, 0.65),
+    0 0 50px rgba(124, 58, 237, 0.40),
+    0 0 90px rgba(96, 165, 250, 0.18);
+}
+
+
 .skills-cursor-orb__ring {
   position: absolute;
 
@@ -289,6 +391,16 @@
     4s
     ease-in-out
     infinite;
+}
+
+
+html.dark .skills-cursor-orb__ring {
+  border-color:
+    rgba(167, 139, 250, 0.28);
+
+  box-shadow:
+    0 0 35px rgba(167, 139, 250, 0.20),
+    0 0 70px rgba(96, 165, 250, 0.08);
 }
 
 
@@ -352,6 +464,11 @@
   opacity: 0.9;
 
   pointer-events: none;
+}
+
+
+html.dark .skills-threads__glow {
+  opacity: 1;
 }
 
 
@@ -517,12 +634,8 @@
    CARD POSITIONS
    ========================================================= */
 
-/*
- * 01 — FRONTEND
- */
-
 .skill-card--frontend {
-   grid-row: 1 / span 2;
+  grid-row: 1 / span 2;
 
   height: 274px;
 
@@ -532,11 +645,6 @@
 }
 
 
-/*
- * 02 — DATABASE
-
- */
-
 .skill-card--database {
   grid-column: 2;
   grid-row: 1;
@@ -545,10 +653,6 @@
 }
 
 
-/*
- * 03 — BACKEND
- */
-
 .skill-card--backend {
   grid-column: 3;
   grid-row: 1;
@@ -556,10 +660,6 @@
   height: 242px;
 }
 
-
-/*
- * 04 — TOOLS
- */
 
 .skill-card--tools {
   grid-column: 3;
@@ -571,10 +671,6 @@
 }
 
 
-/*
- * 05 — DEVELOPMENT
- */
-
 .skill-card--development {
   grid-column: 2;
   grid-row: 2;
@@ -582,10 +678,6 @@
   height: 242px;
 }
 
-
-/*
- * 06 — WORKFLOW
- */
 
 .skill-card--workflow {
   grid-column: 4;
@@ -596,6 +688,28 @@
   align-self: center;
 
   margin-bottom: 78px;
+}
+
+
+/* =========================================================
+   DARK MODE — CARD BASE
+   ========================================================= */
+
+html.dark .skill-card {
+  border-color:
+    rgba(255, 255, 255, 0.075);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(33, 28, 41, 0.98),
+      rgba(27, 23, 34, 0.94)
+    );
+
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.20),
+    0 14px 40px rgba(0, 0, 0, 0.22),
+    0 0 0 1px rgba(167, 139, 250, 0.015);
 }
 
 
@@ -628,6 +742,25 @@
     0 18px 45px rgba(43, 28, 62, 0.10),
     0 0 0 1px rgba(124, 58, 237, 0.04),
     0 0 45px rgba(124, 58, 237, 0.08);
+}
+
+
+html.dark .skill-card:hover,
+html.dark .skill-card:focus-visible {
+  border-color:
+    rgba(167, 139, 250, 0.25);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(39, 33, 49, 0.99),
+      rgba(29, 25, 37, 0.98)
+    );
+
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(167, 139, 250, 0.045),
+    0 0 55px rgba(124, 58, 237, 0.13);
 }
 
 
@@ -671,6 +804,19 @@
 .skill-card:hover::before,
 .skill-card:focus-visible::before {
   opacity: 1;
+}
+
+
+html.dark .skill-card::before {
+  background:
+    radial-gradient(
+      300px circle at
+        var(--card-x)
+        var(--card-y),
+      rgba(167, 139, 250, 0.15),
+      rgba(124, 58, 237, 0.07) 28%,
+      transparent 68%
+    );
 }
 
 
@@ -722,6 +868,19 @@
 }
 
 
+html.dark .skill-card::after {
+  background:
+    radial-gradient(
+      180px circle at
+        var(--card-x)
+        var(--card-y),
+      rgba(196, 181, 253, 0.82),
+      rgba(129, 140, 248, 0.22) 35%,
+      transparent 68%
+    );
+}
+
+
 /* =========================================================
    CARD GLOW
    ========================================================= */
@@ -768,6 +927,17 @@
   transform:
     translate(-50%, -50%)
     scale(1);
+}
+
+
+html.dark .skill-card-glow {
+  background:
+    radial-gradient(
+      circle,
+      rgba(167, 139, 250, 0.17) 0%,
+      rgba(124, 58, 237, 0.08) 35%,
+      transparent 72%
+    );
 }
 
 
@@ -915,6 +1085,64 @@
 
 
 /* =========================================================
+   DARK MODE — ICONS
+   ========================================================= */
+
+html.dark .skill-card-icon {
+  border-color:
+    rgba(167, 139, 250, 0.13);
+}
+
+
+html.dark .skill-card-icon--purple {
+  color: #c4b5fd;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(124, 58, 237, 0.22),
+      rgba(139, 92, 246, 0.08)
+    );
+}
+
+
+html.dark .skill-card-icon--blue {
+  color: #93c5fd;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(96, 165, 250, 0.19),
+      rgba(99, 102, 241, 0.08)
+    );
+}
+
+
+html.dark .skill-card-icon--violet {
+  color: #c4b5fd;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(139, 92, 246, 0.21),
+      rgba(124, 58, 237, 0.08)
+    );
+}
+
+
+html.dark .skill-card-icon--soft {
+  color: #a5b4fc;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.18),
+      rgba(96, 165, 250, 0.07)
+    );
+}
+
+
+/* =========================================================
    INDEX
    ========================================================= */
 
@@ -948,6 +1176,18 @@
 
   transform:
     translateX(-2px);
+}
+
+
+html.dark .skill-card-index {
+  color:
+    rgba(170, 163, 178, 0.58);
+}
+
+
+html.dark .skill-card:hover .skill-card-index,
+html.dark .skill-card:focus-visible .skill-card-index {
+  color: #c4b5fd;
 }
 
 
@@ -993,6 +1233,17 @@
 
   transform:
     translateX(2px);
+}
+
+
+html.dark .skill-card-heading h3 {
+  color: #f3f0f7;
+}
+
+
+html.dark .skill-card:hover .skill-card-heading h3,
+html.dark .skill-card:focus-visible .skill-card-heading h3 {
+  color: #c4b5fd;
 }
 
 
@@ -1050,6 +1301,24 @@
 }
 
 
+html.dark .skill-card-arrow {
+  color:
+    rgba(170, 163, 178, 0.58);
+
+  background:
+    rgba(167, 139, 250, 0.07);
+}
+
+
+html.dark .skill-card:hover .skill-card-arrow,
+html.dark .skill-card:focus-visible .skill-card-arrow {
+  color: #c4b5fd;
+
+  background:
+    rgba(167, 139, 250, 0.12);
+}
+
+
 /* =========================================================
    DESCRIPTION
    ========================================================= */
@@ -1075,6 +1344,17 @@
 .skill-card:hover .skill-card-description,
 .skill-card:focus-visible .skill-card-description {
   color: #5e5867;
+}
+
+
+html.dark .skill-card-description {
+  color: #aaa3b2;
+}
+
+
+html.dark .skill-card:hover .skill-card-description,
+html.dark .skill-card:focus-visible .skill-card-description {
+  color: #c5bfcc;
 }
 
 
@@ -1171,6 +1451,49 @@
 
 
 /* =========================================================
+   DARK MODE — TAGS
+   ========================================================= */
+
+html.dark .skill-tag {
+  border-color:
+    rgba(255, 255, 255, 0.08);
+
+  background:
+    rgba(255, 255, 255, 0.035);
+
+  color:
+    rgba(203, 196, 211, 0.72);
+}
+
+
+html.dark .skill-card:hover .skill-tag,
+html.dark .skill-card:focus-visible .skill-tag {
+  border-color:
+    rgba(167, 139, 250, 0.16);
+
+  color:
+    rgba(221, 214, 254, 0.86);
+
+  background:
+    rgba(167, 139, 250, 0.07);
+}
+
+
+html.dark .skill-card:hover .skill-tag:hover {
+  color: #c4b5fd;
+
+  border-color:
+    rgba(167, 139, 250, 0.28);
+
+  background:
+    rgba(124, 58, 237, 0.11);
+
+  box-shadow:
+    0 6px 18px rgba(124, 58, 237, 0.14);
+}
+
+
+/* =========================================================
    CARD ACCENTS
    ========================================================= */
 
@@ -1178,13 +1501,6 @@
   box-shadow:
     0 18px 45px rgba(124, 58, 237, 0.11),
     0 0 45px rgba(124, 58, 237, 0.08);
-}
-
-
-.skill-card--design:hover {
-  box-shadow:
-    0 18px 45px rgba(96, 165, 250, 0.12),
-    0 0 45px rgba(99, 102, 241, 0.07);
 }
 
 
@@ -1209,10 +1525,31 @@
 }
 
 
-.skill-card--learning:hover {
+html.dark .skill-card--frontend:hover {
   box-shadow:
-    0 18px 45px rgba(96, 165, 250, 0.11),
-    0 0 45px rgba(99, 102, 241, 0.08);
+    0 22px 55px rgba(0, 0, 0, 0.34),
+    0 0 50px rgba(124, 58, 237, 0.14);
+}
+
+
+html.dark .skill-card--backend:hover {
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.34),
+    0 0 50px rgba(139, 92, 246, 0.15);
+}
+
+
+html.dark .skill-card--tools:hover {
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.34),
+    0 0 50px rgba(96, 165, 250, 0.12);
+}
+
+
+html.dark .skill-card--development:hover {
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.34),
+    0 0 50px rgba(139, 92, 246, 0.14);
 }
 
 
@@ -1447,10 +1784,6 @@
 }
 
 
-/* =========================================================
-   INITIAL CARD STATE
-   ========================================================= */
-
 .skills-scroll-ready:not(
   .skills-scroll-visible
 ) .skill-card {
@@ -1463,10 +1796,6 @@
     none;
 }
 
-
-/* =========================================================
-   CARD ACTIVE
-   ========================================================= */
 
 .skills-scroll-visible
 .skill-card {
@@ -1675,6 +2004,32 @@
 }
 
 
+html.dark .skills-bottom-line {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(167, 139, 250, 0.22)
+    );
+}
+
+
+html.dark .skills-bottom-line:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(167, 139, 250, 0.22),
+      transparent
+    );
+}
+
+
+html.dark .skills-bottom-text {
+  color:
+    rgba(170, 163, 178, 0.55);
+}
+
+
 /* =========================================================
    TABLET
    ========================================================= */
@@ -1699,7 +2054,7 @@
   }
 
 
-  .skill-card--design {
+  .skill-card--database {
     grid-column: 2;
     grid-row: 1;
 
@@ -1731,7 +2086,7 @@
   }
 
 
-  .skill-card--learning {
+  .skill-card--workflow {
     grid-column: 2;
     grid-row: 3;
 
@@ -1744,6 +2099,7 @@
   .skills-visual-area {
     min-height: 1050px;
   }
+
 }
 
 
@@ -1763,11 +2119,11 @@
 
 
   .skill-card--frontend,
-  .skill-card--design,
+  .skill-card--database,
   .skill-card--backend,
   .skill-card--tools,
   .skill-card--development,
-  .skill-card--learning {
+  .skill-card--workflow {
     grid-column: 1;
 
     grid-row: auto;
@@ -1780,7 +2136,7 @@
   }
 
 
-  .skill-card--design,
+  .skill-card--database,
   .skill-card--tools {
     min-height: 280px;
   }
@@ -1818,6 +2174,7 @@
 
     letter-spacing: 0.1em;
   }
+
 }
 
 
@@ -1854,4 +2211,5 @@
   .skill-card {
     transition: none !important;
   }
+
 }

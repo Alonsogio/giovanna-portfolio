@@ -39,7 +39,7 @@ export class Work implements AfterViewInit, OnDestroy {
 
     {
       number: '02',
-      title: 'Sweet Cakes',
+      title: 'Sweet Cake',
       description:
         'Responsive website created for a fictional bakery, focused on visual presentation and user experience.',
       category: 'Web / Experience',

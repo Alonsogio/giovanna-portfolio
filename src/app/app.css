@@ -48,7 +48,12 @@
 /* Hero → About */
 
 .section-wave--hero-about::before {
-  background: #f0f0f4 !important;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(150, 150, 160, 0.10) 0%,
+    rgba(150, 150, 160, 0.06) 30%,
+    rgba(150, 150, 160, 0) 72%
+  );
 }
 
 /* =========================================================
@@ -269,16 +274,16 @@
    ABOUT → WORK
    ========================================================= */
 
-.section-wave--about-work .section-wave__back {
-  animation-duration: 6s;
+html.dark .section-wave--about-work .section-wave__main {
+  fill: var(--background);
 }
 
-.section-wave--about-work .section-wave__middle {
-  animation-duration: 7s;
+html.dark .section-wave--about-work .section-wave__back {
+  opacity: 0.95;
 }
 
-.section-wave--about-work .section-wave__main {
-  animation-duration: 6.5s;
+html.dark .section-wave--about-work .section-wave__middle {
+  opacity: 0.9;
 }
 
 

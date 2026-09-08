@@ -1,7 +1,7 @@
 <section
   #skillsSection
   id="skills"
-  class="skills-section relative overflow-hidden bg-[#F9F8FC] py-20 sm:py-24 lg:py-28"
+  class="skills-section relative overflow-hidden py-20 sm:py-24 lg:py-28"
 >
   <!-- =========================================================
        BACKGROUND DEPTH
@@ -35,17 +35,17 @@
       <!-- LABEL -->
 
       <div class="skills-reveal skills-reveal--label flex items-center gap-4">
-        <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em] text-[#7C3AED]">
+        <span class="skills-eyebrow font-mono text-[10px] font-semibold uppercase tracking-[0.2em]">
           Skills
         </span>
 
-        <span class="skills-header-line h-px w-12 bg-[#7C3AED]/30" aria-hidden="true"></span>
+        <span class="skills-header-line h-px w-12" aria-hidden="true"></span>
       </div>
 
       <!-- TITLE -->
 
       <h2
-        class="skills-title mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#17131C] sm:text-5xl lg:text-[3.7rem]"
+        class="skills-title mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]"
       >
         <span class="skills-word">The</span>
         <span class="skills-word">tools</span>
@@ -63,9 +63,7 @@
 
       <!-- DESCRIPTION -->
 
-      <p
-        class="skills-intro mt-5 max-w-xl text-base leading-7 text-[#706A78] sm:text-lg sm:leading-8"
-      >
+      <p class="skills-intro mt-5 max-w-xl text-base leading-7 sm:text-lg sm:leading-8">
         Technologies and practices I use to build reliable, responsive and maintainable
         applications.
       </p>
@@ -333,9 +331,7 @@
            ======================================================= -->
 
       <div class="skills-grid relative z-20">
-        <!-- =====================================================
-             01 — FRONTEND
-             ===================================================== -->
+        <!-- 01 — FRONTEND -->
 
         <article class="skill-card skill-card--frontend" tabindex="0">
           <div class="skill-card-glow"></div>
@@ -361,23 +357,16 @@
 
             <div class="skill-tags">
               <span class="skill-tag">Angular</span>
-
               <span class="skill-tag">React</span>
-
               <span class="skill-tag">TypeScript</span>
-
               <span class="skill-tag">HTML</span>
-
               <span class="skill-tag">CSS</span>
-
               <span class="skill-tag">Tailwind</span>
             </div>
           </div>
         </article>
 
-        <!-- =====================================================
-             02 — BACKEND
-             ===================================================== -->
+        <!-- 02 — BACKEND -->
 
         <article class="skill-card skill-card--backend" tabindex="0">
           <div class="skill-card-glow"></div>
@@ -403,17 +392,13 @@
 
             <div class="skill-tags">
               <span class="skill-tag">Node.js</span>
-
               <span class="skill-tag">Python</span>
-
               <span class="skill-tag">REST API</span>
             </div>
           </div>
         </article>
 
-        <!-- =====================================================
-             03 — DATABASES
-             ===================================================== -->
+        <!-- 03 — DATABASES -->
 
         <article class="skill-card skill-card--database" tabindex="0">
           <div class="skill-card-glow"></div>
@@ -439,15 +424,12 @@
 
             <div class="skill-tags">
               <span class="skill-tag">MySQL</span>
-
               <span class="skill-tag">PostgreSQL</span>
             </div>
           </div>
         </article>
 
-        <!-- =====================================================
-             04 — DEVELOPMENT
-             ===================================================== -->
+        <!-- 04 — DEVELOPMENT -->
 
         <article class="skill-card skill-card--development" tabindex="0">
           <div class="skill-card-glow"></div>
@@ -473,15 +455,12 @@
 
             <div class="skill-tags">
               <span class="skill-tag">Clean Code</span>
-
               <span class="skill-tag">Components</span>
             </div>
           </div>
         </article>
 
-        <!-- =====================================================
-             05 — TOOLS
-             ===================================================== -->
+        <!-- 05 — TOOLS -->
 
         <article class="skill-card skill-card--tools" tabindex="0">
           <div class="skill-card-glow"></div>
@@ -507,19 +486,14 @@
 
             <div class="skill-tags">
               <span class="skill-tag">Git</span>
-
               <span class="skill-tag">GitHub</span>
-
               <span class="skill-tag">VS Code</span>
-
               <span class="skill-tag">Postman</span>
             </div>
           </div>
         </article>
 
-        <!-- =====================================================
-             06 — WORKFLOW
-             ===================================================== -->
+        <!-- 06 — WORKFLOW -->
 
         <article class="skill-card skill-card--workflow" tabindex="0">
           <div class="skill-card-glow"></div>
@@ -545,18 +519,16 @@
 
             <div class="skill-tags">
               <span class="skill-tag">Scrum</span>
-
               <span class="skill-tag">Agile</span>
-
               <span class="skill-tag">Git</span>
             </div>
           </div>
         </article>
       </div>
 
-      <!-- =========================================================
+      <!-- =======================================================
            BOTTOM NOTE
-           ========================================================= -->
+           ======================================================= -->
 
       <div class="skills-bottom mt-14 sm:mt-16">
         <span class="skills-bottom-line" aria-hidden="true"></span>
@@ -566,5 +538,108 @@
         <span class="skills-bottom-line" aria-hidden="true"></span>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- =========================================================
+       WAVE — SKILLS → EXPERIENCE
+       ========================================================= -->
+<section>
+  <div
+    class="section-wave section-wave--skills-experience pointer-events-none absolute bottom-[-1px] left-0 z-[40] !w-full"
+    aria-hidden="true"
+  >
+    <svg
+      class="section-wave__svg"
+      viewBox="0 0 1440 170"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <!-- BACK GRADIENT -->
+
+        <linearGradient id="experienceBackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.055" />
+
+          <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.025" />
+
+          <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.055" />
+        </linearGradient>
+
+        <!-- MIDDLE GRADIENT -->
+
+        <linearGradient id="experienceMiddleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.040" />
+
+          <stop offset="50%" stop-color="#7C3AED" stop-opacity="0.018" />
+
+          <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.040" />
+        </linearGradient>
+
+        <!-- WAVE GLOW -->
+
+        <filter id="experienceWaveGlow" x="-20%" y="-60%" width="140%" height="220%">
+          <feGaussianBlur stdDeviation="7" />
+        </filter>
+      </defs>
+
+      <!-- =====================================================
+           BACK WAVE
+           ===================================================== -->
+
+      <path
+        class="section-wave__back"
+        fill="url(#experienceBackGradient)"
+        filter="url(#experienceWaveGlow)"
+        d="
+          M 0 42
+          C 140 14, 280 12, 425 46
+          C 565 80, 700 98, 835 62
+          C 970 28, 1095 12, 1225 42
+          C 1320 64, 1380 68, 1440 50
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+
+      <!-- =====================================================
+           MIDDLE WAVE
+           ===================================================== -->
+
+      <path
+        class="section-wave__middle"
+        fill="url(#experienceMiddleGradient)"
+        d="
+          M 0 60
+          C 140 84, 280 90, 425 56
+          C 565 24, 700 8, 835 40
+          C 970 72, 1095 92, 1225 58
+          C 1320 36, 1380 32, 1440 52
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+
+      <!-- =====================================================
+           MAIN WAVE
+           ===================================================== -->
+
+      <path
+        class="section-wave__main"
+        fill="var(--background)"
+        d="
+          M 0 50
+          C 140 26, 285 24, 430 58
+          C 565 90, 700 104, 840 66
+          C 975 30, 1100 18, 1230 50
+          C 1320 72, 1380 76, 1440 58
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+    </svg>
   </div>
 </section>

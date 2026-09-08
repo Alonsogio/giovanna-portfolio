@@ -9,6 +9,13 @@
 
   position: relative;
   isolation: isolate;
+
+  background: var(--background);
+  color: var(--foreground);
+
+  transition:
+    background-color 500ms ease,
+    color 500ms ease;
 }
 
 
@@ -63,12 +70,17 @@
 
   white-space: nowrap;
 
-  color: rgba(124, 58, 237, 0.025);
+  color: color-mix(
+    in srgb,
+    var(--primary) 3%,
+    transparent
+  );
 
   user-select: none;
 
   transition:
-    transform 500ms ease-out;
+    transform 500ms ease-out,
+    color 500ms ease;
 }
 
 
@@ -83,7 +95,7 @@
 
   border-radius: 9999px;
 
-  filter: blur(90px);
+  filter: blur(95px);
 
   z-index: 0;
 
@@ -93,6 +105,12 @@
       calc(var(--experience-scroll) * -14px),
       0
     );
+
+  opacity: 0.8;
+
+  transition:
+    opacity 500ms ease,
+    background 500ms ease;
 }
 
 
@@ -117,6 +135,81 @@
 
   background:
     rgba(96, 165, 250, 0.05);
+}
+
+
+/* =========================================================
+   EXTRA LIGHT DETAILS
+   ========================================================= */
+
+.experience-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  left: 42%;
+  top: 38%;
+
+  border-radius: 9999px;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(124, 58, 237, 0.018),
+      transparent 70%
+    );
+
+  filter: blur(35px);
+
+  z-index: 0;
+
+  opacity: 0.9;
+
+  transition:
+    opacity 500ms ease;
+}
+
+
+html.dark .experience-section::before {
+  opacity: 1;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(167, 139, 250, 0.055),
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   DARK MODE — BACKGROUND LIGHTS
+   ========================================================= */
+
+html.dark .experience-orb--purple {
+  background:
+    rgba(124, 58, 237, 0.10);
+
+  opacity: 0.95;
+}
+
+
+html.dark .experience-orb--blue {
+  background:
+    rgba(96, 165, 250, 0.075);
+
+  opacity: 0.9;
+}
+
+
+html.dark .experience-background-word {
+  color:
+    rgba(167, 139, 250, 0.025);
 }
 
 
@@ -152,8 +245,14 @@
 }
 
 
+/* =========================================================
+   HEADER LINE
+   ========================================================= */
+
 .experience-header-line {
   display: block;
+
+  width: 48px;
 
   background:
     rgba(124, 58, 237, 0.28);
@@ -162,7 +261,8 @@
 
   transition:
     width 500ms ease,
-    opacity 500ms ease;
+    opacity 500ms ease,
+    background 500ms ease;
 }
 
 
@@ -174,12 +274,23 @@
 }
 
 
+html.dark .experience-header-line {
+  background:
+    rgba(167, 139, 250, 0.34);
+}
+
+
 /* =========================================================
    TITLE
    ========================================================= */
 
 .experience-title {
   text-wrap: balance;
+
+  color: var(--foreground);
+
+  transition:
+    color 500ms ease;
 }
 
 
@@ -228,6 +339,8 @@
    ========================================================= */
 
 .experience-intro {
+  color: var(--muted);
+
   opacity: 0;
 
   transform:
@@ -235,7 +348,8 @@
 
   transition:
     opacity 750ms ease 300ms,
-    transform 750ms cubic-bezier(0.22, 1, 0.36, 1) 300ms;
+    transform 750ms cubic-bezier(0.22, 1, 0.36, 1) 300ms,
+    color 500ms ease;
 }
 
 
@@ -263,6 +377,8 @@
   margin-right: auto;
 
   padding-bottom: 30px;
+
+  z-index: 5;
 }
 
 
@@ -290,7 +406,14 @@
   inset: 0;
 
   background:
-    rgba(32, 24, 45, 0.08);
+    color-mix(
+      in srgb,
+      var(--foreground) 8%,
+      transparent
+    );
+
+  transition:
+    background 500ms ease;
 }
 
 
@@ -318,6 +441,19 @@
 
   transition:
     height 180ms linear;
+}
+
+
+html.dark .experience-progress-track {
+  background:
+    rgba(255, 255, 255, 0.075);
+}
+
+
+html.dark .experience-progress-fill {
+  box-shadow:
+    0 0 16px rgba(167, 139, 250, 0.24),
+    0 0 30px rgba(124, 58, 237, 0.08);
 }
 
 
@@ -384,7 +520,7 @@
   border-radius: 50%;
 
   background:
-    #F9F8FC;
+    var(--background);
 
   border:
     1px solid rgba(124, 58, 237, 0.22);
@@ -421,7 +557,11 @@
   letter-spacing: 0.14em;
 
   color:
-    rgba(112, 106, 120, 0.48);
+    color-mix(
+      in srgb,
+      var(--muted) 48%,
+      transparent
+    );
 
   transition:
     color 400ms ease;
@@ -464,7 +604,41 @@
 .experience-step.is-active
 .experience-step-number span {
   color:
-    #7c3aed;
+    var(--primary);
+}
+
+
+/* =========================================================
+   DARK MODE — ACTIVE STEP
+   ========================================================= */
+
+html.dark .experience-step-number::before {
+  background:
+    var(--background);
+
+  border-color:
+    rgba(167, 139, 250, 0.24);
+
+  box-shadow:
+    0 0 0 5px rgba(167, 139, 250, 0.035);
+}
+
+
+html.dark .experience-step.is-active
+.experience-step-number::before {
+  background:
+    linear-gradient(
+      135deg,
+      #8b5cf6,
+      #6366f1
+    );
+
+  border-color:
+    rgba(167, 139, 250, 0.42);
+
+  box-shadow:
+    0 0 0 6px rgba(167, 139, 250, 0.085),
+    0 0 24px rgba(139, 92, 246, 0.24);
 }
 
 
@@ -480,6 +654,10 @@
     50px;
 }
 
+
+/* =========================================================
+   STEP META
+   ========================================================= */
 
 .experience-step-meta {
   display: flex;
@@ -505,7 +683,11 @@
   letter-spacing: 0.16em;
 
   color:
-    rgba(112, 106, 120, 0.42);
+    color-mix(
+      in srgb,
+      var(--muted) 42%,
+      transparent
+    );
 
   transition:
     color 400ms ease;
@@ -521,7 +703,24 @@
 .experience-step.is-active
 .experience-step-meta {
   color:
-    rgba(112, 106, 120, 0.72);
+    color-mix(
+      in srgb,
+      var(--muted) 72%,
+      transparent
+    );
+}
+
+
+html.dark .experience-step-meta span:first-child {
+  color:
+    rgba(167, 139, 250, 0.58);
+}
+
+
+html.dark .experience-step.is-active
+.experience-step-meta {
+  color:
+    rgba(170, 163, 178, 0.78);
 }
 
 
@@ -533,7 +732,11 @@
   margin: 0;
 
   color:
-    rgba(27, 23, 32, 0.58);
+    color-mix(
+      in srgb,
+      var(--foreground) 58%,
+      transparent
+    );
 
   font-size:
     clamp(1.55rem, 3vw, 2.35rem);
@@ -553,10 +756,27 @@
 .experience-step.is-active
 .experience-step-content h3 {
   color:
-    #1b1720;
+    var(--foreground);
 
   transform:
     translateX(4px);
+}
+
+
+/* =========================================================
+   DARK MODE — STEP HEADING
+   ========================================================= */
+
+html.dark .experience-step-content h3 {
+  color:
+    rgba(243, 240, 247, 0.52);
+}
+
+
+html.dark .experience-step.is-active
+.experience-step-content h3 {
+  color:
+    #f3f0f7;
 }
 
 
@@ -571,7 +791,11 @@
     14px 0 0;
 
   color:
-    rgba(117, 111, 125, 0.62);
+    color-mix(
+      in srgb,
+      var(--muted) 62%,
+      transparent
+    );
 
   font-size: 13px;
 
@@ -585,7 +809,145 @@
 .experience-step.is-active
 .experience-step-content p {
   color:
-    #756f7d;
+    var(--muted);
+}
+
+
+/* =========================================================
+   COMPANY
+   ========================================================= */
+
+.experience-step-content
+.experience-company {
+  color:
+    color-mix(
+      in srgb,
+      var(--primary) 72%,
+      var(--muted)
+    );
+
+  font-weight: 500;
+
+  transition:
+    color 450ms ease;
+}
+
+
+html.dark .experience-step-content
+.experience-company {
+  color:
+    #c4b5fd;
+}
+
+
+/* =========================================================
+   TECHNOLOGY TAGS
+   ========================================================= */
+
+.experience-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-top: 20px;
+}
+
+
+.experience-tags span {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding:
+    6px
+    9px;
+
+  border:
+    1px solid
+    color-mix(
+      in srgb,
+      var(--border) 90%,
+      transparent
+    );
+
+  background:
+    color-mix(
+      in srgb,
+      var(--surface) 72%,
+      transparent
+    );
+
+  color:
+    color-mix(
+      in srgb,
+      var(--muted) 85%,
+      transparent
+    );
+
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    monospace;
+
+  font-size: 8px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  transition:
+    color 300ms ease,
+    border-color 300ms ease,
+    background 300ms ease,
+    transform 300ms ease;
+}
+
+
+.experience-tags span:hover {
+  color:
+    var(--primary);
+
+  border-color:
+    color-mix(
+      in srgb,
+      var(--primary) 24%,
+      var(--border)
+    );
+
+  transform:
+    translateY(-2px);
+}
+
+
+html.dark .experience-tags span {
+  background:
+    rgba(255, 255, 255, 0.025);
+
+  border-color:
+    rgba(255, 255, 255, 0.08);
+
+  color:
+    rgba(170, 163, 178, 0.82);
+}
+
+
+html.dark .experience-tags span:hover {
+  background:
+    rgba(167, 139, 250, 0.07);
+
+  border-color:
+    rgba(167, 139, 250, 0.24);
+
+  color:
+    #c4b5fd;
 }
 
 
@@ -623,13 +985,20 @@
   letter-spacing: 0.12em;
 
   color:
-    rgba(112, 106, 120, 0.35);
+    color-mix(
+      in srgb,
+      var(--muted) 35%,
+      transparent
+    );
+
+  transition:
+    color 500ms ease;
 }
 
 
 .experience-counter-current {
   color:
-    #7c3aed;
+    var(--primary);
 
   transition:
     color 300ms ease;
@@ -685,6 +1054,9 @@
       transparent,
       rgba(124, 58, 237, 0.16)
     );
+
+  transition:
+    background 500ms ease;
 }
 
 
@@ -718,7 +1090,235 @@
   text-transform: uppercase;
 
   color:
-    rgba(112, 106, 120, 0.48);
+    color-mix(
+      in srgb,
+      var(--muted) 48%,
+      transparent
+    );
+
+  transition:
+    color 500ms ease;
+}
+
+
+/* =========================================================
+   DARK MODE — BOTTOM
+   ========================================================= */
+
+html.dark .experience-bottom-line {
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(167, 139, 250, 0.18)
+    );
+}
+
+
+html.dark .experience-bottom-line:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(167, 139, 250, 0.18),
+      transparent
+    );
+}
+
+
+html.dark .experience-bottom-text {
+  color:
+    rgba(170, 163, 178, 0.55);
+}
+
+
+/* =========================================================
+   WAVE — EXPERIENCE → CONTACT
+   ========================================================= */
+
+.experience-wave {
+  position: absolute;
+
+  left: 0;
+  bottom: -1px;
+
+  width: 100%;
+  height: 105px;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  z-index: 40;
+
+  background: transparent;
+}
+
+
+.experience-wave svg {
+  position: absolute;
+
+  left: -4%;
+  top: -12%;
+
+  width: 108%;
+  height: 145%;
+
+  display: block;
+
+  overflow: visible;
+
+  background: transparent;
+
+  transform:
+    translate3d(0, 0, 0);
+}
+
+
+.experience-wave__back,
+.experience-wave__middle,
+.experience-wave__main {
+  transform-box: fill-box;
+
+  transform-origin:
+    center center;
+
+  will-change: transform;
+}
+
+
+.experience-wave__back {
+  opacity: 0.9;
+
+  animation:
+    experience-wave-back 7s
+    cubic-bezier(.45, 0, .55, 1)
+    infinite;
+}
+
+
+.experience-wave__middle {
+  opacity: 0.95;
+
+  animation:
+    experience-wave-middle 7.5s
+    cubic-bezier(.45, 0, .55, 1)
+    infinite;
+
+  animation-delay: -2.5s;
+}
+
+
+.experience-wave__main {
+  animation:
+    experience-wave-main 8s
+    cubic-bezier(.45, 0, .55, 1)
+    infinite;
+}
+
+
+@keyframes experience-wave-back {
+
+  0%,
+  100% {
+    transform:
+      translate3d(-18px, 2px, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(4px, -5px, 0)
+      scaleY(1.035);
+  }
+
+  50% {
+    transform:
+      translate3d(20px, 3px, 0)
+      scaleY(.965);
+  }
+
+  75% {
+    transform:
+      translate3d(5px, -4px, 0)
+      scaleY(1.025);
+  }
+}
+
+
+@keyframes experience-wave-middle {
+
+  0%,
+  100% {
+    transform:
+      translate3d(18px, 1px, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(-5px, -5px, 0)
+      scaleY(.965);
+  }
+
+  50% {
+    transform:
+      translate3d(-22px, 3px, 0)
+      scaleY(1.035);
+  }
+
+  75% {
+    transform:
+      translate3d(-4px, -4px, 0)
+      scaleY(.975);
+  }
+}
+
+
+@keyframes experience-wave-main {
+
+  0%,
+  100% {
+    transform:
+      translate3d(15px, 0, 0)
+      scaleY(1);
+  }
+
+  25% {
+    transform:
+      translate3d(-6px, 4px, 0)
+      scaleY(.965);
+  }
+
+  50% {
+    transform:
+      translate3d(-22px, -3px, 0)
+      scaleY(1.035);
+  }
+
+  75% {
+    transform:
+      translate3d(-5px, 3px, 0)
+      scaleY(.975);
+  }
+}
+
+
+/* =========================================================
+   WAVE — DARK MODE
+   ========================================================= */
+
+html.dark .experience-wave__back {
+  opacity: 0.55;
+}
+
+
+html.dark .experience-wave__middle {
+  opacity: 0.45;
+}
+
+
+.experience-wave__main {
+  fill: var(--background);
 }
 
 
@@ -774,6 +1374,22 @@
     font-size: 7rem;
 
     top: 45%;
+  }
+
+
+  .experience-orb--purple {
+    width: 250px;
+    height: 250px;
+
+    left: -140px;
+  }
+
+
+  .experience-orb--blue {
+    width: 240px;
+    height: 240px;
+
+    right: -130px;
   }
 
 
@@ -848,6 +1464,22 @@
   }
 
 
+  .experience-tags {
+    gap: 5px;
+
+    margin-top: 16px;
+  }
+
+
+  .experience-tags span {
+    padding:
+      5px
+      7px;
+
+    font-size: 7px;
+  }
+
+
   .experience-bottom {
     gap: 12px;
 
@@ -861,6 +1493,22 @@
     letter-spacing: 0.09em;
 
     text-align: center;
+  }
+
+
+  /* WAVE */
+
+  .experience-wave {
+    height: 78px;
+  }
+
+
+  .experience-wave svg {
+    left: -8%;
+
+    width: 116%;
+
+    height: 135%;
   }
 }
 
@@ -878,8 +1526,13 @@
   .experience-intro,
   .experience-step,
   .experience-step-content h3,
-  .experience-bottom {
+  .experience-bottom,
+  .experience-wave__back,
+  .experience-wave__middle,
+  .experience-wave__main {
     transition: none !important;
+
+    animation: none !important;
 
     transform: none !important;
   }

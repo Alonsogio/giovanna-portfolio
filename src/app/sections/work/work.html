@@ -1,7 +1,7 @@
 <section
   #workSection
   id="work"
-  class="work-section relative overflow-hidden bg-[#F9F8FC] py-20 sm:py-24 lg:py-28"
+  class="work-section relative overflow-hidden py-20 sm:py-24 lg:py-1"
 >
   <!-- ========================================================= -->
   <!-- BACKGROUND ATMOSPHERE -->
@@ -18,6 +18,34 @@
   ></div>
 
   <!-- ========================================================= -->
+  <!-- FLOATING LIGHT FIELD -->
+  <!-- ========================================================= -->
+
+  <div class="work-light-field pointer-events-none absolute inset-0" aria-hidden="true">
+    <!-- Purple light -->
+
+    <span class="work-light-point work-light-point--purple work-light-point--one"></span>
+
+    <span class="work-light-point work-light-point--purple work-light-point--two"></span>
+
+    <span class="work-light-point work-light-point--purple work-light-point--three"></span>
+
+    <!-- Blue light -->
+
+    <span class="work-light-point work-light-point--blue work-light-point--four"></span>
+
+    <span class="work-light-point work-light-point--blue work-light-point--five"></span>
+
+    <!-- Tiny neutral lights -->
+
+    <span class="work-light-point work-light-point--tiny work-light-point--six"></span>
+
+    <span class="work-light-point work-light-point--tiny work-light-point--seven"></span>
+
+    <span class="work-light-point work-light-point--tiny work-light-point--eight"></span>
+  </div>
+
+  <!-- ========================================================= -->
   <!-- CONTENT -->
   <!-- ========================================================= -->
 
@@ -30,28 +58,21 @@
       <!-- LABEL -->
 
       <div class="flex items-center gap-4">
-        <span
-          class="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-[#7C3AED]"
-        >
+        <span class="work-eyebrow font-mono text-[10px] font-medium uppercase tracking-[0.2em]">
           Selected work
         </span>
 
-        <span
-          class="work-header-line h-px w-12 bg-[#7C3AED]/30"
-          aria-hidden="true"
-        ></span>
+        <span class="work-header-line h-px w-12" aria-hidden="true"></span>
       </div>
 
       <!-- TITLE + BUTTON -->
 
-      <div
-        class="mt-5 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"
-      >
+      <div class="mt-5 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
         <!-- INTRO -->
 
         <div class="max-w-3xl">
           <h2
-            class="text-4xl font-semibold leading-[1.02] tracking-[-0.045em] text-[#17131C] sm:text-5xl lg:text-[3.7rem]"
+            class="work-title text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]"
           >
             A selection of things
 
@@ -59,16 +80,11 @@
 
             I've built with
 
-            <span class="work-gradient-text">
-              code &amp; design.
-            </span>
+            <span class="work-gradient-text"> code &amp; design. </span>
           </h2>
 
-          <p
-            class="work-intro mt-5 max-w-lg text-base leading-7 text-[#706A78] sm:text-lg sm:leading-8"
-          >
-            Each project is a combination of logic, design and attention to
-            detail.
+          <p class="work-intro mt-5 max-w-lg text-base leading-7 sm:text-lg sm:leading-8">
+            Each project is a combination of logic, design and attention to detail.
           </p>
         </div>
 
@@ -87,13 +103,15 @@
           <!-- BUTTON -->
 
           <a
-            href="#projects"
-            class="work-projects-button group relative z-10 inline-flex w-fit items-center gap-4 rounded-full border border-[#DDD7E7] bg-white/80 px-6 py-3.5 text-sm font-medium text-[#17131C] backdrop-blur-md"
+            href="https://github.com/Alonsogio"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="work-projects-button group relative z-10 inline-flex w-fit items-center gap-4 rounded-full px-6 py-3.5 text-sm font-medium backdrop-blur-md"
           >
-            <span>View all projects</span>
+            <span> View all projects </span>
 
             <span
-              class="flex h-7 w-7 items-center justify-center rounded-full bg-[#F0EBFF] text-[#7C3AED] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              class="work-projects-button-icon flex h-7 w-7 items-center justify-center rounded-full transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               aria-hidden="true"
             >
               ↗
@@ -125,41 +143,17 @@
                   y2="75"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop
-                    offset="0%"
-                    stop-color="#7C3AED"
-                    stop-opacity="0"
-                  />
+                  <stop offset="0%" stop-color="#7C3AED" stop-opacity="0" />
 
-                  <stop
-                    offset="16%"
-                    stop-color="#7C3AED"
-                    stop-opacity="0.28"
-                  />
+                  <stop offset="16%" stop-color="#7C3AED" stop-opacity="0.28" />
 
-                  <stop
-                    offset="42%"
-                    stop-color="#8B5CF6"
-                    stop-opacity="0.55"
-                  />
+                  <stop offset="42%" stop-color="#8B5CF6" stop-opacity="0.55" />
 
-                  <stop
-                    offset="65%"
-                    stop-color="#A78BFA"
-                    stop-opacity="0.38"
-                  />
+                  <stop offset="65%" stop-color="#A78BFA" stop-opacity="0.38" />
 
-                  <stop
-                    offset="84%"
-                    stop-color="#8B5CF6"
-                    stop-opacity="0.20"
-                  />
+                  <stop offset="84%" stop-color="#8B5CF6" stop-opacity="0.20" />
 
-                  <stop
-                    offset="100%"
-                    stop-color="#7C3AED"
-                    stop-opacity="0"
-                  />
+                  <stop offset="100%" stop-color="#7C3AED" stop-opacity="0" />
                 </linearGradient>
 
                 <!-- BLUE GRADIENT -->
@@ -172,41 +166,17 @@
                   y2="75"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop
-                    offset="0%"
-                    stop-color="#60A5FA"
-                    stop-opacity="0"
-                  />
+                  <stop offset="0%" stop-color="#60A5FA" stop-opacity="0" />
 
-                  <stop
-                    offset="18%"
-                    stop-color="#60A5FA"
-                    stop-opacity="0.22"
-                  />
+                  <stop offset="18%" stop-color="#60A5FA" stop-opacity="0.22" />
 
-                  <stop
-                    offset="45%"
-                    stop-color="#818CF8"
-                    stop-opacity="0.42"
-                  />
+                  <stop offset="45%" stop-color="#818CF8" stop-opacity="0.42" />
 
-                  <stop
-                    offset="68%"
-                    stop-color="#A78BFA"
-                    stop-opacity="0.30"
-                  />
+                  <stop offset="68%" stop-color="#A78BFA" stop-opacity="0.30" />
 
-                  <stop
-                    offset="84%"
-                    stop-color="#60A5FA"
-                    stop-opacity="0.16"
-                  />
+                  <stop offset="84%" stop-color="#60A5FA" stop-opacity="0.16" />
 
-                  <stop
-                    offset="100%"
-                    stop-color="#60A5FA"
-                    stop-opacity="0"
-                  />
+                  <stop offset="100%" stop-color="#60A5FA" stop-opacity="0" />
                 </linearGradient>
               </defs>
 
@@ -243,9 +213,7 @@
 
             <!-- PURPLE ORB -->
 
-            <span
-              class="work-corner-orb work-corner-orb--purple work-corner-orb--one"
-            >
+            <span class="work-corner-orb work-corner-orb--purple work-corner-orb--one">
               <span class="work-corner-orb__halo"></span>
 
               <span class="work-corner-orb__core"></span>
@@ -253,9 +221,7 @@
 
             <!-- BLUE ORB -->
 
-            <span
-              class="work-corner-orb work-corner-orb--blue work-corner-orb--two"
-            >
+            <span class="work-corner-orb work-corner-orb--blue work-corner-orb--two">
               <span class="work-corner-orb__halo"></span>
 
               <span class="work-corner-orb__core"></span>
@@ -263,9 +229,7 @@
 
             <!-- PURPLE ORB -->
 
-            <span
-              class="work-corner-orb work-corner-orb--purple work-corner-orb--three"
-            >
+            <span class="work-corner-orb work-corner-orb--purple work-corner-orb--three">
               <span class="work-corner-orb__halo"></span>
 
               <span class="work-corner-orb__core"></span>
@@ -285,7 +249,7 @@
       <!-- PROJECT VISUAL -->
 
       <div
-        class="work-project-visual work-project-visual--dashboard relative overflow-hidden rounded-[22px] bg-[#EAE4FF]"
+        class="work-project-visual work-project-visual--dashboard relative overflow-hidden rounded-[22px]"
       >
         <!-- DEPTH GLOW -->
 
@@ -314,12 +278,12 @@
         <!-- BOTTOM GLOW -->
 
         <span
-          class="absolute -bottom-24 -left-16 z-0 h-48 w-48 rounded-full bg-[#7C3AED]/25 blur-3xl"
+          class="work-project-bottom-glow work-project-bottom-glow--purple absolute -bottom-24 -left-16 z-0 h-48 w-48 rounded-full blur-3xl"
           aria-hidden="true"
         ></span>
 
         <span
-          class="absolute -right-16 top-10 z-0 h-40 w-40 rounded-full bg-[#60A5FA]/25 blur-3xl"
+          class="work-project-bottom-glow work-project-bottom-glow--blue absolute -right-16 top-10 z-0 h-40 w-40 rounded-full blur-3xl"
           aria-hidden="true"
         ></span>
       </div>
@@ -328,55 +292,88 @@
 
       <div class="work-project-info">
         <div class="flex items-center gap-4">
-          <span
-            class="work-project-number text-3xl font-medium tracking-[-0.04em] text-[#7C3AED] sm:text-4xl"
-          >
+          <span class="work-project-number text-3xl font-medium tracking-[-0.04em] sm:text-4xl">
             {{ projects[0].number }}
           </span>
 
-          <span
-            class="h-px w-5 bg-[#CFC5DF]"
-            aria-hidden="true"
-          ></span>
+          <span class="work-project-number-line h-px w-5" aria-hidden="true"></span>
         </div>
 
-        <h3
-          class="work-project-title mt-6 text-2xl font-semibold tracking-[-0.035em] text-[#17131C] sm:text-3xl"
-        >
+        <h3 class="work-project-title mt-6 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">
           {{ projects[0].title }}
         </h3>
 
         <div
-          class="work-project-technologies mt-4 flex flex-wrap gap-x-2 gap-y-1 font-mono text-[9px] uppercase tracking-[0.08em] text-[#706A78]"
+          class="work-project-technologies mt-4 flex flex-wrap gap-x-2 gap-y-1 font-mono text-[9px] uppercase tracking-[0.08em]"
         >
-          <ng-container
-            *ngFor="let tag of projects[0].tags; let last = last"
-          >
-            <span>{{ tag }}</span>
+          <ng-container *ngFor="let tag of projects[0].tags; let last = last">
+            <span>
+              {{ tag }}
+            </span>
 
-            <span *ngIf="!last">·</span>
+            <span *ngIf="!last"> · </span>
           </ng-container>
         </div>
 
         <p
-          class="work-project-description mt-5 max-w-md text-sm leading-6 text-[#706A78] sm:text-[15px] sm:leading-7"
+          class="work-project-description mt-5 max-w-md text-sm leading-6 sm:text-[15px] sm:leading-7"
         >
           {{ projects[0].description }}
         </p>
 
-        <a
-          href="#"
-          class="work-case-link group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#7C3AED]"
-        >
-          <span>View case study</span>
+        <!-- PROJECT LINKS -->
 
-          <span
-            class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-            aria-hidden="true"
-          >
-            ↗
-          </span>
-        </a>
+        <div class="mt-6 flex flex-wrap items-center gap-5">
+          <!-- LIVE DEMO -->
+
+          <div class="group relative w-fit">
+            <!-- TOP LEFT CORNER -->
+
+            <div
+              class="work-project-corner pointer-events-none absolute -left-1.5 -top-1.5 h-3 w-3 border-l border-t transition-transform duration-500 ease-out group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"
+            ></div>
+
+            <!-- BOTTOM RIGHT CORNER -->
+
+            <div
+              class="work-project-corner pointer-events-none absolute -bottom-1.5 -right-1.5 h-3 w-3 border-b border-r transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+            ></div>
+
+            <a
+              href="#"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work-project-link work-project-link--primary group relative z-10 flex items-center gap-4 border px-6 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
+            >
+              <span> Live demo </span>
+
+              <i
+                class="pi pi-arrow-up-right text-sm transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              ></i>
+            </a>
+          </div>
+
+          <!-- SOURCE CODE -->
+
+          <div class="group relative w-fit">
+            <a
+              href="https://github.com/Alonsogio/giovanna-portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work-project-link work-project-link--secondary group relative z-10 flex items-center gap-3 border px-6 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
+            >
+              <i class="pi pi-github text-sm" aria-hidden="true"></i>
+
+              <span> Source code </span>
+
+              <i
+                class="pi pi-arrow-up-right text-xs opacity-60 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              ></i>
+            </a>
+          </div>
+        </div>
       </div>
     </article>
 
@@ -384,10 +381,7 @@
     <!-- DIVIDER -->
     <!-- ========================================================= -->
 
-    <div
-      class="work-project-divider my-12 h-px w-full bg-[#E7E2EC] sm:my-16 lg:my-20"
-      aria-hidden="true"
-    ></div>
+    <div class="work-project-divider my-12 h-px w-full sm:my-16 lg:my-20" aria-hidden="true"></div>
 
     <!-- ========================================================= -->
     <!-- PROJECT 02 — SWEET CAKES -->
@@ -399,7 +393,7 @@
       <!-- PROJECT VISUAL -->
 
       <div
-        class="work-project-visual work-project-visual--travel relative overflow-hidden rounded-[22px] bg-[#DCE3EE]"
+        class="work-project-visual work-project-visual--travel relative overflow-hidden rounded-[22px]"
       >
         <!-- DEPTH GLOW -->
 
@@ -430,55 +424,84 @@
 
       <div class="work-project-info">
         <div class="flex items-center gap-4">
-          <span
-            class="work-project-number text-3xl font-medium tracking-[-0.04em] text-[#7C3AED] sm:text-4xl"
-          >
+          <span class="work-project-number text-3xl font-medium tracking-[-0.04em] sm:text-4xl">
             {{ projects[1].number }}
           </span>
 
-          <span
-            class="h-px w-5 bg-[#CFC5DF]"
-            aria-hidden="true"
-          ></span>
+          <span class="work-project-number-line h-px w-5" aria-hidden="true"></span>
         </div>
 
-        <h3
-          class="work-project-title mt-6 text-2xl font-semibold tracking-[-0.035em] text-[#17131C] sm:text-3xl"
-        >
+        <h3 class="work-project-title mt-6 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">
           {{ projects[1].title }}
         </h3>
 
         <div
-          class="work-project-technologies mt-4 flex flex-wrap gap-x-2 gap-y-1 font-mono text-[9px] uppercase tracking-[0.08em] text-[#706A78]"
+          class="work-project-technologies mt-4 flex flex-wrap gap-x-2 gap-y-1 font-mono text-[9px] uppercase tracking-[0.08em]"
         >
-          <ng-container
-            *ngFor="let tag of projects[1].tags; let last = last"
-          >
-            <span>{{ tag }}</span>
+          <ng-container *ngFor="let tag of projects[1].tags; let last = last">
+            <span>
+              {{ tag }}
+            </span>
 
-            <span *ngIf="!last">·</span>
+            <span *ngIf="!last"> · </span>
           </ng-container>
         </div>
 
         <p
-          class="work-project-description mt-5 max-w-md text-sm leading-6 text-[#706A78] sm:text-[15px] sm:leading-7"
+          class="work-project-description mt-5 max-w-md text-sm leading-6 sm:text-[15px] sm:leading-7"
         >
           {{ projects[1].description }}
         </p>
 
-        <a
-          href="#"
-          class="work-case-link group mt-6 inline-flex items-center gap-2 text-sm font-medium text-[#7C3AED]"
-        >
-          <span>View case study</span>
+        <!-- PROJECT LINKS -->
 
-          <span
-            class="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-            aria-hidden="true"
-          >
-            ↗
-          </span>
-        </a>
+        <div class="mt-6 flex flex-wrap items-center gap-5">
+          <!-- LIVE DEMO -->
+
+          <div class="group relative w-fit">
+            <div
+              class="work-project-corner pointer-events-none absolute -left-1.5 -top-1.5 h-3 w-3 border-l border-t transition-transform duration-500 ease-out group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"
+            ></div>
+
+            <div
+              class="work-project-corner pointer-events-none absolute -bottom-1.5 -right-1.5 h-3 w-3 border-b border-r transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+            ></div>
+
+            <a
+              href="https://sweetcake-1328a.web.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work-project-link work-project-link--primary group relative z-10 flex items-center gap-4 border px-6 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
+            >
+              <span> Live demo </span>
+
+              <i
+                class="pi pi-arrow-up-right text-sm transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+              ></i>
+            </a>
+          </div>
+
+          <!-- SOURCE CODE -->
+
+          <div class="group relative w-fit">
+            <a
+              href="https://github.com/Alonsogio/Sweet_Cake/tree/main/sweet-cake"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work-project-link work-project-link--secondary group relative z-10 flex items-center gap-3 border px-6 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
+            >
+              <i class="pi pi-github text-sm" aria-hidden="true"></i>
+
+              <span> Source code </span>
+
+              <i
+                class="pi pi-arrow-up-right text-xs opacity-60 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              ></i>
+            </a>
+          </div>
+        </div>
       </div>
     </article>
 
@@ -488,19 +511,123 @@
 
     <div
       id="projects"
-      class="work-bottom mt-16 flex items-center justify-between border-t border-[#E7E2EC] pt-6 sm:mt-20"
+      class="work-bottom mt-16 flex items-center justify-between border-t pt-6 sm:mt-20"
     >
-      <span
-        class="font-mono text-[9px] uppercase tracking-[0.18em] text-[#706A78]"
-      >
+      <span class="font-mono text-[9px] uppercase tracking-[0.18em]">
         More projects coming soon
       </span>
 
-      <span
-        class="hidden font-mono text-[9px] uppercase tracking-[0.18em] text-[#706A78] sm:block"
-      >
+      <span class="hidden font-mono text-[9px] uppercase tracking-[0.18em] sm:block">
         Code × Design
       </span>
     </div>
+  </div>
+
+  <!-- ========================================================= -->
+  <!-- WAVE — WORK → SKILLS -->
+  <!-- ========================================================= -->
+
+  <div
+    class="section-wave section-wave--work-skills pointer-events-none absolute bottom-[-1px] left-0 z-[40] !w-full"
+    aria-hidden="true"
+  >
+    <svg
+      class="section-wave__svg"
+      viewBox="0 0 1440 170"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <defs>
+        <!-- =================================================== -->
+        <!-- BACK GRADIENT -->
+        <!-- =================================================== -->
+
+        <linearGradient id="skillsBackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.055" />
+
+          <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.025" />
+
+          <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.055" />
+        </linearGradient>
+
+        <!-- =================================================== -->
+        <!-- MIDDLE GRADIENT -->
+        <!-- =================================================== -->
+
+        <linearGradient id="skillsMiddleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.040" />
+
+          <stop offset="50%" stop-color="#7C3AED" stop-opacity="0.018" />
+
+          <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.040" />
+        </linearGradient>
+
+        <!-- =================================================== -->
+        <!-- WAVE GLOW -->
+        <!-- =================================================== -->
+
+        <filter id="skillsWaveGlow" x="-20%" y="-60%" width="140%" height="220%">
+          <feGaussianBlur stdDeviation="7" />
+        </filter>
+      </defs>
+
+      <!-- ===================================================== -->
+      <!-- BACK WAVE -->
+      <!-- ===================================================== -->
+
+      <path
+        class="section-wave__back"
+        fill="url(#skillsBackGradient)"
+        filter="url(#skillsWaveGlow)"
+        d="
+          M 0 42
+          C 140 14, 280 12, 425 46
+          C 565 80, 700 98, 835 62
+          C 970 28, 1095 12, 1225 42
+          C 1320 64, 1380 68, 1440 50
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+
+      <!-- ===================================================== -->
+      <!-- MIDDLE WAVE -->
+      <!-- ===================================================== -->
+
+      <path
+        class="section-wave__middle"
+        fill="url(#skillsMiddleGradient)"
+        d="
+          M 0 60
+          C 140 84, 280 90, 425 56
+          C 565 24, 700 8, 835 40
+          C 970 72, 1095 92, 1225 58
+          C 1320 36, 1380 32, 1440 52
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+
+      <!-- ===================================================== -->
+      <!-- MAIN WAVE -->
+      <!-- ===================================================== -->
+
+      <path
+        class="section-wave__main"
+        fill="var(--background)"
+        d="
+          M 0 50
+          C 140 26, 285 24, 430 58
+          C 565 90, 700 104, 840 66
+          C 975 30, 1100 18, 1230 50
+          C 1320 72, 1380 76, 1440 58
+          L 1440 170
+          L 0 170
+          Z
+        "
+      />
+    </svg>
   </div>
 </section>
