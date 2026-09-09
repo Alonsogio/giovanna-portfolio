@@ -1,14 +1,14 @@
 <section
   #contactSection
   id="contact"
-  class="contact-section relative overflow-hidden py-24 sm:py-28 lg:py-32"
+  class="contact-section relative overflow-hidden py-24 sm:py-0 lg:py-28"
 >
   <!-- =========================================================
        BACKGROUND
        ========================================================= -->
 
   <div class="contact-background" aria-hidden="true">
-    <span class="contact-background-word">CONTACT</span>
+    <span class="contact-background-word"> CONTACT </span>
   </div>
 
   <!-- =========================================================
@@ -30,7 +30,7 @@
     <header class="contact-header max-w-4xl">
       <div class="contact-label flex items-center gap-4">
         <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em]">
-          Contact
+          {{ languageService.translations.contact.label }}
         </span>
 
         <span class="contact-header-line h-px w-12" aria-hidden="true"></span>
@@ -39,17 +39,27 @@
       <h2
         class="contact-title mt-6 text-5xl font-semibold leading-[0.95] tracking-[-0.055em] sm:text-6xl lg:text-[5.5rem]"
       >
-        <span class="contact-word">Let's</span>
-        <span class="contact-word">build</span>
+        <span class="contact-word">
+          {{ languageService.translations.contact.titleLine1 }}
+        </span>
+
+        <span class="contact-word">
+          {{ languageService.translations.contact.titleLine2 }}
+        </span>
 
         <br class="hidden sm:block" />
 
-        <span class="contact-word">something</span>
-        <span class="contact-word contact-gradient-text"> meaningful. </span>
+        <span class="contact-word">
+          {{ languageService.translations.contact.titleLine3 }}
+        </span>
+
+        <span class="contact-word contact-gradient-text">
+          {{ languageService.translations.contact.titleGradient }}
+        </span>
       </h2>
 
       <p class="contact-intro mt-7 max-w-2xl text-base leading-7 sm:text-lg sm:leading-8">
-        Have a project, opportunity or idea you'd like to talk about? I'd love to hear from you.
+        {{ languageService.translations.contact.intro }}
       </p>
     </header>
 
@@ -67,7 +77,7 @@
         target="_blank"
         rel="noopener noreferrer"
         class="contact-link group"
-        aria-label="Visit Giovanna's GitHub"
+        [attr.aria-label]="languageService.translations.contact.github.ariaLabel"
       >
         <div class="contact-link-top">
           <span class="contact-link-icon contact-link-icon--dark">
@@ -82,11 +92,15 @@
         </div>
 
         <div class="contact-link-content">
-          <span class="contact-link-label">Code</span>
+          <span class="contact-link-label">
+            {{ languageService.translations.contact.github.label }}
+          </span>
 
-          <span class="contact-link-title">GitHub</span>
+          <span class="contact-link-title"> GitHub </span>
 
-          <p class="contact-link-description">Explore my projects, experiments and code.</p>
+          <p class="contact-link-description">
+            {{ languageService.translations.contact.github.description }}
+          </p>
         </div>
       </a>
 
@@ -99,7 +113,7 @@
         target="_blank"
         rel="noopener noreferrer"
         class="contact-link group"
-        aria-label="Visit Giovanna's LinkedIn"
+        [attr.aria-label]="languageService.translations.contact.linkedin.ariaLabel"
       >
         <div class="contact-link-top">
           <span class="contact-link-icon contact-link-icon--blue">
@@ -114,11 +128,15 @@
         </div>
 
         <div class="contact-link-content">
-          <span class="contact-link-label">Professional</span>
+          <span class="contact-link-label">
+            {{ languageService.translations.contact.linkedin.label }}
+          </span>
 
-          <span class="contact-link-title">LinkedIn</span>
+          <span class="contact-link-title"> LinkedIn </span>
 
-          <p class="contact-link-description">Connect with me and see my professional journey.</p>
+          <p class="contact-link-description">
+            {{ languageService.translations.contact.linkedin.description }}
+          </p>
         </div>
       </a>
 
@@ -126,7 +144,11 @@
            EMAIL
            ======================================================= -->
 
-      <a href="mailto:ogiovanna162@gmail.com" class="contact-link group" aria-label="Send an email">
+      <a
+        href="mailto:ogiovanna162@gmail.com"
+        class="contact-link group"
+        [attr.aria-label]="languageService.translations.contact.email.ariaLabel"
+      >
         <div class="contact-link-top">
           <span class="contact-link-icon contact-link-icon--purple">
             <svg
@@ -146,12 +168,14 @@
         </div>
 
         <div class="contact-link-content">
-          <span class="contact-link-label">Direct</span>
+          <span class="contact-link-label">
+            {{ languageService.translations.contact.email.label }}
+          </span>
 
-          <span class="contact-link-title">Email</span>
+          <span class="contact-link-title"> Email </span>
 
           <p class="contact-link-description">
-            Have something in mind? Let's start a conversation.
+            {{ languageService.translations.contact.email.description }}
           </p>
         </div>
       </a>
@@ -166,12 +190,14 @@
     >
       <span class="contact-availability-dot" aria-hidden="true"></span>
 
-      <span class="contact-availability-text"> Open to opportunities </span>
+      <span class="contact-availability-text">
+        {{ languageService.translations.contact.availability }}
+      </span>
 
       <span class="contact-availability-divider hidden sm:inline" aria-hidden="true"> · </span>
 
       <span class="contact-availability-text contact-availability-text--muted">
-        Full Stack Development
+        {{ languageService.translations.contact.specialization }}
       </span>
     </div>
 
@@ -182,7 +208,9 @@
     <div class="contact-bottom contact-reveal">
       <span class="contact-bottom-line" aria-hidden="true"></span>
 
-      <span class="contact-bottom-text"> Thanks for stopping by. </span>
+      <span class="contact-bottom-text">
+        {{ languageService.translations.contact.bottom }}
+      </span>
 
       <span class="contact-bottom-line" aria-hidden="true"></span>
     </div>

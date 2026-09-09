@@ -1,7 +1,7 @@
 <section
   #skillsSection
   id="skills"
-  class="skills-section relative overflow-hidden py-20 sm:py-24 lg:py-28"
+  class="skills-section relative overflow-hidden py-20 sm:py-24 lg:py-0"
 >
   <!-- =========================================================
        BACKGROUND DEPTH
@@ -36,7 +36,7 @@
 
       <div class="skills-reveal skills-reveal--label flex items-center gap-4">
         <span class="skills-eyebrow font-mono text-[10px] font-semibold uppercase tracking-[0.2em]">
-          Skills
+          {{ languageService.translations.skills.label }}
         </span>
 
         <span class="skills-header-line h-px w-12" aria-hidden="true"></span>
@@ -47,25 +47,45 @@
       <h2
         class="skills-title mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]"
       >
-        <span class="skills-word">The</span>
-        <span class="skills-word">tools</span>
-        <span class="skills-word">I</span>
-        <span class="skills-word">use</span>
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine1 }}
+        </span>
+
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine2 }}
+        </span>
+
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine3 }}
+        </span>
+
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine4 }}
+        </span>
 
         <br class="hidden sm:block" />
 
-        <span class="skills-word">to</span>
-        <span class="skills-word">build</span>
-        <span class="skills-word">digital</span>
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine5 }}
+        </span>
 
-        <span class="skills-word skills-gradient-text"> experiences. </span>
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine6 }}
+        </span>
+
+        <span class="skills-word">
+          {{ languageService.translations.skills.titleLine7 }}
+        </span>
+
+        <span class="skills-word skills-gradient-text">
+          {{ languageService.translations.skills.titleGradient }}
+        </span>
       </h2>
 
       <!-- DESCRIPTION -->
 
       <p class="skills-intro mt-5 max-w-xl text-base leading-7 sm:text-lg sm:leading-8">
-        Technologies and practices I use to build reliable, responsive and maintainable
-        applications.
+        {{ languageService.translations.skills.intro }}
       </p>
     </header>
 
@@ -346,13 +366,15 @@
             </div>
 
             <div class="skill-card-heading">
-              <h3>Frontend</h3>
+              <h3>
+                {{ languageService.translations.skills.cards.frontend.title }}
+              </h3>
 
-              <span class="skill-card-arrow"> ↗ </span>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
             </div>
 
             <p class="skill-card-description">
-              Responsive interfaces built with clean and reusable components.
+              {{ languageService.translations.skills.cards.frontend.description }}
             </p>
 
             <div class="skill-tags">
@@ -381,13 +403,15 @@
             </div>
 
             <div class="skill-card-heading">
-              <h3>Backend</h3>
+              <h3>
+                {{ languageService.translations.skills.cards.backend.title }}
+              </h3>
 
-              <span class="skill-card-arrow"> ↗ </span>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
             </div>
 
             <p class="skill-card-description">
-              APIs and application logic focused on reliable integrations.
+              {{ languageService.translations.skills.cards.backend.description }}
             </p>
 
             <div class="skill-tags">
@@ -413,13 +437,15 @@
             </div>
 
             <div class="skill-card-heading">
-              <h3>Databases</h3>
+              <h3>
+                {{ languageService.translations.skills.cards.databases.title }}
+              </h3>
 
-              <span class="skill-card-arrow"> ↗ </span>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
             </div>
 
             <p class="skill-card-description">
-              Working with structured data and database integrations.
+              {{ languageService.translations.skills.cards.databases.description }}
             </p>
 
             <div class="skill-tags">
@@ -444,13 +470,15 @@
             </div>
 
             <div class="skill-card-heading">
-              <h3>Development</h3>
+              <h3>
+                {{ languageService.translations.skills.cards.development.title }}
+              </h3>
 
-              <span class="skill-card-arrow"> ↗ </span>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
             </div>
 
             <p class="skill-card-description">
-              Clean, scalable and maintainable code for web applications.
+              {{ languageService.translations.skills.cards.development.description }}
             </p>
 
             <div class="skill-tags">
@@ -475,13 +503,15 @@
             </div>
 
             <div class="skill-card-heading">
-              <h3>Tools</h3>
+              <h3>
+                {{ languageService.translations.skills.cards.tools.title }}
+              </h3>
 
-              <span class="skill-card-arrow"> ↗ </span>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
             </div>
 
             <p class="skill-card-description">
-              Tools that support my everyday development workflow.
+              {{ languageService.translations.skills.cards.tools.description }}
             </p>
 
             <div class="skill-tags">
@@ -508,13 +538,15 @@
             </div>
 
             <div class="skill-card-heading">
-              <h3>Workflow</h3>
+              <h3>
+                {{ languageService.translations.skills.cards.workflow.title }}
+              </h3>
 
-              <span class="skill-card-arrow"> ↗ </span>
+              <span class="skill-card-arrow" aria-hidden="true"> ↗ </span>
             </div>
 
             <p class="skill-card-description">
-              Agile practices and collaboration throughout development.
+              {{ languageService.translations.skills.cards.workflow.description }}
             </p>
 
             <div class="skill-tags">
@@ -533,18 +565,19 @@
       <div class="skills-bottom mt-14 sm:mt-16">
         <span class="skills-bottom-line" aria-hidden="true"></span>
 
-        <span class="skills-bottom-text"> Always learning · Always building </span>
+        <span class="skills-bottom-text">
+          {{ languageService.translations.skills.bottomNote }}
+        </span>
 
         <span class="skills-bottom-line" aria-hidden="true"></span>
       </div>
     </div>
   </div>
-</section>
 
-<!-- =========================================================
+  <!-- =========================================================
        WAVE — SKILLS → EXPERIENCE
        ========================================================= -->
-<section>
+
   <div
     class="section-wave section-wave--skills-experience pointer-events-none absolute bottom-[-1px] left-0 z-[40] !w-full"
     aria-hidden="true"
@@ -583,9 +616,7 @@
         </filter>
       </defs>
 
-      <!-- =====================================================
-           BACK WAVE
-           ===================================================== -->
+      <!-- BACK WAVE -->
 
       <path
         class="section-wave__back"
@@ -603,9 +634,7 @@
         "
       />
 
-      <!-- =====================================================
-           MIDDLE WAVE
-           ===================================================== -->
+      <!-- MIDDLE WAVE -->
 
       <path
         class="section-wave__middle"
@@ -622,9 +651,7 @@
         "
       />
 
-      <!-- =====================================================
-           MAIN WAVE
-           ===================================================== -->
+      <!-- MAIN WAVE -->
 
       <path
         class="section-wave__main"

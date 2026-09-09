@@ -34,41 +34,43 @@
          =================================================== -->
 
     <div #heroContent class="relative z-30 max-w-2xl">
-      <p
-        class="hero-eyebrow mb-5 font-mono text-sm font-medium uppercase tracking-[0.18em]"
-      >
-        Full Stack Developer
+      <p class="hero-eyebrow mb-5 font-mono text-sm font-medium uppercase tracking-[0.18em]">
+        {{ languageService.translations.hero.role }}
       </p>
 
       <h1
         #heroTitle
         class="hero-title text-5xl font-semibold leading-[1.05] tracking-[-0.045em] sm:text-6xl lg:text-7xl"
       >
-        <span class="hero-title-line"> I build digital </span>
-
         <span class="hero-title-line">
-          <span class="hero-title-gradient-text"> experiences </span>
+          {{ languageService.translations.hero.titleLine1 }}
         </span>
 
-        <span class="hero-title-line"> with code &amp; design. </span>
+        <span class="hero-title-line">
+          <span class="hero-title-gradient-text">
+            {{ languageService.translations.hero.titleGradient }}
+          </span>
+          <span>
+            {{ languageService.translations.hero.titleLine2Suffix }}
+          </span>
+        </span>
+
+        <br>
+
+        <span class="hero-title-line">
+          {{ languageService.translations.hero.titleLine3 }}
+        </span>
       </h1>
 
-      <p
-        #heroDescription
-        class="hero-description mt-7 max-w-xl text-base leading-7 sm:text-lg"
-      >
-        I'm Giovanna, a Full Stack Developer focused on
-        <br class="hidden sm:block" />
-        front-end development, UI/UX and creating thoughtful
-        <br class="hidden sm:block" />
-        digital experiences.
+      <p #heroDescription class="hero-description mt-7 max-w-xl text-base leading-7 sm:text-lg">
+        {{ languageService.translations.hero.description }}
       </p>
 
       <!-- =================================================
            ACTIONS
            ================================================= -->
 
-      <div #heroActions class="hero-actions mt-9 flex flex-wrap items-center gap-5">
+      <div #heroActions class="hero-actions mt-9 flex flex-wrap items-center gap-4">
         <!-- ===============================================
              PRIMARY BUTTON
              =============================================== -->
@@ -90,7 +92,7 @@
             href="#work"
             class="hero-primary-button group relative z-10 flex items-center gap-4 px-7 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
           >
-            <span>View my work</span>
+            <span>{{ languageService.translations.hero.viewWork }}</span>
 
             <i
               class="pi pi-arrow-up-right text-base transition-transform duration-300 group-hover:translate-x-1"
@@ -107,7 +109,7 @@
           href="#contact"
           class="hero-contact-button flex items-center gap-3 px-7 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
         >
-          Contact me
+          {{ languageService.translations.hero.contact }}
         </a>
       </div>
     </div>
@@ -167,21 +169,13 @@
              SMALL LIGHTS INSIDE / AROUND SPHERE
              ================================================= -->
 
-        <span
-          class="hero-orbit-dot hero-orbit-dot-1 absolute left-[7%] top-[25%]"
-        ></span>
+        <span class="hero-orbit-dot hero-orbit-dot-1 absolute left-[7%] top-[25%]"></span>
 
-        <span
-          class="hero-orbit-dot hero-orbit-dot-2 absolute right-[5%] top-[29%]"
-        ></span>
+        <span class="hero-orbit-dot hero-orbit-dot-2 absolute right-[5%] top-[29%]"></span>
 
-        <span
-          class="hero-orbit-dot hero-orbit-dot-3 absolute bottom-[14%] left-[12%]"
-        ></span>
+        <span class="hero-orbit-dot hero-orbit-dot-3 absolute bottom-[14%] left-[12%]"></span>
 
-        <span
-          class="hero-orbit-dot hero-orbit-dot-4 absolute bottom-[18%] right-[10%]"
-        ></span>
+        <span class="hero-orbit-dot hero-orbit-dot-4 absolute bottom-[18%] right-[10%]"></span>
       </div>
 
       <!-- =================================================
@@ -263,28 +257,19 @@
            PERSON / GIF
            ================================================= -->
 
-      <div
-        class="hero-image-stage hero-parallax-image absolute left-1/2 top-1/2 z-[30]"
-      >
+      <div class="hero-image-stage hero-parallax-image absolute left-1/2 top-1/2 z-[30]">
         <!-- =================================================
              PERSON CONTACT SHADOW
              ================================================= -->
 
-        <div
-          class="hero-person-shadow absolute left-1/2 top-[108%] z-0"
-          aria-hidden="true"
-        ></div>
+        <div class="hero-person-shadow absolute left-1/2 top-[108%] z-0" aria-hidden="true"></div>
 
         <!-- ===============================================
              BODY INSIDE SPHERE
              =============================================== -->
 
         <div class="hero-image-inside absolute inset-0 z-[10]">
-          <img
-            src="/images/hero/giovanna.gif"
-            alt=""
-            class="hero-image-gif"
-          />
+          <img src="/images/hero/giovanna.gif" alt="" class="hero-image-gif" />
         </div>
 
         <!-- ===============================================
@@ -292,11 +277,7 @@
              =============================================== -->
 
         <div class="hero-image-head absolute inset-0 z-[20]">
-          <img
-            src="/images/hero/giovanna.gif"
-            alt="Giovanna"
-            class="hero-image-gif"
-          />
+          <img src="/images/hero/giovanna.gif" alt="Giovanna" class="hero-image-gif" />
         </div>
       </div>
     </div>
@@ -378,37 +359,19 @@
            ================================================= -->
 
       <defs>
-        <linearGradient
-          id="heroBackGradient"
-          x1="0%"
-          y1="0%"
-          x2="100%"
-          y2="0%"
-        >
+        <linearGradient id="heroBackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.075" />
           <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.032" />
           <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.075" />
         </linearGradient>
 
-        <linearGradient
-          id="heroMiddleGradient"
-          x1="0%"
-          y1="0%"
-          x2="100%"
-          y2="0%"
-        >
+        <linearGradient id="heroMiddleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.060" />
           <stop offset="50%" stop-color="#7C3AED" stop-opacity="0.025" />
           <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.060" />
         </linearGradient>
 
-        <filter
-          id="heroWaveGlow"
-          x="-20%"
-          y="-60%"
-          width="140%"
-          height="220%"
-        >
+        <filter id="heroWaveGlow" x="-20%" y="-60%" width="140%" height="220%">
           <feGaussianBlur stdDeviation="9" />
         </filter>
       </defs>

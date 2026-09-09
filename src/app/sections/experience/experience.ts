@@ -3,6 +3,8 @@ import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@ang
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import { LanguageService } from '../../core/services/language.service';
+
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
@@ -17,6 +19,8 @@ export class Experience implements AfterViewInit, OnDestroy {
   experienceSection!: ElementRef<HTMLElement>;
 
   private ctx?: gsap.Context;
+
+  constructor(public languageService: LanguageService) {}
 
   ngAfterViewInit(): void {
     this.initExperienceAnimation();
@@ -42,8 +46,6 @@ export class Experience implements AfterViewInit, OnDestroy {
 
       const backgroundWord = section.querySelector<HTMLElement>('.experience-background-word');
 
-      const orbs = gsap.utils.toArray<HTMLElement>('.experience-orb');
-
       const label = section.querySelector<HTMLElement>('.experience-label');
 
       const words = gsap.utils.toArray<HTMLElement>('.experience-word');
@@ -52,11 +54,7 @@ export class Experience implements AfterViewInit, OnDestroy {
 
       const bottom = section.querySelector<HTMLElement>('.experience-bottom');
 
-      /*
-       * =========================================================
-       * REDUCED MOTION
-       * =========================================================
-       */
+      const process = section.querySelector<HTMLElement>('.experience-process');
 
       const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -75,12 +73,6 @@ export class Experience implements AfterViewInit, OnDestroy {
 
         return;
       }
-
-      /*
-       * =========================================================
-       * INITIAL STATE
-       * =========================================================
-       */
 
       gsap.set(label, {
         opacity: 0,
@@ -112,12 +104,6 @@ export class Experience implements AfterViewInit, OnDestroy {
           height: '0%',
         });
       }
-
-      /*
-       * =========================================================
-       * SECTION INTRO
-       * =========================================================
-       */
 
       const introTimeline = gsap.timeline({
         scrollTrigger: {
@@ -156,31 +142,19 @@ export class Experience implements AfterViewInit, OnDestroy {
           '-=0.38',
         );
 
-      /*
-       * =========================================================
-       * PROCESS PROGRESS
-       * =========================================================
-       */
-
-      if (progressFill) {
+      if (progressFill && process) {
         gsap.to(progressFill, {
           height: '100%',
           ease: 'none',
 
           scrollTrigger: {
-            trigger: '.experience-process',
+            trigger: process,
             start: 'top 58%',
             end: 'bottom 58%',
             scrub: 0.4,
           },
         });
       }
-
-      /*
-       * =========================================================
-       * STEP REVEAL
-       * =========================================================
-       */
 
       steps.forEach((step, index) => {
         const number = step.querySelector<HTMLElement>('.experience-step-number');
@@ -216,10 +190,6 @@ export class Experience implements AfterViewInit, OnDestroy {
           },
         );
 
-        /*
-         * Pequeno movimento interno do conteúdo.
-         */
-
         if (content) {
           gsap.fromTo(
             content,
@@ -241,10 +211,6 @@ export class Experience implements AfterViewInit, OnDestroy {
             },
           );
         }
-
-        /*
-         * Movimento sutil do número.
-         */
 
         if (number) {
           gsap.fromTo(
@@ -269,12 +235,6 @@ export class Experience implements AfterViewInit, OnDestroy {
         }
       });
 
-      /*
-       * =========================================================
-       * BACKGROUND PARALLAX
-       * =========================================================
-       */
-
       if (backgroundWord) {
         gsap.to(backgroundWord, {
           y: -80,
@@ -289,34 +249,6 @@ export class Experience implements AfterViewInit, OnDestroy {
         });
       }
 
-      /*
-       * =========================================================
-       * ORB PARALLAX
-       * =========================================================
-       */
-
-      if (orbs.length) {
-        orbs.forEach((orb, index) => {
-          gsap.to(orb, {
-            y: index === 0 ? -45 : -30,
-            ease: 'none',
-
-            scrollTrigger: {
-              trigger: section,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1.5,
-            },
-          });
-        });
-      }
-
-      /*
-       * =========================================================
-       * BOTTOM NOTE
-       * =========================================================
-       */
-
       gsap.to(bottom, {
         opacity: 1,
         y: 0,
@@ -330,23 +262,11 @@ export class Experience implements AfterViewInit, OnDestroy {
         },
       });
 
-      /*
-       * =========================================================
-       * REFRESH
-       * =========================================================
-       */
-
       requestAnimationFrame(() => {
         ScrollTrigger.refresh();
       });
     }, section);
   }
-
-  /*
-   * ===========================================================
-   * ACTIVE STEP
-   * ===========================================================
-   */
 
   private activateStep(
     steps: HTMLElement[],

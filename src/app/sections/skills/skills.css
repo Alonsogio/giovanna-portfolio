@@ -2139,6 +2139,7 @@ html.dark .skills-bottom-text {
   .skill-card--database,
   .skill-card--tools {
     min-height: 280px;
+    margin: 0;
   }
 
 

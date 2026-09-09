@@ -18,6 +18,7 @@ import { Skills } from './sections/skills/skills';
 import { Experience } from './sections/experience/experience';
 import { Contact } from "./sections/contact/contact";
 
+import { ScrollArrow } from '../app/components/scroll-arrow/scroll-arrow';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,6 +38,7 @@ gsap.registerPlugin(ScrollTrigger);
     Skills,
     Experience,
     Contact,
+    ScrollArrow,
 ],
 
   templateUrl: './app.html',

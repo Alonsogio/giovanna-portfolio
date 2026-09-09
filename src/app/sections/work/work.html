@@ -21,28 +21,47 @@
   <!-- FLOATING LIGHT FIELD -->
   <!-- ========================================================= -->
 
-  <div class="work-light-field pointer-events-none absolute inset-0" aria-hidden="true">
+  <div
+    class="work-light-field pointer-events-none absolute inset-0"
+    aria-hidden="true"
+  >
     <!-- Purple light -->
 
-    <span class="work-light-point work-light-point--purple work-light-point--one"></span>
+    <span
+      class="work-light-point work-light-point--purple work-light-point--one"
+    ></span>
 
-    <span class="work-light-point work-light-point--purple work-light-point--two"></span>
+    <span
+      class="work-light-point work-light-point--purple work-light-point--two"
+    ></span>
 
-    <span class="work-light-point work-light-point--purple work-light-point--three"></span>
+    <span
+      class="work-light-point work-light-point--purple work-light-point--three"
+    ></span>
 
     <!-- Blue light -->
 
-    <span class="work-light-point work-light-point--blue work-light-point--four"></span>
+    <span
+      class="work-light-point work-light-point--blue work-light-point--four"
+    ></span>
 
-    <span class="work-light-point work-light-point--blue work-light-point--five"></span>
+    <span
+      class="work-light-point work-light-point--blue work-light-point--five"
+    ></span>
 
     <!-- Tiny neutral lights -->
 
-    <span class="work-light-point work-light-point--tiny work-light-point--six"></span>
+    <span
+      class="work-light-point work-light-point--tiny work-light-point--six"
+    ></span>
 
-    <span class="work-light-point work-light-point--tiny work-light-point--seven"></span>
+    <span
+      class="work-light-point work-light-point--tiny work-light-point--seven"
+    ></span>
 
-    <span class="work-light-point work-light-point--tiny work-light-point--eight"></span>
+    <span
+      class="work-light-point work-light-point--tiny work-light-point--eight"
+    ></span>
   </div>
 
   <!-- ========================================================= -->
@@ -58,33 +77,44 @@
       <!-- LABEL -->
 
       <div class="flex items-center gap-4">
-        <span class="work-eyebrow font-mono text-[10px] font-medium uppercase tracking-[0.2em]">
-          Selected work
+        <span
+          class="work-eyebrow font-mono text-[10px] font-medium uppercase tracking-[0.2em]"
+        >
+          {{ languageService.translations.work.eyebrow }}
         </span>
 
-        <span class="work-header-line h-px w-12" aria-hidden="true"></span>
+        <span
+          class="work-header-line h-px w-12"
+          aria-hidden="true"
+        ></span>
       </div>
 
       <!-- TITLE + BUTTON -->
 
-      <div class="mt-5 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+      <div
+        class="mt-5 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"
+      >
         <!-- INTRO -->
 
         <div class="max-w-3xl">
           <h2
             class="work-title text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]"
           >
-            A selection of things
+            {{ languageService.translations.work.title }}
 
             <br class="hidden sm:block" />
 
-            I've built with
+            {{ languageService.translations.work.titleBuilt }}
 
-            <span class="work-gradient-text"> code &amp; design. </span>
+            <span class="work-gradient-text">
+              {{ languageService.translations.work.titleGradient }}
+            </span>
           </h2>
 
-          <p class="work-intro mt-5 max-w-lg text-base leading-7 sm:text-lg sm:leading-8">
-            Each project is a combination of logic, design and attention to detail.
+          <p
+            class="work-intro mt-5 max-w-lg text-base leading-7 sm:text-lg sm:leading-8"
+          >
+            {{ languageService.translations.work.intro }}
           </p>
         </div>
 
@@ -108,7 +138,9 @@
             rel="noopener noreferrer"
             class="work-projects-button group relative z-10 inline-flex w-fit items-center gap-4 rounded-full px-6 py-3.5 text-sm font-medium backdrop-blur-md"
           >
-            <span> View all projects </span>
+            <span>
+              {{ languageService.translations.work.viewAll }}
+            </span>
 
             <span
               class="work-projects-button-icon flex h-7 w-7 items-center justify-center rounded-full transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -143,17 +175,41 @@
                   y2="75"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0%" stop-color="#7C3AED" stop-opacity="0" />
+                  <stop
+                    offset="0%"
+                    stop-color="#7C3AED"
+                    stop-opacity="0"
+                  />
 
-                  <stop offset="16%" stop-color="#7C3AED" stop-opacity="0.28" />
+                  <stop
+                    offset="16%"
+                    stop-color="#7C3AED"
+                    stop-opacity="0.28"
+                  />
 
-                  <stop offset="42%" stop-color="#8B5CF6" stop-opacity="0.55" />
+                  <stop
+                    offset="42%"
+                    stop-color="#8B5CF6"
+                    stop-opacity="0.55"
+                  />
 
-                  <stop offset="65%" stop-color="#A78BFA" stop-opacity="0.38" />
+                  <stop
+                    offset="65%"
+                    stop-color="#A78BFA"
+                    stop-opacity="0.38"
+                  />
 
-                  <stop offset="84%" stop-color="#8B5CF6" stop-opacity="0.20" />
+                  <stop
+                    offset="84%"
+                    stop-color="#8B5CF6"
+                    stop-opacity="0.20"
+                  />
 
-                  <stop offset="100%" stop-color="#7C3AED" stop-opacity="0" />
+                  <stop
+                    offset="100%"
+                    stop-color="#7C3AED"
+                    stop-opacity="0"
+                  />
                 </linearGradient>
 
                 <!-- BLUE GRADIENT -->
@@ -166,17 +222,41 @@
                   y2="75"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop offset="0%" stop-color="#60A5FA" stop-opacity="0" />
+                  <stop
+                    offset="0%"
+                    stop-color="#60A5FA"
+                    stop-opacity="0"
+                  />
 
-                  <stop offset="18%" stop-color="#60A5FA" stop-opacity="0.22" />
+                  <stop
+                    offset="18%"
+                    stop-color="#60A5FA"
+                    stop-opacity="0.22"
+                  />
 
-                  <stop offset="45%" stop-color="#818CF8" stop-opacity="0.42" />
+                  <stop
+                    offset="45%"
+                    stop-color="#818CF8"
+                    stop-opacity="0.42"
+                  />
 
-                  <stop offset="68%" stop-color="#A78BFA" stop-opacity="0.30" />
+                  <stop
+                    offset="68%"
+                    stop-color="#A78BFA"
+                    stop-opacity="0.30"
+                  />
 
-                  <stop offset="84%" stop-color="#60A5FA" stop-opacity="0.16" />
+                  <stop
+                    offset="84%"
+                    stop-color="#60A5FA"
+                    stop-opacity="0.16"
+                  />
 
-                  <stop offset="100%" stop-color="#60A5FA" stop-opacity="0" />
+                  <stop
+                    offset="100%"
+                    stop-color="#60A5FA"
+                    stop-opacity="0"
+                  />
                 </linearGradient>
               </defs>
 
@@ -213,25 +293,28 @@
 
             <!-- PURPLE ORB -->
 
-            <span class="work-corner-orb work-corner-orb--purple work-corner-orb--one">
+            <span
+              class="work-corner-orb work-corner-orb--purple work-corner-orb--one"
+            >
               <span class="work-corner-orb__halo"></span>
-
               <span class="work-corner-orb__core"></span>
             </span>
 
             <!-- BLUE ORB -->
 
-            <span class="work-corner-orb work-corner-orb--blue work-corner-orb--two">
+            <span
+              class="work-corner-orb work-corner-orb--blue work-corner-orb--two"
+            >
               <span class="work-corner-orb__halo"></span>
-
               <span class="work-corner-orb__core"></span>
             </span>
 
             <!-- PURPLE ORB -->
 
-            <span class="work-corner-orb work-corner-orb--purple work-corner-orb--three">
+            <span
+              class="work-corner-orb work-corner-orb--purple work-corner-orb--three"
+            >
               <span class="work-corner-orb__halo"></span>
-
               <span class="work-corner-orb__core"></span>
             </span>
           </div>
@@ -270,7 +353,7 @@
         >
           <img
             [src]="projects[0].image"
-            [alt]="projects[0].title"
+            [alt]="languageService.translations.work.projects[0].title"
             class="work-project-real-image"
           />
         </div>
@@ -292,21 +375,30 @@
 
       <div class="work-project-info">
         <div class="flex items-center gap-4">
-          <span class="work-project-number text-3xl font-medium tracking-[-0.04em] sm:text-4xl">
+          <span
+            class="work-project-number text-3xl font-medium tracking-[-0.04em] sm:text-4xl"
+          >
             {{ projects[0].number }}
           </span>
 
-          <span class="work-project-number-line h-px w-5" aria-hidden="true"></span>
+          <span
+            class="work-project-number-line h-px w-5"
+            aria-hidden="true"
+          ></span>
         </div>
 
-        <h3 class="work-project-title mt-6 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">
-          {{ projects[0].title }}
+        <h3
+          class="work-project-title mt-6 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl"
+        >
+          {{ languageService.translations.work.projects[0].title }}
         </h3>
 
         <div
           class="work-project-technologies mt-4 flex flex-wrap gap-x-2 gap-y-1 font-mono text-[9px] uppercase tracking-[0.08em]"
         >
-          <ng-container *ngFor="let tag of projects[0].tags; let last = last">
+          <ng-container
+            *ngFor="let tag of projects[0].tags; let last = last"
+          >
             <span>
               {{ tag }}
             </span>
@@ -318,12 +410,12 @@
         <p
           class="work-project-description mt-5 max-w-md text-sm leading-6 sm:text-[15px] sm:leading-7"
         >
-          {{ projects[0].description }}
+          {{ languageService.translations.work.projects[0].description }}
         </p>
 
         <!-- PROJECT LINKS -->
 
-        <div class="mt-6 flex flex-wrap items-center gap-5">
+        <div class="mt-6 flex flex-wrap items-center gap-4">
           <!-- LIVE DEMO -->
 
           <div class="group relative w-fit">
@@ -345,7 +437,9 @@
               rel="noopener noreferrer"
               class="work-project-link work-project-link--primary group relative z-10 flex items-center gap-4 border px-6 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
             >
-              <span> Live demo </span>
+              <span>
+                {{ languageService.translations.work.liveDemo }}
+              </span>
 
               <i
                 class="pi pi-arrow-up-right text-sm transition-transform duration-300 group-hover:translate-x-1"
@@ -363,9 +457,14 @@
               rel="noopener noreferrer"
               class="work-project-link work-project-link--secondary group relative z-10 flex items-center gap-3 border px-6 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
             >
-              <i class="pi pi-github text-sm" aria-hidden="true"></i>
+              <i
+                class="pi pi-github text-sm"
+                aria-hidden="true"
+              ></i>
 
-              <span> Source code </span>
+              <span>
+                {{ languageService.translations.work.sourceCode }}
+              </span>
 
               <i
                 class="pi pi-arrow-up-right text-xs opacity-60 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
@@ -381,10 +480,13 @@
     <!-- DIVIDER -->
     <!-- ========================================================= -->
 
-    <div class="work-project-divider my-12 h-px w-full sm:my-16 lg:my-20" aria-hidden="true"></div>
+    <div
+      class="work-project-divider my-12 h-px w-full sm:my-16 lg:my-20"
+      aria-hidden="true"
+    ></div>
 
     <!-- ========================================================= -->
-    <!-- PROJECT 02 — SWEET CAKES -->
+    <!-- PROJECT 02 — SWEET CAKE -->
     <!-- ========================================================= -->
 
     <article
@@ -414,7 +516,7 @@
         >
           <img
             [src]="projects[1].image"
-            [alt]="projects[1].title"
+            [alt]="languageService.translations.work.projects[1].title"
             class="work-project-real-image"
           />
         </div>
@@ -424,21 +526,30 @@
 
       <div class="work-project-info">
         <div class="flex items-center gap-4">
-          <span class="work-project-number text-3xl font-medium tracking-[-0.04em] sm:text-4xl">
+          <span
+            class="work-project-number text-3xl font-medium tracking-[-0.04em] sm:text-4xl"
+          >
             {{ projects[1].number }}
           </span>
 
-          <span class="work-project-number-line h-px w-5" aria-hidden="true"></span>
+          <span
+            class="work-project-number-line h-px w-5"
+            aria-hidden="true"
+          ></span>
         </div>
 
-        <h3 class="work-project-title mt-6 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">
-          {{ projects[1].title }}
+        <h3
+          class="work-project-title mt-6 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl"
+        >
+          {{ languageService.translations.work.projects[1].title }}
         </h3>
 
         <div
           class="work-project-technologies mt-4 flex flex-wrap gap-x-2 gap-y-1 font-mono text-[9px] uppercase tracking-[0.08em]"
         >
-          <ng-container *ngFor="let tag of projects[1].tags; let last = last">
+          <ng-container
+            *ngFor="let tag of projects[1].tags; let last = last"
+          >
             <span>
               {{ tag }}
             </span>
@@ -450,18 +561,22 @@
         <p
           class="work-project-description mt-5 max-w-md text-sm leading-6 sm:text-[15px] sm:leading-7"
         >
-          {{ projects[1].description }}
+          {{ languageService.translations.work.projects[1].description }}
         </p>
 
         <!-- PROJECT LINKS -->
 
-        <div class="mt-6 flex flex-wrap items-center gap-5">
+        <div class="mt-6 flex flex-wrap items-center gap-4">
           <!-- LIVE DEMO -->
 
           <div class="group relative w-fit">
+            <!-- TOP LEFT CORNER -->
+
             <div
               class="work-project-corner pointer-events-none absolute -left-1.5 -top-1.5 h-3 w-3 border-l border-t transition-transform duration-500 ease-out group-hover:-translate-x-0.5 group-hover:-translate-y-0.5"
             ></div>
+
+            <!-- BOTTOM RIGHT CORNER -->
 
             <div
               class="work-project-corner pointer-events-none absolute -bottom-1.5 -right-1.5 h-3 w-3 border-b border-r transition-transform duration-500 ease-out group-hover:translate-x-0.5 group-hover:translate-y-0.5"
@@ -473,7 +588,9 @@
               rel="noopener noreferrer"
               class="work-project-link work-project-link--primary group relative z-10 flex items-center gap-4 border px-6 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
             >
-              <span> Live demo </span>
+              <span>
+                {{ languageService.translations.work.liveDemo }}
+              </span>
 
               <i
                 class="pi pi-arrow-up-right text-sm transition-transform duration-300 group-hover:translate-x-1"
@@ -491,9 +608,14 @@
               rel="noopener noreferrer"
               class="work-project-link work-project-link--secondary group relative z-10 flex items-center gap-3 border px-6 py-3.5 text-sm font-medium tracking-wide transition-all duration-300"
             >
-              <i class="pi pi-github text-sm" aria-hidden="true"></i>
+              <i
+                class="pi pi-github text-sm"
+                aria-hidden="true"
+              ></i>
 
-              <span> Source code </span>
+              <span>
+                {{ languageService.translations.work.sourceCode }}
+              </span>
 
               <i
                 class="pi pi-arrow-up-right text-xs opacity-60 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-0.5"
@@ -513,12 +635,16 @@
       id="projects"
       class="work-bottom mt-16 flex items-center justify-between border-t pt-6 sm:mt-20"
     >
-      <span class="font-mono text-[9px] uppercase tracking-[0.18em]">
-        More projects coming soon
+      <span
+        class="font-mono text-[9px] uppercase tracking-[0.18em]"
+      >
+        {{ languageService.translations.work.moreProjects }}
       </span>
 
-      <span class="hidden font-mono text-[9px] uppercase tracking-[0.18em] sm:block">
-        Code × Design
+      <span
+        class="hidden font-mono text-[9px] uppercase tracking-[0.18em] sm:block"
+      >
+        {{ languageService.translations.work.codeDesign }}
       </span>
     </div>
   </div>
@@ -542,31 +668,73 @@
         <!-- BACK GRADIENT -->
         <!-- =================================================== -->
 
-        <linearGradient id="skillsBackGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.055" />
+        <linearGradient
+          id="skillsBackGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="0%"
+        >
+          <stop
+            offset="0%"
+            stop-color="#7C3AED"
+            stop-opacity="0.055"
+          />
 
-          <stop offset="50%" stop-color="#60A5FA" stop-opacity="0.025" />
+          <stop
+            offset="50%"
+            stop-color="#60A5FA"
+            stop-opacity="0.025"
+          />
 
-          <stop offset="100%" stop-color="#7C3AED" stop-opacity="0.055" />
+          <stop
+            offset="100%"
+            stop-color="#7C3AED"
+            stop-opacity="0.055"
+          />
         </linearGradient>
 
         <!-- =================================================== -->
         <!-- MIDDLE GRADIENT -->
         <!-- =================================================== -->
 
-        <linearGradient id="skillsMiddleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.040" />
+        <linearGradient
+          id="skillsMiddleGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="0%"
+        >
+          <stop
+            offset="0%"
+            stop-color="#60A5FA"
+            stop-opacity="0.040"
+          />
 
-          <stop offset="50%" stop-color="#7C3AED" stop-opacity="0.018" />
+          <stop
+            offset="50%"
+            stop-color="#7C3AED"
+            stop-opacity="0.018"
+          />
 
-          <stop offset="100%" stop-color="#60A5FA" stop-opacity="0.040" />
+          <stop
+            offset="100%"
+            stop-color="#60A5FA"
+            stop-opacity="0.040"
+          />
         </linearGradient>
 
         <!-- =================================================== -->
         <!-- WAVE GLOW -->
         <!-- =================================================== -->
 
-        <filter id="skillsWaveGlow" x="-20%" y="-60%" width="140%" height="220%">
+        <filter
+          id="skillsWaveGlow"
+          x="-20%"
+          y="-60%"
+          width="140%"
+          height="220%"
+        >
           <feGaussianBlur stdDeviation="7" />
         </filter>
       </defs>

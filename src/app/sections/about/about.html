@@ -40,7 +40,7 @@
     <header class="about-header relative">
       <div class="flex items-center gap-4">
         <span class="about-eyebrow font-mono text-[10px] font-medium uppercase tracking-[0.2em]">
-          About me
+          {{ languageService.translations.about.eyebrow }}
         </span>
 
         <span class="about-header-line about-floating-line h-px w-12" aria-hidden="true"></span>
@@ -50,12 +50,17 @@
         <h2
           class="about-title max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]"
         >
-          Turning ideas into
-          <span class="about-title-gradient-text"> meaningful experiences. </span>
+          {{ languageService.translations.about.title }}
+
+          <span class="about-title-gradient-text">
+            {{ languageService.translations.about.titleGradient }}
+          </span>
         </h2>
 
         <div class="about-header-index hidden shrink-0 pb-1 lg:block">
-          <span class="font-mono text-[9px] uppercase tracking-[0.18em]"> 02 / About </span>
+          <span class="font-mono text-[9px] uppercase tracking-[0.18em]">
+            {{ languageService.translations.about.headerIndex }}
+          </span>
         </div>
       </div>
     </header>
@@ -94,7 +99,7 @@
             </span>
 
             <span class="about-section-label font-mono text-[10px] uppercase tracking-[0.18em]">
-              Who I am
+              {{ languageService.translations.about.whoIAm }}
             </span>
           </div>
 
@@ -104,8 +109,7 @@
             <p
               class="about-intro text-lg font-medium leading-7 tracking-[-0.02em] sm:text-xl sm:leading-8"
             >
-              I'm Giovanna, a Full Stack Developer who enjoys bringing together technology, design
-              and thoughtful user experiences.
+              {{ languageService.translations.about.intro }}
             </p>
           </div>
 
@@ -124,7 +128,7 @@
             <span class="about-detail-line about-floating-line h-px w-8" aria-hidden="true"></span>
 
             <span class="about-detail-label font-mono text-[9px] uppercase tracking-[0.15em]">
-              Code × Design
+              {{ languageService.translations.about.codeDesign }}
             </span>
           </div>
         </div>
@@ -147,9 +151,11 @@
 
         <div class="about-center-orbit" aria-hidden="true">
           <span class="about-center-orbit__ring"></span>
+
           <span class="about-center-orbit__ring about-center-orbit__ring--two"></span>
 
           <span class="about-center-orbit__orb about-center-orbit__orb--purple"></span>
+
           <span class="about-center-orbit__orb about-center-orbit__orb--blue"></span>
         </div>
 
@@ -190,7 +196,7 @@
             </span>
 
             <span class="about-section-label font-mono text-[10px] uppercase tracking-[0.18em]">
-              What I do
+              {{ languageService.translations.about.whatIDo }}
             </span>
           </div>
 
@@ -198,13 +204,11 @@
 
           <div class="mt-6 max-w-sm">
             <p class="about-body-text text-sm leading-6 sm:text-[15px] sm:leading-7">
-              I enjoy building digital products that are not only functional, but also feel
-              intuitive and intentional.
+              {{ languageService.translations.about.bodyText1 }}
             </p>
 
             <p class="about-body-text mt-5 text-sm leading-6 sm:text-[15px] sm:leading-7">
-              My main focus is front-end development and UI/UX, where I combine clean code with a
-              strong visual sense.
+              {{ languageService.translations.about.bodyText2 }}
             </p>
           </div>
 
@@ -214,7 +218,7 @@
             <span class="about-detail-line h-px w-8" aria-hidden="true"></span>
 
             <span class="about-detail-label font-mono text-[9px] uppercase tracking-[0.15em]">
-              Building with intention
+              {{ languageService.translations.about.buildingWithIntention }}
             </span>
           </div>
         </div>
@@ -254,7 +258,7 @@
           <span
             class="about-stat-label mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] sm:text-[9px]"
           >
-            Coffees consumed
+            {{ languageService.translations.about.stats.coffees }}
           </span>
         </div>
 
@@ -285,7 +289,7 @@
           <span
             class="about-stat-label mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] sm:text-[9px]"
           >
-            Projects completed
+            {{ languageService.translations.about.stats.projects }}
           </span>
         </div>
 
@@ -316,7 +320,7 @@
           <span
             class="about-stat-label mt-3 block font-mono text-[8px] font-medium uppercase tracking-[0.16em] sm:text-[9px]"
           >
-            Years coding
+            {{ languageService.translations.about.stats.years }}
           </span>
         </div>
       </div>
@@ -333,12 +337,12 @@
         <span class="about-meta-dot h-1.5 w-1.5 rounded-full" aria-hidden="true"></span>
 
         <span class="about-meta font-mono text-[9px] uppercase tracking-[0.18em]">
-          Based in Brazil
+          {{ languageService.translations.about.basedIn }}
         </span>
       </div>
 
       <span class="about-meta font-mono text-[9px] uppercase tracking-[0.18em]">
-        Available for opportunities
+        {{ languageService.translations.about.available }}
       </span>
     </div>
   </div>

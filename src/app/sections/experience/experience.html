@@ -1,23 +1,40 @@
 <section
   #experienceSection
   id="experience"
-  class="experience-section relative overflow-hidden py-24 sm:py-28 lg:py-32"
+  class="experience-section relative overflow-hidden py-20 sm:py-28 lg:py-40"
 >
   <!-- =========================================================
        BACKGROUND
        ========================================================= -->
 
   <div class="experience-background" aria-hidden="true">
-    <span class="experience-background-word">EXPERIENCE</span>
+    <span class="experience-background-word"> EXPERIENCE </span>
   </div>
 
-  <!-- MAIN ATMOSPHERE -->
+  <!-- =========================================================
+       ATMOSPHERE — MAIN ORBS
+       ========================================================= -->
 
   <div class="experience-orb experience-orb--purple" aria-hidden="true"></div>
 
   <div class="experience-orb experience-orb--blue" aria-hidden="true"></div>
 
-  <!-- DISCREET LIGHT FIELD -->
+  <!-- =========================================================
+       ATMOSPHERE — MINI ORBS
+       ========================================================= -->
+
+  <div class="experience-mini-orbs" aria-hidden="true">
+    <span class="experience-mini-orb experience-mini-orb--one"></span>
+    <span class="experience-mini-orb experience-mini-orb--two"></span>
+    <span class="experience-mini-orb experience-mini-orb--three"></span>
+    <span class="experience-mini-orb experience-mini-orb--four"></span>
+    <span class="experience-mini-orb experience-mini-orb--five"></span>
+    <span class="experience-mini-orb experience-mini-orb--six"></span>
+  </div>
+
+  <!-- =========================================================
+       LIGHT FIELD
+       ========================================================= -->
 
   <div class="experience-light-field" aria-hidden="true">
     <span class="experience-light experience-light--one"></span>
@@ -41,7 +58,7 @@
 
       <div class="experience-label flex items-center gap-4">
         <span class="font-mono text-[10px] font-semibold uppercase tracking-[0.2em]">
-          Experience
+          {{ languageService.translations.experience.label }}
         </span>
 
         <span class="experience-header-line h-px w-12" aria-hidden="true"></span>
@@ -50,18 +67,25 @@
       <!-- TITLE -->
 
       <h2
-        class="experience-title mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[3.7rem]"
+        class="experience-title mt-6 text-4xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-5xl lg:text-[4.2rem]"
       >
-        <span class="experience-word">Where</span>
-        <span class="experience-word">I've</span>
-        <span class="experience-word">worked.</span>
+        <span class="experience-word">
+          {{ languageService.translations.experience.titleLine1 }}
+        </span>
+
+        <span class="experience-word">
+          {{ languageService.translations.experience.titleLine2 }}
+        </span>
+
+        <span class="experience-word">
+          {{ languageService.translations.experience.titleLine3 }}
+        </span>
       </h2>
 
       <!-- DESCRIPTION -->
 
-      <p class="experience-intro mt-5 max-w-xl text-base leading-7 sm:text-lg sm:leading-8">
-        Hands-on experience building web applications, integrating APIs and creating scalable
-        digital solutions.
+      <p class="experience-intro mt-6 max-w-xl text-base leading-7 sm:text-lg sm:leading-8">
+        {{ languageService.translations.experience.intro }}
       </p>
     </header>
 
@@ -74,32 +98,42 @@
 
       <div class="experience-progress" aria-hidden="true">
         <div class="experience-progress-track"></div>
+
         <div class="experience-progress-fill"></div>
       </div>
 
       <!-- =======================================================
-           EXPERIENCE 01 — PGM-CTEC
+           EXPERIENCE 01
            ======================================================= -->
 
       <article class="experience-step" data-step="01">
+        <!-- NUMBER -->
+
         <div class="experience-step-number">
           <span>01</span>
         </div>
 
+        <!-- CONTENT -->
+
         <div class="experience-step-content">
           <div class="experience-step-meta">
             <span>01</span>
-            <span>CURRENT · PGM-CTEC</span>
+
+            <span>
+              {{ languageService.translations.experience.jobs[0].meta }}
+            </span>
           </div>
 
-          <h3>Development Intern</h3>
+          <h3>
+            {{ languageService.translations.experience.jobs[0].role }}
+          </h3>
 
-          <p class="experience-company">PGM-RJ · CTEC</p>
+          <p class="experience-company">
+            {{ languageService.translations.experience.jobs[0].company }}
+          </p>
 
           <p>
-            Development and maintenance of internal web systems, working with Angular, TypeScript
-            and Tailwind CSS. Integration with REST APIs and implementation of front-end and
-            back-end features.
+            {{ languageService.translations.experience.jobs[0].description }}
           </p>
 
           <!-- TECHNOLOGIES -->
@@ -115,28 +149,37 @@
       </article>
 
       <!-- =======================================================
-           EXPERIENCE 02 — X SOFTWARE HOUSE
+           EXPERIENCE 02
            ======================================================= -->
 
       <article class="experience-step" data-step="02">
+        <!-- NUMBER -->
+
         <div class="experience-step-number">
           <span>02</span>
         </div>
 
+        <!-- CONTENT -->
+
         <div class="experience-step-content">
           <div class="experience-step-meta">
             <span>02</span>
-            <span>JUL 2024 — DEC 2024</span>
+
+            <span>
+              {{ languageService.translations.experience.jobs[1].meta }}
+            </span>
           </div>
 
-          <h3>Junior Full Stack Developer</h3>
+          <h3>
+            {{ languageService.translations.experience.jobs[1].role }}
+          </h3>
 
-          <p class="experience-company">X Software House</p>
+          <p class="experience-company">
+            {{ languageService.translations.experience.jobs[1].company }}
+          </p>
 
           <p>
-            Development and maintenance of web applications using React, Node.js and TypeScript.
-            Worked with REST APIs, data validation, database integration and clean, maintainable
-            code.
+            {{ languageService.translations.experience.jobs[1].description }}
           </p>
 
           <!-- TECHNOLOGIES -->
@@ -153,13 +196,15 @@
       </article>
 
       <!-- =======================================================
-           PROGRESS INDICATOR
+           COUNTER
            ======================================================= -->
 
       <div class="experience-counter" aria-hidden="true">
-        <span class="experience-counter-current">01</span>
-        <span class="experience-counter-divider">/</span>
-        <span>02</span>
+        <span class="experience-counter-current"> 01 </span>
+
+        <span class="experience-counter-divider"> / </span>
+
+        <span> 02 </span>
       </div>
     </div>
 
@@ -170,15 +215,17 @@
     <div class="experience-bottom">
       <span class="experience-bottom-line" aria-hidden="true"></span>
 
-      <span class="experience-bottom-text"> Building · Learning · Evolving </span>
+      <span class="experience-bottom-text">
+        {{ languageService.translations.experience.bottom }}
+      </span>
 
       <span class="experience-bottom-line" aria-hidden="true"></span>
     </div>
   </div>
 
   <!-- =========================================================
-     WAVE — EXPERIENCE → CONTACT
-     ========================================================= -->
+       WAVE — EXPERIENCE → CONTACT
+       ========================================================= -->
 
   <div class="experience-wave" aria-hidden="true">
     <svg viewBox="0 0 1440 170" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -217,15 +264,15 @@
         fill="url(#experienceWaveBackGradient)"
         filter="url(#experienceWaveGlow)"
         d="
-        M 0 42
-        C 140 14, 280 12, 425 46
-        C 565 80, 700 98, 835 62
-        C 970 28, 1095 12, 1225 42
-        C 1320 64, 1380 68, 1440 50
-        L 1440 170
-        L 0 170
-        Z
-      "
+          M 0 42
+          C 140 14, 280 12, 425 46
+          C 565 80, 700 98, 835 62
+          C 970 28, 1095 12, 1225 42
+          C 1320 64, 1380 68, 1440 50
+          L 1440 170
+          L 0 170
+          Z
+        "
       />
 
       <!-- MIDDLE WAVE -->
@@ -234,15 +281,15 @@
         class="experience-wave__middle"
         fill="url(#experienceWaveMiddleGradient)"
         d="
-        M 0 60
-        C 140 84, 280 90, 425 56
-        C 565 24, 700 8, 835 40
-        C 970 72, 1095 92, 1225 58
-        C 1320 36, 1380 32, 1440 52
-        L 1440 170
-        L 0 170
-        Z
-      "
+          M 0 60
+          C 140 84, 280 90, 425 56
+          C 565 24, 700 8, 835 40
+          C 970 72, 1095 92, 1225 58
+          C 1320 36, 1380 32, 1440 52
+          L 1440 170
+          L 0 170
+          Z
+        "
       />
 
       <!-- MAIN WAVE -->
@@ -251,15 +298,15 @@
         class="experience-wave__main"
         fill="var(--background)"
         d="
-        M 0 50
-        C 140 26, 285 24, 430 58
-        C 565 90, 700 104, 840 66
-        C 975 30, 1100 18, 1230 50
-        C 1320 72, 1380 76, 1440 58
-        L 1440 170
-        L 0 170
-        Z
-      "
+          M 0 50
+          C 140 26, 285 24, 430 58
+          C 565 90, 700 104, 840 66
+          C 975 30, 1100 18, 1230 50
+          C 1320 72, 1380 76, 1440 58
+          L 1440 170
+          L 0 170
+          Z
+        "
       />
     </svg>
   </div>

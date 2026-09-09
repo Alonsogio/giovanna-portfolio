@@ -1942,11 +1942,11 @@ html.dark .work-project-link--secondary:hover {
     height:
       112px;
 
-    right:
-      -55px !important;
+    left:
+      -65px !important;
 
     top:
-      180px !important;
+      10px !important;
 
     transform:
       scale(0.68);

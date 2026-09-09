@@ -1146,12 +1146,6 @@ html.dark .hero-person-shadow {
    DARK — WAVE
    ================================================== */
 
-/*
-   Back e middle agora usam cores próprias
-   em vez de depender apenas dos gradientes
-   fixos do SVG.
-*/
-
 html.dark .hero-wave__back {
   opacity: 1;
 }
@@ -1165,13 +1159,40 @@ html.dark .hero-wave__main {
 }
 
 
-/* ==================================================
-   MOBILE
+  /* ==================================================
+   RESPONSIVE — MOBILE
    ================================================== */
 
-@media (max-width: 640px) {
+@media (max-width: 1109px) {
+
+  /* ================================================
+     HIDE SPHERE / GIF / SHADOW ON MOBILE
+     ================================================ */
+
+  .hero-image-stage,
+  .hero-visual,
+  .hero-sphere,
+  .hero-sphere-core,
+  .hero-sphere-ambient,
+  .hero-image-inside,
+  .hero-image-head,
+  .hero-image-gif,
+  .hero-person-shadow,
+  .hero-main-glow,
+  .hero-purple-glow,
+  .hero-blue-glow,
+  .hero-inner-glow,
+  .hero-floating-ground {
+    display: none !important;
+  }
+
+
+  /* ================================================
+     HERO WAVE
+     ================================================ */
+
   .hero-wave {
-    height: 96px;
+    height: 171px;
   }
 
   .hero-wave__svg {
@@ -1191,6 +1212,60 @@ html.dark .hero-wave__main {
 
   .hero-wave__main {
     animation-duration: 6s;
+  }
+
+  /* ================================================
+   HERO CONTENT — MOBILE / TABLET
+   ================================================ */
+
+.hero-content-grid {
+  grid-template-columns: 1fr !important;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.hero-content .hero-actions {
+  justify-content: center;
+}
+
+.hero-content .hero-eyebrow {
+  justify-content: center;
+}
+
+
+  /* ================================================
+     SPHERE GLOWS — MOBILE
+     ================================================ */
+
+  .hero-main-glow {
+    opacity: 0.55;
+    filter: blur(20px);
+  }
+
+  .hero-sphere-ambient {
+    opacity: 0.55;
+    filter: blur(14px);
+  }
+
+  .hero-purple-glow {
+    opacity: 0.55;
+    filter: blur(22px);
+  }
+
+  .hero-blue-glow {
+    opacity: 0.45;
+    filter: blur(24px);
+  }
+
+  .hero-inner-glow {
+    opacity: 0.5;
+    filter: blur(12px);
   }
 }
 

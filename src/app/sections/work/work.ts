@@ -1,8 +1,11 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, ViewChild } from '@angular/core';
+
 import { CommonModule } from '@angular/common';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+import { LanguageService } from '../../core/services/language.service';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -28,20 +31,13 @@ export class Work implements AfterViewInit, OnDestroy {
   projects = [
     {
       number: '01',
-      title: 'Personal Portfolio',
-      description:
-        'Creative developer portfolio focused on modern interfaces, interactions and visual experimentation.',
       category: 'Web / Portfolio',
       year: '2026',
       tags: ['Angular', 'TypeScript', 'Tailwind CSS', 'GSAP'],
       image: '/images/work/portfolio.png',
     },
-
     {
       number: '02',
-      title: 'Sweet Cake',
-      description:
-        'Responsive website created for a fictional bakery, focused on visual presentation and user experience.',
       category: 'Web / Experience',
       year: '2026',
       tags: ['HTML', 'CSS', 'JavaScript'],
@@ -54,6 +50,12 @@ export class Work implements AfterViewInit, OnDestroy {
   // ==================================================
 
   private ctx?: gsap.Context;
+
+  // ==================================================
+  // CONSTRUCTOR
+  // ==================================================
+
+  constructor(public languageService: LanguageService) {}
 
   // ==================================================
   // INIT
@@ -80,7 +82,6 @@ export class Work implements AfterViewInit, OnDestroy {
 
     this.ctx = gsap.context(() => {
       this.createScrollAnimations(section);
-      this.createCornerOrbitAnimations(section);
 
       ScrollTrigger.refresh();
     }, section);
@@ -512,90 +513,6 @@ export class Work implements AfterViewInit, OnDestroy {
         },
       );
     }
-  }
-
-  // ==================================================
-  // CORNER ORBIT ANIMATIONS
-  // ==================================================
-
-  private createCornerOrbitAnimations(section: HTMLElement): void {
-    const orbitSystem = section.querySelector('.work-corner-orbits') as HTMLElement | null;
-
-    if (!orbitSystem) {
-      return;
-    }
-
-    // ==================================================
-    // ORBS
-    // ==================================================
-
-    const purpleOrb = orbitSystem.querySelector('.work-corner-orb--one') as HTMLElement | null;
-
-    const blueOrb = orbitSystem.querySelector('.work-corner-orb--two') as HTMLElement | null;
-
-    const purpleOrbLarge = orbitSystem.querySelector(
-      '.work-corner-orb--three',
-    ) as HTMLElement | null;
-
-    // ==================================================
-    // PURPLE ORB 01
-    // ==================================================
-
-    if (purpleOrb) {
-      gsap.to(purpleOrb, {
-        y: -5,
-        x: 3,
-        scale: 1.08,
-        duration: 3.8,
-        ease: 'sine.inOut',
-        repeat: -1,
-        yoyo: true,
-      });
-    }
-
-    // ==================================================
-    // BLUE ORB
-    // ==================================================
-
-    if (blueOrb) {
-      gsap.to(blueOrb, {
-        y: -6,
-        x: -3,
-        scale: 1.1,
-        duration: 4.6,
-        ease: 'sine.inOut',
-        repeat: -1,
-        yoyo: true,
-      });
-    }
-
-    // ==================================================
-    // PURPLE ORB 02
-    // ==================================================
-
-    if (purpleOrbLarge) {
-      gsap.to(purpleOrbLarge, {
-        y: -7,
-        x: 4,
-        scale: 1.07,
-        duration: 4.2,
-        ease: 'sine.inOut',
-        repeat: -1,
-        yoyo: true,
-      });
-    }
-
-    // ==================================================
-    // ORBIT SYSTEM SUBTLE FLOAT
-    // ==================================================
-
-    gsap.to(orbitSystem, {
-      y: -3,
-      duration: 8,
-      ease: 'sine.inOut',
-      repeat: -1,
-      yoyo: true,
-    });
   }
 
   // ==================================================

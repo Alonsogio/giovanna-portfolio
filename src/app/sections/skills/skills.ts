@@ -7,9 +7,12 @@ import {
   ViewChild,
 } from '@angular/core';
 
+import { LanguageService } from '../../core/services/language.service';
+
 @Component({
   selector: 'app-skills',
   standalone: true,
+  imports: [],
   templateUrl: './skills.html',
   styleUrl: './skills.css',
 })
@@ -28,22 +31,16 @@ export class Skills implements AfterViewInit, OnDestroy {
   private sectionElement!: HTMLElement;
 
   // =========================================================
-  // MOUSE
-  // =========================================================
-
-  private mouseX = 0;
-  private mouseY = 0;
-
-  private targetMouseX = 0;
-  private targetMouseY = 0;
-
-  private animationFrameId?: number;
-
-  // =========================================================
   // INTERSECTION OBSERVER
   // =========================================================
 
   private revealObserver?: IntersectionObserver;
+
+  // =========================================================
+  // CONSTRUCTOR
+  // =========================================================
+
+  constructor(public languageService: LanguageService) {}
 
   // =========================================================
   // LIFECYCLE
@@ -53,30 +50,14 @@ export class Skills implements AfterViewInit, OnDestroy {
     this.sectionElement = this.skillsSection.nativeElement;
 
     // -------------------------------------------------------
-    // INITIAL MOUSE POSITION
-    // -------------------------------------------------------
-
-    this.mouseX = window.innerWidth / 2;
-    this.mouseY = window.innerHeight / 2;
-
-    this.targetMouseX = this.mouseX;
-    this.targetMouseY = this.mouseY;
-
-    // -------------------------------------------------------
     // INITIAL CSS VARIABLES
     // -------------------------------------------------------
 
     this.sectionElement.style.setProperty('--skills-scroll', '0');
 
-    this.sectionElement.style.setProperty('--skills-mouse-x', `${this.mouseX}px`);
-
-    this.sectionElement.style.setProperty('--skills-mouse-y', `${this.mouseY}px`);
-
     // -------------------------------------------------------
     // START
     // -------------------------------------------------------
-
-    this.startMouseAnimation();
 
     this.updateScrollProgress();
 
@@ -95,8 +76,6 @@ export class Skills implements AfterViewInit, OnDestroy {
     const section = this.sectionElement;
 
     /*
-     * Importante:
-     *
      * O estado "ready" é adicionado somente quando o JS
      * já está funcionando.
      *
@@ -163,125 +142,6 @@ export class Skills implements AfterViewInit, OnDestroy {
   }
 
   // =========================================================
-  // MOUSE
-  // =========================================================
-
-  @HostListener('document:mousemove', ['$event'])
-  onMouseMove(event: MouseEvent): void {
-    if (!this.sectionElement) {
-      return;
-    }
-
-    const rect = this.sectionElement.getBoundingClientRect();
-
-    const insideSection =
-      event.clientX >= rect.left &&
-      event.clientX <= rect.right &&
-      event.clientY >= rect.top &&
-      event.clientY <= rect.bottom;
-
-    // -------------------------------------------------------
-    // OUTSIDE
-    // -------------------------------------------------------
-
-    if (!insideSection) {
-      this.sectionElement.classList.remove('skills-cursor-active');
-
-      return;
-    }
-
-    // -------------------------------------------------------
-    // INSIDE
-    // -------------------------------------------------------
-
-    this.sectionElement.classList.add('skills-cursor-active');
-
-    this.targetMouseX = event.clientX;
-
-    this.targetMouseY = event.clientY;
-
-    this.updateCardPointer(event);
-  }
-
-  // =========================================================
-  // CARD SPOTLIGHT
-  // =========================================================
-
-  private updateCardPointer(event: MouseEvent): void {
-    if (!this.sectionElement) {
-      return;
-    }
-
-    const target = event.target as HTMLElement | null;
-
-    const card = target?.closest('.skill-card') as HTMLElement | null;
-
-    if (!card) {
-      return;
-    }
-
-    const rect = card.getBoundingClientRect();
-
-    if (rect.width <= 0 || rect.height <= 0) {
-      return;
-    }
-
-    const x = ((event.clientX - rect.left) / rect.width) * 100;
-
-    const y = ((event.clientY - rect.top) / rect.height) * 100;
-
-    const clampedX = Math.max(0, Math.min(100, x));
-
-    const clampedY = Math.max(0, Math.min(100, y));
-
-    card.style.setProperty('--card-x', `${clampedX}%`);
-
-    card.style.setProperty('--card-y', `${clampedY}%`);
-  }
-
-  // =========================================================
-  // SMOOTH CURSOR ORB
-  // =========================================================
-
-  private startMouseAnimation(): void {
-    const animate = (): void => {
-      if (!this.sectionElement) {
-        this.animationFrameId = requestAnimationFrame(animate);
-
-        return;
-      }
-
-      // -----------------------------------------------------
-      // SMOOTH X
-      // -----------------------------------------------------
-
-      this.mouseX += (this.targetMouseX - this.mouseX) * 0.12;
-
-      // -----------------------------------------------------
-      // SMOOTH Y
-      // -----------------------------------------------------
-
-      this.mouseY += (this.targetMouseY - this.mouseY) * 0.12;
-
-      // -----------------------------------------------------
-      // CSS VARIABLES
-      // -----------------------------------------------------
-
-      this.sectionElement.style.setProperty('--skills-mouse-x', `${this.mouseX}px`);
-
-      this.sectionElement.style.setProperty('--skills-mouse-y', `${this.mouseY}px`);
-
-      // -----------------------------------------------------
-      // NEXT FRAME
-      // -----------------------------------------------------
-
-      this.animationFrameId = requestAnimationFrame(animate);
-    };
-
-    this.animationFrameId = requestAnimationFrame(animate);
-  }
-
-  // =========================================================
   // WINDOW SCROLL
   // =========================================================
 
@@ -325,17 +185,6 @@ export class Skills implements AfterViewInit, OnDestroy {
   @HostListener('window:resize')
   onWindowResize(): void {
     this.updateScrollProgress();
-
-    /*
-     * Mantém o centro do cursor correto
-     * caso o viewport seja redimensionado.
-     */
-
-    if (!this.sectionElement.classList.contains('skills-cursor-active')) {
-      this.targetMouseX = window.innerWidth / 2;
-
-      this.targetMouseY = window.innerHeight / 2;
-    }
   }
 
   // =========================================================
@@ -343,18 +192,14 @@ export class Skills implements AfterViewInit, OnDestroy {
   // =========================================================
 
   ngOnDestroy(): void {
-    if (this.animationFrameId !== undefined) {
-      cancelAnimationFrame(this.animationFrameId);
-    }
-
     this.revealObserver?.disconnect();
 
     if (this.sectionElement) {
-      this.sectionElement.classList.remove('skills-cursor-active');
-
       this.sectionElement.classList.remove('skills-scroll-ready');
 
       this.sectionElement.classList.remove('skills-scroll-visible');
+
+      this.sectionElement.style.removeProperty('--skills-scroll');
     }
   }
 }

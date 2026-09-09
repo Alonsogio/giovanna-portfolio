@@ -20,6 +20,8 @@ import {
   cleanupScrollAnimations,
 } from '../../core/animations/scroll.animations';
 
+import { LanguageService } from '../../core/services/language.service';
+
 gsap.registerPlugin(ScrollTrigger);
 
 @Component({
@@ -31,66 +33,38 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrl: './about.css',
 })
 export class About implements AfterViewInit, OnDestroy {
-  // =========================================================
-  // ELEMENT
-  // =========================================================
-
   @ViewChild('aboutSection', { static: true })
   aboutSection!: ElementRef<HTMLElement>;
-
-  // =========================================================
-  // STATS
-  // =========================================================
 
   stats = [
     {
       value: 8,
       suffix: '+',
-      label: 'Coffees consumed',
     },
     {
       value: 10,
       suffix: '+',
-      label: 'Projects completed',
     },
     {
       value: 3,
       suffix: '+',
-      label: 'Years coding',
     },
   ];
 
-  // =========================================================
-  // ANIMATED STATS
-  // =========================================================
-
   animatedStats: number[] = [0, 0, 0];
-
-  // =========================================================
-  // COUNTER
-  // =========================================================
 
   private animationFrame?: number;
 
   private hasAnimated = false;
 
-  // =========================================================
-  // GSAP ANIMATIONS
-  // =========================================================
-
   private gsapAnimations: gsap.core.Animation[] = [];
 
   private scrollTriggers: ScrollTrigger[] = [];
 
-  // =========================================================
-  // CONSTRUCTOR
-  // =========================================================
-
-  constructor(private cdr: ChangeDetectorRef) {}
-
-  // =========================================================
-  // INIT
-  // =========================================================
+  constructor(
+    private cdr: ChangeDetectorRef,
+    public languageService: LanguageService,
+  ) {}
 
   ngAfterViewInit(): void {
     requestAnimationFrame(() => {
@@ -103,16 +77,14 @@ export class About implements AfterViewInit, OnDestroy {
     });
   }
 
-  // =========================================================
-  // GSAP — SCROLL ANIMATIONS
-  // =========================================================
-
   private createScrollAnimations(): void {
     const section = this.aboutSection.nativeElement;
 
-    // =======================================================
-    // HEADER
-    // =======================================================
+    /*
+     * ==========================================
+     * HEADER
+     * ==========================================
+     */
 
     const header = section.querySelector('header');
 
@@ -126,9 +98,11 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // =======================================================
-    // TITLE
-    // =======================================================
+    /*
+     * ==========================================
+     * TITLE
+     * ==========================================
+     */
 
     const title = section.querySelector('.about-title');
 
@@ -154,9 +128,11 @@ export class About implements AfterViewInit, OnDestroy {
       this.gsapAnimations.push(titleAnimation);
     }
 
-    // =======================================================
-    // LEFT CONTENT
-    // =======================================================
+    /*
+     * ==========================================
+     * LEFT CONTENT
+     * ==========================================
+     */
 
     const leftContent = section.querySelector('.about-left-content');
 
@@ -170,9 +146,11 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // =======================================================
-    // RIGHT CONTENT
-    // =======================================================
+    /*
+     * ==========================================
+     * RIGHT CONTENT
+     * ==========================================
+     */
 
     const rightContent = section.querySelector('.about-right-content');
 
@@ -187,9 +165,11 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // =======================================================
-    // BODY TEXT
-    // =======================================================
+    /*
+     * ==========================================
+     * BODY TEXT
+     * ==========================================
+     */
 
     const bodyText = Array.from(section.querySelectorAll('.about-body-text')).filter(
       (element): element is HTMLElement => element instanceof HTMLElement,
@@ -206,17 +186,15 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // =======================================================
-    // 3D OBJECT
-    // =======================================================
+    /*
+     * ==========================================
+     * SPLINE
+     * ==========================================
+     */
 
     const spline = section.querySelector('.about-spline');
 
     if (spline instanceof HTMLElement) {
-      // -------------------------------------------------------
-      // REVEAL
-      // -------------------------------------------------------
-
       this.gsapAnimations.push(
         revealOnScroll(spline, {
           y: 35,
@@ -224,10 +202,6 @@ export class About implements AfterViewInit, OnDestroy {
           start: 'top 90%',
         }),
       );
-
-      // -------------------------------------------------------
-      // PARALLAX
-      // -------------------------------------------------------
 
       this.gsapAnimations.push(
         subtleParallax(spline, {
@@ -238,9 +212,11 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // =======================================================
-    // ORB GLOW PARALLAX
-    // =======================================================
+    /*
+     * ==========================================
+     * ORB GLOW
+     * ==========================================
+     */
 
     const orbGlow = section.querySelector('.about-orb-glow');
 
@@ -254,9 +230,11 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // =======================================================
-    // BACKGROUND PURPLE GLOW
-    // =======================================================
+    /*
+     * ==========================================
+     * PURPLE GLOW
+     * ==========================================
+     */
 
     const purpleGlow = section.querySelector('.about-purple-glow');
 
@@ -270,9 +248,11 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // =======================================================
-    // BACKGROUND BLUE GLOW
-    // =======================================================
+    /*
+     * ==========================================
+     * BLUE GLOW
+     * ==========================================
+     */
 
     const blueGlow = section.querySelector('.about-blue-glow');
 
@@ -286,9 +266,11 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // =======================================================
-    // ORBIT DOTS
-    // =======================================================
+    /*
+     * ==========================================
+     * ORBIT DOTS
+     * ==========================================
+     */
 
     const orbitDots = Array.from(section.querySelectorAll('.about-orbit-dot')).filter(
       (element): element is HTMLElement => element instanceof HTMLElement,
@@ -310,9 +292,11 @@ export class About implements AfterViewInit, OnDestroy {
       this.gsapAnimations.push(animation);
     });
 
-    // =======================================================
-    // STATS REVEAL
-    // =======================================================
+    /*
+     * ==========================================
+     * STATS
+     * ==========================================
+     */
 
     const stats = Array.from(section.querySelectorAll('.about-stat')).filter(
       (element): element is HTMLElement => element instanceof HTMLElement,
@@ -329,9 +313,11 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // =======================================================
-    // BOTTOM META
-    // =======================================================
+    /*
+     * ==========================================
+     * BOTTOM META
+     * ==========================================
+     */
 
     const bottomMeta = section.querySelector('.about-bottom-meta');
 
@@ -345,9 +331,11 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // =======================================================
-    // SECTION ATMOSPHERE PARALLAX
-    // =======================================================
+    /*
+     * ==========================================
+     * ATMOSPHERE
+     * ==========================================
+     */
 
     const atmosphere = section.querySelector('.about-section-atmosphere');
 
@@ -361,22 +349,16 @@ export class About implements AfterViewInit, OnDestroy {
       );
     }
 
-    // =======================================================
-    // FINAL REFRESH
-    // =======================================================
+    /*
+     * ==========================================
+     * REFRESH SCROLLTRIGGER
+     * ==========================================
+     */
 
     requestAnimationFrame(() => {
       ScrollTrigger.refresh();
     });
   }
-
-  // =========================================================
-  // STATS — SCROLL TRIGGER
-  // =========================================================
-
-  // =========================================================
-  // STATS — SCROLL TRIGGER
-  // =========================================================
 
   private createStatsTrigger(): void {
     const section = this.aboutSection.nativeElement;
@@ -398,6 +380,7 @@ export class About implements AfterViewInit, OnDestroy {
         }
 
         this.hasAnimated = true;
+
         this.animateStats();
       },
     });
@@ -405,13 +388,8 @@ export class About implements AfterViewInit, OnDestroy {
     this.scrollTriggers.push(trigger);
   }
 
-  // =========================================================
-  // ANIMATE STATS
-  // =========================================================
-
   private animateStats(): void {
     const duration = 1400;
-
     const startTime = performance.now();
 
     const animate = (currentTime: number): void => {
@@ -419,23 +397,11 @@ export class About implements AfterViewInit, OnDestroy {
 
       const progress = Math.min(elapsed / duration, 1);
 
-      // =====================================================
-      // EASE OUT CUBIC
-      // =====================================================
-
       const easedProgress = 1 - Math.pow(1 - progress, 3);
-
-      // =====================================================
-      // UPDATE VALUES
-      // =====================================================
 
       this.animatedStats = this.stats.map((stat) => Math.floor(stat.value * easedProgress));
 
       this.cdr.detectChanges();
-
-      // =====================================================
-      // CONTINUE
-      // =====================================================
 
       if (progress < 1) {
         this.animationFrame = requestAnimationFrame(animate);
@@ -451,14 +417,12 @@ export class About implements AfterViewInit, OnDestroy {
     this.animationFrame = requestAnimationFrame(animate);
   }
 
-  // =========================================================
-  // DESTROY
-  // =========================================================
-
   ngOnDestroy(): void {
-    // =======================================================
-    // COUNTER
-    // =======================================================
+    /*
+     * ==========================================
+     * CANCEL STAT ANIMATION
+     * ==========================================
+     */
 
     if (this.animationFrame) {
       cancelAnimationFrame(this.animationFrame);
@@ -466,9 +430,11 @@ export class About implements AfterViewInit, OnDestroy {
       this.animationFrame = undefined;
     }
 
-    // =======================================================
-    // GSAP ANIMATIONS
-    // =======================================================
+    /*
+     * ==========================================
+     * KILL GSAP ANIMATIONS
+     * ==========================================
+     */
 
     this.gsapAnimations.forEach((animation) => {
       animation.kill();
@@ -476,9 +442,11 @@ export class About implements AfterViewInit, OnDestroy {
 
     this.gsapAnimations = [];
 
-    // =======================================================
-    // SCROLL TRIGGERS
-    // =======================================================
+    /*
+     * ==========================================
+     * KILL SCROLLTRIGGERS
+     * ==========================================
+     */
 
     this.scrollTriggers.forEach((trigger) => {
       trigger.kill();
@@ -486,9 +454,11 @@ export class About implements AfterViewInit, OnDestroy {
 
     this.scrollTriggers = [];
 
-    // =======================================================
-    // CLEANUP
-    // =======================================================
+    /*
+     * ==========================================
+     * CLEANUP SCROLL ANIMATIONS
+     * ==========================================
+     */
 
     if (this.aboutSection?.nativeElement) {
       cleanupScrollAnimations(this.aboutSection.nativeElement);
