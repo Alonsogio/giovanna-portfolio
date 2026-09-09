@@ -1,59 +1,312 @@
-# GiovannaPortfolio
+# ✦ Portfólio — Giovanna Alonso
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.22.
+Portfólio pessoal desenvolvido para apresentar meus projetos, experiências e habilidades como **Desenvolvedora Full Stack**, com foco em desenvolvimento front-end, UI/UX e criação de experiências digitais.
 
-## Development server
+O projeto foi desenvolvido com uma abordagem minimalista e moderna, utilizando animações sutis, transições suaves, suporte a temas claro/escuro e layout totalmente responsivo.
 
-To start a local development server, run:
+## ✨ Preview
+
+> Portfólio pessoal com seções de apresentação, sobre mim, projetos, habilidades, experiência profissional e contato.
+
+🌐 **Acesse o portfólio:** em breve
+
+---
+
+## 🚀 Tecnologias
+
+* **Angular** — framework principal
+* **TypeScript** — desenvolvimento da aplicação
+* **Tailwind CSS** — estilização e layout responsivo
+* **PrimeNG** — componentes e ícones
+* **GSAP** — animações e transições
+* **HTML5**
+* **CSS3**
+* **Git & GitHub**
+* **Vercel** — deploy
+
+---
+
+## 🎨 Características
+
+* Design moderno e minimalista
+* Layout totalmente responsivo
+* Tema claro e escuro
+* Persistência da preferência de tema
+* Suporte a português e inglês
+* Navegação suave entre seções
+* Menu mobile fullscreen
+* Animações e microinterações
+* Seções com elementos visuais e efeitos sutis
+* Favicon personalizado
+* Acessibilidade com suporte a `prefers-reduced-motion`
+* Estrutura baseada em componentes Angular
+
+---
+
+## 📌 Seções
+
+### Hero
+
+Apresentação inicial com:
+
+* Nome
+* Cargo
+* Introdução
+* Descrição profissional
+* Links para projetos e contato
+* Elementos visuais e animações
+
+### About
+
+Seção dedicada à apresentação profissional, incluindo informações sobre minha trajetória e alguns indicadores de experiência.
+
+### Work
+
+Área destinada aos principais projetos desenvolvidos, apresentando:
+
+* Nome do projeto
+* Categoria
+* Ano
+* Tecnologias utilizadas
+* Descrição
+* Imagem do projeto
+
+### Skills
+
+Apresentação das principais tecnologias e ferramentas utilizadas no desenvolvimento.
+
+### Experience
+
+Linha do tempo com experiências profissionais e atividades de desenvolvimento.
+
+### Contact
+
+Seção final para contato e acesso às redes profissionais.
+
+---
+
+## 🌐 Internacionalização
+
+O portfólio possui suporte para dois idiomas:
+
+* 🇧🇷 Português
+* 🇺🇸 Inglês
+
+A preferência de idioma é armazenada no navegador para que a escolha seja mantida entre as sessões.
+
+---
+
+## 🌓 Tema
+
+O projeto possui suporte a:
+
+* ☀️ Light Mode
+* 🌙 Dark Mode
+
+A preferência do usuário é armazenada no `localStorage`.
+
+O tema também é aplicado antecipadamente durante o carregamento da página para evitar flashes visuais indesejados.
+
+---
+
+## 📱 Responsividade
+
+O layout foi desenvolvido pensando em diferentes tamanhos de tela:
+
+* Desktop
+* Notebook
+* Tablet
+* Smartphone
+
+No mobile, a navegação é substituída por um menu fullscreen com animações e controles de idioma e aparência.
+
+---
+
+## 📂 Estrutura
+
+A aplicação utiliza uma arquitetura baseada em componentes standalone do Angular.
+
+```text
+src/
+├── app/
+│   ├── components/
+│   │   ├── navbar/
+│   │   ├── hero/
+│   │   ├── about/
+│   │   ├── work/
+│   │   ├── skills/
+│   │   ├── experience/
+│   │   ├── contact/
+│   │   ├── scroll-arrow/
+│   │   └── page-reveal/
+│   │
+│   ├── core/
+│   │   └── services/
+│   │       └── language.service.ts
+│   │
+│   └── i18n/
+│       ├── en.ts
+│       └── pt.ts
+│
+├── public/
+│   ├── images/
+│   │   └── work/
+│   └── favicon.ico
+│
+└── index.html
+```
+
+---
+
+## ⚙️ Instalação
+
+Clone o repositório:
+
+```bash
+git clone https://github.com/Alonsogio/SEU-REPOSITORIO.git
+```
+
+Entre na pasta:
+
+```bash
+cd SEU-REPOSITORIO
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+---
+
+## 💻 Desenvolvimento
+
+Execute o servidor de desenvolvimento:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Depois acesse:
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```text
+http://localhost:4200/
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+A aplicação será recarregada automaticamente sempre que os arquivos forem modificados.
 
-```bash
-ng generate --help
-```
+---
 
-## Building
+## 🏗️ Build
 
-To build the project run:
+Para gerar a versão de produção:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Os arquivos otimizados serão gerados no diretório:
 
-## Running unit tests
+```text
+dist/
+```
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+---
+
+## 🚀 Deploy
+
+O projeto pode ser publicado utilizando a **Vercel** com integração ao GitHub.
+
+Fluxo de deploy:
+
+```text
+Código
+   ↓
+Git
+   ↓
+GitHub
+   ↓
+Vercel
+   ↓
+🌐 Portfólio online
+```
+
+Após a configuração inicial, novos commits enviados para a branch principal podem gerar novos deploys automaticamente.
+
+---
+
+## 🔄 Workflow
+
+Durante o desenvolvimento, o fluxo utilizado é:
+
+```bash
+git add .
+git commit -m "feat: atualizar portfólio"
+git push
+```
+
+A Vercel realiza o novo deploy a partir das alterações enviadas ao GitHub.
+
+---
+
+## 🛠️ Scripts
+
+Principais comandos disponíveis:
+
+```bash
+npm start
+```
+
+Inicia o servidor de desenvolvimento.
+
+```bash
+ng serve
+```
+
+Inicia o servidor Angular localmente.
+
+```bash
+ng build
+```
+
+Gera o build de produção.
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
+Executa os testes da aplicação.
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## 👩🏻‍💻 Sobre mim
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Sou **Giovanna Alonso**, Desenvolvedora Full Stack com foco em desenvolvimento front-end, UI/UX e criação de experiências digitais.
 
-## Additional Resources
+Tenho interesse em construir aplicações que combinem **tecnologia, design e usabilidade**, buscando sempre escrever código organizado, performático e sustentável.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 📬 Contato
+
+**GitHub**
+https://github.com/Alonsogio
+
+**LinkedIn**
+https://www.linkedin.com/in/giovanna-alonso-b98165240/
+
+**E-mail**
+[ogiovanna162@gmail.com](mailto:ogiovanna162@gmail.com)
+
+---
+
+## 📄 Licença
+
+Este projeto representa meu portfólio pessoal e seu código é disponibilizado principalmente para fins de apresentação profissional e aprendizado.
+
+---
+
+<p align="center">
+  Desenvolvido com código, design e muita curiosidade. ✦
+</p>
