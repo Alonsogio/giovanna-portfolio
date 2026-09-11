@@ -185,7 +185,7 @@ npm install
 Execute o servidor de desenvolvimento:
 
 ```bash
-ng serve
+npx ng serve
 ```
 
 Depois acesse:
@@ -203,7 +203,7 @@ A aplicação será recarregada automaticamente sempre que os arquivos forem mod
 Para gerar a versão de produção:
 
 ```bash
-ng build
+npx ng build
 ```
 
 Os arquivos otimizados serão gerados no diretório:
@@ -233,20 +233,6 @@ Vercel
 ```
 
 Após a configuração inicial, novos commits enviados para a branch principal podem gerar novos deploys automaticamente.
-
----
-
-## 🔄 Workflow
-
-Durante o desenvolvimento, o fluxo utilizado é:
-
-```bash
-git add .
-git commit -m "feat: atualizar portfólio"
-git push
-```
-
-A Vercel realiza o novo deploy a partir das alterações enviadas ao GitHub.
 
 ---
 
