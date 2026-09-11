@@ -163,13 +163,13 @@ src/
 Clone o repositório:
 
 ```bash
-git clone https://github.com/Alonsogio/SEU-REPOSITORIO.git
+git clone https://github.com/Alonsogio/giovanna-portfolio.git
 ```
 
 Entre na pasta:
 
 ```bash
-cd SEU-REPOSITORIO
+cd giovanna-portfolio
 ```
 
 Instale as dependências:
@@ -185,7 +185,7 @@ npm install
 Execute o servidor de desenvolvimento:
 
 ```bash
-ng serve
+npx ng serve
 ```
 
 Depois acesse:
@@ -203,7 +203,7 @@ A aplicação será recarregada automaticamente sempre que os arquivos forem mod
 Para gerar a versão de produção:
 
 ```bash
-ng build
+npx ng build
 ```
 
 Os arquivos otimizados serão gerados no diretório:
@@ -236,20 +236,6 @@ Após a configuração inicial, novos commits enviados para a branch principal p
 
 ---
 
-## 🔄 Workflow
-
-Durante o desenvolvimento, o fluxo utilizado é:
-
-```bash
-git add .
-git commit -m "feat: atualizar portfólio"
-git push
-```
-
-A Vercel realiza o novo deploy a partir das alterações enviadas ao GitHub.
-
----
-
 ## 🛠️ Scripts
 
 Principais comandos disponíveis:
@@ -261,19 +247,19 @@ npm start
 Inicia o servidor de desenvolvimento.
 
 ```bash
-ng serve
+npx ng serve
 ```
 
 Inicia o servidor Angular localmente.
 
 ```bash
-ng build
+npx ng build
 ```
 
 Gera o build de produção.
 
 ```bash
-ng test
+npx ng test
 ```
 
 Executa os testes da aplicação.
@@ -306,7 +292,3 @@ https://www.linkedin.com/in/giovanna-alonso-b98165240/
 Este projeto representa meu portfólio pessoal e seu código é disponibilizado principalmente para fins de apresentação profissional e aprendizado.
 
 ---
-
-<p align="center">
-  Desenvolvido com código, design e muita curiosidade. ✦
-</p>
