@@ -28,12 +28,63 @@ export class Navbar implements OnInit {
      THEME
      ========================================================= */
 
-  toggleTheme(): void {
-    this.isDarkMode = !this.isDarkMode;
+  toggleTheme(event: MouseEvent): void {
+    const nextIsDark = !this.isDarkMode;
 
-    document.documentElement.classList.toggle('dark', this.isDarkMode);
+    const documentWithTransition = document as Document & {
+      startViewTransition?: (callback: () => void) => {
+        finished: Promise<void>;
+      };
+    };
 
-    localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+    const startViewTransition = documentWithTransition.startViewTransition;
+
+    /*
+     * Fallback para navegadores sem suporte
+     */
+    if (!startViewTransition) {
+      this.applyTheme(nextIsDark);
+      return;
+    }
+
+    /*
+     * Pega o botão que foi clicado
+     */
+    const button = event.currentTarget as HTMLElement;
+    const rect = button.getBoundingClientRect();
+
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+
+    /*
+     * Distância necessária para o círculo
+     * cobrir a tela inteira.
+     */
+    const maxRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y),
+    );
+
+    /*
+     * Passamos a posição e o raio para o CSS.
+     */
+    document.documentElement.style.setProperty('--theme-transition-x', `${x}px`);
+
+    document.documentElement.style.setProperty('--theme-transition-y', `${y}px`);
+
+    document.documentElement.style.setProperty('--theme-transition-radius', `${maxRadius}px`);
+
+    startViewTransition.call(document, () => {
+      this.applyTheme(nextIsDark);
+    });
+  }
+
+  private applyTheme(isDark: boolean): void {
+    this.isDarkMode = isDark;
+
+    document.documentElement.classList.toggle('dark', isDark);
+
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   }
 
   /* =========================================================
@@ -87,11 +138,6 @@ export class Navbar implements OnInit {
 
   @HostListener('window:resize')
   onWindowResize(): void {
-    /*
-     * Se voltar para desktop,
-     * fecha o menu automaticamente.
-     */
-
     if (window.innerWidth > 900 && this.isMobileMenuOpen) {
       this.closeMobileMenu();
     }

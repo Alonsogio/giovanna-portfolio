@@ -82,21 +82,15 @@
         [class.is-dark]="isDarkMode"
         [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
         [attr.aria-pressed]="isDarkMode"
-        (click)="toggleTheme()"
+        (click)="toggleTheme($event)"
       >
-        <!-- ÍCONE INATIVO À ESQUERDA -->
-
         <span class="site-navbar__theme-icon site-navbar__theme-icon--sun" aria-hidden="true">
           <i class="pi pi-sun"></i>
         </span>
 
-        <!-- ÍCONE INATIVO À DIREITA -->
-
         <span class="site-navbar__theme-icon site-navbar__theme-icon--moon" aria-hidden="true">
           <i class="pi pi-moon"></i>
         </span>
-
-        <!-- BOLINHA / ÍCONE ATIVO -->
 
         <span class="site-navbar__theme-knob">
           <i
@@ -269,27 +263,27 @@
 
         <button
           type="button"
-          class="site-navbar__mobile-theme"
+          class="site-navbar__theme"
           [class.is-dark]="isDarkMode"
           [attr.aria-label]="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
           [attr.aria-pressed]="isDarkMode"
-          (click)="toggleTheme()"
+          (click)="toggleTheme($event)"
         >
-          <span class="site-navbar__mobile-control-label">
-            {{ languageService.language() === 'en' ? 'Appearance' : 'Aparência' }}
+          <span class="site-navbar__theme-icon site-navbar__theme-icon--sun" aria-hidden="true">
+            <i class="pi pi-sun"></i>
           </span>
 
-          <span class="site-navbar__mobile-theme-value">
+          <span class="site-navbar__theme-icon site-navbar__theme-icon--moon" aria-hidden="true">
+            <i class="pi pi-moon"></i>
+          </span>
+
+          <span class="site-navbar__theme-knob">
             <i
               class="pi"
               [class.pi-sun]="!isDarkMode"
               [class.pi-moon]="isDarkMode"
               aria-hidden="true"
             ></i>
-
-            <span>
-              {{ isDarkMode ? 'Dark' : 'Light' }}
-            </span>
           </span>
         </button>
       </div>
