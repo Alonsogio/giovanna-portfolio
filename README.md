@@ -163,13 +163,13 @@ src/
 Clone o repositório:
 
 ```bash
-git clone https://github.com/Alonsogio/SEU-REPOSITORIO.git
+git clone https://github.com/Alonsogio/giovanna-portfolio.git
 ```
 
 Entre na pasta:
 
 ```bash
-cd SEU-REPOSITORIO
+cd giovanna-portfolio
 ```
 
 Instale as dependências:
@@ -261,19 +261,19 @@ npm start
 Inicia o servidor de desenvolvimento.
 
 ```bash
-ng serve
+npx ng serve
 ```
 
 Inicia o servidor Angular localmente.
 
 ```bash
-ng build
+npx ng build
 ```
 
 Gera o build de produção.
 
 ```bash
-ng test
+npx ng test
 ```
 
 Executa os testes da aplicação.
