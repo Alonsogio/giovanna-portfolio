@@ -292,7 +292,3 @@ https://www.linkedin.com/in/giovanna-alonso-b98165240/
 Este projeto representa meu portfólio pessoal e seu código é disponibilizado principalmente para fins de apresentação profissional e aprendizado.
 
 ---
-
-<p align="center">
-  Desenvolvido com código, design e muita curiosidade. ✦
-</p>
