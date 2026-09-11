@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 
 import { LanguageService } from '../../core/services/language.service';
 
@@ -9,12 +9,17 @@ import { LanguageService } from '../../core/services/language.service';
   templateUrl: './navbar.html',
   styleUrl: './navbar.css',
 })
-export class Navbar implements OnInit {
+export class Navbar implements OnInit, OnDestroy {
   isDarkMode = false;
 
   isMobileMenuOpen = false;
 
-  constructor(public languageService: LanguageService) {}
+  private isThemeTransitionRunning = false;
+
+  constructor(
+    public languageService: LanguageService,
+    private cdr: ChangeDetectorRef,
+  ) {}
 
   ngOnInit(): void {
     const savedTheme = localStorage.getItem('theme');
@@ -22,6 +27,12 @@ export class Navbar implements OnInit {
     this.isDarkMode = savedTheme === 'dark';
 
     document.documentElement.classList.toggle('dark', this.isDarkMode);
+
+    /*
+     * Garante que o estado inicial do botão
+     * esteja sincronizado com o tema.
+     */
+    this.cdr.detectChanges();
   }
 
   /* =========================================================
@@ -29,6 +40,14 @@ export class Navbar implements OnInit {
      ========================================================= */
 
   toggleTheme(event: MouseEvent): void {
+    /*
+     * Impede dois cliques de iniciarem duas transições
+     * ao mesmo tempo.
+     */
+    if (this.isThemeTransitionRunning) {
+      return;
+    }
+
     const nextIsDark = !this.isDarkMode;
 
     const documentWithTransition = document as Document & {
@@ -40,42 +59,92 @@ export class Navbar implements OnInit {
     const startViewTransition = documentWithTransition.startViewTransition;
 
     /*
-     * Fallback para navegadores sem suporte
+     * =======================================================
+     * FALLBACK
+     * =======================================================
      */
+
     if (!startViewTransition) {
       this.applyTheme(nextIsDark);
       return;
     }
 
     /*
-     * Pega o botão que foi clicado
+     * =======================================================
+     * TRANSITION LOCK
+     * =======================================================
      */
+
+    this.isThemeTransitionRunning = true;
+
+    /*
+     * =======================================================
+     * PONTO DE ORIGEM
+     * =======================================================
+     */
+
     const button = event.currentTarget as HTMLElement;
+
     const rect = button.getBoundingClientRect();
 
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
 
     /*
-     * Distância necessária para o círculo
-     * cobrir a tela inteira.
+     * =======================================================
+     * RAIO
+     * =======================================================
      */
+
     const maxRadius = Math.hypot(
       Math.max(x, window.innerWidth - x),
       Math.max(y, window.innerHeight - y),
     );
 
     /*
-     * Passamos a posição e o raio para o CSS.
+     * =======================================================
+     * CSS VARIABLES
+     * =======================================================
      */
+
     document.documentElement.style.setProperty('--theme-transition-x', `${x}px`);
 
     document.documentElement.style.setProperty('--theme-transition-y', `${y}px`);
 
     document.documentElement.style.setProperty('--theme-transition-radius', `${maxRadius}px`);
 
-    startViewTransition.call(document, () => {
+    /*
+     * =======================================================
+     * VIEW TRANSITION
+     * =======================================================
+     */
+
+    const transition = startViewTransition.call(document, () => {
+      /*
+       * Atualiza o tema.
+       */
       this.applyTheme(nextIsDark);
+
+      /*
+       * IMPORTANTE:
+       * força o Angular a atualizar imediatamente
+       * os bindings:
+       *
+       * [class.is-dark]
+       * [class.pi-sun]
+       * [class.pi-moon]
+       */
+      this.cdr.detectChanges();
+    });
+
+    /*
+     * =======================================================
+     * LIBERA O LOCK
+     * =======================================================
+     */
+
+    transition.finished.finally(() => {
+      this.isThemeTransitionRunning = false;
     });
   }
 
@@ -149,5 +218,7 @@ export class Navbar implements OnInit {
 
   ngOnDestroy(): void {
     document.body.style.overflow = '';
+
+    this.isThemeTransitionRunning = false;
   }
 }
